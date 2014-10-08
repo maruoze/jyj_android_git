@@ -9,7 +9,8 @@ package com.jxtzw.app;
 
 public final class R {
     public static final class anim {
-        public static final int loading=0x7f040000;
+        public static final int gd_rack=0x7f040000;
+        public static final int loading=0x7f040001;
     }
     public static final class attr {
     }
@@ -76,16 +77,120 @@ public final class R {
         public static final int yellow=0x7f050005;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_pulltorefresh_arrow=0x7f020001;
-        public static final int loading_0=0x7f020002;
-        public static final int loading_1=0x7f020003;
-        public static final int loading_2=0x7f020004;
-        public static final int loading_3=0x7f020005;
-        public static final int loading_4=0x7f020006;
-        public static final int loading_5=0x7f020007;
-        public static final int loading_6=0x7f020008;
-        public static final int loading_7=0x7f020009;
+        public static final int f001=0x7f020000;
+        public static final int f002=0x7f020001;
+        public static final int f003=0x7f020002;
+        public static final int f004=0x7f020003;
+        public static final int f005=0x7f020004;
+        public static final int f006=0x7f020005;
+        public static final int f007=0x7f020006;
+        public static final int f008=0x7f020007;
+        public static final int f009=0x7f020008;
+        public static final int f010=0x7f020009;
+        public static final int f011=0x7f02000a;
+        public static final int f012=0x7f02000b;
+        public static final int f013=0x7f02000c;
+        public static final int f014=0x7f02000d;
+        public static final int f015=0x7f02000e;
+        public static final int f016=0x7f02000f;
+        public static final int f017=0x7f020010;
+        public static final int f018=0x7f020011;
+        public static final int f019=0x7f020012;
+        public static final int f020=0x7f020013;
+        public static final int f021=0x7f020014;
+        public static final int f022=0x7f020015;
+        public static final int f023=0x7f020016;
+        public static final int f024=0x7f020017;
+        public static final int f025=0x7f020018;
+        public static final int f026=0x7f020019;
+        public static final int f027=0x7f02001a;
+        public static final int f028=0x7f02001b;
+        public static final int f029=0x7f02001c;
+        public static final int f030=0x7f02001d;
+        public static final int f031=0x7f02001e;
+        public static final int f032=0x7f02001f;
+        public static final int f033=0x7f020020;
+        public static final int f034=0x7f020021;
+        public static final int f035=0x7f020022;
+        public static final int f036=0x7f020023;
+        public static final int f037=0x7f020024;
+        public static final int f038=0x7f020025;
+        public static final int f039=0x7f020026;
+        public static final int f040=0x7f020027;
+        public static final int f041=0x7f020028;
+        public static final int f042=0x7f020029;
+        public static final int f043=0x7f02002a;
+        public static final int f044=0x7f02002b;
+        public static final int f045=0x7f02002c;
+        public static final int f046=0x7f02002d;
+        public static final int f047=0x7f02002e;
+        public static final int f048=0x7f02002f;
+        public static final int f049=0x7f020030;
+        public static final int f050=0x7f020031;
+        public static final int f051=0x7f020032;
+        public static final int f052=0x7f020033;
+        public static final int f053=0x7f020034;
+        public static final int f054=0x7f020035;
+        public static final int f055=0x7f020036;
+        public static final int f056=0x7f020037;
+        public static final int f057=0x7f020038;
+        public static final int f058=0x7f020039;
+        public static final int f059=0x7f02003a;
+        public static final int f060=0x7f02003b;
+        public static final int f061=0x7f02003c;
+        public static final int f062=0x7f02003d;
+        public static final int f063=0x7f02003e;
+        public static final int f064=0x7f02003f;
+        public static final int f065=0x7f020040;
+        public static final int f067=0x7f020041;
+        public static final int f068=0x7f020042;
+        public static final int f069=0x7f020043;
+        public static final int f070=0x7f020044;
+        public static final int f071=0x7f020045;
+        public static final int f072=0x7f020046;
+        public static final int f073=0x7f020047;
+        public static final int f074=0x7f020048;
+        public static final int f075=0x7f020049;
+        public static final int f076=0x7f02004a;
+        public static final int f077=0x7f02004b;
+        public static final int f078=0x7f02004c;
+        public static final int f079=0x7f02004d;
+        public static final int f080=0x7f02004e;
+        public static final int f081=0x7f02004f;
+        public static final int f082=0x7f020050;
+        public static final int f083=0x7f020051;
+        public static final int f084=0x7f020052;
+        public static final int f085=0x7f020053;
+        public static final int f086=0x7f020054;
+        public static final int f087=0x7f020055;
+        public static final int f088=0x7f020056;
+        public static final int f089=0x7f020057;
+        public static final int f090=0x7f020058;
+        public static final int f091=0x7f020059;
+        public static final int f092=0x7f02005a;
+        public static final int f093=0x7f02005b;
+        public static final int f094=0x7f02005c;
+        public static final int f095=0x7f02005d;
+        public static final int f096=0x7f02005e;
+        public static final int f097=0x7f02005f;
+        public static final int f098=0x7f020060;
+        public static final int f099=0x7f020061;
+        public static final int f100=0x7f020062;
+        public static final int f101=0x7f020063;
+        public static final int f103=0x7f020064;
+        public static final int f104=0x7f020065;
+        public static final int f105=0x7f020066;
+        public static final int ic_launcher=0x7f020067;
+        public static final int ic_pulltorefresh_arrow=0x7f020068;
+        public static final int icon=0x7f020069;
+        public static final int loading_0=0x7f02006a;
+        public static final int loading_1=0x7f02006b;
+        public static final int loading_2=0x7f02006c;
+        public static final int loading_3=0x7f02006d;
+        public static final int loading_4=0x7f02006e;
+        public static final int loading_5=0x7f02006f;
+        public static final int loading_6=0x7f020070;
+        public static final int loading_7=0x7f020071;
     }
     public static final class id {
         public static final int head_arrowImageView=0x7f080001;
@@ -93,22 +198,86 @@ public final class R {
         public static final int head_lastUpdatedTextView=0x7f080004;
         public static final int head_progressBar=0x7f080002;
         public static final int head_tipsTextView=0x7f080003;
+        public static final int update_progress=0x7f080005;
+        public static final int update_progress_text=0x7f080006;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
         public static final int pull_to_refresh_head=0x7f030001;
+        public static final int update_progress=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060002;
+        public static final int OAUTH_AccessToken_ACCESS=0x7f060031;
+        public static final int OAUTH_AccessToken_ERROR=0x7f060032;
+        public static final int OAUTH_AccessToken_SXPIRED=0x7f060033;
+        /**  sina share message 
+         */
+        public static final int OAUTH_ERROR=0x7f06002e;
+        public static final int OAUTH_RequestToken_ACCESS=0x7f06002f;
+        public static final int OAUTH_RequestToken_ERROR=0x7f060030;
+        public static final int Weibo_Message_LONG=0x7f060035;
+        public static final int Weibo_Message_NULL=0x7f060034;
+        public static final int Weibo_Share_Error=0x7f060037;
+        public static final int Weibo_Share_Repeat=0x7f060038;
+        public static final int Weibo_Share_Success=0x7f060036;
+        public static final int app_error=0x7f06000b;
+        public static final int app_error_message=0x7f06000c;
+        public static final int app_menu_surelogout=0x7f060008;
+        public static final int app_name=0x7f060039;
+        public static final int app_run_code_error=0x7f060006;
+        public static final int back_exit_tips=0x7f060007;
+        public static final int cancle=0x7f06000a;
+        public static final int choose_image=0x7f060019;
+        public static final int clearwords=0x7f06001e;
+        public static final int delete_blog=0x7f06001c;
+        public static final int delete_image=0x7f06001a;
+        public static final int delete_tweet=0x7f06001b;
+        public static final int hello_world=0x7f06003b;
+        public static final int http_exception_error=0x7f060004;
+        public static final int http_status_code_error=0x7f060003;
+        public static final int io_exception_error=0x7f060002;
+        public static final int load_empty=0x7f060011;
+        public static final int load_error=0x7f060012;
+        public static final int load_full=0x7f060010;
+        public static final int load_ing=0x7f06000f;
+        public static final int load_more=0x7f06000e;
+        public static final int msg_load_audio_fail=0x7f060020;
+        public static final int msg_load_image_fail=0x7f060028;
+        public static final int msg_load_is_null=0x7f06001f;
+        public static final int msg_load_userface_fail=0x7f060027;
+        public static final int msg_login_email_error=0x7f060021;
+        public static final int msg_login_email_null=0x7f060022;
+        public static final int msg_login_error=0x7f060026;
+        public static final int msg_login_fail=0x7f060025;
+        public static final int msg_login_pwd_null=0x7f060023;
+        public static final int msg_login_success=0x7f060024;
+        public static final int msg_noaccess_delete=0x7f06002a;
+        public static final int msg_read_detail_fail=0x7f060029;
+        public static final int network_not_connected=0x7f060000;
+        public static final int new_data_toast_message=0x7f060013;
+        public static final int new_data_toast_none=0x7f060014;
+        public static final int publishing=0x7f060018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f060003;
-        public static final int pull_to_refresh_refreshing_label=0x7f060005;
-        public static final int pull_to_refresh_release_label=0x7f060004;
-        public static final int pull_to_refresh_tap_label=0x7f060006;
-        public static final int pull_to_refresh_update=0x7f060007;
-        public static final int title_activity_guide=0x7f060001;
+        public static final int pull_to_refresh_pull_label=0x7f06003c;
+        public static final int pull_to_refresh_refreshing_label=0x7f06003e;
+        public static final int pull_to_refresh_release_label=0x7f06003d;
+        public static final int pull_to_refresh_tap_label=0x7f06003f;
+        public static final int pull_to_refresh_update=0x7f060040;
+        public static final int republish_tweet=0x7f06001d;
+        public static final int select=0x7f060015;
+        public static final int share=0x7f060016;
+        public static final int sharing=0x7f060017;
+        /**  LoginSina 
+         */
+        public static final int sinalogin_check_account=0x7f06002b;
+        public static final int sinalogin_check_pass=0x7f06002c;
+        public static final int sinalogin_check_server=0x7f06002d;
+        public static final int socket_exception_error=0x7f060005;
+        public static final int submit_report=0x7f06000d;
+        public static final int sure=0x7f060009;
+        public static final int title_activity_guide=0x7f06003a;
+        public static final int xml_parser_failed=0x7f060001;
     }
     public static final class style {
         /** 
