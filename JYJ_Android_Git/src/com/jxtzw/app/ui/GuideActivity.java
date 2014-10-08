@@ -1,9 +1,9 @@
-package com.jxtzw.ui;
+package com.jxtzw.app.ui;
+
+import com.jxtzw.app.R;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class GuideActivity extends Activity {
 
