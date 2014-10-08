@@ -4,9 +4,46 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+	<android.support.v4.view.ViewPager
+	    android:id="@+id/ImageViewPager"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:flipInterval="30"
+	    android:persistentDrawingCache="animation" >
+	</android.support.v4.view.ViewPager>
+
+	<LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginBottom="34dp" >
+	    <ImageView
+	        android:id="@+id/ImagePoint_1"
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"
+		    android:layout_margin="5dp"
+		    android:src="@drawable/point_s" />
+		<ImageView
+		    android:id="@+id/ImagePoint_2"
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"
+		    android:layout_margin="5dp"
+		    android:src="@drawable/point_c" />
+		<ImageView
+		    android:id="@+id/ImagePoint_3"
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"
+		    android:layout_margin="5dp"
+		    android:src="@drawable/point_c" />
+		<ImageView
+		    android:id="@+id/ImagePoint_4"
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"
+		    android:layout_margin="5dp"
+		    android:src="@drawable/point_c" />
+	</LinearLayout>
 
 </RelativeLayout>

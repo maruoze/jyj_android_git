@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">JYJ_Android_Git</string>
-    <string name="title_activity_guide">GuideActivity</string>
+    <string name="title_activity_guide">金银家</string>
     <string name="hello_world">Hello world!</string>
 
     <!-- PullToRefreshListView -->
@@ -11,4 +11,6 @@
     <string name="pull_to_refresh_refreshing_label">加载中......</string>
     <string name="pull_to_refresh_tap_label">下拉可以刷新</string>
     <string name="pull_to_refresh_update">最近更新：</string>
+    <string name="title_activity_main">MainActivity</string>
+
 </resources>

@@ -180,31 +180,44 @@ public final class R {
         public static final int f103=0x7f020064;
         public static final int f104=0x7f020065;
         public static final int f105=0x7f020066;
-        public static final int ic_launcher=0x7f020067;
-        public static final int ic_pulltorefresh_arrow=0x7f020068;
-        public static final int icon=0x7f020069;
-        public static final int loading_0=0x7f02006a;
-        public static final int loading_1=0x7f02006b;
-        public static final int loading_2=0x7f02006c;
-        public static final int loading_3=0x7f02006d;
-        public static final int loading_4=0x7f02006e;
-        public static final int loading_5=0x7f02006f;
-        public static final int loading_6=0x7f020070;
-        public static final int loading_7=0x7f020071;
+        public static final int guide_01=0x7f020067;
+        public static final int guide_02=0x7f020068;
+        public static final int guide_03=0x7f020069;
+        public static final int guide_04=0x7f02006a;
+        public static final int guide_05=0x7f02006b;
+        public static final int ic_launcher=0x7f02006c;
+        public static final int ic_pulltorefresh_arrow=0x7f02006d;
+        public static final int icon=0x7f02006e;
+        public static final int loading_0=0x7f02006f;
+        public static final int loading_1=0x7f020070;
+        public static final int loading_2=0x7f020071;
+        public static final int loading_3=0x7f020072;
+        public static final int loading_4=0x7f020073;
+        public static final int loading_5=0x7f020074;
+        public static final int loading_6=0x7f020075;
+        public static final int loading_7=0x7f020076;
+        public static final int point_c=0x7f020077;
+        public static final int point_s=0x7f020078;
     }
     public static final class id {
-        public static final int head_arrowImageView=0x7f080001;
-        public static final int head_contentLayout=0x7f080000;
-        public static final int head_lastUpdatedTextView=0x7f080004;
-        public static final int head_progressBar=0x7f080002;
-        public static final int head_tipsTextView=0x7f080003;
-        public static final int update_progress=0x7f080005;
-        public static final int update_progress_text=0x7f080006;
+        public static final int ImagePoint_1=0x7f080001;
+        public static final int ImagePoint_2=0x7f080002;
+        public static final int ImagePoint_3=0x7f080003;
+        public static final int ImagePoint_4=0x7f080004;
+        public static final int ImageViewPager=0x7f080000;
+        public static final int head_arrowImageView=0x7f080006;
+        public static final int head_contentLayout=0x7f080005;
+        public static final int head_lastUpdatedTextView=0x7f080009;
+        public static final int head_progressBar=0x7f080007;
+        public static final int head_tipsTextView=0x7f080008;
+        public static final int update_progress=0x7f08000a;
+        public static final int update_progress_text=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
-        public static final int pull_to_refresh_head=0x7f030001;
-        public static final int update_progress=0x7f030002;
+        public static final int activity_main=0x7f030001;
+        public static final int pull_to_refresh_head=0x7f030002;
+        public static final int update_progress=0x7f030003;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f060031;
@@ -277,6 +290,7 @@ public final class R {
         public static final int submit_report=0x7f06000d;
         public static final int sure=0x7f060009;
         public static final int title_activity_guide=0x7f06003a;
+        public static final int title_activity_main=0x7f060041;
         public static final int xml_parser_failed=0x7f060001;
     }
     public static final class style {
