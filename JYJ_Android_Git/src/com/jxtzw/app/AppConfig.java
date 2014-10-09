@@ -23,17 +23,10 @@ import android.preference.PreferenceManager;
  */
 @SuppressLint("NewApi")
 public class AppConfig {
-
+	/**
+	 * OSChina定义
+	 */
 	private final static String APP_CONFIG = "config";
-
-	public final static String TEMP_TWEET = "temp_tweet";
-	public final static String TEMP_TWEET_IMAGE = "temp_tweet_image";
-	public final static String TEMP_MESSAGE = "temp_message";
-	public final static String TEMP_COMMENT = "temp_comment";
-	public final static String TEMP_POST_TITLE = "temp_post_title";
-	public final static String TEMP_POST_CATALOG = "temp_post_catalog";
-	public final static String TEMP_POST_CONTENT = "temp_post_content";
-
 	public final static String CONF_APP_UNIQUEID = "APP_UNIQUEID";
 	public final static String CONF_COOKIE = "cookie";
 	public final static String CONF_ACCESSTOKEN = "accessToken";
@@ -47,11 +40,16 @@ public class AppConfig {
 
 	public final static String SAVE_IMAGE_PATH = "save_image_path";
 	@SuppressLint("NewApi")
-	public final static String DEFAULT_SAVE_IMAGE_PATH = Environment.getExternalStorageDirectory()+ File.separator+ "OSChina"+ File.separator;
+	public final static String DEFAULT_SAVE_IMAGE_PATH = Environment.getExternalStorageDirectory()+ File.separator+ "jxtzw"+ File.separator;
 			
 	private Context mContext;
 	private AccessInfo accessInfo = null;
 	private static AppConfig appConfig;
+	
+	/**
+	 * 自定义
+	 */
+	public final static String JYJ_CONF_IS_FIRST_OPEN="is_first_open";
 
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {

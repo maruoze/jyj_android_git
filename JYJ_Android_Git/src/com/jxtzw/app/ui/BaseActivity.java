@@ -2,6 +2,8 @@ package com.jxtzw.app.ui;
 
 import com.jxtzw.app.AppManager;
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,7 +16,9 @@ import android.view.View;
  * @created 2012-9-18
  */
 public class BaseActivity extends Activity {
-
+	/**
+	 * OSChina定义
+	 */
 	// 是否允许全屏
 	private boolean allowFullScreen = true;
 
@@ -22,6 +26,15 @@ public class BaseActivity extends Activity {
 	private boolean allowDestroy = true;
 
 	private View view;
+	
+	/**
+	 * 自定义
+	 */
+	/**
+	 * 上下文及资源相关
+	 */
+	protected Context mContext;
+	protected Resources mResources;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

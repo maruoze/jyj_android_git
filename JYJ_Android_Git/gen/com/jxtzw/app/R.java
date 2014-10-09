@@ -12,69 +12,75 @@ public final class R {
         public static final int gd_rack=0x7f040000;
         public static final int loading=0x7f040001;
     }
+    public static final class array {
+        public static final int main_tabs_text=0x7f050000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int author_text=0x7f050019;
-        public static final int black=0x7f050001;
-        public static final int blue=0x7f050007;
-        public static final int bright_foreground_light=0x7f050011;
-        public static final int bright_foreground_light_disabled=0x7f050013;
-        public static final int bright_foreground_light_inverse=0x7f050012;
+        public static final int author_text=0x7f060019;
+        public static final int black=0x7f060001;
+        public static final int blue=0x7f060007;
+        public static final int bright_foreground_light=0x7f060011;
+        public static final int bright_foreground_light_disabled=0x7f060013;
+        public static final int bright_foreground_light_inverse=0x7f060012;
         /**  二维码扫描颜色值 
          */
-        public static final int contents_text=0x7f050029;
-        public static final int dim_foreground_light=0x7f050014;
-        public static final int dim_foreground_light_disabled=0x7f050015;
-        public static final int dim_foreground_light_inverse=0x7f050016;
-        public static final int dim_foreground_light_inverse_disabled=0x7f050017;
-        public static final int encode_view=0x7f05002a;
-        public static final int face_bg=0x7f05001a;
-        public static final int ff40ab54=0x7f050028;
-        public static final int fff1f2f3=0x7f050027;
-        public static final int frame_button_text_nor=0x7f05001b;
-        public static final int frame_button_text_select=0x7f05001c;
-        public static final int full_transparent=0x7f05000f;
-        public static final int gold=0x7f050004;
-        public static final int gray=0x7f050002;
-        public static final int grayslate=0x7f05000d;
-        public static final int graywhite=0x7f05000c;
-        public static final int green=0x7f050006;
-        public static final int half_transparent=0x7f050010;
-        public static final int head_text=0x7f050018;
-        public static final int lemonyellow=0x7f05000b;
-        public static final int lightblue=0x7f05000e;
-        public static final int listitem_black=0x7f050020;
-        public static final int listitem_blue=0x7f050022;
-        public static final int listitem_gray=0x7f050023;
-        public static final int listitem_green=0x7f050024;
-        public static final int listitem_greenyellow=0x7f050025;
-        public static final int listitem_transparent=0x7f05001f;
-        public static final int listitem_white=0x7f050021;
-        public static final int listitem_yellow=0x7f050026;
-        public static final int orange=0x7f05000a;
-        public static final int pink=0x7f050009;
-        public static final int possible_result_points=0x7f05002b;
-        public static final int purple=0x7f050008;
-        public static final int red=0x7f050003;
+        public static final int contents_text=0x7f060029;
+        public static final int dim_foreground_light=0x7f060014;
+        public static final int dim_foreground_light_disabled=0x7f060015;
+        public static final int dim_foreground_light_inverse=0x7f060016;
+        public static final int dim_foreground_light_inverse_disabled=0x7f060017;
+        public static final int encode_view=0x7f06002a;
+        public static final int face_bg=0x7f06001a;
+        /**  tabhost需要的颜色值 
+         */
+        public static final int ff373d44=0x7f060034;
+        public static final int ff40ab54=0x7f060028;
+        public static final int fff1f2f3=0x7f060027;
+        public static final int frame_button_text_nor=0x7f06001b;
+        public static final int frame_button_text_select=0x7f06001c;
+        public static final int full_transparent=0x7f06000f;
+        public static final int gold=0x7f060004;
+        public static final int gray=0x7f060002;
+        public static final int grayslate=0x7f06000d;
+        public static final int graywhite=0x7f06000c;
+        public static final int green=0x7f060006;
+        public static final int half_transparent=0x7f060010;
+        public static final int head_text=0x7f060018;
+        public static final int lemonyellow=0x7f06000b;
+        public static final int lightblue=0x7f06000e;
+        public static final int listitem_black=0x7f060020;
+        public static final int listitem_blue=0x7f060022;
+        public static final int listitem_gray=0x7f060023;
+        public static final int listitem_green=0x7f060024;
+        public static final int listitem_greenyellow=0x7f060025;
+        public static final int listitem_transparent=0x7f06001f;
+        public static final int listitem_white=0x7f060021;
+        public static final int listitem_yellow=0x7f060026;
+        public static final int orange=0x7f06000a;
+        public static final int pink=0x7f060009;
+        public static final int possible_result_points=0x7f06002b;
+        public static final int purple=0x7f060008;
+        public static final int red=0x7f060003;
         /**  Android standard ICS color 
          */
-        public static final int result_minor_text=0x7f05002c;
-        public static final int result_points=0x7f05002d;
+        public static final int result_minor_text=0x7f06002c;
+        public static final int result_points=0x7f06002d;
         /**  Android standard ICS color 
          */
-        public static final int result_text=0x7f05002e;
-        public static final int result_view=0x7f05002f;
-        public static final int status_text=0x7f050030;
-        public static final int transparent=0x7f050031;
-        public static final int viewfinder_laser=0x7f050032;
+        public static final int result_text=0x7f06002e;
+        public static final int result_view=0x7f06002f;
+        public static final int status_text=0x7f060030;
+        public static final int transparent=0x7f060031;
+        public static final int viewfinder_laser=0x7f060032;
         /**  Android standard ICS color 
          */
-        public static final int viewfinder_mask=0x7f050033;
-        public static final int weight_bar_buttondown=0x7f05001d;
-        public static final int weight_bar_buttonup=0x7f05001e;
-        public static final int white=0x7f050000;
-        public static final int yellow=0x7f050005;
+        public static final int viewfinder_mask=0x7f060033;
+        public static final int weight_bar_buttondown=0x7f06001d;
+        public static final int weight_bar_buttonup=0x7f06001e;
+        public static final int white=0x7f060000;
+        public static final int yellow=0x7f060005;
     }
     public static final class drawable {
         public static final int f001=0x7f020000;
@@ -196,102 +202,118 @@ public final class R {
         public static final int loading_5=0x7f020074;
         public static final int loading_6=0x7f020075;
         public static final int loading_7=0x7f020076;
-        public static final int point_c=0x7f020077;
-        public static final int point_s=0x7f020078;
+        public static final int main_tab_selector=0x7f020077;
+        public static final int point_c=0x7f020078;
+        public static final int point_s=0x7f020079;
     }
     public static final class id {
-        public static final int ImagePoint_1=0x7f080001;
-        public static final int ImagePoint_2=0x7f080002;
-        public static final int ImagePoint_3=0x7f080003;
-        public static final int ImagePoint_4=0x7f080004;
-        public static final int ImageViewPager=0x7f080000;
-        public static final int head_arrowImageView=0x7f080006;
-        public static final int head_contentLayout=0x7f080005;
-        public static final int head_lastUpdatedTextView=0x7f080009;
-        public static final int head_progressBar=0x7f080007;
-        public static final int head_tipsTextView=0x7f080008;
-        public static final int update_progress=0x7f08000a;
-        public static final int update_progress_text=0x7f08000b;
+        public static final int EnterToMain=0x7f090006;
+        public static final int ImagePoint_1=0x7f090002;
+        public static final int ImagePoint_2=0x7f090003;
+        public static final int ImagePoint_3=0x7f090004;
+        public static final int ImagePoint_4=0x7f090005;
+        public static final int ImageViewPager=0x7f090000;
+        public static final int head_arrowImageView=0x7f090008;
+        public static final int head_contentLayout=0x7f090007;
+        public static final int head_lastUpdatedTextView=0x7f09000b;
+        public static final int head_progressBar=0x7f090009;
+        public static final int head_tipsTextView=0x7f09000a;
+        public static final int linearLayout1=0x7f090001;
+        public static final int update_progress=0x7f09000c;
+        public static final int update_progress_text=0x7f09000d;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int pull_to_refresh_head=0x7f030002;
-        public static final int update_progress=0x7f030003;
+        public static final int activity_tab_class=0x7f030002;
+        public static final int activity_tab_college=0x7f030003;
+        public static final int activity_tab_home=0x7f030004;
+        public static final int activity_tab_member=0x7f030005;
+        public static final int activity_tab_quot=0x7f030006;
+        public static final int pull_to_refresh_head=0x7f030007;
+        public static final int tabhost_tab=0x7f030008;
+        public static final int update_progress=0x7f030009;
     }
     public static final class string {
-        public static final int OAUTH_AccessToken_ACCESS=0x7f060031;
-        public static final int OAUTH_AccessToken_ERROR=0x7f060032;
-        public static final int OAUTH_AccessToken_SXPIRED=0x7f060033;
+        public static final int OAUTH_AccessToken_ACCESS=0x7f070031;
+        public static final int OAUTH_AccessToken_ERROR=0x7f070032;
+        public static final int OAUTH_AccessToken_SXPIRED=0x7f070033;
         /**  sina share message 
          */
-        public static final int OAUTH_ERROR=0x7f06002e;
-        public static final int OAUTH_RequestToken_ACCESS=0x7f06002f;
-        public static final int OAUTH_RequestToken_ERROR=0x7f060030;
-        public static final int Weibo_Message_LONG=0x7f060035;
-        public static final int Weibo_Message_NULL=0x7f060034;
-        public static final int Weibo_Share_Error=0x7f060037;
-        public static final int Weibo_Share_Repeat=0x7f060038;
-        public static final int Weibo_Share_Success=0x7f060036;
-        public static final int app_error=0x7f06000b;
-        public static final int app_error_message=0x7f06000c;
-        public static final int app_menu_surelogout=0x7f060008;
-        public static final int app_name=0x7f060039;
-        public static final int app_run_code_error=0x7f060006;
-        public static final int back_exit_tips=0x7f060007;
-        public static final int cancle=0x7f06000a;
-        public static final int choose_image=0x7f060019;
-        public static final int clearwords=0x7f06001e;
-        public static final int delete_blog=0x7f06001c;
-        public static final int delete_image=0x7f06001a;
-        public static final int delete_tweet=0x7f06001b;
-        public static final int hello_world=0x7f06003b;
-        public static final int http_exception_error=0x7f060004;
-        public static final int http_status_code_error=0x7f060003;
-        public static final int io_exception_error=0x7f060002;
-        public static final int load_empty=0x7f060011;
-        public static final int load_error=0x7f060012;
-        public static final int load_full=0x7f060010;
-        public static final int load_ing=0x7f06000f;
-        public static final int load_more=0x7f06000e;
-        public static final int msg_load_audio_fail=0x7f060020;
-        public static final int msg_load_image_fail=0x7f060028;
-        public static final int msg_load_is_null=0x7f06001f;
-        public static final int msg_load_userface_fail=0x7f060027;
-        public static final int msg_login_email_error=0x7f060021;
-        public static final int msg_login_email_null=0x7f060022;
-        public static final int msg_login_error=0x7f060026;
-        public static final int msg_login_fail=0x7f060025;
-        public static final int msg_login_pwd_null=0x7f060023;
-        public static final int msg_login_success=0x7f060024;
-        public static final int msg_noaccess_delete=0x7f06002a;
-        public static final int msg_read_detail_fail=0x7f060029;
-        public static final int network_not_connected=0x7f060000;
-        public static final int new_data_toast_message=0x7f060013;
-        public static final int new_data_toast_none=0x7f060014;
-        public static final int publishing=0x7f060018;
+        public static final int OAUTH_ERROR=0x7f07002e;
+        public static final int OAUTH_RequestToken_ACCESS=0x7f07002f;
+        public static final int OAUTH_RequestToken_ERROR=0x7f070030;
+        public static final int Weibo_Message_LONG=0x7f070035;
+        public static final int Weibo_Message_NULL=0x7f070034;
+        public static final int Weibo_Share_Error=0x7f070037;
+        public static final int Weibo_Share_Repeat=0x7f070038;
+        public static final int Weibo_Share_Success=0x7f070036;
+        public static final int app_error=0x7f07000b;
+        public static final int app_error_message=0x7f07000c;
+        public static final int app_menu_surelogout=0x7f070008;
+        public static final int app_name=0x7f070039;
+        public static final int app_run_code_error=0x7f070006;
+        public static final int back_exit_tips=0x7f070007;
+        public static final int cancle=0x7f07000a;
+        public static final int choose_image=0x7f070019;
+        public static final int clearwords=0x7f07001e;
+        public static final int delete_blog=0x7f07001c;
+        public static final int delete_image=0x7f07001a;
+        public static final int delete_tweet=0x7f07001b;
+        public static final int hello_world=0x7f07003b;
+        public static final int http_exception_error=0x7f070004;
+        public static final int http_status_code_error=0x7f070003;
+        public static final int io_exception_error=0x7f070002;
+        public static final int load_empty=0x7f070011;
+        public static final int load_error=0x7f070012;
+        public static final int load_full=0x7f070010;
+        public static final int load_ing=0x7f07000f;
+        public static final int load_more=0x7f07000e;
+        public static final int msg_load_audio_fail=0x7f070020;
+        public static final int msg_load_image_fail=0x7f070028;
+        public static final int msg_load_is_null=0x7f07001f;
+        public static final int msg_load_userface_fail=0x7f070027;
+        public static final int msg_login_email_error=0x7f070021;
+        public static final int msg_login_email_null=0x7f070022;
+        public static final int msg_login_error=0x7f070026;
+        public static final int msg_login_fail=0x7f070025;
+        public static final int msg_login_pwd_null=0x7f070023;
+        public static final int msg_login_success=0x7f070024;
+        public static final int msg_noaccess_delete=0x7f07002a;
+        public static final int msg_read_detail_fail=0x7f070029;
+        public static final int network_not_connected=0x7f070000;
+        public static final int new_data_toast_message=0x7f070013;
+        public static final int new_data_toast_none=0x7f070014;
+        public static final int publishing=0x7f070018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f06003c;
-        public static final int pull_to_refresh_refreshing_label=0x7f06003e;
-        public static final int pull_to_refresh_release_label=0x7f06003d;
-        public static final int pull_to_refresh_tap_label=0x7f06003f;
-        public static final int pull_to_refresh_update=0x7f060040;
-        public static final int republish_tweet=0x7f06001d;
-        public static final int select=0x7f060015;
-        public static final int share=0x7f060016;
-        public static final int sharing=0x7f060017;
+        public static final int pull_to_refresh_pull_label=0x7f07003c;
+        public static final int pull_to_refresh_refreshing_label=0x7f07003e;
+        public static final int pull_to_refresh_release_label=0x7f07003d;
+        public static final int pull_to_refresh_tap_label=0x7f07003f;
+        public static final int pull_to_refresh_update=0x7f070040;
+        public static final int republish_tweet=0x7f07001d;
+        public static final int select=0x7f070015;
+        public static final int share=0x7f070016;
+        public static final int sharing=0x7f070017;
         /**  LoginSina 
          */
-        public static final int sinalogin_check_account=0x7f06002b;
-        public static final int sinalogin_check_pass=0x7f06002c;
-        public static final int sinalogin_check_server=0x7f06002d;
-        public static final int socket_exception_error=0x7f060005;
-        public static final int submit_report=0x7f06000d;
-        public static final int sure=0x7f060009;
-        public static final int title_activity_guide=0x7f06003a;
-        public static final int title_activity_main=0x7f060041;
-        public static final int xml_parser_failed=0x7f060001;
+        public static final int sinalogin_check_account=0x7f07002b;
+        public static final int sinalogin_check_pass=0x7f07002c;
+        public static final int sinalogin_check_server=0x7f07002d;
+        public static final int socket_exception_error=0x7f070005;
+        public static final int submit_report=0x7f07000d;
+        public static final int sure=0x7f070009;
+        public static final int title_activity_guide=0x7f07003a;
+        /**  主页面 
+         */
+        public static final int title_activity_main=0x7f070041;
+        public static final int title_activity_tab_class=0x7f070044;
+        public static final int title_activity_tab_college=0x7f070045;
+        public static final int title_activity_tab_home=0x7f070042;
+        public static final int title_activity_tab_member=0x7f070046;
+        public static final int title_activity_tab_quot=0x7f070043;
+        public static final int xml_parser_failed=0x7f070001;
     }
     public static final class style {
         /** 
@@ -304,13 +326,13 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppTheme=0x7f080002;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int CustomWindowTitleBackground=0x7f080001;
         /**  PullToRefreshListView 
          */
-        public static final int loading_small=0x7f070002;
+        public static final int loading_small=0x7f080003;
     }
 }

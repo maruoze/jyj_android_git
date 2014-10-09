@@ -15,16 +15,35 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ui.GuideActivity"
-            android:label="@string/title_activity_guide" >
+            android:label="@string/title_activity_guide"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.MainActivity" >
+        </activity>
         <activity
-            android:name="com.jxtzw.app.ui.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".ui.TabHomeActivity"
+            android:label="@string/title_activity_tab_class" >
+        </activity>
+        <activity
+            android:name=".ui.TabQuotActivity"
+            android:label="@string/title_activity_tab_class" >
+        </activity>
+        <activity
+            android:name=".ui.TabClassActivity"
+            android:label="@string/title_activity_tab_class" >
+        </activity>
+        <activity
+            android:name=".ui.TabCollegeActivity"
+            android:label="@string/title_activity_tab_college" >
+        </activity>
+        <activity
+            android:name="com.jxtzw.app.ui.TabMemberActivity"
+            android:label="@string/title_activity_tab_member" >
         </activity>
     </application>
 

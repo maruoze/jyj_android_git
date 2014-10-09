@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="main_tabs_text">
+        <item >首页</item>
+        <item >行情</item>
+        <item >分类</item>
+        <item >学院</item>
+        <item >会员</item>
+    </string-array>
     
 </resources>
