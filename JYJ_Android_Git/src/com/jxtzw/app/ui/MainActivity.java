@@ -2,15 +2,21 @@ package com.jxtzw.app.ui;
 
 import com.jxtzw.app.R;
 import android.annotation.SuppressLint;
+import android.app.ActivityGroup;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.TabHost.OnTabChangeListener;
 
 @SuppressWarnings("deprecation")
 public class MainActivity extends TabActivity {
@@ -31,6 +37,10 @@ public class MainActivity extends TabActivity {
 	private int[] mTabImages={	R.drawable.f001,R.drawable.f002,R.drawable.f003,
 												R.drawable.f004,R.drawable.f005};
 	private int mTabCount;
+	private OnTabChangeListener mOnTabChangeListener;
+	private String mPreTabString="";
+	//弹出菜单
+	private PopupWindow mPWTab;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +72,8 @@ public class MainActivity extends TabActivity {
 			TabHost.TabSpec tabSpec=initTabSpec(tag,mTabTitleStrings[i],mTabImages[i],intent);
 			mTabHost.addTab(tabSpec);
 		}
+		initOnTabChange();
+		mTabHost.setOnTabChangedListener(mOnTabChangeListener);
 	}
 	
 	/**
@@ -70,7 +82,7 @@ public class MainActivity extends TabActivity {
 	protected TabHost.TabSpec initTabSpec(String tag,String title,int image_id,Intent intent) {
 		TabHost.TabSpec tabSpec = null;
 		tabSpec=mTabHost.newTabSpec(tag);
-		TextView textView=initTabSpecTextView(title,image_id);
+		TextView textView=initTabSpecTextView(tag,title,image_id);
 		tabSpec.setIndicator(textView);
 		tabSpec.setContent(intent);
 		return tabSpec;
@@ -80,13 +92,37 @@ public class MainActivity extends TabActivity {
 	 * 初始化Indicator
 	 */
 	@SuppressLint("InflateParams")
-	protected TextView initTabSpecTextView(String title,int image_id){
+	protected TextView initTabSpecTextView(String tag,String title,int image_id){
 		TextView textView=(TextView) mLayoutInflater.inflate(R.layout.tabhost_tab, null);
+		textView.setTag(tag);
 		textView.setText(title);
 		Drawable topDrawable=mResources.getDrawable(image_id);
 		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
 		textView.setCompoundDrawables(null, topDrawable, null, null);
 		return textView;
 	} 
+	
+	/**
+	 * 重写OnTabChange
+	 */
+	protected void initOnTabChange() {
+		View popView=mLayoutInflater.inflate(R.layout.pop_tab, null);
+		mPWTab=new PopupWindow(popView,200,30);
+		mOnTabChangeListener=new OnTabChangeListener() {
+			@Override
+			public void onTabChanged(String tabId) {
+				// TODO Auto-generated method stub
+				if(tabId.equals("Classify")){
+					//mTabHost.setCurrentTabByTag(mPreTabString);
+					mPreTabString=tabId;
+					View v=mTabHost.getTabWidget().findViewWithTag(tabId);
+					mPWTab.showAtLocation(v, Gravity.CENTER, 0, 0);
+				}else{
+					mPreTabString=tabId;
+					mPWTab.dismiss();
+				}
+			}
+		};
+	}
 	
 }

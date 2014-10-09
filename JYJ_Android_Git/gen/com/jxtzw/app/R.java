@@ -213,14 +213,15 @@ public final class R {
         public static final int ImagePoint_3=0x7f090004;
         public static final int ImagePoint_4=0x7f090005;
         public static final int ImageViewPager=0x7f090000;
-        public static final int head_arrowImageView=0x7f090008;
-        public static final int head_contentLayout=0x7f090007;
-        public static final int head_lastUpdatedTextView=0x7f09000b;
-        public static final int head_progressBar=0x7f090009;
-        public static final int head_tipsTextView=0x7f09000a;
+        public static final int head_arrowImageView=0x7f090009;
+        public static final int head_contentLayout=0x7f090008;
+        public static final int head_lastUpdatedTextView=0x7f09000c;
+        public static final int head_progressBar=0x7f09000a;
+        public static final int head_tipsTextView=0x7f09000b;
         public static final int linearLayout1=0x7f090001;
-        public static final int update_progress=0x7f09000c;
-        public static final int update_progress_text=0x7f09000d;
+        public static final int textView1=0x7f090007;
+        public static final int update_progress=0x7f09000d;
+        public static final int update_progress_text=0x7f09000e;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
@@ -230,9 +231,10 @@ public final class R {
         public static final int activity_tab_home=0x7f030004;
         public static final int activity_tab_member=0x7f030005;
         public static final int activity_tab_quot=0x7f030006;
-        public static final int pull_to_refresh_head=0x7f030007;
-        public static final int tabhost_tab=0x7f030008;
-        public static final int update_progress=0x7f030009;
+        public static final int pop_tab=0x7f030007;
+        public static final int pull_to_refresh_head=0x7f030008;
+        public static final int tabhost_tab=0x7f030009;
+        public static final int update_progress=0x7f03000a;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f070031;
