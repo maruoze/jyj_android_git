@@ -7,5 +7,17 @@
         <item >学院</item>
         <item >会员</item>
     </string-array>
+    <string-array name="cat_gold_name">
+        <item >焦点新闻</item>
+        <item >数据解析</item>
+        <item >专家评论</item>
+        <item >支撑阻力</item>
+    </string-array>
+    <string-array name="cat_gold_id">
+        <item >25</item>
+        <item >1006</item>
+        <item >120,121,122,292,571,572,843</item>
+        <item >94</item>
+    </string-array>
     
 </resources>

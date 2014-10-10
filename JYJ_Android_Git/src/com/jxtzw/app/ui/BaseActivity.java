@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 
 /**
@@ -35,6 +36,7 @@ public class BaseActivity extends Activity {
 	 */
 	protected Context mContext;
 	protected Resources mResources;
+	protected LayoutInflater mLayoutInflater;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

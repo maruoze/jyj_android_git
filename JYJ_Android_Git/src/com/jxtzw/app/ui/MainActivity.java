@@ -1,14 +1,20 @@
 package com.jxtzw.app.ui;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
+import com.jxtzw.app.common.DataHelper;
+
+import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.ActivityGroup;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,6 +32,7 @@ public class MainActivity extends TabActivity {
 	protected Context mContext;
 	protected Resources mResources;
 	protected LayoutInflater mLayoutInflater;
+	protected SharedPreferences mSharedPreferences;
 	/**
 	 * TabHost相关
 	 */
@@ -57,13 +64,15 @@ public class MainActivity extends TabActivity {
 		mContext=this;
 		mResources=getResources();
 		mLayoutInflater=LayoutInflater.from(this);
+		mSharedPreferences=AppConfig.getSharedPreferences(this);
+		getConfig();
 	}
 	
 	/**
 	 * 初始化TabHost
 	 */
 	protected void initTabHost() {
-		mTabTitleStrings=mResources.getStringArray(R.array.main_tabs_text);
+		//mTabTitleStrings=mResources.getStringArray(R.array.main_tabs_text);
 		mTabCount=mTabClasses.length;
 		mTabHost=getTabHost();
 		for (int i = 0; i < mTabCount; i++) {
@@ -105,9 +114,14 @@ public class MainActivity extends TabActivity {
 	/**
 	 * 重写OnTabChange
 	 */
+	@SuppressLint("InflateParams")
 	protected void initOnTabChange() {
+		DisplayMetrics metric = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metric);
+        int tabTVWidth=metric.widthPixels;
 		View popView=mLayoutInflater.inflate(R.layout.pop_tab, null);
-		mPWTab=new PopupWindow(popView,200,30);
+		mPWTab=new PopupWindow(popView,tabTVWidth/6*3,90);
+		
 		mOnTabChangeListener=new OnTabChangeListener() {
 			@Override
 			public void onTabChanged(String tabId) {
@@ -115,14 +129,24 @@ public class MainActivity extends TabActivity {
 				if(tabId.equals("Classify")){
 					//mTabHost.setCurrentTabByTag(mPreTabString);
 					mPreTabString=tabId;
+					
 					View v=mTabHost.getTabWidget().findViewWithTag(tabId);
-					mPWTab.showAtLocation(v, Gravity.CENTER, 0, 0);
+					mPWTab.showAtLocation(v, Gravity.BOTTOM, 0, 90);
+					mPWTab.setOutsideTouchable(true);
+					
 				}else{
 					mPreTabString=tabId;
 					mPWTab.dismiss();
 				}
 			}
 		};
+	}
+	
+	/**
+	 * 获取程序配置数据
+	 */
+	protected void getConfig() {
+		mTabTitleStrings=DataHelper.getMainTabsText(mResources,mSharedPreferences);
 	}
 	
 }

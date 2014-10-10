@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
+import android.R.string;
+
 /**
  * 字符串操作工具包
  * 
@@ -268,4 +270,24 @@ public class StringUtils {
 		}
 		return res.toString();
 	}
+	
+	/**
+	 * @author MaRuoze
+	 * @deprecated 自定义相关工具函数
+	 */
+	/**
+	 * 字符串数组转为带分隔符的字符串
+	 */
+	public static String stringArrayToString(String[] strings, String seperator){
+		String returnString="";
+		for (int i = 0; i < strings.length; i++) {
+			if (i!=strings.length-1) {
+				returnString+=strings[i]+seperator;
+			}else{
+				returnString+=strings[i];
+			}
+		}
+		return returnString;
+	}
+	
 }

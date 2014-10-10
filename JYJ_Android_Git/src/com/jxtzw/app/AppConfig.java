@@ -49,7 +49,19 @@ public class AppConfig {
 	/**
 	 * 自定义
 	 */
+	//是否首次运行本程序的名称字符串常量
 	public final static String JYJ_CONF_IS_FIRST_OPEN="is_first_open";
+	//主程序标签名称的字符串常量
+	public final static String JYJ_MAIN_TABS_TEXT_DEFAULT="main_tabs_text_default";
+	public final static String JYJ_MAIN_TABS_TEXT_USERSET="main_tabs_text_userset";
+	/**
+	 * 子分类名称字符串常量
+	 */
+	public final static String JYJ_CAT_GOLD_NAME_DEFAULT="cat_gold_name_default";
+	public final static String JYJ_CAT_GOLD_ID_DEFAULT="cat_gold_id_default";
+	public final static String JYJ_CAT_GOLD_NAME_USERSET="cat_gold_name_userset";
+	public final static String JYJ_CAT_GOLD_ID_USERSET="cat_gold_id_userset";
+	
 
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {

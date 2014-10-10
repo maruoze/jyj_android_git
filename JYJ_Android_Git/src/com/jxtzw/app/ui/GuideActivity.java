@@ -1,5 +1,6 @@
 package com.jxtzw.app.ui;
 
+import com.jxtzw.app.common.StringUtils;
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ImageViewPagerAdapter;
@@ -7,6 +8,7 @@ import com.jxtzw.app.adapter.ImageViewPagerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -18,7 +20,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
 public class GuideActivity extends Activity {
+	/**
+	 * 资源及相关
+	 */
+	protected Resources mResources;
+	
 	//图片切换对象实例
 	private ViewPager mImageViewPager;
 	//图片切换对象数据适配器实例
@@ -45,6 +53,13 @@ public class GuideActivity extends Activity {
 	//状态存储
 	private SharedPreferences mSharedPreferences;
 	private SharedPreferences.Editor mEditor;
+	/**
+	 * 主Activity启动时需要的相关数据
+	 */
+	private String mMainTabsText;
+	private String mCatGoldName;
+	private String mCatGoldID;
+	
 	
 	
 	@Override
@@ -57,10 +72,10 @@ public class GuideActivity extends Activity {
 										  WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		//绑定布局XML
 		setContentView(R.layout.activity_guide);
-		//判断是否直接跳转主界面
-		initBaseSettings();
 		//初始化成员变量
 		initMemberVar();
+		//判断是否直接跳转主界面
+		initBaseSettings();
 		//初始化ViewPager
 		initImageViewPager();
 		//初始化进入按钮
@@ -71,6 +86,8 @@ public class GuideActivity extends Activity {
 	 * 初始化成员变量
 	 */
 	protected void initMemberVar() {
+		//初始化资源
+		mResources=getResources();
 		mViewCount=mImagesID.length;
 		mEnterToMain=(Button) findViewById(R.id.EnterToMain);
 		//初始化图片数组
@@ -156,7 +173,6 @@ public class GuideActivity extends Activity {
 	 * 跳转到MainActivity
 	 */
 	protected void startMain(){
-		saveSharedPreferences();
 		Intent intent=new Intent();
 		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
@@ -172,6 +188,8 @@ public class GuideActivity extends Activity {
 		boolean is_first_open=mSharedPreferences.getBoolean(AppConfig.JYJ_CONF_IS_FIRST_OPEN, true);
 		if (!is_first_open) {
 			startMain();
+		}else{
+			saveSharedPreferences();
 		}
 	}
 	
@@ -179,8 +197,33 @@ public class GuideActivity extends Activity {
 	 * 设置保存
 	 */
 	protected void saveSharedPreferences() {
+		//初始化需要保存的变量
+		initConfig();
 		//保存状态变量
 		mEditor.putBoolean(AppConfig.JYJ_CONF_IS_FIRST_OPEN, false);
+		//保存切换标签名称
+		mEditor.putString(AppConfig.JYJ_MAIN_TABS_TEXT_DEFAULT, mMainTabsText);
+		mEditor.putString(AppConfig.JYJ_MAIN_TABS_TEXT_USERSET, mMainTabsText);
+		//保存子分类名称和ID
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_NAME_DEFAULT, mCatGoldName);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_NAME_USERSET, mCatGoldName);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_DEFAULT, mCatGoldID);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_USERSET, mCatGoldID);
+		//数据提交
 		mEditor.commit();
+	}
+	
+	/**
+	 * 初始化主程序启动需要的变量
+	 */
+	protected void initConfig() {
+		//主分类名称字符串
+		String[] mainTabsText=mResources.getStringArray(R.array.main_tabs_text);
+		mMainTabsText=StringUtils.stringArrayToString(mainTabsText, ";");
+		//子分类名称ID字符串
+		String[] catGoldName=mResources.getStringArray(R.array.cat_gold_name);
+		mCatGoldName=StringUtils.stringArrayToString(catGoldName, ";");
+		String[] catGoldID=mResources.getStringArray(R.array.cat_gold_id);
+		mCatGoldID=StringUtils.stringArrayToString(catGoldID, ";");
 	}
 }

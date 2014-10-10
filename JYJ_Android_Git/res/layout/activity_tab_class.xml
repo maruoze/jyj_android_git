@@ -4,9 +4,39 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <TextView
+    <!--  <LinearLayout
+        android:id="@+id/popup_window"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp" >
+	    <TextView
+	        android:id="@+id/gold"
+	        android:layout_width="0dp"
+	        android:layout_height="60dp"
+			android:layout_marginTop="30dp"
+	    	android:drawableTop="@drawable/f006" 
+	    	android:gravity="center"
+	        android:layout_weight="1"
+	        android:text="黄金" />
+	    <TextView
+	        android:id="@+id/silver"
+	        android:layout_width="0dp"
+	        android:layout_height="60dp"
+	    	android:drawableTop="@drawable/f007" 
+	    	android:gravity="center"
+	        android:layout_weight="1"
+	        android:text="白银" />
+	    <TextView
+	        android:id="@+id/oil"
+	        android:layout_width="0dp"
+	        android:layout_height="60dp"
+	        android:layout_marginTop="30dp"
+	    	android:drawableTop="@drawable/f008" 
+	    	android:gravity="center"
+	        android:layout_weight="1"
+	        android:text="原油" />
+    </LinearLayout>-->
 
 </RelativeLayout>
