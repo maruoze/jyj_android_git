@@ -207,6 +207,10 @@ public final class R {
         public static final int main_tab_selector=0x7f020077;
         public static final int point_c=0x7f020078;
         public static final int point_s=0x7f020079;
+        public static final int subnav_bg_def=0x7f02007a;
+        public static final int subnav_bg_sel=0x7f02007b;
+        public static final int subnav_ll_bg_default=0x7f02007c;
+        public static final int subnav_ll_bg_selected=0x7f02007d;
     }
     public static final class id {
         public static final int EnterToMain=0x7f090006;
@@ -215,21 +219,23 @@ public final class R {
         public static final int ImagePoint_3=0x7f090004;
         public static final int ImagePoint_4=0x7f090005;
         public static final int ImageViewPager=0x7f090000;
-        public static final int button1=0x7f090007;
-        public static final int button2=0x7f090009;
-        public static final int button3=0x7f09000b;
         public static final int gold=0x7f09000d;
         public static final int head_arrowImageView=0x7f090011;
         public static final int head_contentLayout=0x7f090010;
         public static final int head_lastUpdatedTextView=0x7f090014;
+        public static final int head_left=0x7f090007;
+        public static final int head_middle=0x7f090008;
         public static final int head_progressBar=0x7f090012;
+        public static final int head_right=0x7f090009;
         public static final int head_tipsTextView=0x7f090013;
-        public static final int horizontalScrollView1=0x7f09000a;
+        public static final int hsv_subnav=0x7f09000a;
         public static final int linearLayout1=0x7f090001;
+        public static final int ll_subnav=0x7f09000b;
         public static final int newslist_viewpager=0x7f09000c;
         public static final int oil=0x7f09000f;
+        public static final int ptr_newslist=0x7f090017;
         public static final int silver=0x7f09000e;
-        public static final int textView1=0x7f090008;
+        public static final int textView1=0x7f090018;
         public static final int update_progress=0x7f090015;
         public static final int update_progress_text=0x7f090016;
     }
@@ -241,11 +247,12 @@ public final class R {
         public static final int activity_tab_home=0x7f030004;
         public static final int activity_tab_member=0x7f030005;
         public static final int activity_tab_quot=0x7f030006;
-        public static final int pop_tab=0x7f030007;
-        public static final int pull_to_refresh_head=0x7f030008;
-        public static final int tabhost_tab=0x7f030009;
-        public static final int update_progress=0x7f03000a;
-        public static final int viewpager_newslist=0x7f03000b;
+        public static final int button_subcat=0x7f030007;
+        public static final int pop_tab=0x7f030008;
+        public static final int pull_to_refresh_head=0x7f030009;
+        public static final int tabhost_tab=0x7f03000a;
+        public static final int update_progress=0x7f03000b;
+        public static final int viewpager_newslist=0x7f03000c;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f070031;

@@ -12,13 +12,13 @@
         android:background="@color/blue">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/head_left"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="Button" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/head_middle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="60dp"
@@ -26,7 +26,7 @@
             android:text="TextView" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/head_right"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
@@ -39,23 +39,24 @@
         android:layout_height="40dp" >
 
         <HorizontalScrollView
-            android:id="@+id/horizontalScrollView1"
+            android:id="@+id/hsv_subnav"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="40dp"
-            >
+            android:scrollbars="none" >
+
             <LinearLayout
+                android:id="@+id/ll_subnav"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
             </LinearLayout>
         </HorizontalScrollView>
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <!--  <Button
+            android:id="@+id/subnav_setting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:text="Button" />		
+            android:text="Button" />	-->	
     </RelativeLayout>
         
     <android.support.v4.view.ViewPager
