@@ -19,6 +19,6 @@
     <string name="title_activity_tab_class">TabClassActivity</string>
     <string name="title_activity_tab_college">TabCollegeActivity</string>
     <string name="title_activity_tab_member">TabMemberActivity</string>
-    <string name="api_news"/>
+    <string name="api_articles">http://www.jxtzw.com/api/user_data_output/data_api.php</string>
 
 </resources>

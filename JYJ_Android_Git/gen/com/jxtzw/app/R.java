@@ -219,25 +219,26 @@ public final class R {
         public static final int ImagePoint_3=0x7f090004;
         public static final int ImagePoint_4=0x7f090005;
         public static final int ImageViewPager=0x7f090000;
-        public static final int gold=0x7f09000d;
-        public static final int head_arrowImageView=0x7f090011;
-        public static final int head_contentLayout=0x7f090010;
-        public static final int head_lastUpdatedTextView=0x7f090014;
+        public static final int gold=0x7f09000f;
+        public static final int head_arrowImageView=0x7f090013;
+        public static final int head_contentLayout=0x7f090012;
+        public static final int head_lastUpdatedTextView=0x7f090016;
         public static final int head_left=0x7f090007;
         public static final int head_middle=0x7f090008;
-        public static final int head_progressBar=0x7f090012;
+        public static final int head_progressBar=0x7f090014;
         public static final int head_right=0x7f090009;
-        public static final int head_tipsTextView=0x7f090013;
+        public static final int head_tipsTextView=0x7f090015;
         public static final int hsv_subnav=0x7f09000a;
         public static final int linearLayout1=0x7f090001;
+        public static final int listview_foot_more=0x7f09000e;
+        public static final int listview_foot_progress=0x7f09000d;
         public static final int ll_subnav=0x7f09000b;
         public static final int newslist_viewpager=0x7f09000c;
-        public static final int oil=0x7f09000f;
-        public static final int ptr_newslist=0x7f090017;
-        public static final int silver=0x7f09000e;
-        public static final int textView1=0x7f090018;
-        public static final int update_progress=0x7f090015;
-        public static final int update_progress_text=0x7f090016;
+        public static final int oil=0x7f090011;
+        public static final int ptr_newslist=0x7f090019;
+        public static final int silver=0x7f090010;
+        public static final int update_progress=0x7f090017;
+        public static final int update_progress_text=0x7f090018;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
@@ -248,11 +249,13 @@ public final class R {
         public static final int activity_tab_member=0x7f030005;
         public static final int activity_tab_quot=0x7f030006;
         public static final int button_subcat=0x7f030007;
-        public static final int pop_tab=0x7f030008;
-        public static final int pull_to_refresh_head=0x7f030009;
-        public static final int tabhost_tab=0x7f03000a;
-        public static final int update_progress=0x7f03000b;
-        public static final int viewpager_newslist=0x7f03000c;
+        public static final int item_article=0x7f030008;
+        public static final int listview_footer=0x7f030009;
+        public static final int pop_tab=0x7f03000a;
+        public static final int pull_to_refresh_head=0x7f03000b;
+        public static final int tabhost_tab=0x7f03000c;
+        public static final int update_progress=0x7f03000d;
+        public static final int viewpager_newslist=0x7f03000e;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f070031;
@@ -268,7 +271,7 @@ public final class R {
         public static final int Weibo_Share_Error=0x7f070037;
         public static final int Weibo_Share_Repeat=0x7f070038;
         public static final int Weibo_Share_Success=0x7f070036;
-        public static final int api_news=0x7f070047;
+        public static final int api_articles=0x7f070047;
         public static final int app_error=0x7f07000b;
         public static final int app_error_message=0x7f07000c;
         public static final int app_menu_surelogout=0x7f070008;

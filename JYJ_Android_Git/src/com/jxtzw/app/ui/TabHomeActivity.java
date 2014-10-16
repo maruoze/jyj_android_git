@@ -9,9 +9,7 @@ import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.NewsListView;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
-import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -22,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class TabHomeActivity extends BaseActivity {
 	/**
@@ -122,7 +119,7 @@ public class TabHomeActivity extends BaseActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         mScreenWidth=metric.widthPixels;
         mLayoutParams=new LinearLayout.LayoutParams(
-        		LayoutParams.WRAP_CONTENT,30);
+        		android.view.ViewGroup.LayoutParams.WRAP_CONTENT,30);
         mSubButtonWidth=(mScreenWidth-3)/mSubNavShowCount;
         mLayoutParams.width=mSubButtonWidth;
 		
@@ -151,7 +148,7 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats.get(current).setTextColor(mResources.getColor(R.color.red));
 		mSubCats.get(current).setBackgroundDrawable(mResources.getDrawable(R.drawable.subnav_bg_sel));
 		//更新内容显示
-		updateView(current);
+		//updateView(current);
 	}
 	
 	
@@ -229,8 +226,9 @@ public class TabHomeActivity extends BaseActivity {
 	protected View initView(int index) {
 		View listView=null;
 		listView=mLayoutInflater.inflate(R.layout.viewpager_newslist, null);
-		TextView tvTextView=(TextView) listView.findViewById(R.id.textView1);
-		tvTextView.setText(mCatNames[index]);
+		String catID=mCatIDs[index];
+		NewsListView newsListView=new NewsListView(mContext);
+		newsListView.init(listView,catID);
 		return listView;
 	}
 	
