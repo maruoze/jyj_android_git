@@ -2,6 +2,9 @@ package com.jxtzw.app.view;
 
 import java.util.ArrayList;
 
+import net.tsz.afinal.FinalHttp;
+import net.tsz.afinal.http.AjaxCallBack;
+
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ListViewArticleAdapter;
 import com.jxtzw.app.api.ApiArticle;
@@ -165,20 +168,16 @@ public class PullToRefreshView extends BaseView {
 	 * 数据获取
 	 */
 	public void getListData(){
-		//请求API地址
-		String apiurl=mResources.getString(R.string.api_articles);
-		String query="vcode=jxtzw&cid="+mCatID;
-		mApiArticle.init(apiurl, query);
+		//mApiArticle.init(apiurl, query);
 		//获取本地缓存数据
 		boolean flag=getLocalCache();
 		//如果本地有数据
 		if (flag) {
 			mArticlesShow=(ArrayList<Article>) mArticlesLocal.clone();
+			mArticleListPTRLV.notify();
 		}else{
 			getArticlesOnline();
 		}
-		//mArticlesShow=mApiArticle.getArticles(true);
-		//UIHelper.ToastMessage(mContext,String.valueOf(mIndex));
 	}
 	
 	/**
@@ -197,7 +196,27 @@ public class PullToRefreshView extends BaseView {
 	 * 从网上获取数据
 	 */
 	protected void getArticlesOnline(){
-		mArticlesNew=mApiArticle.getArticles(true);
+		//请求API地址
+		String apiurl=mResources.getString(R.string.api_articles);
+		String query="vcode=jxtzw&cid="+mCatID;
+		final String APIURL=apiurl+"?"+query;
+		final FinalHttp finalHttp=new FinalHttp();
+		// TODO Auto-generated method stub
+		finalHttp.get(APIURL, new AjaxCallBack<String>(){
+			@Override
+			public void onFailure(Throwable t, int errorNo, String strMsg) {
+				// TODO Auto-generated method stub
+				super.onFailure(t, errorNo, strMsg);
+			}
+
+			@Override
+			public void onSuccess(String t) {
+				// TODO Auto-generated method stub
+				mArticlesNew=mApiArticle.parseArticles(t);
+				getLocalCache();
+				//mArticleListPTRLV.notify();
+			}
+		});
 	}
 	
 	

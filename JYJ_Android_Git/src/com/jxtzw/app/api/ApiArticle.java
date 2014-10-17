@@ -2,25 +2,15 @@ package com.jxtzw.app.api;
 
 import java.util.ArrayList;
 
-import net.tsz.afinal.FinalDb;
-import net.tsz.afinal.FinalHttp;
-import net.tsz.afinal.http.AjaxCallBack;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import net.tsz.afinal.FinalDb;
 import com.jxtzw.app.bean.Article;
 import android.content.Context;
-import android.util.Log;
 
 public class ApiArticle extends ApiBase {
-	/**
-	 * 用于获取数据的Api地址和请求信息
-	 */
-	protected String mAPIURL;
-	protected String mQuery;
-	/**
-	 * 数据
-	 */
-	protected String mArticlesString;
-	protected ArrayList<Article> mArticles;
 	/**
 	 * 数据库相关操作
 	 */
@@ -34,83 +24,38 @@ public class ApiArticle extends ApiBase {
 	public ApiArticle(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
-	}
-	
-	/**
-	 * 初始化
-	 * @param apiurl
-	 * @param query
-	 */
-	public void init(String apiurl,String query) {
-		this.mAPIURL=apiurl;
-		this.mQuery=query;
 		this.mDBName="jyj_articles";
 		this.mFinalDb=FinalDb.create(mContext, mDBName);
 	}
-	
-	/**
-	 * 返回文章列表数据
-	 * @param method
-	 * @return
-	 */
-	public ArrayList<Article> getArticles(boolean method) {
-		ArrayList<Article> articles=new ArrayList<Article>();
-		if (method) {
-			getArticleString();
-		}else{
-			postArticleString();
-		}
-		//articles=parseArticles();
-		return articles;
-	}
-	
-	
-	
-	/**
-	 * 使用get方法获取数据
-	 * @return
-	 */
-	protected void getArticleString(){
-		final String APIURL=mAPIURL+"?"+mQuery;
-		final FinalHttp finalHttp=new FinalHttp();
-		// TODO Auto-generated method stub
-		finalHttp.get(APIURL, new AjaxCallBack<String>(){
-			@Override
-			public void onFailure(Throwable t, int errorNo, String strMsg) {
-				// TODO Auto-generated method stub
-				super.onFailure(t, errorNo, strMsg);
-			}
-
-			@Override
-			public void onSuccess(String t) {
-				// TODO Auto-generated method stub
-				mArticlesString=t;
-				mArticles=parseArticles();
-			}
-		});
-	}
-	
-	/**
-	 * 使用post方法获取数据
-	 * @return
-	 */
-	protected void postArticleString(){}
 
 	/**
 	 * 将JSON字符串转换为文章结构列表
 	 * @return
 	 */
-	protected ArrayList<Article> parseArticles() {
+	public ArrayList<Article> parseArticles(String mArticlesString) {
 		ArrayList<Article> articles=new ArrayList<Article>();
-		/*try {
-			
-			
-			
-			Log.v("OK", "OK");
+		try {
+			JSONArray jsonArray=new JSONArray(mArticlesString);
+			for (int i = 0; i < jsonArray.length(); i++) {
+				JSONObject jsonObject=jsonArray.getJSONObject(i);
+				Article article=new Article();
+				article.setAid(jsonObject.getString("aid"));
+				article.setCatid(jsonObject.getString("catid"));
+				article.setAuthor(jsonObject.getString("author"));
+				article.setDateLine(jsonObject.getString("dateline"));
+				article.setTitle(jsonObject.getString("title"));
+				article.setSummary(jsonObject.getString("summary"));
+				article.setPic(jsonObject.getString("pic"));
+				article.setUsername(jsonObject.getString("username"));
+				//保存数据到本地数据库
+				mFinalDb.save(article);
+				//保存数据到返回的数组列表
+				articles.add(article);
+			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		return articles;
 	}
 	
