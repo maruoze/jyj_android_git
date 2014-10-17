@@ -174,7 +174,7 @@ public class PullToRefreshView extends BaseView {
 		//如果本地有数据
 		if (flag) {
 			mArticlesShow=(ArrayList<Article>) mArticlesLocal.clone();
-			mArticleListPTRLV.notify();
+			mArticleListAdapter.notifyDataSetChanged();
 		}else{
 			getArticlesOnline();
 		}
@@ -214,7 +214,8 @@ public class PullToRefreshView extends BaseView {
 				// TODO Auto-generated method stub
 				mArticlesNew=mApiArticle.parseArticles(t);
 				getLocalCache();
-				//mArticleListPTRLV.notify();
+				mArticlesShow=(ArrayList<Article>) mArticlesLocal.clone();
+				mArticleListAdapter.notifyDataSetChanged();
 			}
 		});
 	}

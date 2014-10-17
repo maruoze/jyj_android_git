@@ -48,7 +48,7 @@ public class ApiArticle extends ApiBase {
 				article.setPic(jsonObject.getString("pic"));
 				article.setUsername(jsonObject.getString("username"));
 				//保存数据到本地数据库
-				mFinalDb.save(article);
+				saveArticle(article);
 				//保存数据到返回的数组列表
 				articles.add(article);
 			}
@@ -60,10 +60,22 @@ public class ApiArticle extends ApiBase {
 	}
 	
 	/**
+	 * 存数据如数据库
+	 */
+	protected void saveArticle(Article article){
+		String strWhere="aid in("+article.getAid()+")";
+		ArrayList<Article> tpArticle=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
+		if(tpArticle.size()==0){
+			mFinalDb.save(article);
+		}
+	}
+	
+	
+	/**
 	 * 从本地数据库缓存取数据
 	 */
 	public  ArrayList<Article> getArticlesLocal(String catID){
-		String strWhere="Catid in("+catID+")";
+		String strWhere="Catid='"+catID+"'";
 		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
 		return articles;
 	}

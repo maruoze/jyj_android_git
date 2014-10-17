@@ -24,7 +24,6 @@ public class Article {
 	private String Remote;
 	private String Prename;
 	private String Preurl;
-	private String Id;
 	private String Idtype;
 	private String Contents;
 	private String Allowcomment;
@@ -133,12 +132,6 @@ public class Article {
 	}
 	public void setPreurl(String preurl) {
 		Preurl = preurl;
-	}
-	public String getId() {
-		return Id;
-	}
-	public void setId(String id) {
-		Id = id;
 	}
 	public String getIdtype() {
 		return Idtype;
