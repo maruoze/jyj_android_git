@@ -15,6 +15,7 @@ public final class R {
     public static final class array {
         public static final int cat_gold_id=0x7f050002;
         public static final int cat_gold_name=0x7f050001;
+        public static final int cat_gold_show_quotaion=0x7f050003;
         public static final int main_tabs_text=0x7f050000;
     }
     public static final class attr {

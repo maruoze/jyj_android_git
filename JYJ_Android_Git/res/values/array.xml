@@ -19,5 +19,11 @@
         <item >120,121,122,292,571,572,843</item>
         <item >94</item>
     </string-array>
+    <string-array name="cat_gold_show_quotaion">
+        <item >1</item>
+        <item >0</item>
+        <item >0</item>
+        <item >0</item>
+    </string-array>
     
 </resources>

@@ -59,6 +59,7 @@ public class GuideActivity extends Activity {
 	private String mMainTabsText;
 	private String mCatGoldName;
 	private String mCatGoldID;
+	private String mCatGoldShowQuotation;
 	
 	
 	
@@ -209,6 +210,8 @@ public class GuideActivity extends Activity {
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_NAME_USERSET, mCatGoldName);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_DEFAULT, mCatGoldID);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_USERSET, mCatGoldID);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_DEFAULT, mCatGoldShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_USERSET, mCatGoldShowQuotation);
 		//数据提交
 		mEditor.commit();
 	}
@@ -225,5 +228,7 @@ public class GuideActivity extends Activity {
 		mCatGoldName=StringUtils.stringArrayToString(catGoldName, ";");
 		String[] catGoldID=mResources.getStringArray(R.array.cat_gold_id);
 		mCatGoldID=StringUtils.stringArrayToString(catGoldID, ";");
+		String[] catGoldShowQuotation=mResources.getStringArray(R.array.cat_gold_show_quotaion);
+		mCatGoldShowQuotation=StringUtils.stringArrayToString(catGoldShowQuotation, ";");
 	}
 }

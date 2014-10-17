@@ -6,7 +6,6 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.NewsListViewPagerAdapter;
 import com.jxtzw.app.common.DataHelper;
-import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.NewsListView;
 
 import android.annotation.SuppressLint;
@@ -44,17 +43,22 @@ public class TabHomeActivity extends BaseActivity {
 	 */
 	protected ViewPager mNewsListVP;
 	protected NewsListViewPagerAdapter mNewsListVPAdapter;
-	protected ArrayList<View> mNewsListViews;
+	protected ArrayList<View> mNewsListViewPages;
 	protected OnPageChangeListener mNewsListPCListener;
 	
 	/**
 	 * 与切换相关的数据
 	 */
 	protected int mCurView=0;
+	/**
+	 * 切换页列表对象
+	 */
+	protected ArrayList<NewsListView> mNewsListViews;
+	
 	
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+ 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tab_home);
 		initMemberVar();
@@ -96,13 +100,15 @@ public class TabHomeActivity extends BaseActivity {
 						AppConfig.JYJ_CAT_GOLD_ID_DEFAULT, R.array.cat_gold_id);
 		mVPCount=mCatIDs.length;
 		//ViewPager对应的View
-		mNewsListViews=new ArrayList<View>();
+		mNewsListViewPages=new ArrayList<View>();
 		//包含子导航的横向滚动条
 		mHSVSubCat=(HorizontalScrollView) findViewById(R.id.hsv_subnav);
 		//滚动条内的布局
 		mLLSubCat=(LinearLayout) findViewById(R.id.ll_subnav);
 		//存储子导航Button的数组
 		mSubCats=new ArrayList<Button>();
+		//切换页列表对象
+		mNewsListViews=new ArrayList<NewsListView>();
 	}
 	
 	/**
@@ -148,7 +154,7 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats.get(current).setTextColor(mResources.getColor(R.color.red));
 		mSubCats.get(current).setBackgroundDrawable(mResources.getDrawable(R.drawable.subnav_bg_sel));
 		//更新内容显示
-		//updateView(current);
+		updateView(current);
 	}
 	
 	
@@ -159,12 +165,12 @@ public class TabHomeActivity extends BaseActivity {
 		//初始化ViewPager中包含的View
 		for (int i = 0; i <mVPCount; i++) {
 			View newsListView=initView(i);
-			mNewsListViews.add(newsListView);
+			mNewsListViewPages.add(newsListView);
 		}
 		
 		//绑定ViewPager和View
 		mNewsListVP=(ViewPager) findViewById(R.id.newslist_viewpager);
-		mNewsListVPAdapter=new NewsListViewPagerAdapter(mNewsListViews);
+		mNewsListVPAdapter=new NewsListViewPagerAdapter(mNewsListViewPages);
 		mNewsListVP.setAdapter(mNewsListVPAdapter);
 		
 		//事件监听
@@ -186,7 +192,6 @@ public class TabHomeActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				setCurItem(mCurView, arg0);
 				mCurView=arg0;
-				UIHelper.ToastMessage(mContext,mCatNames[arg0]);
 			}
 			
 			@Override
@@ -228,7 +233,8 @@ public class TabHomeActivity extends BaseActivity {
 		listView=mLayoutInflater.inflate(R.layout.viewpager_newslist, null);
 		String catID=mCatIDs[index];
 		NewsListView newsListView=new NewsListView(mContext);
-		newsListView.init(listView,catID);
+		newsListView.init(listView,catID,index);
+		mNewsListViews.add(newsListView);
 		return listView;
 	}
 	
@@ -236,9 +242,7 @@ public class TabHomeActivity extends BaseActivity {
 	 * 刷新ViewPager中的View
 	 */
 	protected void updateView(int index){
-		View listView=mNewsListViews.get(index);
-		String catID=mCatIDs[index];
-		NewsListView newsListView=new NewsListView(mContext);
-		newsListView.init(listView,catID);
+		NewsListView newsListView=mNewsListViews.get(index);
+		newsListView.update();
 	}
 }

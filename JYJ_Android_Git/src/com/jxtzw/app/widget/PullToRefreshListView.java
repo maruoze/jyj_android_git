@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
@@ -78,15 +79,15 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
     private void init(Context context) {   
     	//设置滑动效果
         animation = new RotateAnimation(0, -180,  
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f,  
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f);  
+                Animation.RELATIVE_TO_SELF, 0.5f,  
+                Animation.RELATIVE_TO_SELF, 0.5f);  
         animation.setInterpolator(new LinearInterpolator());  
         animation.setDuration(100);  
         animation.setFillAfter(true);  
   
         reverseAnimation = new RotateAnimation(-180, 0,  
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f,  
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f);  
+                Animation.RELATIVE_TO_SELF, 0.5f,  
+                Animation.RELATIVE_TO_SELF, 0.5f);  
         reverseAnimation.setInterpolator(new LinearInterpolator());  
         reverseAnimation.setDuration(100);  
         reverseAnimation.setFillAfter(true);  
@@ -117,15 +118,18 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
         setOnScrollListener(this); 
     }  
   
-    public void onScroll(AbsListView view, int firstVisiableItem, int visibleItemCount,  int totalItemCount) {  
+    @Override
+	public void onScroll(AbsListView view, int firstVisiableItem, int visibleItemCount,  int totalItemCount) {  
         firstItemIndex = firstVisiableItem;  
     }  
   
-    public void onScrollStateChanged(AbsListView view, int scrollState) {  
+    @Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {  
     	currentScrollState = scrollState;
     }  
   
-    public boolean onTouchEvent(MotionEvent event) {  
+    @Override
+	public boolean onTouchEvent(MotionEvent event) {  
         switch (event.getAction()) {  
         case MotionEvent.ACTION_DOWN:  
             if (firstItemIndex == 0 && !isRecored) {  
@@ -216,7 +220,7 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
                 
                 // 更新headView的size   
                 if (state == PULL_To_REFRESH) { 
-                	int topPadding = (int)((-1 * headContentHeight + (tempY - startY)));
+                	int topPadding = ((-1 * headContentHeight + (tempY - startY)));
                 	headView.setPadding(headView.getPaddingLeft(), topPadding, headView.getPaddingRight(), headView.getPaddingBottom());   
                     headView.invalidate();  
                     //System.out.println("当前-下拉刷新PULL_To_REFRESH-TopPad："+topPadding);
@@ -224,7 +228,7 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
   
                 // 更新headView的paddingTop   
                 if (state == RELEASE_To_REFRESH) {  
-                	int topPadding = (int)((tempY - startY - headContentHeight));
+                	int topPadding = ((tempY - startY - headContentHeight));
                 	headView.setPadding(headView.getPaddingLeft(), topPadding, headView.getPaddingRight(), headView.getPaddingBottom());    
                     headView.invalidate();  
                     //System.out.println("当前-释放刷新RELEASE_To_REFRESH-TopPad："+topPadding);

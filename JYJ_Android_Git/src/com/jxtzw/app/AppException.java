@@ -226,6 +226,7 @@ public class AppException extends Exception implements UncaughtExceptionHandler{
 		final String crashReport = getCrashReport(context, ex);
 		//显示异常信息&发送报告
 		new Thread() {
+			@Override
 			public void run() {
 				Looper.prepare();
 				UIHelper.sendAppCrashReport(context, crashReport);

@@ -58,9 +58,11 @@ public class AppConfig {
 	 * 子分类名称字符串常量
 	 */
 	public final static String JYJ_CAT_GOLD_NAME_DEFAULT="cat_gold_name_default";
-	public final static String JYJ_CAT_GOLD_ID_DEFAULT="cat_gold_id_default";
 	public final static String JYJ_CAT_GOLD_NAME_USERSET="cat_gold_name_userset";
+	public final static String JYJ_CAT_GOLD_ID_DEFAULT="cat_gold_id_default";
 	public final static String JYJ_CAT_GOLD_ID_USERSET="cat_gold_id_userset";
+	public final static String JYJ_CAT_GOLD_SHOW_QUOT_DEFAULT="cat_gold_show_quot_default";
+	public final static String JYJ_CAT_GOLD_SHOW_QUOT_USERSET="cat_gold_show_quot_userset";
 	
 
 	public static AppConfig getAppConfig(Context context) {

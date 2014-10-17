@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 
 import com.jxtzw.app.R;
 
-import com.tencent.mm.sdk.openapi.GetMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.SendMessageToWX;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;

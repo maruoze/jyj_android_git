@@ -4,9 +4,7 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
-import android.app.ActivityGroup;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +13,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;

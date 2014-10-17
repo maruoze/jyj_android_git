@@ -34,10 +34,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 /**
  * 图片操作工具包
@@ -276,7 +276,7 @@ public class ImageUtils {
 	@SuppressWarnings("deprecation")
 	public static String getAbsoluteImagePath(Activity context, Uri uri) {
 		String imagePath = "";
-		String[] proj = { MediaStore.Images.Media.DATA };
+		String[] proj = { MediaColumns.DATA };
 		Cursor cursor = context.managedQuery(uri, proj, // Which columns to
 														// return
 				null, // WHERE clause; which rows to return (all rows)
@@ -285,7 +285,7 @@ public class ImageUtils {
 
 		if (cursor != null) {
 			int column_index = cursor
-					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+					.getColumnIndexOrThrow(MediaColumns.DATA);
 			if (cursor.getCount() > 0 && cursor.moveToFirst()) {
 				imagePath = cursor.getString(column_index);
 			}
@@ -307,12 +307,12 @@ public class ImageUtils {
 			int kind) {
 		Bitmap bitmap = null;
 
-		String[] proj = { MediaStore.Images.Media._ID,
-				MediaStore.Images.Media.DISPLAY_NAME };
+		String[] proj = { BaseColumns._ID,
+				MediaColumns.DISPLAY_NAME };
 
 		Cursor cursor = context.managedQuery(
 				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, proj,
-				MediaStore.Images.Media.DISPLAY_NAME + "='" + imgName + "'",
+				MediaColumns.DISPLAY_NAME + "='" + imgName + "'",
 				null, null);
 
 		if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
@@ -337,11 +337,11 @@ public class ImageUtils {
 	 */
 	public static String getLatestImage(Activity context) {
 		String latestImage = null;
-		String[] items = { MediaStore.Images.Media._ID,
-				MediaStore.Images.Media.DATA };
+		String[] items = { BaseColumns._ID,
+				MediaColumns.DATA };
 		Cursor cursor = context.managedQuery(
 				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, items, null,
-				null, MediaStore.Images.Media._ID + " desc");
+				null, BaseColumns._ID + " desc");
 
 		if (cursor != null && cursor.getCount() > 0) {
 			cursor.moveToFirst();

@@ -9,14 +9,11 @@ import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.net.URLEncoder;
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.UUID;
 
 import com.jxtzw.app.common.StringUtils;
-import com.jxtzw.app.common.UIHelper;
-
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -26,9 +23,6 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 
 /**
  * 全局应用程序类：用于保存和调用全局应用配置及访问网络数据

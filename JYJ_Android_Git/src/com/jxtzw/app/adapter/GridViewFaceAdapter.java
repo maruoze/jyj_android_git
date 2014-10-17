@@ -52,12 +52,14 @@ public class GridViewFaceAdapter extends BaseAdapter
 	}
 	
 	// 获取图片的个数
+	@Override
 	public int getCount()
 	{
 		return mImageIds.length;
 	}
 
 	// 获取图片在库中的位置
+	@Override
 	public Object getItem(int position)
 	{
 		return position;
@@ -65,12 +67,14 @@ public class GridViewFaceAdapter extends BaseAdapter
 
 
 	// 获取图片ID
+	@Override
 	public long getItemId(int position)
 	{
 		return mImageIds[position];
 	}
 
 
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
 		ImageView imageView;

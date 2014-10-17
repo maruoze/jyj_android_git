@@ -191,6 +191,7 @@ public class QQWeiboHelper2 {
 	 */
 	private void sendMessage() {
 		new Thread() {
+			@Override
 			public void run() {
 				Message msg = mHandler.obtainMessage(SEND);
 				tAPI = new TAPI(OAuthConstants.OAUTH_VERSION_1);

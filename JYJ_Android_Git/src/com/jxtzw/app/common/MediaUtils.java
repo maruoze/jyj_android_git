@@ -67,7 +67,7 @@ public class MediaUtils
 		
 		if ( attFormat != null ) 
 		{
-			contentType = (String)FORMAT_TO_CONTENTTYPE.get( attFormat.toLowerCase() );
+			contentType = FORMAT_TO_CONTENTTYPE.get( attFormat.toLowerCase() );
 		}
 		return contentType;
 	}

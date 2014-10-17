@@ -1,8 +1,5 @@
 package com.jxtzw.app.callback;
 
-import com.jxtzw.app.widget.PullToRefreshListView;
-
-import android.util.Log;
 import net.tsz.afinal.http.AjaxCallBack;
 
 public class ArticleAjaxCallBack extends AjaxCallBack<String> {

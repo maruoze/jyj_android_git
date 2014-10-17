@@ -126,7 +126,8 @@ public class BitmapManager {
     public void queueJob(final String url, final ImageView imageView, final int width, final int height) {  
         /* Create handler in UI thread. */  
         final Handler handler = new Handler() {  
-            public void handleMessage(Message msg) {  
+            @Override
+			public void handleMessage(Message msg) {  
                 String tag = imageViews.get(imageView);  
                 if (tag != null && tag.equals(url)) {  
                     if (msg.obj != null) {  
@@ -143,7 +144,8 @@ public class BitmapManager {
         };  
   
         pool.execute(new Runnable() {   
-            public void run() {  
+            @Override
+			public void run() {  
                 Message message = Message.obtain();  
                 message.obj = downloadBitmap(url, width, height);  
                 handler.sendMessage(message);  
