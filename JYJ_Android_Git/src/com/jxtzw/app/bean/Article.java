@@ -8,250 +8,241 @@ import net.tsz.afinal.annotation.sqlite.Table;
 
 @Table(name="article")
 public class Article {
-	@Id(column="mAid")
-	private String mAid;
-	private String mCatid;
-	private String mBid;
-	private String mUid;
-	private String mUsername;
-	private String mTitle;
-	private String mShorttitle;
-	private String mAuthor;
-	private String mFrom;
-	private String mFromurl;
-	private String mUrl;
-	private String mSummary;
-	private String mPic;
-	private String mThumb;
-	private String mRemote;
-	private String mPrename;
-	private String mPreurl;
-	private String mId;
-	private String mIdtype;
-	private String mContents;
-	private String mAllowcomment;
-	private String mOwncomment;
-	private String mClick1;
-	private String mClick2;
-	private String mClick3;
-	private String mClick4;
-	private String mClick5;
-	private String mClick6;
-	private String mClick7;
-	private String mClick8;
-	private String mTag;
-	private String mDateLine;
-	private String mStatus;
-	private String mHighlight;
-	private String mShowinnernav;
-	public String getmAid() {
-		return mAid;
-	}
-	public void setmAid(String mAid) {
-		this.mAid = mAid;
-	}
-	public String getmCatid() {
-		return mCatid;
+	@Id(column="Aid")
+	private String Aid;
+	private String Catid;
+	private String Bid;
+	private String Uid;
+	private String Username;
+	private String Title;
+	private String Shorttitle;
+	private String Author;
+	private String Url;
+	private String Summary;
+	private String Pic;
+	private String Thumb;
+	private String Remote;
+	private String Prename;
+	private String Preurl;
+	private String Id;
+	private String Idtype;
+	private String Contents;
+	private String Allowcomment;
+	private String Owncomment;
+	private String Click1;
+	private String Click2;
+	private String Click3;
+	private String Click4;
+	private String Click5;
+	private String Click6;
+	private String Click7;
+	private String Click8;
+	private String Tag;
+	private String DateLine;
+	private String Status;
+	private String Highlight;
+	private String Showinnernav;
+	
+	
+	public String getAid() {
+		return Aid;
+	}
+	public void setAid(String aid) {
+		Aid = aid;
+	}
+	public String getCatid() {
+		return Catid;
 	}
-	public void setmCatid(String mCatid) {
-		this.mCatid = mCatid;
+	public void setCatid(String catid) {
+		Catid = catid;
 	}
-	public String getmBid() {
-		return mBid;
+	public String getBid() {
+		return Bid;
 	}
-	public void setmBid(String mBid) {
-		this.mBid = mBid;
+	public void setBid(String bid) {
+		Bid = bid;
 	}
-	public String getmUid() {
-		return mUid;
+	public String getUid() {
+		return Uid;
 	}
-	public void setmUid(String mUid) {
-		this.mUid = mUid;
+	public void setUid(String uid) {
+		Uid = uid;
 	}
-	public String getmUsername() {
-		return mUsername;
+	public String getUsername() {
+		return Username;
 	}
-	public void setmUsername(String mUsername) {
-		this.mUsername = mUsername;
+	public void setUsername(String username) {
+		Username = username;
 	}
-	public String getmTitle() {
-		return mTitle;
+	public String getTitle() {
+		return Title;
 	}
-	public void setmTitle(String mTitle) {
-		this.mTitle = mTitle;
+	public void setTitle(String title) {
+		Title = title;
 	}
-	public String getmShorttitle() {
-		return mShorttitle;
+	public String getShorttitle() {
+		return Shorttitle;
 	}
-	public void setmShorttitle(String mShorttitle) {
-		this.mShorttitle = mShorttitle;
+	public void setShorttitle(String shorttitle) {
+		Shorttitle = shorttitle;
 	}
-	public String getmAuthor() {
-		return mAuthor;
+	public String getAuthor() {
+		return Author;
 	}
-	public void setmAuthor(String mAuthor) {
-		this.mAuthor = mAuthor;
+	public void setAuthor(String author) {
+		Author = author;
 	}
-	public String getmFrom() {
-		return mFrom;
+	public String getUrl() {
+		return Url;
 	}
-	public void setmFrom(String mFrom) {
-		this.mFrom = mFrom;
+	public void setUrl(String url) {
+		Url = url;
 	}
-	public String getmFromurl() {
-		return mFromurl;
+	public String getSummary() {
+		return Summary;
 	}
-	public void setmFromurl(String mFromurl) {
-		this.mFromurl = mFromurl;
+	public void setSummary(String summary) {
+		Summary = summary;
 	}
-	public String getmUrl() {
-		return mUrl;
+	public String getPic() {
+		return Pic;
 	}
-	public void setmUrl(String mUrl) {
-		this.mUrl = mUrl;
+	public void setPic(String pic) {
+		Pic = pic;
 	}
-	public String getmSummary() {
-		return mSummary;
+	public String getThumb() {
+		return Thumb;
 	}
-	public void setmSummary(String mSummary) {
-		this.mSummary = mSummary;
+	public void setThumb(String thumb) {
+		Thumb = thumb;
 	}
-	public String getmPic() {
-		return mPic;
+	public String getRemote() {
+		return Remote;
 	}
-	public void setmPic(String mPic) {
-		this.mPic = mPic;
+	public void setRemote(String remote) {
+		Remote = remote;
 	}
-	public String getmThumb() {
-		return mThumb;
+	public String getPrename() {
+		return Prename;
 	}
-	public void setmThumb(String mThumb) {
-		this.mThumb = mThumb;
+	public void setPrename(String prename) {
+		Prename = prename;
 	}
-	public String getmRemote() {
-		return mRemote;
+	public String getPreurl() {
+		return Preurl;
 	}
-	public void setmRemote(String mRemote) {
-		this.mRemote = mRemote;
+	public void setPreurl(String preurl) {
+		Preurl = preurl;
 	}
-	public String getmPrename() {
-		return mPrename;
+	public String getId() {
+		return Id;
 	}
-	public void setmPrename(String mPrename) {
-		this.mPrename = mPrename;
+	public void setId(String id) {
+		Id = id;
 	}
-	public String getmPreurl() {
-		return mPreurl;
+	public String getIdtype() {
+		return Idtype;
 	}
-	public void setmPreurl(String mPreurl) {
-		this.mPreurl = mPreurl;
+	public void setIdtype(String idtype) {
+		Idtype = idtype;
 	}
-	public String getmId() {
-		return mId;
+	public String getContents() {
+		return Contents;
 	}
-	public void setmId(String mId) {
-		this.mId = mId;
+	public void setContents(String contents) {
+		Contents = contents;
 	}
-	public String getmIdtype() {
-		return mIdtype;
+	public String getAllowcomment() {
+		return Allowcomment;
 	}
-	public void setmIdtype(String mIdtype) {
-		this.mIdtype = mIdtype;
+	public void setAllowcomment(String allowcomment) {
+		Allowcomment = allowcomment;
 	}
-	public String getmContents() {
-		return mContents;
+	public String getOwncomment() {
+		return Owncomment;
 	}
-	public void setmContents(String mContents) {
-		this.mContents = mContents;
+	public void setOwncomment(String owncomment) {
+		Owncomment = owncomment;
 	}
-	public String getmAllowcomment() {
-		return mAllowcomment;
+	public String getClick1() {
+		return Click1;
 	}
-	public void setmAllowcomment(String mAllowcomment) {
-		this.mAllowcomment = mAllowcomment;
+	public void setClick1(String click1) {
+		Click1 = click1;
 	}
-	public String getmOwncomment() {
-		return mOwncomment;
+	public String getClick2() {
+		return Click2;
 	}
-	public void setmOwncomment(String mOwncomment) {
-		this.mOwncomment = mOwncomment;
+	public void setClick2(String click2) {
+		Click2 = click2;
 	}
-	public String getmClick1() {
-		return mClick1;
+	public String getClick3() {
+		return Click3;
 	}
-	public void setmClick1(String mClick1) {
-		this.mClick1 = mClick1;
+	public void setClick3(String click3) {
+		Click3 = click3;
 	}
-	public String getmClick2() {
-		return mClick2;
+	public String getClick4() {
+		return Click4;
 	}
-	public void setmClick2(String mClick2) {
-		this.mClick2 = mClick2;
+	public void setClick4(String click4) {
+		Click4 = click4;
 	}
-	public String getmClick3() {
-		return mClick3;
+	public String getClick5() {
+		return Click5;
 	}
-	public void setmClick3(String mClick3) {
-		this.mClick3 = mClick3;
+	public void setClick5(String click5) {
+		Click5 = click5;
 	}
-	public String getmClick4() {
-		return mClick4;
+	public String getClick6() {
+		return Click6;
 	}
-	public void setmClick4(String mClick4) {
-		this.mClick4 = mClick4;
+	public void setClick6(String click6) {
+		Click6 = click6;
 	}
-	public String getmClick5() {
-		return mClick5;
+	public String getClick7() {
+		return Click7;
 	}
-	public void setmClick5(String mClick5) {
-		this.mClick5 = mClick5;
+	public void setClick7(String click7) {
+		Click7 = click7;
 	}
-	public String getmClick6() {
-		return mClick6;
+	public String getClick8() {
+		return Click8;
 	}
-	public void setmClick6(String mClick6) {
-		this.mClick6 = mClick6;
+	public void setClick8(String click8) {
+		Click8 = click8;
 	}
-	public String getmClick7() {
-		return mClick7;
+	public String getTag() {
+		return Tag;
 	}
-	public void setmClick7(String mClick7) {
-		this.mClick7 = mClick7;
+	public void setTag(String tag) {
+		Tag = tag;
 	}
-	public String getmClick8() {
-		return mClick8;
+	public String getDateLine() {
+		return DateLine;
 	}
-	public void setmClick8(String mClick8) {
-		this.mClick8 = mClick8;
+	public void setDateLine(String dateLine) {
+		DateLine = dateLine;
 	}
-	public String getmTag() {
-		return mTag;
+	public String getStatus() {
+		return Status;
 	}
-	public void setmTag(String mTag) {
-		this.mTag = mTag;
+	public void setStatus(String status) {
+		Status = status;
 	}
-	public String getmDateLine() {
-		return mDateLine;
+	public String getHighlight() {
+		return Highlight;
 	}
-	public void setmDateLine(String mDateLine) {
-		this.mDateLine = mDateLine;
+	public void setHighlight(String highlight) {
+		Highlight = highlight;
 	}
-	public String getmStatus() {
-		return mStatus;
+	public String getShowinnernav() {
+		return Showinnernav;
 	}
-	public void setmStatus(String mStatus) {
-		this.mStatus = mStatus;
+	public void setShowinnernav(String showinnernav) {
+		Showinnernav = showinnernav;
 	}
-	public String getmHighlight() {
-		return mHighlight;
-	}
-	public void setmHighlight(String mHighlight) {
-		this.mHighlight = mHighlight;
-	}
-	public String getmShowinnernav() {
-		return mShowinnernav;
-	}
-	public void setmShowinnernav(String mShowinnernav) {
-		this.mShowinnernav = mShowinnernav;
-	}
+	
+	
+	
 }

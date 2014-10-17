@@ -118,7 +118,7 @@ public class ApiArticle extends ApiBase {
 	 * 从本地数据库缓存取数据
 	 */
 	public  ArrayList<Article> getArticlesLocal(String catID){
-		String strWhere="mCatid in("+catID+")";
+		String strWhere="Catid in("+catID+")";
 		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
 		return articles;
 	}
