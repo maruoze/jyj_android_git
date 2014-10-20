@@ -1,7 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:textviewplus="http://schemas.android.com/apk/res/com.jxtzw.app"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
-</ListView>
+    <ImageView
+        android:id="@+id/article_pic_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_content_default"
+        android:scaleType="fitXY"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:visibility="gone" />
+
+    <com.jxtzw.app.widget.TextViewPlus
+        android:id="@+id/article_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="@dimen/text_size_20"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="0dp" 
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/article_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_12" 
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"   />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp"
+		android:background="@color/ptr_datelinecolor" >
+
+        <com.jxtzw.app.widget.TextViewPlus
+            android:id="@+id/article_catname"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/f009"
+            android:gravity="center_vertical"
+            textviewplus:left_height="15dp"
+            textviewplus:left_width="15dp"
+            android:textSize="@dimen/text_size_10" />
+
+        <com.jxtzw.app.widget.TextViewPlus
+            android:id="@+id/article_dateline"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/article_catname"
+            android:drawableLeft="@drawable/f032"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_10" 
+            textviewplus:left_height="15dp"
+            textviewplus:left_width="15dp"/>
+
+        <com.jxtzw.app.widget.TextViewPlus
+            android:id="@+id/article_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/f011"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_10" 
+            textviewplus:left_height="15dp"
+            textviewplus:left_width="15dp"
+            android:text="10" />
+
+    </RelativeLayout>
+    
+</LinearLayout>

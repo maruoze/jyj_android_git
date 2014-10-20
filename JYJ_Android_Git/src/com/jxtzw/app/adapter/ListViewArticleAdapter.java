@@ -1,10 +1,16 @@
 package com.jxtzw.app.adapter;
 
 import java.util.ArrayList;
+
+import net.tsz.afinal.FinalBitmap;
+
 import com.jxtzw.app.R;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.common.StringUtils;
+
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +31,10 @@ public class ListViewArticleAdapter extends BaseAdapter {
 	private Resources 				mResources;//自定义项视图源 
 	static class ListItemView{				//自定义控件集合  
 	        public TextView title;  
-		    public TextView author;
-		    public TextView date;  
-		    public TextView count;
-		    public ImageView flag;
+		    public TextView summary;
+		    public TextView dateline;  
+		    public TextView catname;
+		    public ImageView pic;
 	 }  
 
 	/**
@@ -75,11 +81,11 @@ public class ListViewArticleAdapter extends BaseAdapter {
 			
 			listItemView = new ListItemView();
 			//获取控件对象
-			/*listItemView.title = (TextView)convertView.findViewById(R.id.news_listitem_title);
-			listItemView.author = (TextView)convertView.findViewById(R.id.news_listitem_author);
-			listItemView.count= (TextView)convertView.findViewById(R.id.news_listitem_commentCount);
-			listItemView.date= (TextView)convertView.findViewById(R.id.news_listitem_date);
-			listItemView.flag= (ImageView)convertView.findViewById(R.id.news_listitem_flag);*/
+			listItemView.title = (TextView)convertView.findViewById(R.id.article_title);
+			listItemView.summary= (TextView)convertView.findViewById(R.id.article_summary);
+			listItemView.dateline= (TextView)convertView.findViewById(R.id.article_dateline);
+			listItemView.pic= (ImageView)convertView.findViewById(R.id.article_pic_iv);
+			listItemView.catname=(TextView) convertView.findViewById(R.id.article_catname);
 			
 			//设置控件集到convertView
 			convertView.setTag(listItemView);
@@ -90,17 +96,27 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		//设置文字和图片
 		Article article = mArticles.get(position);
 		
-		/*listItemView.title.setText(news.getTitle());
-		listItemView.title.setTag(news);//设置隐藏参数(实体类)
-		listItemView.author.setText(news.getAuthor());
-		listItemView.date.setText(StringUtils.friendly_time(news.getPubDate()));
-		listItemView.count.setText(news.getCommentCount()+"");
-		if(StringUtils.isToday(news.getPubDate()))
-			listItemView.flag.setVisibility(View.VISIBLE);
-		else
-			listItemView.flag.setVisibility(View.GONE);
-		*/
-		
+		listItemView.title.setText(article.getTitle());
+		listItemView.title.setTag(article);//设置隐藏参数(实体类)
+		listItemView.summary.setText(article.getSummary());
+		listItemView.dateline.setText(StringUtils.timeStamp2Date(article.getDateLine(), "yyyy-MM-dd HH:mm"));
+		listItemView.catname.setText(String.valueOf(article.getCatid()));
+		if(StringUtils.isTodayEx(article.getDateLine())){
+			Drawable drawable=mResources.getDrawable(R.drawable.f026);
+			drawable.setBounds(0, 0, 20, 20);
+			listItemView.title.setCompoundDrawables(drawable, null, null, null);
+		}else{
+			listItemView.title.setCompoundDrawables(null, null, null, null);
+		}
+		//设置图片
+		String imageBaseURL=mResources.getString(R.string.image_base_url);
+		String picString=article.getPic();
+		if(!picString.equals("")){
+			FinalBitmap fb=FinalBitmap.create(mContext);
+			String imageURL=imageBaseURL+article.getPic();
+			fb.display(listItemView.pic, imageURL);
+			listItemView.pic.setVisibility(View.VISIBLE);
+		}
 		return convertView;
 	}
 }

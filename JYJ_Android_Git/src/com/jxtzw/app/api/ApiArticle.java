@@ -40,7 +40,7 @@ public class ApiArticle extends ApiBase {
 				JSONObject jsonObject=jsonArray.getJSONObject(i);
 				Article article=new Article();
 				article.setAid(jsonObject.getString("aid"));
-				article.setCatid(jsonObject.getString("catid"));
+				article.setCatid(jsonObject.getInt("catid"));
 				article.setAuthor(jsonObject.getString("author"));
 				article.setDateLine(jsonObject.getString("dateline"));
 				article.setTitle(jsonObject.getString("title"));
@@ -75,7 +75,7 @@ public class ApiArticle extends ApiBase {
 	 * 从本地数据库缓存取数据
 	 */
 	public  ArrayList<Article> getArticlesLocal(String catID){
-		String strWhere="Catid='"+catID+"'";
+		String strWhere="Catid in("+catID+")";
 		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
 		return articles;
 	}

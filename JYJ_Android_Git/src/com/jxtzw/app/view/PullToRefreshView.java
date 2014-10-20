@@ -167,13 +167,14 @@ public class PullToRefreshView extends BaseView {
 	/**
 	 * 数据获取
 	 */
+	@SuppressWarnings("unchecked")
 	public void getListData(){
 		//mApiArticle.init(apiurl, query);
 		//获取本地缓存数据
 		boolean flag=getLocalCache();
 		//如果本地有数据
 		if (flag) {
-			mArticlesShow=(ArrayList<Article>) mArticlesLocal.clone();
+			copyLocalToShow();
 			mArticleListAdapter.notifyDataSetChanged();
 		}else{
 			getArticlesOnline();
@@ -209,12 +210,13 @@ public class PullToRefreshView extends BaseView {
 				super.onFailure(t, errorNo, strMsg);
 			}
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public void onSuccess(String t) {
 				// TODO Auto-generated method stub
 				mArticlesNew=mApiArticle.parseArticles(t);
 				getLocalCache();
-				mArticlesShow=(ArrayList<Article>) mArticlesLocal.clone();
+				copyLocalToShow();
 				mArticleListAdapter.notifyDataSetChanged();
 			}
 		});
@@ -225,5 +227,8 @@ public class PullToRefreshView extends BaseView {
 	 * 复制mArticlesLocal到mArticlesShow
 	 * 
 	 */
-	protected void deepCopy(){}
+	protected void copyLocalToShow(){
+		mArticlesShow.clear();
+		mArticlesShow.addAll(mArticlesLocal);
+	}
 }

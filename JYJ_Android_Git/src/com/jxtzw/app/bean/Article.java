@@ -10,7 +10,7 @@ import net.tsz.afinal.annotation.sqlite.Table;
 public class Article {
 	@Id(column="Aid")
 	private String Aid;
-	private String Catid;
+	private int Catid;
 	private String Bid;
 	private String Uid;
 	private String Username;
@@ -49,10 +49,10 @@ public class Article {
 	public void setAid(String aid) {
 		Aid = aid;
 	}
-	public String getCatid() {
+	public int getCatid() {
 		return Catid;
 	}
-	public void setCatid(String catid) {
+	public void setCatid(int catid) {
 		Catid = catid;
 	}
 	public String getBid() {

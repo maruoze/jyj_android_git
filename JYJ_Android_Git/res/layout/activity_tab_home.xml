@@ -36,7 +36,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp" >
+        android:layout_height="30dp" >
 
         <HorizontalScrollView
             android:id="@+id/hsv_subnav"
@@ -63,7 +63,7 @@
         android:id="@+id/newslist_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="70dp"
         android:flipInterval="30"
         android:persistentDrawingCache="animation" >
     </android.support.v4.view.ViewPager>

@@ -19,6 +19,86 @@ public final class R {
         public static final int main_tabs_text=0x7f050000;
     }
     public static final class attr {
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bottom_height=0x7f010006;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bottom_width=0x7f010007;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int left_height=0x7f010000;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int left_width=0x7f010001;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int right_height=0x7f010002;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int right_width=0x7f010003;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int top_height=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int top_width=0x7f010005;
     }
     public static final class color {
         public static final int author_text=0x7f060019;
@@ -64,6 +144,10 @@ public final class R {
         public static final int orange=0x7f06000a;
         public static final int pink=0x7f060009;
         public static final int possible_result_points=0x7f06002b;
+        /**  PullToListView的颜色值 
+         */
+        public static final int ptr_backgroudcolor=0x7f060035;
+        public static final int ptr_datelinecolor=0x7f060036;
         public static final int purple=0x7f060008;
         public static final int red=0x7f060003;
         /**  Android standard ICS color 
@@ -84,6 +168,28 @@ public final class R {
         public static final int weight_bar_buttonup=0x7f06001e;
         public static final int white=0x7f060000;
         public static final int yellow=0x7f060005;
+    }
+    public static final class dimen {
+        public static final int text_size_08=0x7f070000;
+        public static final int text_size_09=0x7f070001;
+        public static final int text_size_10=0x7f070002;
+        public static final int text_size_11=0x7f070003;
+        public static final int text_size_12=0x7f070004;
+        public static final int text_size_13=0x7f070005;
+        public static final int text_size_14=0x7f070006;
+        public static final int text_size_15=0x7f070007;
+        public static final int text_size_16=0x7f070008;
+        public static final int text_size_17=0x7f070009;
+        public static final int text_size_18=0x7f07000a;
+        public static final int text_size_19=0x7f07000b;
+        public static final int text_size_20=0x7f07000c;
+        public static final int text_size_24=0x7f07000d;
+        public static final int text_size_26=0x7f07000e;
+        public static final int text_size_28=0x7f07000f;
+        public static final int text_size_30=0x7f070010;
+        public static final int text_size_32=0x7f070011;
+        public static final int text_size_36=0x7f070012;
+        public static final int text_size_72=0x7f070013;
     }
     public static final class drawable {
         public static final int f001=0x7f020000;
@@ -214,32 +320,38 @@ public final class R {
         public static final int subnav_ll_bg_selected=0x7f02007d;
     }
     public static final class id {
-        public static final int EnterToMain=0x7f090006;
-        public static final int ImagePoint_1=0x7f090002;
-        public static final int ImagePoint_2=0x7f090003;
-        public static final int ImagePoint_3=0x7f090004;
-        public static final int ImagePoint_4=0x7f090005;
-        public static final int ImageViewPager=0x7f090000;
-        public static final int gold=0x7f09000f;
-        public static final int head_arrowImageView=0x7f090013;
-        public static final int head_contentLayout=0x7f090012;
-        public static final int head_lastUpdatedTextView=0x7f090016;
-        public static final int head_left=0x7f090007;
-        public static final int head_middle=0x7f090008;
-        public static final int head_progressBar=0x7f090014;
-        public static final int head_right=0x7f090009;
-        public static final int head_tipsTextView=0x7f090015;
-        public static final int hsv_subnav=0x7f09000a;
-        public static final int linearLayout1=0x7f090001;
-        public static final int listview_foot_more=0x7f09000e;
-        public static final int listview_foot_progress=0x7f09000d;
-        public static final int ll_subnav=0x7f09000b;
-        public static final int newslist_viewpager=0x7f09000c;
-        public static final int oil=0x7f090011;
-        public static final int ptr_newslist=0x7f090019;
-        public static final int silver=0x7f090010;
-        public static final int update_progress=0x7f090017;
-        public static final int update_progress_text=0x7f090018;
+        public static final int EnterToMain=0x7f0a0006;
+        public static final int ImagePoint_1=0x7f0a0002;
+        public static final int ImagePoint_2=0x7f0a0003;
+        public static final int ImagePoint_3=0x7f0a0004;
+        public static final int ImagePoint_4=0x7f0a0005;
+        public static final int ImageViewPager=0x7f0a0000;
+        public static final int article_catname=0x7f0a0010;
+        public static final int article_comment_count=0x7f0a0012;
+        public static final int article_dateline=0x7f0a0011;
+        public static final int article_pic_iv=0x7f0a000d;
+        public static final int article_summary=0x7f0a000f;
+        public static final int article_title=0x7f0a000e;
+        public static final int gold=0x7f0a0015;
+        public static final int head_arrowImageView=0x7f0a0019;
+        public static final int head_contentLayout=0x7f0a0018;
+        public static final int head_lastUpdatedTextView=0x7f0a001c;
+        public static final int head_left=0x7f0a0007;
+        public static final int head_middle=0x7f0a0008;
+        public static final int head_progressBar=0x7f0a001a;
+        public static final int head_right=0x7f0a0009;
+        public static final int head_tipsTextView=0x7f0a001b;
+        public static final int hsv_subnav=0x7f0a000a;
+        public static final int linearLayout1=0x7f0a0001;
+        public static final int listview_foot_more=0x7f0a0014;
+        public static final int listview_foot_progress=0x7f0a0013;
+        public static final int ll_subnav=0x7f0a000b;
+        public static final int newslist_viewpager=0x7f0a000c;
+        public static final int oil=0x7f0a0017;
+        public static final int ptr_newslist=0x7f0a001f;
+        public static final int silver=0x7f0a0016;
+        public static final int update_progress=0x7f0a001d;
+        public static final int update_progress_text=0x7f0a001e;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
@@ -259,86 +371,88 @@ public final class R {
         public static final int viewpager_newslist=0x7f03000e;
     }
     public static final class string {
-        public static final int OAUTH_AccessToken_ACCESS=0x7f070031;
-        public static final int OAUTH_AccessToken_ERROR=0x7f070032;
-        public static final int OAUTH_AccessToken_SXPIRED=0x7f070033;
+        public static final int OAUTH_AccessToken_ACCESS=0x7f080031;
+        public static final int OAUTH_AccessToken_ERROR=0x7f080032;
+        public static final int OAUTH_AccessToken_SXPIRED=0x7f080033;
         /**  sina share message 
          */
-        public static final int OAUTH_ERROR=0x7f07002e;
-        public static final int OAUTH_RequestToken_ACCESS=0x7f07002f;
-        public static final int OAUTH_RequestToken_ERROR=0x7f070030;
-        public static final int Weibo_Message_LONG=0x7f070035;
-        public static final int Weibo_Message_NULL=0x7f070034;
-        public static final int Weibo_Share_Error=0x7f070037;
-        public static final int Weibo_Share_Repeat=0x7f070038;
-        public static final int Weibo_Share_Success=0x7f070036;
-        public static final int api_articles=0x7f070047;
-        public static final int app_error=0x7f07000b;
-        public static final int app_error_message=0x7f07000c;
-        public static final int app_menu_surelogout=0x7f070008;
-        public static final int app_name=0x7f070039;
-        public static final int app_run_code_error=0x7f070006;
-        public static final int back_exit_tips=0x7f070007;
-        public static final int cancle=0x7f07000a;
-        public static final int choose_image=0x7f070019;
-        public static final int clearwords=0x7f07001e;
-        public static final int delete_blog=0x7f07001c;
-        public static final int delete_image=0x7f07001a;
-        public static final int delete_tweet=0x7f07001b;
-        public static final int hello_world=0x7f07003b;
-        public static final int http_exception_error=0x7f070004;
-        public static final int http_status_code_error=0x7f070003;
-        public static final int io_exception_error=0x7f070002;
-        public static final int load_empty=0x7f070011;
-        public static final int load_error=0x7f070012;
-        public static final int load_full=0x7f070010;
-        public static final int load_ing=0x7f07000f;
-        public static final int load_more=0x7f07000e;
-        public static final int msg_load_audio_fail=0x7f070020;
-        public static final int msg_load_image_fail=0x7f070028;
-        public static final int msg_load_is_null=0x7f07001f;
-        public static final int msg_load_userface_fail=0x7f070027;
-        public static final int msg_login_email_error=0x7f070021;
-        public static final int msg_login_email_null=0x7f070022;
-        public static final int msg_login_error=0x7f070026;
-        public static final int msg_login_fail=0x7f070025;
-        public static final int msg_login_pwd_null=0x7f070023;
-        public static final int msg_login_success=0x7f070024;
-        public static final int msg_noaccess_delete=0x7f07002a;
-        public static final int msg_read_detail_fail=0x7f070029;
-        public static final int network_not_connected=0x7f070000;
-        public static final int new_data_toast_message=0x7f070013;
-        public static final int new_data_toast_none=0x7f070014;
-        public static final int publishing=0x7f070018;
+        public static final int OAUTH_ERROR=0x7f08002e;
+        public static final int OAUTH_RequestToken_ACCESS=0x7f08002f;
+        public static final int OAUTH_RequestToken_ERROR=0x7f080030;
+        public static final int Weibo_Message_LONG=0x7f080035;
+        public static final int Weibo_Message_NULL=0x7f080034;
+        public static final int Weibo_Share_Error=0x7f080037;
+        public static final int Weibo_Share_Repeat=0x7f080038;
+        public static final int Weibo_Share_Success=0x7f080036;
+        public static final int api_articles=0x7f080047;
+        public static final int app_error=0x7f08000b;
+        public static final int app_error_message=0x7f08000c;
+        public static final int app_menu_surelogout=0x7f080008;
+        public static final int app_name=0x7f080039;
+        public static final int app_run_code_error=0x7f080006;
+        public static final int back_exit_tips=0x7f080007;
+        public static final int cancle=0x7f08000a;
+        public static final int choose_image=0x7f080019;
+        public static final int clearwords=0x7f08001e;
+        public static final int delete_blog=0x7f08001c;
+        public static final int delete_image=0x7f08001a;
+        public static final int delete_tweet=0x7f08001b;
+        public static final int hello_world=0x7f08003b;
+        public static final int http_exception_error=0x7f080004;
+        public static final int http_status_code_error=0x7f080003;
+        public static final int image_base_url=0x7f080049;
+        public static final int image_content_default=0x7f080048;
+        public static final int io_exception_error=0x7f080002;
+        public static final int load_empty=0x7f080011;
+        public static final int load_error=0x7f080012;
+        public static final int load_full=0x7f080010;
+        public static final int load_ing=0x7f08000f;
+        public static final int load_more=0x7f08000e;
+        public static final int msg_load_audio_fail=0x7f080020;
+        public static final int msg_load_image_fail=0x7f080028;
+        public static final int msg_load_is_null=0x7f08001f;
+        public static final int msg_load_userface_fail=0x7f080027;
+        public static final int msg_login_email_error=0x7f080021;
+        public static final int msg_login_email_null=0x7f080022;
+        public static final int msg_login_error=0x7f080026;
+        public static final int msg_login_fail=0x7f080025;
+        public static final int msg_login_pwd_null=0x7f080023;
+        public static final int msg_login_success=0x7f080024;
+        public static final int msg_noaccess_delete=0x7f08002a;
+        public static final int msg_read_detail_fail=0x7f080029;
+        public static final int network_not_connected=0x7f080000;
+        public static final int new_data_toast_message=0x7f080013;
+        public static final int new_data_toast_none=0x7f080014;
+        public static final int publishing=0x7f080018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f07003c;
-        public static final int pull_to_refresh_refreshing_label=0x7f07003e;
-        public static final int pull_to_refresh_release_label=0x7f07003d;
-        public static final int pull_to_refresh_tap_label=0x7f07003f;
-        public static final int pull_to_refresh_update=0x7f070040;
-        public static final int republish_tweet=0x7f07001d;
-        public static final int select=0x7f070015;
-        public static final int share=0x7f070016;
-        public static final int sharing=0x7f070017;
+        public static final int pull_to_refresh_pull_label=0x7f08003c;
+        public static final int pull_to_refresh_refreshing_label=0x7f08003e;
+        public static final int pull_to_refresh_release_label=0x7f08003d;
+        public static final int pull_to_refresh_tap_label=0x7f08003f;
+        public static final int pull_to_refresh_update=0x7f080040;
+        public static final int republish_tweet=0x7f08001d;
+        public static final int select=0x7f080015;
+        public static final int share=0x7f080016;
+        public static final int sharing=0x7f080017;
         /**  LoginSina 
          */
-        public static final int sinalogin_check_account=0x7f07002b;
-        public static final int sinalogin_check_pass=0x7f07002c;
-        public static final int sinalogin_check_server=0x7f07002d;
-        public static final int socket_exception_error=0x7f070005;
-        public static final int submit_report=0x7f07000d;
-        public static final int sure=0x7f070009;
-        public static final int title_activity_guide=0x7f07003a;
+        public static final int sinalogin_check_account=0x7f08002b;
+        public static final int sinalogin_check_pass=0x7f08002c;
+        public static final int sinalogin_check_server=0x7f08002d;
+        public static final int socket_exception_error=0x7f080005;
+        public static final int submit_report=0x7f08000d;
+        public static final int sure=0x7f080009;
+        public static final int title_activity_guide=0x7f08003a;
         /**  主页面 
          */
-        public static final int title_activity_main=0x7f070041;
-        public static final int title_activity_tab_class=0x7f070044;
-        public static final int title_activity_tab_college=0x7f070045;
-        public static final int title_activity_tab_home=0x7f070042;
-        public static final int title_activity_tab_member=0x7f070046;
-        public static final int title_activity_tab_quot=0x7f070043;
-        public static final int xml_parser_failed=0x7f070001;
+        public static final int title_activity_main=0x7f080041;
+        public static final int title_activity_tab_class=0x7f080044;
+        public static final int title_activity_tab_college=0x7f080045;
+        public static final int title_activity_tab_home=0x7f080042;
+        public static final int title_activity_tab_member=0x7f080046;
+        public static final int title_activity_tab_quot=0x7f080043;
+        public static final int xml_parser_failed=0x7f080001;
     }
     public static final class style {
         /** 
@@ -351,13 +465,171 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f080000;
-        public static final int AppTheme=0x7f080002;
+        public static final int AppBaseTheme=0x7f090000;
+        public static final int AppTheme=0x7f090002;
         /**  Application theme. 
          */
-        public static final int CustomWindowTitleBackground=0x7f080001;
+        public static final int CustomWindowTitleBackground=0x7f090001;
         /**  PullToRefreshListView 
          */
-        public static final int loading_small=0x7f080003;
+        public static final int loading_small=0x7f090003;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a TextViewPlus.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TextViewPlus_bottom_height com.jxtzw.app:bottom_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_bottom_width com.jxtzw.app:bottom_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_left_height com.jxtzw.app:left_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_left_width com.jxtzw.app:left_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_right_height com.jxtzw.app:right_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_right_width com.jxtzw.app:right_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_top_height com.jxtzw.app:top_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextViewPlus_top_width com.jxtzw.app:top_width}</code></td><td></td></tr>
+           </table>
+           @see #TextViewPlus_bottom_height
+           @see #TextViewPlus_bottom_width
+           @see #TextViewPlus_left_height
+           @see #TextViewPlus_left_width
+           @see #TextViewPlus_right_height
+           @see #TextViewPlus_right_width
+           @see #TextViewPlus_top_height
+           @see #TextViewPlus_top_width
+         */
+        public static final int[] TextViewPlus = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#bottom_height}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:bottom_height
+        */
+        public static final int TextViewPlus_bottom_height = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#bottom_width}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:bottom_width
+        */
+        public static final int TextViewPlus_bottom_width = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#left_height}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:left_height
+        */
+        public static final int TextViewPlus_left_height = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#left_width}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:left_width
+        */
+        public static final int TextViewPlus_left_width = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#right_height}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:right_height
+        */
+        public static final int TextViewPlus_right_height = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#right_width}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:right_width
+        */
+        public static final int TextViewPlus_right_width = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#top_height}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:top_height
+        */
+        public static final int TextViewPlus_top_height = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.jxtzw.app.R.attr#top_width}
+          attribute's value can be found in the {@link #TextViewPlus} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.jxtzw.app:top_width
+        */
+        public static final int TextViewPlus_top_width = 5;
+    };
 }

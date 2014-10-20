@@ -1,5 +1,6 @@
 package com.jxtzw.app.common;
 
+import android.annotation.SuppressLint;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -287,4 +288,32 @@ public class StringUtils {
 		return returnString;
 	}
 	
+	/**
+	 * 将秒数时间戳转换为指定格式的日期
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public static String timeStamp2Date(String time,String format) {
+		Long timestamp = Long.parseLong(time)*1000;  
+		String date = new SimpleDateFormat(format).format(new Date(timestamp));  
+		return date;  
+	}
+	
+	/**
+	 * 
+	 */
+	public static boolean isTodayEx(String time) {
+		boolean b = false;
+		//Date time = toDate(sdate);
+		Long timestamp = Long.parseLong(time)*1000;
+		Date today = new Date();
+		Date isTodayDate=new Date(timestamp);
+		if (time != null) {
+			String nowDate = dateFormater2.get().format(today);
+			String timeDate = dateFormater2.get().format(isTodayDate);
+			if (nowDate.equals(timeDate)) {
+				b = true;
+			}
+		}
+		return b;
+	}
 }
