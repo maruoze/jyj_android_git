@@ -9,6 +9,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ListViewArticleAdapter;
 import com.jxtzw.app.api.ApiArticle;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.widget.PullToRefreshListView;
 import com.jxtzw.app.widget.PullToRefreshListView.OnRefreshListener;
 
@@ -60,6 +61,10 @@ public class PullToRefreshView extends BaseView {
 	 * 记录当前滚动位置
 	 */
 	protected int mCurItemPosition=0;
+	/**
+	 * 是否下拉刷新标志
+	 */
+	protected boolean mIsRefresh=false;
 	
 	
 	/**
@@ -124,7 +129,7 @@ public class PullToRefreshView extends BaseView {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
+				UIHelper.ToastMessage(mContext, String.valueOf(position));
 			}
 		};
 		
@@ -134,14 +139,14 @@ public class PullToRefreshView extends BaseView {
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 				// TODO Auto-generated method stub
-				
+				mArticleListPTRLV.onScrollStateChanged(view, scrollState);
 			}
 			
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
 				// TODO Auto-generated method stub
-				
+				mArticleListPTRLV.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
 			}
 		};
 		
@@ -151,9 +156,10 @@ public class PullToRefreshView extends BaseView {
 			@Override
 			public void onRefresh() {
 				// TODO Auto-generated method stub
-				
+				mIsRefresh=true;
+				getArticlesOnline();
 			}
-		};	
+		};
 	}
 	
 	
@@ -215,9 +221,16 @@ public class PullToRefreshView extends BaseView {
 			public void onSuccess(String t) {
 				// TODO Auto-generated method stub
 				mArticlesNew=mApiArticle.parseArticles(t);
+				//刷新本地数据数据
 				getLocalCache();
+				//更新与PullToRefresh绑定的数据
 				copyLocalToShow();
 				mArticleListAdapter.notifyDataSetChanged();
+				//判断是否是下拉刷新
+				if(mIsRefresh){
+					mArticleListPTRLV.onRefreshComplete();
+					mIsRefresh=false;
+				}
 			}
 		});
 	}
