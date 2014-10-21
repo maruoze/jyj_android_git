@@ -46,6 +46,8 @@ public class MethodsCompat {
         return context.getExternalCacheDir();
     }
 
+    /*
+    
     @TargetApi(11)
     public static void recreate(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -67,4 +69,5 @@ public class MethodsCompat {
         }
     }
         
+    */
 }

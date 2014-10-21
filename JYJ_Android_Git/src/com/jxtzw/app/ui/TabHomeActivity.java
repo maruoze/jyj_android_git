@@ -1,6 +1,7 @@
 package com.jxtzw.app.ui;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
@@ -9,6 +10,7 @@ import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.view.NewsListView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -19,11 +21,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class TabHomeActivity extends BaseActivity {
 	/**
 	 * 文章分类
 	 */
+	protected String mMainTitle;
 	protected String[] mCatNames;
 	protected String[] mCatIDs;
 	protected int mVPCount;
@@ -54,14 +58,24 @@ public class TabHomeActivity extends BaseActivity {
 	 * 切换页列表对象
 	 */
 	protected ArrayList<NewsListView> mNewsListViews;
-	
+	/**
+	 * 显示控制
+	 */
+	protected String[] mCatShowQuotation;
+	protected String[] mCatShowImages;
+	/**
+	 * 标题栏相关变量
+	 */
+	protected TextView mTitleTextView;
 	
 	
 	@Override
  	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tab_home);
+		//获取传递进来的参数
 		initMemberVar();
+		initTitle(mCurView);
 		initSubCat();
 		initViewPage();
 	}
@@ -98,6 +112,13 @@ public class TabHomeActivity extends BaseActivity {
 		//子导航ID
 		mCatIDs=DataHelper.getSubCat(mContext, AppConfig.JYJ_CAT_GOLD_ID_USERSET, 
 						AppConfig.JYJ_CAT_GOLD_ID_DEFAULT, R.array.cat_gold_id);
+		//是否显示行情
+		mCatShowQuotation=DataHelper.getSubCat(mContext, AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_USERSET, 
+				AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_DEFAULT, R.array.cat_gold_show_quotaion);
+		//是否显示文章图片
+		mCatShowImages=DataHelper.getSubCat(mContext, AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_USERSET, 
+				AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT, R.array.cat_gold_show_image);
+		
 		mVPCount=mCatIDs.length;
 		//ViewPager对应的View
 		mNewsListViewPages=new ArrayList<View>();
@@ -109,12 +130,18 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats=new ArrayList<Button>();
 		//切换页列表对象
 		mNewsListViews=new ArrayList<NewsListView>();
+		Intent intent=getIntent();
+		mMainTitle=intent.getStringExtra("MainTitle");
 	}
 	
 	/**
 	 * 初始化标题栏信息
 	 */
-	
+	protected void initTitle(int index) {
+		mTitleTextView=(TextView) findViewById(R.id.head_middle);
+		String titleString=mMainTitle+" • "+mCatNames[index];
+		mTitleTextView.setText(titleString);
+	}
 	
 	/**
 	 * 初始化子分类导航
@@ -155,6 +182,8 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats.get(current).setBackgroundDrawable(mResources.getDrawable(R.drawable.subnav_bg_sel));
 		//更新内容显示
 		updateView(current);
+		//更新标题
+		 initTitle(current);
 	}
 	
 	
@@ -231,9 +260,13 @@ public class TabHomeActivity extends BaseActivity {
 	protected View initView(int index) {
 		View listView=null;
 		listView=mLayoutInflater.inflate(R.layout.viewpager_newslist, null);
-		String catID=mCatIDs[index];
+		Hashtable<String, String> config=new Hashtable<String, String>();
+		config.put("mCatID", mCatIDs[index]);
+		config.put("mCatName", mCatNames[index]);
+		config.put("mCatShowQuo", mCatShowQuotation[index]);
+		config.put("mCatShowImages", mCatShowImages[index]);
 		NewsListView newsListView=new NewsListView(mContext);
-		newsListView.init(listView,catID,index);
+		newsListView.init(listView,config,index);
 		mNewsListViews.add(newsListView);
 		return listView;
 	}

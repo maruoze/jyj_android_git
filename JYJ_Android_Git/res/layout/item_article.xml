@@ -68,7 +68,8 @@
             android:layout_toRightOf="@+id/article_catname"
             android:drawableLeft="@drawable/f032"
             android:gravity="center_vertical"
-            android:textSize="@dimen/text_size_10" 
+            android:textSize="@dimen/text_size_10"
+            android:layout_marginLeft="5dp"
             textviewplus:left_height="15dp"
             textviewplus:left_width="15dp"/>
 

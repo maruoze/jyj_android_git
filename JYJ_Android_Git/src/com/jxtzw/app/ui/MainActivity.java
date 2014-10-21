@@ -42,7 +42,6 @@ public class MainActivity extends TabActivity {
 												R.drawable.f004,R.drawable.f005};
 	private int mTabCount;
 	private OnTabChangeListener mOnTabChangeListener;
-	private String mPreTabString="";
 	//弹出菜单
 	private PopupWindow mPWTab;
 	
@@ -75,6 +74,7 @@ public class MainActivity extends TabActivity {
 		for (int i = 0; i < mTabCount; i++) {
 			String tag=mTabTagsStrings[i];
 			Intent intent=new Intent(this, mTabClasses[i]);
+			intent.putExtra("MainTitle", mTabTitleStrings[i]);
 			TabHost.TabSpec tabSpec=initTabSpec(tag,mTabTitleStrings[i],mTabImages[i],intent);
 			mTabHost.addTab(tabSpec);
 		}
@@ -124,15 +124,11 @@ public class MainActivity extends TabActivity {
 			public void onTabChanged(String tabId) {
 				// TODO Auto-generated method stub
 				if(tabId.equals("Classify")){
-					//mTabHost.setCurrentTabByTag(mPreTabString);
-					mPreTabString=tabId;
-					
 					View v=mTabHost.getTabWidget().findViewWithTag(tabId);
 					mPWTab.showAtLocation(v, Gravity.BOTTOM, 0, 90);
 					mPWTab.setOutsideTouchable(true);
 					
 				}else{
-					mPreTabString=tabId;
 					mPWTab.dismiss();
 				}
 			}

@@ -57,12 +57,19 @@ public class AppConfig {
 	/**
 	 * 子分类名称字符串常量
 	 */
+	//储存黄金分类的名称的SP变量名
 	public final static String JYJ_CAT_GOLD_NAME_DEFAULT="cat_gold_name_default";
 	public final static String JYJ_CAT_GOLD_NAME_USERSET="cat_gold_name_userset";
+	//储存黄金分类的ID的SP变量名
 	public final static String JYJ_CAT_GOLD_ID_DEFAULT="cat_gold_id_default";
 	public final static String JYJ_CAT_GOLD_ID_USERSET="cat_gold_id_userset";
+	//储存黄金分类里是否显示行情的SP变量名
 	public final static String JYJ_CAT_GOLD_SHOW_QUOT_DEFAULT="cat_gold_show_quot_default";
 	public final static String JYJ_CAT_GOLD_SHOW_QUOT_USERSET="cat_gold_show_quot_userset";
+	//储存黄金分类中的文章列表是显示图片的SP变量名
+	public final static String JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT="cat_gold_show_image_default";
+	public final static String JYJ_CAT_GOLD_SHOW_IMAGE_USERSET="cat_gold_show_image_userset";
+	
 	
 
 	public static AppConfig getAppConfig(Context context) {

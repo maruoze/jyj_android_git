@@ -1,5 +1,7 @@
 package com.jxtzw.app.view;
 
+import java.util.Hashtable;
+
 import android.content.Context;
 import android.view.View;
 
@@ -9,8 +11,9 @@ public class NewsListView extends BaseView {
 	 */
 	protected View mListView;
 	/**
-	 * 分类ID
+	 * 分类ID, 数据
 	 */
+	protected Hashtable<String, String> mHashtable;
 	protected String mCatID;
 	protected int mIndex;						//切换页索引
 	/**
@@ -27,9 +30,10 @@ public class NewsListView extends BaseView {
 	/**
 	 * 初始化
 	 */
-	public void init(View view, String catID,int index){
+	public void init(View view, Hashtable<String, String> hashtable,int index){
 		this.mListView=view;
-		this.mCatID=catID;
+		this.mHashtable=hashtable;
+		this.mCatID=mHashtable.get("mCatID");
 		this.mIndex=index;
 		initPTRView();
 	}
@@ -47,7 +51,7 @@ public class NewsListView extends BaseView {
 	 * 下拉刷新列表显示部分
 	 */
 	protected void initPTRView() {
-		mPullToRefreshView=new PullToRefreshView(mContext,mListView,mCatID,mIndex);
+		mPullToRefreshView=new PullToRefreshView(mContext,mListView,mHashtable,mIndex);
 	}
 	
 	

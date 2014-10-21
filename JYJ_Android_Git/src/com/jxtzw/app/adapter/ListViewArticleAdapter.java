@@ -1,6 +1,7 @@
 package com.jxtzw.app.adapter;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import net.tsz.afinal.FinalBitmap;
 
@@ -26,6 +27,7 @@ import android.widget.TextView;
  */
 public class ListViewArticleAdapter extends BaseAdapter {
 	private Context 					mContext;//运行上下文
+	private Hashtable<String, String> mRelatedData; //相关数据hash表
 	private ArrayList<Article> 	mArticles;//数据集合
 	private LayoutInflater 		mLayoutInflater;//视图容器
 	private Resources 				mResources;//自定义项视图源 
@@ -43,11 +45,13 @@ public class ListViewArticleAdapter extends BaseAdapter {
 	 * @param data
 	 * @param resource
 	 */
-	public ListViewArticleAdapter(Context context, ArrayList<Article> data,Resources resource) {
+	public ListViewArticleAdapter(Context context, ArrayList<Article> data,
+			Resources resource, Hashtable<String, String> hashtable) {
 		this.mContext = context;			
 		this.mLayoutInflater = LayoutInflater.from(context);	//创建视图容器并设置上下文
 		this.mResources = resource;
 		this.mArticles = data;
+		this.mRelatedData=hashtable;
 	}
 	
 	@Override
@@ -99,8 +103,8 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		listItemView.title.setText(article.getTitle());
 		listItemView.title.setTag(article);//设置隐藏参数(实体类)
 		listItemView.summary.setText(article.getSummary());
-		listItemView.dateline.setText(StringUtils.timeStamp2Date(article.getDateLine(), "yyyy-MM-dd HH:mm"));
-		listItemView.catname.setText(String.valueOf(article.getCatid()));
+		listItemView.dateline.setText(" "+StringUtils.timeStamp2Date(article.getDateLine(), "yyyy-MM-dd HH:mm"));
+		listItemView.catname.setText(" "+mRelatedData.get("mCatName"));
 		if(StringUtils.isTodayEx(article.getDateLine())){
 			Drawable drawable=mResources.getDrawable(R.drawable.f026);
 			drawable.setBounds(0, 0, 20, 20);
@@ -111,7 +115,8 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		//设置图片
 		String imageBaseURL=mResources.getString(R.string.image_base_url);
 		String picString=article.getPic();
-		if(!picString.equals("")){
+		boolean isShowImage=mRelatedData.get("mCatShowImages").equals("1");
+		if(!picString.equals("")&&isShowImage){
 			FinalBitmap fb=FinalBitmap.create(mContext);
 			String imageURL=imageBaseURL+article.getPic();
 			fb.display(listItemView.pic, imageURL);

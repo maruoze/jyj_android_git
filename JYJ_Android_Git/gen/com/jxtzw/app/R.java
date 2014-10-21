@@ -15,6 +15,7 @@ public final class R {
     public static final class array {
         public static final int cat_gold_id=0x7f050002;
         public static final int cat_gold_name=0x7f050001;
+        public static final int cat_gold_show_image=0x7f050004;
         public static final int cat_gold_show_quotaion=0x7f050003;
         public static final int main_tabs_text=0x7f050000;
     }
@@ -116,9 +117,7 @@ containing a value of this type.
         public static final int dim_foreground_light_inverse_disabled=0x7f060017;
         public static final int encode_view=0x7f06002a;
         public static final int face_bg=0x7f06001a;
-        /**  tabhost需要的颜色值 
-         */
-        public static final int ff373d44=0x7f060034;
+        public static final int ff373d44=0x7f060035;
         public static final int ff40ab54=0x7f060028;
         public static final int fff1f2f3=0x7f060027;
         public static final int frame_button_text_nor=0x7f06001b;
@@ -146,8 +145,8 @@ containing a value of this type.
         public static final int possible_result_points=0x7f06002b;
         /**  PullToListView的颜色值 
          */
-        public static final int ptr_backgroudcolor=0x7f060035;
-        public static final int ptr_datelinecolor=0x7f060036;
+        public static final int ptr_backgroudcolor=0x7f060036;
+        public static final int ptr_datelinecolor=0x7f060037;
         public static final int purple=0x7f060008;
         public static final int red=0x7f060003;
         /**  Android standard ICS color 
@@ -159,6 +158,9 @@ containing a value of this type.
         public static final int result_text=0x7f06002e;
         public static final int result_view=0x7f06002f;
         public static final int status_text=0x7f060030;
+        /**  tabhost需要的颜色值 
+         */
+        public static final int tabhost_title=0x7f060034;
         public static final int transparent=0x7f060031;
         public static final int viewfinder_laser=0x7f060032;
         /**  Android standard ICS color 
@@ -326,32 +328,31 @@ containing a value of this type.
         public static final int ImagePoint_3=0x7f0a0004;
         public static final int ImagePoint_4=0x7f0a0005;
         public static final int ImageViewPager=0x7f0a0000;
-        public static final int article_catname=0x7f0a0010;
-        public static final int article_comment_count=0x7f0a0012;
-        public static final int article_dateline=0x7f0a0011;
-        public static final int article_pic_iv=0x7f0a000d;
-        public static final int article_summary=0x7f0a000f;
-        public static final int article_title=0x7f0a000e;
-        public static final int gold=0x7f0a0015;
-        public static final int head_arrowImageView=0x7f0a0019;
-        public static final int head_contentLayout=0x7f0a0018;
-        public static final int head_lastUpdatedTextView=0x7f0a001c;
-        public static final int head_left=0x7f0a0007;
-        public static final int head_middle=0x7f0a0008;
-        public static final int head_progressBar=0x7f0a001a;
-        public static final int head_right=0x7f0a0009;
-        public static final int head_tipsTextView=0x7f0a001b;
-        public static final int hsv_subnav=0x7f0a000a;
+        public static final int article_catname=0x7f0a000f;
+        public static final int article_comment_count=0x7f0a0011;
+        public static final int article_dateline=0x7f0a0010;
+        public static final int article_pic_iv=0x7f0a000c;
+        public static final int article_summary=0x7f0a000e;
+        public static final int article_title=0x7f0a000d;
+        public static final int gold=0x7f0a0014;
+        public static final int head_arrowImageView=0x7f0a0018;
+        public static final int head_contentLayout=0x7f0a0017;
+        public static final int head_lastUpdatedTextView=0x7f0a001b;
+        public static final int head_middle=0x7f0a0007;
+        public static final int head_progressBar=0x7f0a0019;
+        public static final int head_right=0x7f0a0008;
+        public static final int head_tipsTextView=0x7f0a001a;
+        public static final int hsv_subnav=0x7f0a0009;
         public static final int linearLayout1=0x7f0a0001;
-        public static final int listview_foot_more=0x7f0a0014;
-        public static final int listview_foot_progress=0x7f0a0013;
-        public static final int ll_subnav=0x7f0a000b;
-        public static final int newslist_viewpager=0x7f0a000c;
-        public static final int oil=0x7f0a0017;
-        public static final int ptr_newslist=0x7f0a001f;
-        public static final int silver=0x7f0a0016;
-        public static final int update_progress=0x7f0a001d;
-        public static final int update_progress_text=0x7f0a001e;
+        public static final int listview_foot_more=0x7f0a0013;
+        public static final int listview_foot_progress=0x7f0a0012;
+        public static final int ll_subnav=0x7f0a000a;
+        public static final int newslist_viewpager=0x7f0a000b;
+        public static final int oil=0x7f0a0016;
+        public static final int ptr_newslist=0x7f0a001e;
+        public static final int silver=0x7f0a0015;
+        public static final int update_progress=0x7f0a001c;
+        public static final int update_progress_text=0x7f0a001d;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
@@ -384,11 +385,11 @@ containing a value of this type.
         public static final int Weibo_Share_Error=0x7f080037;
         public static final int Weibo_Share_Repeat=0x7f080038;
         public static final int Weibo_Share_Success=0x7f080036;
-        public static final int api_articles=0x7f080047;
+        public static final int api_articles=0x7f080048;
         public static final int app_error=0x7f08000b;
         public static final int app_error_message=0x7f08000c;
         public static final int app_menu_surelogout=0x7f080008;
-        public static final int app_name=0x7f080039;
+        public static final int app_name=0x7f08003a;
         public static final int app_run_code_error=0x7f080006;
         public static final int back_exit_tips=0x7f080007;
         public static final int cancle=0x7f08000a;
@@ -397,11 +398,11 @@ containing a value of this type.
         public static final int delete_blog=0x7f08001c;
         public static final int delete_image=0x7f08001a;
         public static final int delete_tweet=0x7f08001b;
-        public static final int hello_world=0x7f08003b;
+        public static final int hello_world=0x7f08003c;
         public static final int http_exception_error=0x7f080004;
         public static final int http_status_code_error=0x7f080003;
-        public static final int image_base_url=0x7f080049;
-        public static final int image_content_default=0x7f080048;
+        public static final int image_base_url=0x7f08004a;
+        public static final int image_content_default=0x7f080049;
         public static final int io_exception_error=0x7f080002;
         public static final int load_empty=0x7f080011;
         public static final int load_error=0x7f080012;
@@ -426,13 +427,16 @@ containing a value of this type.
         public static final int publishing=0x7f080018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f08003c;
-        public static final int pull_to_refresh_refreshing_label=0x7f08003e;
-        public static final int pull_to_refresh_release_label=0x7f08003d;
-        public static final int pull_to_refresh_tap_label=0x7f08003f;
-        public static final int pull_to_refresh_update=0x7f080040;
+        public static final int pull_to_refresh_pull_label=0x7f08003d;
+        public static final int pull_to_refresh_refreshing_label=0x7f08003f;
+        public static final int pull_to_refresh_release_label=0x7f08003e;
+        public static final int pull_to_refresh_tap_label=0x7f080040;
+        public static final int pull_to_refresh_update=0x7f080041;
         public static final int republish_tweet=0x7f08001d;
         public static final int select=0x7f080015;
+        /**  符号 
+         */
+        public static final int setting=0x7f080039;
         public static final int share=0x7f080016;
         public static final int sharing=0x7f080017;
         /**  LoginSina 
@@ -443,15 +447,15 @@ containing a value of this type.
         public static final int socket_exception_error=0x7f080005;
         public static final int submit_report=0x7f08000d;
         public static final int sure=0x7f080009;
-        public static final int title_activity_guide=0x7f08003a;
+        public static final int title_activity_guide=0x7f08003b;
         /**  主页面 
          */
-        public static final int title_activity_main=0x7f080041;
-        public static final int title_activity_tab_class=0x7f080044;
-        public static final int title_activity_tab_college=0x7f080045;
-        public static final int title_activity_tab_home=0x7f080042;
-        public static final int title_activity_tab_member=0x7f080046;
-        public static final int title_activity_tab_quot=0x7f080043;
+        public static final int title_activity_main=0x7f080042;
+        public static final int title_activity_tab_class=0x7f080045;
+        public static final int title_activity_tab_college=0x7f080046;
+        public static final int title_activity_tab_home=0x7f080043;
+        public static final int title_activity_tab_member=0x7f080047;
+        public static final int title_activity_tab_quot=0x7f080044;
         public static final int xml_parser_failed=0x7f080001;
     }
     public static final class style {

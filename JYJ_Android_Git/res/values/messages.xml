@@ -67,4 +67,7 @@
 	<string name="Weibo_Share_Success">微博分享成功</string>
 	<string name="Weibo_Share_Error">微博分享失败</string>
 	<string name="Weibo_Share_Repeat">已经分享过了</string>
+	
+	<!-- 符号 -->
+	<string name="setting"> • • • </string>
 </resources>

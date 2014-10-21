@@ -60,6 +60,7 @@ public class GuideActivity extends Activity {
 	private String mCatGoldName;
 	private String mCatGoldID;
 	private String mCatGoldShowQuotation;
+	private String mCatGoldShowImage;
 	
 	
 	
@@ -212,6 +213,8 @@ public class GuideActivity extends Activity {
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_USERSET, mCatGoldID);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_DEFAULT, mCatGoldShowQuotation);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_USERSET, mCatGoldShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT, mCatGoldShowImage);
+		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_USERSET, mCatGoldShowImage);
 		//数据提交
 		mEditor.commit();
 	}
@@ -226,9 +229,14 @@ public class GuideActivity extends Activity {
 		//子分类名称ID字符串
 		String[] catGoldName=mResources.getStringArray(R.array.cat_gold_name);
 		mCatGoldName=StringUtils.stringArrayToString(catGoldName, ";");
+		
 		String[] catGoldID=mResources.getStringArray(R.array.cat_gold_id);
 		mCatGoldID=StringUtils.stringArrayToString(catGoldID, ";");
+		
 		String[] catGoldShowQuotation=mResources.getStringArray(R.array.cat_gold_show_quotaion);
 		mCatGoldShowQuotation=StringUtils.stringArrayToString(catGoldShowQuotation, ";");
+		
+		String[] catGoldShowImage=mResources.getStringArray(R.array.cat_gold_show_image);
+		mCatGoldShowImage=StringUtils.stringArrayToString(catGoldShowImage, ";");
 	}
 }

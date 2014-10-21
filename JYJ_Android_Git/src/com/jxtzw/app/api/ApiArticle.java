@@ -48,9 +48,10 @@ public class ApiArticle extends ApiBase {
 				article.setPic(jsonObject.getString("pic"));
 				article.setUsername(jsonObject.getString("username"));
 				//保存数据到本地数据库
-				saveArticle(article);
+				if(saveArticle(article)){
 				//保存数据到返回的数组列表
-				articles.add(article);
+					articles.add(article);
+				}
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -62,12 +63,15 @@ public class ApiArticle extends ApiBase {
 	/**
 	 * 存数据如数据库
 	 */
-	protected void saveArticle(Article article){
-		String strWhere="aid in("+article.getAid()+")";
+	protected boolean saveArticle(Article article){
+		boolean flag=false;
+		String strWhere="Aid in("+article.getAid()+")";
 		ArrayList<Article> tpArticle=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
-		if(tpArticle.size()==0){
+		if( tpArticle.size()==0 ){
 			mFinalDb.save(article);
+			flag=true;
 		}
+		return flag;
 	}
 	
 	
@@ -76,7 +80,8 @@ public class ApiArticle extends ApiBase {
 	 */
 	public  ArrayList<Article> getArticlesLocal(String catID){
 		String strWhere="Catid in("+catID+")";
-		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
+		String strOrder="Dateline DESC";
+		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere,strOrder);
 		return articles;
 	}
 }

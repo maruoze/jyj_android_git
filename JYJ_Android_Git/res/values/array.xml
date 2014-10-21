@@ -25,5 +25,11 @@
         <item >0</item>
         <item >0</item>
     </string-array>
+    <string-array name="cat_gold_show_image">
+        <item >0</item>
+        <item >1</item>
+        <item >1</item>
+        <item >1</item>
+    </string-array>
     
 </resources>
