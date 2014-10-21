@@ -349,7 +349,11 @@ containing a value of this type.
         public static final int ll_subnav=0x7f0a000a;
         public static final int newslist_viewpager=0x7f0a000b;
         public static final int oil=0x7f0a0016;
-        public static final int ptr_newslist=0x7f0a001e;
+        public static final int ptr_newslist=0x7f0a0022;
+        public static final int quot_qoutaiton=0x7f0a0021;
+        public static final int quot_time_time=0x7f0a0020;
+        public static final int quot_time_txt=0x7f0a001f;
+        public static final int quot_title=0x7f0a001e;
         public static final int silver=0x7f0a0015;
         public static final int update_progress=0x7f0a001c;
         public static final int update_progress_text=0x7f0a001d;
@@ -385,24 +389,27 @@ containing a value of this type.
         public static final int Weibo_Share_Error=0x7f080037;
         public static final int Weibo_Share_Repeat=0x7f080038;
         public static final int Weibo_Share_Success=0x7f080036;
-        public static final int api_articles=0x7f080048;
+        public static final int api_articles=0x7f080049;
         public static final int app_error=0x7f08000b;
         public static final int app_error_message=0x7f08000c;
         public static final int app_menu_surelogout=0x7f080008;
-        public static final int app_name=0x7f08003a;
+        public static final int app_name=0x7f08003b;
         public static final int app_run_code_error=0x7f080006;
         public static final int back_exit_tips=0x7f080007;
+        /**  行情 
+         */
+        public static final int beijing_time=0x7f08003a;
         public static final int cancle=0x7f08000a;
         public static final int choose_image=0x7f080019;
         public static final int clearwords=0x7f08001e;
         public static final int delete_blog=0x7f08001c;
         public static final int delete_image=0x7f08001a;
         public static final int delete_tweet=0x7f08001b;
-        public static final int hello_world=0x7f08003c;
+        public static final int hello_world=0x7f08003d;
         public static final int http_exception_error=0x7f080004;
         public static final int http_status_code_error=0x7f080003;
-        public static final int image_base_url=0x7f08004a;
-        public static final int image_content_default=0x7f080049;
+        public static final int image_base_url=0x7f08004b;
+        public static final int image_content_default=0x7f08004a;
         public static final int io_exception_error=0x7f080002;
         public static final int load_empty=0x7f080011;
         public static final int load_error=0x7f080012;
@@ -427,11 +434,11 @@ containing a value of this type.
         public static final int publishing=0x7f080018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f08003d;
-        public static final int pull_to_refresh_refreshing_label=0x7f08003f;
-        public static final int pull_to_refresh_release_label=0x7f08003e;
-        public static final int pull_to_refresh_tap_label=0x7f080040;
-        public static final int pull_to_refresh_update=0x7f080041;
+        public static final int pull_to_refresh_pull_label=0x7f08003e;
+        public static final int pull_to_refresh_refreshing_label=0x7f080040;
+        public static final int pull_to_refresh_release_label=0x7f08003f;
+        public static final int pull_to_refresh_tap_label=0x7f080041;
+        public static final int pull_to_refresh_update=0x7f080042;
         public static final int republish_tweet=0x7f08001d;
         public static final int select=0x7f080015;
         /**  符号 
@@ -447,15 +454,15 @@ containing a value of this type.
         public static final int socket_exception_error=0x7f080005;
         public static final int submit_report=0x7f08000d;
         public static final int sure=0x7f080009;
-        public static final int title_activity_guide=0x7f08003b;
+        public static final int title_activity_guide=0x7f08003c;
         /**  主页面 
          */
-        public static final int title_activity_main=0x7f080042;
-        public static final int title_activity_tab_class=0x7f080045;
-        public static final int title_activity_tab_college=0x7f080046;
-        public static final int title_activity_tab_home=0x7f080043;
-        public static final int title_activity_tab_member=0x7f080047;
-        public static final int title_activity_tab_quot=0x7f080044;
+        public static final int title_activity_main=0x7f080043;
+        public static final int title_activity_tab_class=0x7f080046;
+        public static final int title_activity_tab_college=0x7f080047;
+        public static final int title_activity_tab_home=0x7f080044;
+        public static final int title_activity_tab_member=0x7f080048;
+        public static final int title_activity_tab_quot=0x7f080045;
         public static final int xml_parser_failed=0x7f080001;
     }
     public static final class style {

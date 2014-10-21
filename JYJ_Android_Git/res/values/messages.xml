@@ -70,4 +70,7 @@
 	
 	<!-- 符号 -->
 	<string name="setting"> • • • </string>
+	
+	<!-- 行情 -->
+	<string name="beijing_time">北京时间</string>
 </resources>
