@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -299,7 +300,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 
+	 * 判断是否是当日
 	 */
 	public static boolean isTodayEx(String time) {
 		boolean b = false;
@@ -315,5 +316,27 @@ public class StringUtils {
 			}
 		}
 		return b;
+	}
+	
+	/**
+	 * 浮点数保留两位小数
+	 */
+	public static String float2Format(String str) {
+		String returnString="";
+		float price=Float.parseFloat(str);
+		DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
+		returnString=decimalFormat.format(price);//format 返回的是字符串
+		return returnString;
+	}
+	
+	/**
+	 * 获得当前系统时间并格式化输出
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public static String getNowString() {
+		String nowString=null;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		nowString = df.format(new Date());// new Date()为获取当前系统时间
+		return nowString;
 	}
 }

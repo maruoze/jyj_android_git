@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:textviewplus="http://schemas.android.com/apk/res/com.jxtzw.app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:paddingBottom="10dp"
+        android:background="@color/ptr_datelinecolor">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/quot_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_20"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/quot_time_txt"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_10"
+                android:text="@string/beijing_time" />
+            <TextView
+                android:id="@+id/quot_time_time"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_10"
+                android:text="TextView" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3" >
+
+            <com.jxtzw.app.widget.TextViewPlus
+                android:id="@+id/quot_qoutaiton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_20"
+                android:drawableRight="@drawable/f040"
+                textviewplus:right_height="20dp"
+            	textviewplus:right_width="20dp"
+                android:text="TextViewPlus  " />
+            
+            <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="20dp"
+			    android:paddingLeft="10dp"
+			    android:paddingRight="10dp"
+			    android:orientation="horizontal">
+	            
+	            <TextView
+		            android:id="@+id/quot_open_price"
+		            android:layout_width="match_parent"
+		            android:layout_height="20dp"
+		            android:gravity="left"
+		            android:layout_weight="1"
+		            android:textSize="@dimen/text_size_12"
+		            android:text="TextView" />
+	            <TextView
+		            android:id="@+id/quot_close_price"
+		            android:layout_width="match_parent"
+		            android:layout_height="20dp"
+		            android:gravity="left"
+		            android:textSize="@dimen/text_size_12"
+		            android:layout_weight="1"
+		            android:text="TextView" />
+            </LinearLayout>
+            <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="20dp"
+			    android:paddingLeft="10dp"
+			    android:paddingRight="10dp"
+			    android:orientation="horizontal">
+	            
+	            <TextView
+		            android:id="@+id/quot_high_price"
+		            android:layout_width="match_parent"
+		            android:layout_height="20dp"
+		            android:gravity="left"
+		            android:layout_weight="1"
+		            android:textSize="@dimen/text_size_12"
+		            android:text="TextView" />
+	            <TextView
+		            android:id="@+id/quot_low_price"
+		            android:layout_width="match_parent"
+		            android:layout_height="20dp"
+		            android:gravity="left"
+		            android:layout_weight="1"
+		            android:textSize="@dimen/text_size_12"
+		            android:text="TextView" />
+            </LinearLayout>
+            
+        </LinearLayout>
+</LinearLayout>   

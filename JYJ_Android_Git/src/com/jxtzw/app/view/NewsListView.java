@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ListView;
 
 public class NewsListView extends BaseView {
 	/**
@@ -15,7 +16,13 @@ public class NewsListView extends BaseView {
 	 */
 	protected Hashtable<String, String> mHashtable;
 	protected String mCatID;
-	protected int mIndex;						//切换页索引
+	protected int mIndex;							//切换页索引
+	protected String mShowQuotation; 	//行情显示
+	/**
+	 * 行情数据
+	 */
+	protected QuotationListView mQuotationListView;
+	
 	/**
 	 * 下拉刷新列表
 	 */
@@ -34,7 +41,9 @@ public class NewsListView extends BaseView {
 		this.mListView=view;
 		this.mHashtable=hashtable;
 		this.mCatID=mHashtable.get("mCatID");
+		this.mShowQuotation=mHashtable.get("mCatShowQuo");
 		this.mIndex=index;
+		initQuotaionView();
 		initPTRView();
 	}
 		
@@ -43,7 +52,11 @@ public class NewsListView extends BaseView {
 	/**
 	 * 行情显示部分
 	 */
-	
+	public void initQuotaionView() {
+		if (!mShowQuotation.equals("-1")) {
+			mQuotationListView=new QuotationListView(mContext, mListView, mHashtable, mIndex);
+		}
+	}
 	
 	
 	
