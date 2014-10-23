@@ -65,7 +65,7 @@
 	
 	<!-- tabhost需要的颜色值 -->
 	<color name="tabhost_title">#FFE91E63</color>
-	<color name="ff373d44">#ff373d44</color>
+	<color name="light_black">#ff373d44</color>
 	<!-- PullToListView的颜色值 -->
 	<color name="ptr_backgroudcolor">#ffe0e0e0</color>
 	<color name="ptr_datelinecolor">#ffeceff3</color>

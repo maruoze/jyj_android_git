@@ -16,8 +16,8 @@ public class Quotation {
 	private String quo_low_price;
 	private String quo_date;
 	private String quo_date_time;
-	@Id(column="quo_time")
 	private String quo_time;
+	@Id(column="quo_type_id")
 	private String quo_type_id;
 	public String getQuo_en_code() {
 		return quo_en_code;

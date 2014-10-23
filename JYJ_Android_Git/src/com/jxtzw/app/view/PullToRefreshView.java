@@ -7,6 +7,7 @@ import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 
 import com.jxtzw.app.AppContext;
+import com.jxtzw.app.ArticleInfoActivity;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ListViewArticleAdapter;
 import com.jxtzw.app.api.ApiArticle;
@@ -17,6 +18,8 @@ import com.jxtzw.app.widget.PullToRefreshListView.OnRefreshListener;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -145,7 +148,17 @@ public class PullToRefreshView extends BaseView {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext, String.valueOf(position));
+				//UIHelper.ToastMessage(mContext, String.valueOf(position));
+				//Bundle数据
+				Article article=mArticlesShow.get(position-1);
+				Bundle bundle=new Bundle();
+				bundle.putSerializable("article", article);
+				bundle.putString("cat_name", mHashtable.get("mCatName"));
+				//新的Intent
+				Intent articleInfoIntent=new Intent();
+				articleInfoIntent.putExtras(bundle);
+				articleInfoIntent.setClass(mContext, ArticleInfoActivity.class);
+				mContext.startActivity(articleInfoIntent);
 			}
 		};
 		

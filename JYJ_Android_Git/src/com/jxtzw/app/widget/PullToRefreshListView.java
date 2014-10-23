@@ -147,11 +147,11 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
                     //System.out.println("当前-抬起-ACTION_UP：DONE什么都不做");
                 }  
                 else if (state == PULL_To_REFRESH) {  
-                    //state = DONE;  
-                    //changeHeaderViewByState(); 
-                	state = REFRESHING;  
-                    changeHeaderViewByState();  
-                    onRefresh();         
+                    state = DONE;  
+                    changeHeaderViewByState(); 
+                	//state = REFRESHING;  
+                    //changeHeaderViewByState();  
+                    //onRefresh();         
                     //System.out.println("当前-抬起-ACTION_UP：PULL_To_REFRESH-->DONE-由下拉刷新状态到刷新完成状态");
                 }  
                 else if (state == RELEASE_To_REFRESH) {  

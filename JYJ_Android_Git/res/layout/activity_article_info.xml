@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp" 
+        android:orientation="horizontal"
+        android:background="@color/tabhost_title">
+		<Button
+            android:id="@+id/head_left"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/white"
+            android:background="@color/tabhost_title"
+            android:text="@string/info_back"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            android:id="@+id/head_middle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_26"/>
+
+        <Button
+            android:id="@+id/head_right"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:background="@color/tabhost_title"
+            android:text="@string/setting" />
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/article_info_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp" 
+        android:layout_marginBottom="50dp"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray">
+        
+    </LinearLayout>
+    
+</RelativeLayout>

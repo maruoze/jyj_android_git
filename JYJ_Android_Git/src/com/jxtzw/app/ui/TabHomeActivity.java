@@ -7,8 +7,10 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.NewsListViewPagerAdapter;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.handler.QuotationUpdateHandler;
 import com.jxtzw.app.view.NewsListView;
 
+import android.R.integer;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,6 +60,7 @@ public class TabHomeActivity extends BaseActivity {
 	 * 切换页列表对象
 	 */
 	protected ArrayList<NewsListView> mNewsListViews;
+	protected ArrayList<QuotationUpdateHandler> mQuotationUpdateHandlers;
 	/**
 	 * 显示控制
 	 */
@@ -130,6 +133,13 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats=new ArrayList<Button>();
 		//切换页列表对象
 		mNewsListViews=new ArrayList<NewsListView>();
+		//初始化行情时间更新计时器handler
+		mQuotationUpdateHandlers=new ArrayList<QuotationUpdateHandler>();
+		for (int i = 0; i < mCatShowQuotation.length; i++) {
+			if(!mCatShowQuotation[i].equals("-1")){
+				mQuotationUpdateHandlers.add(null);
+			}
+		}
 		Intent intent=getIntent();
 		mMainTitle=intent.getStringExtra("MainTitle");
 	}
@@ -180,10 +190,14 @@ public class TabHomeActivity extends BaseActivity {
 		mSubCats.get(last).setBackgroundDrawable(mResources.getDrawable(R.drawable.subnav_bg_def));
 		mSubCats.get(current).setTextColor(mResources.getColor(R.color.red));
 		mSubCats.get(current).setBackgroundDrawable(mResources.getDrawable(R.drawable.subnav_bg_sel));
+		//清除上一个计时器
+		if (mQuotationUpdateHandlers.size()>last&&mQuotationUpdateHandlers.get(last)!=null) {
+			mQuotationUpdateHandlers.get(last).clearAll();
+		}
 		//更新内容显示
 		updateView(current);
 		//更新标题
-		 initTitle(current);
+		initTitle(current);
 	}
 	
 	
@@ -276,6 +290,6 @@ public class TabHomeActivity extends BaseActivity {
 	 */
 	protected void updateView(int index){
 		NewsListView newsListView=mNewsListViews.get(index);
-		newsListView.update();
+		newsListView.update(mQuotationUpdateHandlers);
 	}
 }

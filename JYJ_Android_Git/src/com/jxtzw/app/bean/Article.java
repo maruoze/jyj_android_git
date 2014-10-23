@@ -3,11 +3,19 @@
  */
 package com.jxtzw.app.bean;
 
+import java.io.Serializable;
+
 import net.tsz.afinal.annotation.sqlite.Id;
 import net.tsz.afinal.annotation.sqlite.Table;
+import net.tsz.afinal.annotation.sqlite.Transient;
 
 @Table(name="article")
-public class Article {
+public class Article implements Serializable {
+	/**
+	 * 序列化ID
+	 */
+	@Transient
+	private static final long serialVersionUID = -36355259443173107L;
 	@Id(column="Aid")
 	private String Aid;
 	private int Catid;

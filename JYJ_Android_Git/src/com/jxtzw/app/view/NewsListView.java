@@ -1,6 +1,10 @@
 package com.jxtzw.app.view;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+
+import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.handler.QuotationUpdateHandler;
 
 import android.content.Context;
 import android.view.View;
@@ -71,8 +75,11 @@ public class NewsListView extends BaseView {
 	/**
 	 * 刷新数据
 	 */
-	public void update() {
+	public void update(ArrayList<QuotationUpdateHandler> quh) {
 		mPullToRefreshView.refreshPTR();
+		if (!mShowQuotation.equals("-1")) {
+			mQuotationListView.refreshQuo(quh);
+		}
 	}
 	
 }

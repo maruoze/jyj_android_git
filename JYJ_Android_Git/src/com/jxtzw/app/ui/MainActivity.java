@@ -1,5 +1,7 @@
 package com.jxtzw.app.ui;
 
+import java.util.ArrayList;
+
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
@@ -44,6 +46,10 @@ public class MainActivity extends TabActivity {
 	private OnTabChangeListener mOnTabChangeListener;
 	//弹出菜单
 	private PopupWindow mPWTab;
+	/**
+	 * TabHost的tab的TextView
+	 */
+	private ArrayList<TextView> mTabTextViews;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,7 @@ public class MainActivity extends TabActivity {
 		mLayoutInflater=LayoutInflater.from(this);
 		mSharedPreferences=AppConfig.getSharedPreferences(this);
 		getConfig();
+		mTabTextViews=new ArrayList<TextView>();
 	}
 	
 	/**
@@ -75,7 +82,7 @@ public class MainActivity extends TabActivity {
 			String tag=mTabTagsStrings[i];
 			Intent intent=new Intent(this, mTabClasses[i]);
 			intent.putExtra("MainTitle", mTabTitleStrings[i]);
-			TabHost.TabSpec tabSpec=initTabSpec(tag,mTabTitleStrings[i],mTabImages[i],intent);
+			TabHost.TabSpec tabSpec=initTabSpec(tag,mTabTitleStrings[i],mTabImages[i],intent,i);
 			mTabHost.addTab(tabSpec);
 		}
 		initOnTabChange();
@@ -85,12 +92,16 @@ public class MainActivity extends TabActivity {
 	/**
      * 自定义创建标签项的方法
 	 */
-	protected TabHost.TabSpec initTabSpec(String tag,String title,int image_id,Intent intent) {
+	protected TabHost.TabSpec initTabSpec(String tag,String title,int image_id,Intent intent,int index) {
 		TabHost.TabSpec tabSpec = null;
 		tabSpec=mTabHost.newTabSpec(tag);
 		TextView textView=initTabSpecTextView(tag,title,image_id);
+		if(index==0){
+			textView.setBackgroundColor(mResources.getColor(R.color.black));
+		}
 		tabSpec.setIndicator(textView);
 		tabSpec.setContent(intent);
+		mTabTextViews.add(textView);
 		return tabSpec;
 	}
 	
@@ -131,6 +142,13 @@ public class MainActivity extends TabActivity {
 				}else{
 					mPWTab.dismiss();
 				}
+				//清除颜色
+				for (int i = 0; i < mTabTextViews.size(); i++) {
+					mTabTextViews.get(i).setBackgroundColor(mResources.getColor(R.color.light_black));
+				}
+				//设置颜色
+				TextView tView=(TextView) mTabHost.getTabWidget().findViewWithTag(tabId);
+				tView.setBackgroundColor(mResources.getColor(R.color.black));
 			}
 		};
 	}

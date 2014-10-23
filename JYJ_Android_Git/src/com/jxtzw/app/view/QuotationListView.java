@@ -15,8 +15,11 @@ import com.jxtzw.app.api.ApiQuotation;
 import com.jxtzw.app.bean.Quotation;
 import com.jxtzw.app.common.StringUtils;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.handler.QuotationUpdateHandler;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
 
@@ -47,10 +50,12 @@ public class QuotationListView extends BaseView {
 	 */
 	protected AppContext mAppContext;
 	/**
-	 * 时间计时器
+	 * 更新Handler
 	 */
-	protected Timer mTimeTimer;
-	protected TimerTask mTimeTimerTask;
+	protected QuotationUpdateHandler mQuotationUpdateHandler;
+	protected QuotationListView mThis;
+	protected ArrayList<QuotationUpdateHandler> mQuotationUpdateHandlers;
+	
 	
 	
 	/**
@@ -66,6 +71,7 @@ public class QuotationListView extends BaseView {
 		this.mListView = listView;
 		this.mHashtable = hashtable;
 		this.mIndex = index;
+		this.mThis=this;
 		initMemberVar();
 		initQuoListView();
 	}
@@ -90,18 +96,29 @@ public class QuotationListView extends BaseView {
 		mQuoListView=(ListView) mListView.findViewById(R.id.lv_quotation);
 		mQuoListView.setVisibility(View.VISIBLE);
 		mQuoListView.setAdapter(mQuoLVAdapter);
-		updateData();
 	}
+	
+	/**
+	 * 对外的数据刷新接口
+	 */
+	public void refreshQuo(ArrayList<QuotationUpdateHandler> quh) {
+		mQuotationUpdateHandlers=quh;
+		updateData();
+		refreshQuotation();
+	}
+	
 	
 	/**
 	 * 更新数据
 	 */
 	protected void updateData() {
+		//获取本地缓存
 		boolean flag=getLocalCache();
 		if (flag) {
 			copyLocalToShow();
 			mQuoLVAdapter.notifyDataSetChanged();
 		}
+		//更新数据
 		getDataOnline();
 	}
 	
@@ -113,7 +130,6 @@ public class QuotationListView extends BaseView {
 		mQuotationsLocal.clear();
 		mQuotationsLocal=mApiQuotation.getQuotationLocal(mTypeID);
 		if (mQuotationsLocal.size()!=0) {
-			refreshTime();
 			flag=true;
 		}
 		return flag;
@@ -122,7 +138,7 @@ public class QuotationListView extends BaseView {
 	/**
 	 * 获取网络数据
 	 */
-	protected void getDataOnline() {
+	public void getDataOnline() {
 		//判断是否有可用网络
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
@@ -143,10 +159,13 @@ public class QuotationListView extends BaseView {
 
 			public void onSuccess(String t) {
 				// TODO Auto-generated method stub
-				mApiQuotation.parseQuotation(t);
-				getLocalCache();
-				copyLocalToShow();
-				mQuoLVAdapter.notifyDataSetChanged();
+				if(!t.isEmpty()){
+					mApiQuotation.parseQuotation(t);
+					if(getLocalCache()){
+						copyLocalToShow();
+						mQuoLVAdapter.notifyDataSetChanged();
+					}
+				}
 			}
 			
 		});
@@ -162,19 +181,15 @@ public class QuotationListView extends BaseView {
 	}
 	
 	/**
-	 * 更新时间
+	 * 更新行情显示
 	 */
-	protected void refreshTime(){
-		mTimeTimer=new Timer();
-		mTimeTimerTask=new TimerTask() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				String nowString=StringUtils.getNowString();
-				mQuotationsShow.get(0).setQuo_time(nowString);
-				mQuoLVAdapter.notifyDataSetChanged();
-			}
-		};
-		mTimeTimer.schedule(mTimeTimerTask, 0, 1000);
+	protected void refreshQuotation(){
+		//开启新计时器
+		mQuotationUpdateHandler=new QuotationUpdateHandler(mContext, mQuotationsShow, mQuoLVAdapter,mThis);
+		//开启行情更新
+		mQuotationUpdateHandler.refreshTime();
+		mQuotationUpdateHandler.refreshData();
+		//保存计时器Handler
+		mQuotationUpdateHandlers.set(mIndex, mQuotationUpdateHandler);
 	}
 }

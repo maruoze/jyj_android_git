@@ -19,10 +19,11 @@
     <string name="title_activity_tab_class">TabClassActivity</string>
     <string name="title_activity_tab_college">TabCollegeActivity</string>
     <string name="title_activity_tab_member">TabMemberActivity</string>
-    
     <string name="image_content_default">图片默认表述</string>
-    <string name="image_base_url">http://www.jxtzw.com/data/attachment/</string><string name="api_articles">http://www.jxtzw.com/api/user_data_output/data_api.php</string>
+    <string name="image_base_url">http://www.jxtzw.com/data/attachment/</string>
+    <string name="api_articles">http://www.jxtzw.com/api/user_data_output/data_api.php</string>
     <string name="api_quotation_goldsilver">http://www.jxtzw.com/littletools/api/appGetWebData.php</string>
     <string name="api_quotation_oil">http://www.jxtzw.com/littletools/api/appGetWebData2.php</string>
+    <string name="title_activity_article_info">ArticleInfoActivity</string>
 
 </resources>

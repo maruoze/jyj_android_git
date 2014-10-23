@@ -103,7 +103,7 @@ public class ListViewQuotationAdapter extends BaseAdapter {
 		listItemView.tv_quo_close_price.setText("昨收价："+StringUtils.float2Format(quotation.getQuo_close_price()));
 		listItemView.tv_quo_high_price.setText("最高价："+StringUtils.float2Format(quotation.getQuo_high_price()));
 		listItemView.tv_quo_low_price.setText("最低价："+StringUtils.float2Format(quotation.getQuo_low_price()));
-		listItemView.tv_quo_time.setText(quotation.getQuo_time());
+		listItemView.tv_quo_time.setText(StringUtils.getNowString());
 		
 		float price_change=Float.parseFloat(quotation.getQuo_price_change());
 		Drawable drawable=null;
