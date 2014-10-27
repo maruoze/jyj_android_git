@@ -7,12 +7,13 @@ import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 
 import com.jxtzw.app.AppContext;
-import com.jxtzw.app.ArticleInfoActivity;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ListViewArticleAdapter;
 import com.jxtzw.app.api.ApiArticle;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.handler.GetLocalArticleHandler;
+import com.jxtzw.app.ui.ArticleInfoActivity;
 import com.jxtzw.app.widget.PullToRefreshListView;
 import com.jxtzw.app.widget.PullToRefreshListView.OnRefreshListener;
 
@@ -20,6 +21,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -80,6 +82,24 @@ public class PullToRefreshView extends BaseView {
 	 * APP上下文
 	 */
 	protected AppContext mAppContext;
+	/**
+	 * Handler
+	 */
+	protected Handler mGetLocalHandler;
+	/**
+	 * 当前类实例
+	 */
+	protected PullToRefreshView mThis;
+	/**
+	 * Handler
+	 */
+	protected GetLocalArticleHandler mGetLocalArticleHandler;
+	/**
+	 * 常量数据
+	 */
+	private static int NOT_GET_ARTICLE_ONLINE=-1;
+	private static int UPDATE_PTR_FIRST=0;
+	private static int NOT_UPDATE_PTR=1;
 	
 	
 	/**
@@ -96,6 +116,7 @@ public class PullToRefreshView extends BaseView {
 		this.mHashtable=hashtable;
 		this.mCatID=mHashtable.get("mCatID");
 		this.mIndex=index;
+		this.mThis=this;
 		initMemberVar();
 		initArticleListView();
 	}
@@ -227,13 +248,14 @@ public class PullToRefreshView extends BaseView {
 	 * 刷新UI
 	 */
 	public void refreshPTR(){
-		getListData();
+		//getListData();
+		getLocalHandler(true);
 	}
 	
 	/**
 	 * 数据获取
 	 */
-	public void getListData(){
+	/*public void getListData(){
 		//mApiArticle.init(apiurl, query);
 		//获取本地缓存数据
 		boolean flag=getLocalCache();
@@ -244,12 +266,12 @@ public class PullToRefreshView extends BaseView {
 		}
 		//检查是否有新数据更新
 		getArticlesOnline();
-	}
+	}*/
 	
 	/**
 	 * 本地缓存数据获取
 	 */
-	protected boolean getLocalCache(){
+	/*protected boolean getLocalCache(){
 		boolean flag=false;
 		mArticlesLocal.clear();
 		mArticlesLocal=mApiArticle.getArticlesLocal(mCatID);
@@ -257,12 +279,43 @@ public class PullToRefreshView extends BaseView {
 			flag=true;
 		}
 		return flag;
+	}*/
+	
+	/**
+	 * 本地数据库查询线程
+	 */
+	protected void getLocalHandler(final boolean isGetArticleOnline){
+		mGetLocalArticleHandler=new GetLocalArticleHandler(mContext, mThis, mArticleListAdapter,mArticleListPTRLV);
+		
+		Thread threadGetLocal=new Thread(){
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				//本地数据库数据获取
+				mArticlesLocal.clear();
+				mArticlesLocal=mApiArticle.getArticlesLocal(mCatID);
+				if (isGetArticleOnline) {
+					if(mArticlesLocal.size()!=0){
+						mGetLocalArticleHandler.sendEmptyMessage(UPDATE_PTR_FIRST);
+					}else{
+						mGetLocalArticleHandler.sendEmptyMessage(NOT_UPDATE_PTR);
+					}
+				} else {
+					if(mArticlesLocal.size()!=0){
+						mGetLocalArticleHandler.sendEmptyMessage(NOT_GET_ARTICLE_ONLINE);
+					}
+				}
+			}
+		};
+		threadGetLocal.start();
 	}
+	
+	
 	
 	/**
 	 * 从网上获取数据
 	 */
-	protected void getArticlesOnline(){
+	public void getArticlesOnline(){
 		//判断是否有可用网络
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
@@ -291,24 +344,28 @@ public class PullToRefreshView extends BaseView {
 				//判断有数据更新后刷新UI
 				String msgString=null;
 				if(mArticlesNew.size()>0){
+					/**
 					//刷新本地数据数据
 					getLocalCache();
 					//更新与PullToRefresh绑定的数据
 					copyLocalToShow();
+					mArticleListAdapter.notifyDataSetChanged();
 					//解锁滚动列表
 					mArticleListPTRLV.setEnabled(true);
-					mArticleListAdapter.notifyDataSetChanged();
+					*/
+					getLocalHandler(false);
 					//显示更新了多少条数据
 					msgString="更新了"+mArticlesNew.size()+"条数据";
-				}else{
-					//显示更新了多少条数据
-					msgString="没有数据更新";
+					UIHelper.ToastMessage(mContext, msgString);
 				}
-				UIHelper.ToastMessage(mContext, msgString);
 				//判断是否是下拉刷新
 				if(mIsRefresh){
 					mArticleListPTRLV.onRefreshComplete();
 					mIsRefresh=false;
+					if(mArticlesNew.size()<=0){
+						msgString="没有新数据";
+						UIHelper.ToastMessage(mContext, msgString);
+					}
 				}
 				//判断网络上是否已经没有新数据
 				if(mIsRefresh==false&&mArticlesNew.size()==0){
@@ -324,7 +381,7 @@ public class PullToRefreshView extends BaseView {
 	 * 复制mArticlesLocal到mArticlesShow，更新与ListView绑定的数据
 	 * 
 	 */
-	protected void copyLocalToShow(){
+	public void copyLocalToShow(){
 		mArticlesShow.clear();
 		//确定显示的条目数量
 		int AScount=mStart+mPageSize;

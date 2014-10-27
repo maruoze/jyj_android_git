@@ -84,4 +84,42 @@ public class ApiArticle extends ApiBase {
 		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere,strOrder);
 		return articles;
 	}
+	
+	
+	/**
+	 * 文章内容部分
+	 */
+	public ArrayList<Article> getArticleContent(String mArticlesString,Article article) {
+		ArrayList<Article> articles=new ArrayList<Article>();
+		try {
+			JSONArray jsonArray=new JSONArray(mArticlesString);
+			if (jsonArray.length()==1) {
+				JSONObject jsonObject=jsonArray.getJSONObject(0);
+				article.setContents(jsonObject.getString("content"));
+				//保存数据到本地数据库
+				if(updateArticle(article)){
+				//保存数据到返回的数组列表
+					articles.add(article);
+				}
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return articles;	
+	}
+	
+	/**
+	 * 更新文章
+	 */
+	protected boolean updateArticle(Article article){
+		boolean flag=false;
+		String strWhere="Aid in("+article.getAid()+")";
+		ArrayList<Article> tpArticle=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
+		if (tpArticle.size()==1) {
+			mFinalDb.update(article, strWhere);
+			flag=true;
+		}
+		return flag;
+	}
 }

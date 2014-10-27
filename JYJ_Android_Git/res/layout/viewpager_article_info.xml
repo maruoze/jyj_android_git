@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,15 +7,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/article_info_catname_time"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:text="TextView" />
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:id="@+id/article_info_line_01"
@@ -31,7 +30,10 @@
         android:id="@+id/article_info_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView" />
+        android:textSize="@dimen/text_size_24"
+        android:paddingTop="5dp" 
+        android:paddingBottom="5dp"
+        android:text="" />
 
     <TextView
         android:id="@+id/article_info_line_02"
@@ -41,26 +43,46 @@
 		android:layout_marginBottom="9dp" 
 		android:background="@color/gray" />
 
-    <WebView
-        android:id="@+id/article_info_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp" />
 
-    <TextView
-        android:id="@+id/related_article_title"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:background="@color/red"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp" 
-        android:text="相关文章" />
 
-    <ListView
-        android:id="@+id/related_article"
+    <ScrollView
+        android:id="@+id/article_content_sv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical" >
+
+            <WebView
+		        android:id="@+id/article_info_content"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="10dp"/>
+
+
+            
+           <TextView
+		        android:id="@+id/related_article_title"
+		        android:layout_width="wrap_content"
+		        android:layout_height="40dp"
+		        android:gravity="center_vertical"
+		        android:background="@color/tabhost_title"
+		        android:textSize="@dimen/text_size_18"
+		        android:textColor="@color/white"
+		        android:layout_marginBottom="10dp" 
+		        android:paddingLeft="10dp" 
+		        android:paddingRight="10dp"
+		        android:text="@string/related_article" />
+           
+            <com.jxtzw.app.widget.ListViewInScrollView
+                android:id="@+id/related_article"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </com.jxtzw.app.widget.ListViewInScrollView>
+           
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -74,4 +74,5 @@
 	
 	<!-- 行情 -->
 	<string name="beijing_time">北京时间</string>
+	<string name="related_article">相关文章</string>
 </resources>

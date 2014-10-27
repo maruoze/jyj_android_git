@@ -329,35 +329,36 @@ containing a value of this type.
         public static final int ImageViewPager=0x7f0a0004;
         public static final int article_catname=0x7f0a0011;
         public static final int article_comment_count=0x7f0a0013;
+        public static final int article_content_sv=0x7f0a002e;
         public static final int article_dateline=0x7f0a0012;
-        public static final int article_info_catname_time=0x7f0a0028;
-        public static final int article_info_content=0x7f0a002d;
-        public static final int article_info_line_01=0x7f0a0029;
-        public static final int article_info_line_02=0x7f0a002b;
-        public static final int article_info_title=0x7f0a002a;
+        public static final int article_info_catname_time=0x7f0a0029;
+        public static final int article_info_content=0x7f0a002f;
+        public static final int article_info_line_01=0x7f0a002a;
+        public static final int article_info_line_02=0x7f0a002c;
+        public static final int article_info_title=0x7f0a002b;
         public static final int article_info_viewpager=0x7f0a0003;
         public static final int article_pic_iv=0x7f0a000e;
         public static final int article_summary=0x7f0a0010;
         public static final int article_title=0x7f0a000f;
-        public static final int gold=0x7f0a001e;
-        public static final int head_arrowImageView=0x7f0a0022;
-        public static final int head_contentLayout=0x7f0a0021;
-        public static final int head_lastUpdatedTextView=0x7f0a0025;
+        public static final int gold=0x7f0a001f;
+        public static final int head_arrowImageView=0x7f0a0023;
+        public static final int head_contentLayout=0x7f0a0022;
+        public static final int head_lastUpdatedTextView=0x7f0a0026;
         public static final int head_left=0x7f0a0000;
         public static final int head_middle=0x7f0a0001;
-        public static final int head_progressBar=0x7f0a0023;
+        public static final int head_progressBar=0x7f0a0024;
         public static final int head_right=0x7f0a0002;
-        public static final int head_tipsTextView=0x7f0a0024;
+        public static final int head_tipsTextView=0x7f0a0025;
         public static final int hsv_subnav=0x7f0a000b;
         public static final int linearLayout1=0x7f0a0005;
-        public static final int listview_foot_more=0x7f0a001d;
-        public static final int listview_foot_progress=0x7f0a001c;
+        public static final int listview_foot_more=0x7f0a001e;
+        public static final int listview_foot_progress=0x7f0a001d;
         public static final int ll_subnav=0x7f0a000c;
-        public static final int lv_quotation=0x7f0a0030;
+        public static final int lv_quotation=0x7f0a0031;
         public static final int newslist_viewpager=0x7f0a000d;
-        public static final int oil=0x7f0a0020;
-        public static final int ptr_article_comment=0x7f0a002c;
-        public static final int ptr_newslist=0x7f0a0031;
+        public static final int oil=0x7f0a0021;
+        public static final int ptr_article_comment=0x7f0a002d;
+        public static final int ptr_newslist=0x7f0a0032;
         public static final int quot_close_price=0x7f0a0019;
         public static final int quot_high_price=0x7f0a001a;
         public static final int quot_low_price=0x7f0a001b;
@@ -366,11 +367,11 @@ containing a value of this type.
         public static final int quot_time_time=0x7f0a0016;
         public static final int quot_time_txt=0x7f0a0015;
         public static final int quot_title=0x7f0a0014;
-        public static final int related_article=0x7f0a002f;
-        public static final int related_article_title=0x7f0a002e;
-        public static final int silver=0x7f0a001f;
-        public static final int update_progress=0x7f0a0026;
-        public static final int update_progress_text=0x7f0a0027;
+        public static final int related_article=0x7f0a001c;
+        public static final int related_article_title=0x7f0a0030;
+        public static final int silver=0x7f0a0020;
+        public static final int update_progress=0x7f0a0027;
+        public static final int update_progress_text=0x7f0a0028;
     }
     public static final class layout {
         public static final int activity_article_info=0x7f030000;
@@ -384,14 +385,15 @@ containing a value of this type.
         public static final int button_subcat=0x7f030008;
         public static final int item_article=0x7f030009;
         public static final int item_quotation=0x7f03000a;
-        public static final int listview_footer=0x7f03000b;
-        public static final int pop_tab=0x7f03000c;
-        public static final int pull_to_refresh_head=0x7f03000d;
-        public static final int tabhost_tab=0x7f03000e;
-        public static final int update_progress=0x7f03000f;
-        public static final int viewpager_article_comment=0x7f030010;
-        public static final int viewpager_article_info=0x7f030011;
-        public static final int viewpager_newslist=0x7f030012;
+        public static final int item_related_article=0x7f03000b;
+        public static final int listview_footer=0x7f03000c;
+        public static final int pop_tab=0x7f03000d;
+        public static final int pull_to_refresh_head=0x7f03000e;
+        public static final int tabhost_tab=0x7f03000f;
+        public static final int update_progress=0x7f030010;
+        public static final int viewpager_article_comment=0x7f030011;
+        public static final int viewpager_article_info=0x7f030012;
+        public static final int viewpager_newslist=0x7f030013;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f080031;
@@ -407,13 +409,13 @@ containing a value of this type.
         public static final int Weibo_Share_Error=0x7f080037;
         public static final int Weibo_Share_Repeat=0x7f080038;
         public static final int Weibo_Share_Success=0x7f080036;
-        public static final int api_articles=0x7f08004c;
-        public static final int api_quotation_goldsilver=0x7f08004d;
-        public static final int api_quotation_oil=0x7f08004e;
+        public static final int api_articles=0x7f08004d;
+        public static final int api_quotation_goldsilver=0x7f08004e;
+        public static final int api_quotation_oil=0x7f08004f;
         public static final int app_error=0x7f08000b;
         public static final int app_error_message=0x7f08000c;
         public static final int app_menu_surelogout=0x7f080008;
-        public static final int app_name=0x7f08003c;
+        public static final int app_name=0x7f08003d;
         public static final int app_run_code_error=0x7f080006;
         public static final int back_exit_tips=0x7f080007;
         /**  行情 
@@ -425,11 +427,11 @@ containing a value of this type.
         public static final int delete_blog=0x7f08001c;
         public static final int delete_image=0x7f08001a;
         public static final int delete_tweet=0x7f08001b;
-        public static final int hello_world=0x7f08003e;
+        public static final int hello_world=0x7f08003f;
         public static final int http_exception_error=0x7f080004;
         public static final int http_status_code_error=0x7f080003;
-        public static final int image_base_url=0x7f08004b;
-        public static final int image_content_default=0x7f08004a;
+        public static final int image_base_url=0x7f08004c;
+        public static final int image_content_default=0x7f08004b;
         public static final int info_back=0x7f08003a;
         public static final int io_exception_error=0x7f080002;
         public static final int load_empty=0x7f080011;
@@ -455,11 +457,12 @@ containing a value of this type.
         public static final int publishing=0x7f080018;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f08003f;
-        public static final int pull_to_refresh_refreshing_label=0x7f080041;
-        public static final int pull_to_refresh_release_label=0x7f080040;
-        public static final int pull_to_refresh_tap_label=0x7f080042;
-        public static final int pull_to_refresh_update=0x7f080043;
+        public static final int pull_to_refresh_pull_label=0x7f080040;
+        public static final int pull_to_refresh_refreshing_label=0x7f080042;
+        public static final int pull_to_refresh_release_label=0x7f080041;
+        public static final int pull_to_refresh_tap_label=0x7f080043;
+        public static final int pull_to_refresh_update=0x7f080044;
+        public static final int related_article=0x7f08003c;
         public static final int republish_tweet=0x7f08001d;
         public static final int select=0x7f080015;
         /**  符号 
@@ -475,16 +478,16 @@ containing a value of this type.
         public static final int socket_exception_error=0x7f080005;
         public static final int submit_report=0x7f08000d;
         public static final int sure=0x7f080009;
-        public static final int title_activity_article_info=0x7f08004f;
-        public static final int title_activity_guide=0x7f08003d;
+        public static final int title_activity_article_info=0x7f080050;
+        public static final int title_activity_guide=0x7f08003e;
         /**  主页面 
          */
-        public static final int title_activity_main=0x7f080044;
-        public static final int title_activity_tab_class=0x7f080047;
-        public static final int title_activity_tab_college=0x7f080048;
-        public static final int title_activity_tab_home=0x7f080045;
-        public static final int title_activity_tab_member=0x7f080049;
-        public static final int title_activity_tab_quot=0x7f080046;
+        public static final int title_activity_main=0x7f080045;
+        public static final int title_activity_tab_class=0x7f080048;
+        public static final int title_activity_tab_college=0x7f080049;
+        public static final int title_activity_tab_home=0x7f080046;
+        public static final int title_activity_tab_member=0x7f08004a;
+        public static final int title_activity_tab_quot=0x7f080047;
         public static final int xml_parser_failed=0x7f080001;
     }
     public static final class style {

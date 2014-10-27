@@ -59,7 +59,7 @@
             android:label="@string/title_activity_tab_member" >
         </activity>
         <activity
-            android:name=".ArticleInfoActivity"
+            android:name="com.jxtzw.app.ui.ArticleInfoActivity"
             android:label="@string/title_activity_article_info" >
         </activity>
     </application>

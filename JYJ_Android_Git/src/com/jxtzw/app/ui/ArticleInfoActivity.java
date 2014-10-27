@@ -1,11 +1,13 @@
-package com.jxtzw.app;
+package com.jxtzw.app.ui;
 
 import java.util.ArrayList;
 
+import com.jxtzw.app.R;
+import com.jxtzw.app.R.id;
+import com.jxtzw.app.R.layout;
 import com.jxtzw.app.adapter.ArticleInfoViewPagerAdapter;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
-import com.jxtzw.app.ui.BaseActivity;
 import com.jxtzw.app.view.ArticleCommentView;
 import com.jxtzw.app.view.ArticleInfoView;
 
@@ -158,7 +160,7 @@ public class ArticleInfoActivity extends BaseActivity {
 	@SuppressLint("InflateParams")
 	protected View initArticleInfoView() {
 		View view=mLayoutInflater.inflate(R.layout.viewpager_article_info, null);
-		mArticleInfoView=new ArticleInfoView(mContext, view, mArticle);
+		mArticleInfoView=new ArticleInfoView(mContext, view, mArticle,mCatName);
 		return view;
 	}
 	
