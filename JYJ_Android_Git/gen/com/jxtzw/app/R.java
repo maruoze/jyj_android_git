@@ -428,6 +428,7 @@ containing a value of this type.
         public static final int delete_image=0x7f08001a;
         public static final int delete_tweet=0x7f08001b;
         public static final int hello_world=0x7f08003f;
+        public static final int host=0x7f080051;
         public static final int http_exception_error=0x7f080004;
         public static final int http_status_code_error=0x7f080003;
         public static final int image_base_url=0x7f08004c;

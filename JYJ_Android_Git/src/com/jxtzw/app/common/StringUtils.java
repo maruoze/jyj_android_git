@@ -1,6 +1,8 @@
 package com.jxtzw.app.common;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -339,4 +342,58 @@ public class StringUtils {
 		nowString = df.format(new Date());// new Date()为获取当前系统时间
 		return nowString;
 	}
+	
+	/**
+	 * 获取的网络数据的处理
+	 */
+	public static String dataFiltering(String origin,String imageBaseURL) {
+		if(origin!=null){
+			//超链接去除
+			origin=HtmlRegexpUtils.fiterHtmlTag(origin, "a");
+			origin=origin.replaceAll("</a>", "");
+			//HTML特殊符号替换
+			origin=StringUtils.replaceHTML(origin);
+			//图片地址完整化
+			origin=StringUtils.completeImageURL(origin, imageBaseURL);
+		}
+		return origin;
+	}
+
+	
+	/**
+	 * HTML符号替换
+	 */
+	public static String replaceHTML(String origin) {
+		origin=origin.replace("&amp;", "&");
+		origin=origin.replace("&quot;", "\"");
+		origin=origin.replace("&gt;", ">");
+		origin=origin.replace("&lt;", "<");
+		return origin;
+	}
+	
+	/**
+	 * 图片地址完整化[方法1，不完美，如果图片多于一张则回全部显示第一张图片]
+	 */
+	public static String completeImageURL(String origin,String imageBaseURL) {
+		String img="";
+		Pattern pImageURL;
+		Matcher matcherImageURL;
+		String regExImage = "<img.*src\\s*=\\s*(.*?)[^>]*?>"; 
+		pImageURL=Pattern.compile(regExImage, Pattern.CASE_INSENSITIVE);
+		matcherImageURL=pImageURL.matcher(origin);
+		while (matcherImageURL.find()) {
+			img =  matcherImageURL.group();
+			Matcher m  = Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(img);
+			String imageSrc = null;
+			while(m.find()){
+				String imageURL=m.group(1);
+				String imageURLWhole="src="+'"'+imageBaseURL+imageURL+'"'+" width='100%'";
+				imageSrc=m.replaceAll(imageURLWhole);
+			}
+			origin=matcherImageURL.replaceAll(imageSrc);
+		}
+		return origin;
+	}
+	
+	
 }

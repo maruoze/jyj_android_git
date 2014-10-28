@@ -25,5 +25,6 @@
     <string name="api_quotation_goldsilver">http://www.jxtzw.com/littletools/api/appGetWebData.php</string>
     <string name="api_quotation_oil">http://www.jxtzw.com/littletools/api/appGetWebData2.php</string>
     <string name="title_activity_article_info">ArticleInfoActivity</string>
+    <string name="host">http://www.jxtzw.com/</string>
 
 </resources>

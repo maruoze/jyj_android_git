@@ -61,7 +61,7 @@ public class ApiArticle extends ApiBase {
 	}
 	
 	/**
-	 * 存数据如数据库
+	 * 存数据入数据库
 	 */
 	protected boolean saveArticle(Article article){
 		boolean flag=false;
@@ -80,6 +80,16 @@ public class ApiArticle extends ApiBase {
 	 */
 	public  ArrayList<Article> getArticlesLocal(String catID){
 		String strWhere="Catid in("+catID+")";
+		String strOrder="Dateline DESC";
+		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere,strOrder);
+		return articles;
+	}
+	
+	/**
+	 * 从本地数据库缓存取数据【去除当前显示数据】
+	 */
+	public  ArrayList<Article> getArticlesLocalEx(String catID,String aid){
+		String strWhere="Catid IN("+catID+") AND Aid NOT IN("+aid+")";
 		String strOrder="Dateline DESC";
 		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere,strOrder);
 		return articles;
