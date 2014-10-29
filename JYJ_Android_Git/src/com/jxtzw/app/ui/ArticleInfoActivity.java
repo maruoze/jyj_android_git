@@ -170,7 +170,7 @@ public class ArticleInfoActivity extends BaseActivity {
 	@SuppressLint("InflateParams")
 	protected View initArticleCommentView() {
 		View view=mLayoutInflater.inflate(R.layout.viewpager_article_comment, null);
-		mArticleCommentView=new ArticleCommentView(mContext);
+		mArticleCommentView=new ArticleCommentView(mContext, view,mArticle,mCatName);
 		return view;
 	}
 	

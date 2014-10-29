@@ -117,6 +117,9 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		String picString=article.getPic();
 		boolean isShowImage=mRelatedData.get("mCatShowImages").equals("1");
 		if(!picString.equals("")&&isShowImage){
+			//加载默认图片
+			
+			//替换为真正图片
 			FinalBitmap fb=FinalBitmap.create(mContext);
 			String imageURL=imageBaseURL+article.getPic();
 			fb.display(listItemView.pic, imageURL);
