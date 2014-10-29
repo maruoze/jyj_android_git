@@ -100,9 +100,9 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		//设置文字和图片
 		Article article = mArticles.get(position);
 		
-		listItemView.title.setText(article.getTitle());
+		listItemView.title.setText(StringUtils.replaceHTML(article.getTitle()));
 		listItemView.title.setTag(article);//设置隐藏参数(实体类)
-		listItemView.summary.setText(article.getSummary());
+		listItemView.summary.setText(StringUtils.replaceHTML(article.getSummary()));
 		listItemView.dateline.setText(" "+StringUtils.timeStamp2Date(article.getDateLine(), "yyyy-MM-dd HH:mm"));
 		listItemView.catname.setText(" "+mRelatedData.get("mCatName"));
 		if(StringUtils.isTodayEx(article.getDateLine())){

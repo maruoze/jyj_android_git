@@ -372,7 +372,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 图片地址完整化[方法1，不完美，如果图片多于一张则回全部显示第一张图片]
+	 * 图片地址完整化, 图片宽度设置为100%
 	 */
 	public static String completeImageURL(String origin,String imageBaseURL) {
 		String img="";
@@ -383,17 +383,16 @@ public class StringUtils {
 		matcherImageURL=pImageURL.matcher(origin);
 		while (matcherImageURL.find()) {
 			img =  matcherImageURL.group();
-			Matcher m  = Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(img);
+			//Matcher m  = Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(img);
+			Matcher m  = Pattern.compile("src\\s*=\"").matcher(img);
 			String imageSrc = null;
 			while(m.find()){
-				String imageURL=m.group(1);
-				String imageURLWhole="src="+'"'+imageBaseURL+imageURL+'"'+" width='100%'";
+				String imageURL=m.group();
+				String imageURLWhole=" width='100%' "+imageURL+imageBaseURL;
 				imageSrc=m.replaceAll(imageURLWhole);
 			}
 			origin=matcherImageURL.replaceAll(imageSrc);
 		}
 		return origin;
-	}
-	
-	
+	}	
 }
