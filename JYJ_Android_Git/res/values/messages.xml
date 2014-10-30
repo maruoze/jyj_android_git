@@ -28,8 +28,11 @@
     
     <string name="select">选择</string>
     <string name="share">分享</string>
-    <string name="sharing">分享中...</string>
-    <string name="publishing">发布中...</string>
+    <string name="collection">收藏</string>
+    <string name="comment">评论</string>
+    <string name="model">模式</string>
+    <string name="sharing">分享中…</string>
+    <string name="publishing">发布中…</string>
     <string name="choose_image">请选择图片文件！</string>
     <string name="delete_image">确定删除该图片吗？</string>
     <string name="delete_tweet">确定删除该动弹吗？</string>

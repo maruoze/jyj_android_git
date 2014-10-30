@@ -6,6 +6,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.R.id;
 import com.jxtzw.app.R.layout;
 import com.jxtzw.app.adapter.ArticleInfoViewPagerAdapter;
+import com.jxtzw.app.adapter.GridViewMenuAdapter;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.ArticleCommentView;
@@ -14,6 +15,7 @@ import com.jxtzw.app.view.ArticleInfoView;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -21,7 +23,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
 public class ArticleInfoActivity extends BaseActivity {
@@ -43,12 +52,22 @@ public class ArticleInfoActivity extends BaseActivity {
 	protected ViewPager mArticleInfoViewPager;
 	protected ArticleInfoViewPagerAdapter mArticleInfoVPAdapter;
 	protected OnPageChangeListener mArticleInfoPCListener;
-	
+	/**
+	 * ViewPager内包含的页面
+	 */
 	protected ArticleInfoView mArticleInfoView;
 	protected ArticleCommentView mArticleCommentView;
+	/**
+	 * 底部的菜单项
+	 */
+	private ArrayList<PopupWindow> mPopupWindows;
+	private GridView mGridView;
+	private GridViewMenuAdapter mGridViewAdapter;
+	
+	
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+ 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_article_info);
 		init();
@@ -62,6 +81,7 @@ public class ArticleInfoActivity extends BaseActivity {
 		initMemberVar();
 		initTitle();
 		initArticleInfoViewPager();
+		initMenu();
 	}
 	
 	/**
@@ -187,4 +207,40 @@ public class ArticleInfoActivity extends BaseActivity {
 				break;
 		}
 	}
+	
+	/**
+	 * 底部的菜单项
+	 */
+	protected void initMenu() {
+		//初始化变量
+		mPopupWindows=new ArrayList<PopupWindow>();
+		initMenuButton();
+		initMenuPop();
+		initMenuButtonListener();
+	}
+	
+	/**
+	 * 初始化菜单按钮
+	 */
+	@SuppressLint("InflateParams")
+	protected void initMenuButton() {
+		mGridView=(GridView) findViewById(R.id.gridview_menu);
+		mGridViewAdapter=new GridViewMenuAdapter(mResources, mLayoutInflater);
+		mGridView.setAdapter(mGridViewAdapter);
+	}
+	
+	/**
+	 * 初始化弹出窗口
+	 */
+	protected void initMenuPop() {
+		
+	}
+	
+	/**
+	 * 初始化Button的监听
+	 */
+	protected void initMenuButtonListener() {
+		
+	}
+	
 }

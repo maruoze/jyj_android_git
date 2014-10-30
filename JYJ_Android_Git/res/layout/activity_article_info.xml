@@ -52,13 +52,13 @@
         android:flipInterval="30"
         android:persistentDrawingCache="animation" >
     </android.support.v4.view.ViewPager>
-
-    <LinearLayout
+    <GridView
+        android:id="@+id/gridview_menu"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/gray">
-        
-    </LinearLayout>
+        android:layout_alignParentLeft="true"
+        android:numColumns="4" >
+    </GridView>
     
 </RelativeLayout>
