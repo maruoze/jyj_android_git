@@ -7,6 +7,9 @@ import com.jxtzw.app.widget.PullToRefreshListView;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class GetLocalArticleHandler extends Handler {
 	/**
@@ -19,14 +22,19 @@ public class GetLocalArticleHandler extends Handler {
 	 */
 	protected PullToRefreshListView mArticleListPTRLV;		//下拉刷新列表对象
 	protected ListViewArticleAdapter mArticleListAdapter;	//下拉刷新列表对象数据适配器
+	private ProgressBar mALFooterProgressBar;
+	private TextView mALFooterMore;
 	
 	public GetLocalArticleHandler(Context mContext, PullToRefreshView mPTRView,
-			ListViewArticleAdapter mArticleListAdapter,PullToRefreshListView articleListPTRLV) {
+			ListViewArticleAdapter mArticleListAdapter,PullToRefreshListView articleListPTRLV,
+			ProgressBar mALFooterProgressBar, TextView mALFooterMore) {
 		super();
 		this.mContext = mContext;
 		this.mPTRView = mPTRView;
 		this.mArticleListAdapter = mArticleListAdapter;
 		this.mArticleListPTRLV=articleListPTRLV;
+		this.mALFooterMore=mALFooterMore;
+		this.mALFooterProgressBar=mALFooterProgressBar;
 	}
 
 	@Override
@@ -50,6 +58,8 @@ public class GetLocalArticleHandler extends Handler {
 		}
 		//解锁滚动列表
 		mArticleListPTRLV.setEnabled(true);
+		mALFooterProgressBar.setVisibility(View.GONE);
+		mALFooterMore.setText("文章加载完成");
 	}
 	
 }

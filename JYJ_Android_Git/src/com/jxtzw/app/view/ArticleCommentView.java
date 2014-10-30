@@ -176,7 +176,7 @@ public class ArticleCommentView extends BaseView {
 					mStart+=mPageSize;
 					int CommentLocalCount=mCommentsLocal.size();
 					if(mStart+mPageSize>CommentLocalCount){
-						getArticlesOnline();
+						getCommentsOnline();
 					}else{
 						copyLocalToShow();
 						mPTRComment.setEnabled(true);
@@ -200,7 +200,8 @@ public class ArticleCommentView extends BaseView {
 			public void onRefresh() {
 				// TODO Auto-generated method stub
 				mIsRefresh=true;
-				getArticlesOnline();
+				mStart=0;
+				getCommentsOnline();
 			}
 		};
 	}
@@ -213,14 +214,14 @@ public class ArticleCommentView extends BaseView {
 		//标题分类
 		mArticleCatNameTV.setText(mResources.getString(R.string.comment_text));
 		mArticleTitleTV.setText(StringUtils.replaceHTML(mArticle.getTitle()));
-		
+		getCommentHandler(true);
 	}
 	
 	/**
 	 * 更新评论数据
 	 */
 	@SuppressLint("HandlerLeak")
-	public void getCommentHandle(final boolean isGetCommentOnline) {
+	public void getCommentHandler(final boolean isGetCommentOnline) {
 		final Handler commentHandler=new Handler(){
 
 			@Override
@@ -235,15 +236,17 @@ public class ArticleCommentView extends BaseView {
 						copyLocalToShow();
 						mCommentListAdapter.notifyDataSetChanged();
 						//获取网络数据
-						getArticlesOnline();
+						getCommentsOnline();
 						break;
 					case 1:
 						//获取网络数据
-						getArticlesOnline();
+						getCommentsOnline();
 						break;
 				}
 				//解锁滚动列表
 				mPTRComment.setEnabled(true);
+				mCommentFooterPB.setVisibility(View.GONE);
+				mCommentFooterMore.setText("共有 "+mCommentsShow.size()+" 条评论");
 			}
 		};
 		
@@ -273,7 +276,7 @@ public class ArticleCommentView extends BaseView {
 	/**
 	 * 从网上获取数据
 	 */
-	public void getArticlesOnline(){
+	public void getCommentsOnline(){
 		//判断是否有可用网络
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
@@ -302,16 +305,7 @@ public class ArticleCommentView extends BaseView {
 				//判断有数据更新后刷新UI
 				String msgString=null;
 				if(mCommentsNew.size()>0){
-					/**
-					//刷新本地数据数据
-					getLocalCache();
-					//更新与PullToRefresh绑定的数据
-					copyLocalToShow();
-					mArticleListAdapter.notifyDataSetChanged();
-					//解锁滚动列表
-					mArticleListPTRLV.setEnabled(true);
-					*/
-					getCommentHandle(false);
+					getCommentHandler(false);
 					//显示更新了多少条数据
 					msgString="更新了"+mCommentsNew.size()+"条数据";
 					UIHelper.ToastMessage(mContext, msgString);
@@ -328,7 +322,12 @@ public class ArticleCommentView extends BaseView {
 				//判断网络上是否已经没有新数据
 				if(mIsRefresh==false&&mCommentsNew.size()==0){
 					mCommentFooterPB.setVisibility(View.GONE);
-					mCommentFooterMore.setText("没有更多的评论可以加载了！");
+					mCommentFooterMore.setText("共有 "+mCommentsShow.size()+" 条评论");
+					mPTRComment.setEnabled(true);
+					if (mCommentsShow.size()>15) {
+						msgString="没有更多的评论可以加载了！";
+						UIHelper.ToastMessage(mContext, msgString);
+					}
 				}
 			}
 		});

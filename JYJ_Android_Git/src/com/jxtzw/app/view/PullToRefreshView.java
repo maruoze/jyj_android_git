@@ -238,6 +238,7 @@ public class PullToRefreshView extends BaseView {
 			public void onRefresh() {
 				// TODO Auto-generated method stub
 				mIsRefresh=true;
+				mStart=0;
 				getArticlesOnline();
 			}
 		};
@@ -285,7 +286,8 @@ public class PullToRefreshView extends BaseView {
 	 * 本地数据库查询线程
 	 */
 	protected void getLocalHandler(final boolean isGetArticleOnline){
-		mGetLocalArticleHandler=new GetLocalArticleHandler(mContext, mThis, mArticleListAdapter,mArticleListPTRLV);
+		mGetLocalArticleHandler=new GetLocalArticleHandler(mContext, mThis, 
+				mArticleListAdapter,mArticleListPTRLV,mALFooterProgressBar,mALFooterMore);
 		
 		Thread threadGetLocal=new Thread(){
 			@Override
@@ -371,6 +373,7 @@ public class PullToRefreshView extends BaseView {
 				if(mIsRefresh==false&&mArticlesNew.size()==0){
 					mALFooterProgressBar.setVisibility(View.GONE);
 					mALFooterMore.setText("没有更多的数据可以加载了！");
+					mArticleListPTRLV.setEnabled(true);
 				}
 			}
 		});

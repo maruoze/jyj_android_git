@@ -4,17 +4,19 @@ import java.io.Serializable;
 
 import net.tsz.afinal.annotation.sqlite.Id;
 import net.tsz.afinal.annotation.sqlite.Table;
+import net.tsz.afinal.annotation.sqlite.Transient;
 @Table(name="comment")
 public class Comment implements Serializable {
 	/**
 	 * ID
 	 */
+	@Transient
 	private static final long serialVersionUID = 4197506386349095929L;
 	@Id(column="Cid")
 	private String Cid;
 	private String Uid;
 	private String Username;
-	private String Aid;
+	private int Aid;
 	private String Postip;
 	private String Dateline;
 	private String Status;
@@ -38,10 +40,10 @@ public class Comment implements Serializable {
 	public void setUsername(String username) {
 		Username = username;
 	}
-	public String getAid() {
+	public int getAid() {
 		return Aid;
 	}
-	public void setAid(String aid) {
+	public void setAid(int aid) {
 		Aid = aid;
 	}
 	public String getPostip() {

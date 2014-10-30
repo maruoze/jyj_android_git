@@ -31,11 +31,13 @@ public class ApiComment extends ApiBase {
 	public ArrayList<Comment> parseComments(String mCommentsString) {
 		ArrayList<Comment> comments=new ArrayList<Comment>();
 		try {
-			JSONArray jsonArray=new JSONArray(mCommentsString);
+			JSONObject jsonData=new JSONObject(mCommentsString);
+			//JSONArray jsonArray=new JSONArray(mCommentsString);
+			JSONArray jsonArray=new JSONArray(jsonData.getString("data"));
 			for (int i = 0; i < jsonArray.length(); i++) {
 				JSONObject jsonObject=jsonArray.getJSONObject(i);
 				Comment comment=new Comment();
-				comment.setAid(jsonObject.getString("id"));
+				comment.setAid(jsonObject.getInt("id"));
 				comment.setUid(jsonObject.getString("uid"));
 				comment.setUsername(jsonObject.getString("username"));
 				comment.setDateline(jsonObject.getString("dateline"));
@@ -43,6 +45,7 @@ public class ApiComment extends ApiBase {
 				comment.setStatus(jsonObject.getString("status"));
 				comment.setMessage(jsonObject.getString("message"));
 				comment.setIdtype(jsonObject.getString("idtype"));
+				comment.setCid(jsonObject.getString("cid"));
 				//保存数据到本地数据库
 				if(saveComment(comment)){
 				//保存数据到返回的数组列表
