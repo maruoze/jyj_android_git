@@ -2,6 +2,7 @@ package com.jxtzw.app.ui;
 
 import java.util.ArrayList;
 
+import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.R.id;
 import com.jxtzw.app.R.layout;
@@ -11,19 +12,28 @@ import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.ArticleCommentView;
 import com.jxtzw.app.view.ArticleInfoView;
+import com.jxtzw.app.view.MenuPopWindow;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -39,6 +49,8 @@ public class ArticleInfoActivity extends BaseActivity {
 	 */
 	protected Article mArticle;
 	protected String mCatName;
+	protected AppContext mAppContext;
+	protected Activity mActivity;
 	/**
 	 * UI标题栏
 	 */
@@ -63,7 +75,18 @@ public class ArticleInfoActivity extends BaseActivity {
 	private ArrayList<PopupWindow> mPopupWindows;
 	private GridView mGridView;
 	private GridViewMenuAdapter mGridViewAdapter;
+	private OnItemClickListener mItemClickListener;
 	
+	private TextView mLastTextView;
+	private MenuPopWindow mMenuPopWindow;
+	
+	/**
+	 * 常量定义
+	 */
+	private static int POP_SHARE=0;
+	private static int POP_COLLECTION=1;
+	private static int POP_COMMENT=2;
+	private static int POP_MODEL=3;
 	
 	
 	@Override
@@ -90,6 +113,8 @@ public class ArticleInfoActivity extends BaseActivity {
 	protected void initCommonMemberVar() {
 		//上下文
 		mContext=this;
+		mActivity=(Activity)mContext;
+		mAppContext=(AppContext) mActivity.getApplication();
 		//资源
 		mResources=getResources();
 		//布局
@@ -107,6 +132,7 @@ public class ArticleInfoActivity extends BaseActivity {
 		mCatName=bundle.getString("cat_name");
 		//ViewPager
 		mArticleInfoViews=new ArrayList<View>();
+		mLastTextView=null;
 	}
 	
 	/**
@@ -214,9 +240,8 @@ public class ArticleInfoActivity extends BaseActivity {
 	protected void initMenu() {
 		//初始化变量
 		mPopupWindows=new ArrayList<PopupWindow>();
-		initMenuButton();
 		initMenuPop();
-		initMenuButtonListener();
+		initMenuButton();
 	}
 	
 	/**
@@ -227,20 +252,49 @@ public class ArticleInfoActivity extends BaseActivity {
 		mGridView=(GridView) findViewById(R.id.gridview_menu);
 		mGridViewAdapter=new GridViewMenuAdapter(mResources, mLayoutInflater);
 		mGridView.setAdapter(mGridViewAdapter);
+		initMenuButtonListener();
+		mGridView.setOnItemClickListener(mItemClickListener);
 	}
 	
 	/**
 	 * 初始化弹出窗口
 	 */
+	@SuppressLint("InflateParams")
 	protected void initMenuPop() {
-		
+		mMenuPopWindow=new MenuPopWindow(mContext,mAppContext,mResources,
+				mLayoutInflater,mArticle);
+		PopupWindow share=mMenuPopWindow.initPopWindow(R.layout.pop_share,POP_SHARE);
+		PopupWindow collection=mMenuPopWindow.initPopWindow(R.layout.pop_collection, POP_COLLECTION);
+		PopupWindow comment=mMenuPopWindow.initPopWindow(R.layout.pop_comment,POP_COMMENT);
+		PopupWindow model=mMenuPopWindow.initPopWindow(R.layout.pop_model,POP_MODEL);
+		mPopupWindows.add(comment);
+		mPopupWindows.add(share);
+		mPopupWindows.add(collection);
+		mPopupWindows.add(model);
 	}
 	
 	/**
 	 * 初始化Button的监听
 	 */
 	protected void initMenuButtonListener() {
-		
+		mItemClickListener=new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				if (mLastTextView!=null) {
+					//还原上一个导航字体颜色
+					mLastTextView.setTextColor(mResources.getColor(R.color.white));
+				}
+				//设置当前导航字体颜色
+				TextView curTextView=(TextView) view.findViewById(R.id.menu_button);
+				curTextView.setTextColor(mResources.getColor(R.color.red));
+				//设置当前导航为上一个
+				mLastTextView=curTextView;
+				//弹出对应的菜单
+				mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
+			}
+		};
 	}
-	
 }

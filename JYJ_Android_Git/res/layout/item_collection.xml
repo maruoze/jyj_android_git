@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:textviewplus="http://schemas.android.com/apk/res/com.jxtzw.app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <com.jxtzw.app.widget.TextViewPlus
+	    android:id="@+id/textview_collection"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="left"
+	    android:textSize="@dimen/text_size_16"
+	    android:background = "@color/graywhite"
+	    android:textColor = "@color/black" 
+	    android:paddingTop="5dp"
+	    android:paddingBottom="5dp"
+	    android:drawableLeft="@drawable/f007"
+	    textviewplus:left_height="20dp"
+        textviewplus:left_width="20dp">
+	</com.jxtzw.app.widget.TextViewPlus>
+</RelativeLayout>

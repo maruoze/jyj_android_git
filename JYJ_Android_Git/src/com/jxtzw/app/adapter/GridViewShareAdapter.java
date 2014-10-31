@@ -2,29 +2,33 @@ package com.jxtzw.app.adapter;
 
 import com.jxtzw.app.R;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class GridViewMenuAdapter extends BaseAdapter {
+public class GridViewShareAdapter extends BaseAdapter {
 	private Resources mResources;
 	private LayoutInflater mLayoutInflater;
-	private String[] mMenuTitles={"评论","分享","收藏","模式"};
+	private String[] mTitleStrings;
+	private int[] mImages;
 	
-	
-	public GridViewMenuAdapter(Resources mResources, LayoutInflater mLayoutInflater) {
+	public GridViewShareAdapter(Resources mResources,
+			LayoutInflater mLayoutInflater, String[] mTitleStrings,
+			int[] mImages) {
 		super();
-		this.mResources=mResources;
+		this.mResources = mResources;
 		this.mLayoutInflater = mLayoutInflater;
+		this.mTitleStrings = mTitleStrings;
+		this.mImages = mImages;
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return mMenuTitles.length;
+		return mTitleStrings.length;
 	}
 
 	@Override
@@ -45,22 +49,26 @@ public class GridViewMenuAdapter extends BaseAdapter {
 		//自定义视图
 		ListItemView  listItemView = null;
 		if (convertView == null){
-			convertView=mLayoutInflater.inflate(mResources.getLayout(R.layout.item_menu), null);
+			convertView=mLayoutInflater.inflate(mResources.getLayout(R.layout.item_share), null);
 			listItemView = new ListItemView();
-			listItemView.button=(TextView) convertView.findViewById(R.id.menu_button);
+			listItemView.shareTV=(TextView) convertView.findViewById(R.id.textview_share);
 			convertView.setTag(listItemView);
 		}else{
 			listItemView = (ListItemView) convertView.getTag();
 		}
-		String buttonTitle=mMenuTitles[position];
-		listItemView.button.setText(buttonTitle);
+		String shareTitle=mTitleStrings[position];
+		int shareImage=mImages[position];
+		listItemView.shareTV.setText(shareTitle);
+		Drawable	drawable=mResources.getDrawable(shareImage);
+		drawable.setBounds(0, 0, 30, 30);
+		listItemView.shareTV.setCompoundDrawables(null, drawable, null , null);
 		return convertView;
 	}
-	
+
 	/**
 	 * 自定义控件集合
 	 */
 	static class ListItemView{				  
-        public TextView button; 
+        public TextView shareTV; 
 	} 
 }

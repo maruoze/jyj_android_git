@@ -8,7 +8,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp" 
-        android:orientation="horizontal"
         android:background="@color/tabhost_title">
 		<Button
             android:id="@+id/head_left"
@@ -52,13 +51,17 @@
         android:flipInterval="30"
         android:persistentDrawingCache="animation" >
     </android.support.v4.view.ViewPager>
-    <GridView
-        android:id="@+id/gridview_menu"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:numColumns="4" >
-    </GridView>
+        android:layout_height="50dp" 
+        android:layout_alignParentBottom="true">
+	    <GridView
+	        android:id="@+id/gridview_menu"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:listSelector="@null" 
+	        android:numColumns="4" >
+	    </GridView>
+	</RelativeLayout>
     
 </RelativeLayout>
