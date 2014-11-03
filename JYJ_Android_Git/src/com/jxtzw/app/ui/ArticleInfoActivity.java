@@ -263,10 +263,10 @@ public class ArticleInfoActivity extends BaseActivity {
 	protected void initMenuPop() {
 		mMenuPopWindow=new MenuPopWindow(mContext,mAppContext,mResources,
 				mLayoutInflater,mArticle);
-		PopupWindow share=mMenuPopWindow.initPopWindow(R.layout.pop_share,POP_SHARE);
-		PopupWindow collection=mMenuPopWindow.initPopWindow(R.layout.pop_collection, POP_COLLECTION);
-		PopupWindow comment=mMenuPopWindow.initPopWindow(R.layout.pop_comment,POP_COMMENT);
-		PopupWindow model=mMenuPopWindow.initPopWindow(R.layout.pop_model,POP_MODEL);
+		PopupWindow share=mMenuPopWindow.initPopWindow(R.layout.pop_share,POP_SHARE,null);
+		PopupWindow collection=mMenuPopWindow.initPopWindow(R.layout.pop_collection, POP_COLLECTION,null);
+		PopupWindow comment=mMenuPopWindow.initPopWindow(R.layout.pop_comment,POP_COMMENT,mArticleCommentView);
+		PopupWindow model=mMenuPopWindow.initPopWindow(R.layout.pop_model,POP_MODEL,null);
 		mPopupWindows.add(comment);
 		mPopupWindows.add(share);
 		mPopupWindows.add(collection);

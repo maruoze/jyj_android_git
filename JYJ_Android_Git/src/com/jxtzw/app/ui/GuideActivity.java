@@ -21,7 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 
-public class GuideActivity extends Activity {
+public class GuideActivity extends BaseActivity {
 	/**
 	 * 资源及相关
 	 */

@@ -5,9 +5,11 @@ import java.util.Hashtable;
 
 import net.tsz.afinal.FinalBitmap;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.StringUtils;
+import com.lidroid.xutils.BitmapUtils;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -38,6 +40,9 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		    public TextView catname;
 		    public ImageView pic;
 	 }  
+	
+	//private BitmapUtils mBitmapUtils;	//图片加载
+	private FinalBitmap mFinalBitmap;	//图片加载
 
 	/**
 	 * 实例化Adapter
@@ -52,6 +57,10 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		this.mResources = resource;
 		this.mArticles = data;
 		this.mRelatedData=hashtable;
+		//this.mBitmapUtils=new BitmapUtils(mContext);
+		this.mFinalBitmap=FinalBitmap.create(mContext);
+		//mFinalBitmap.configDiskCachePath(AppConfig.DEFAULT_SAVE_IMAGE_PATH);
+		//mFinalBitmap.configDiskCacheSize(1024*1024*16);
 	}
 	
 	@Override
@@ -120,9 +129,8 @@ public class ListViewArticleAdapter extends BaseAdapter {
 			//加载默认图片
 			
 			//替换为真正图片
-			FinalBitmap fb=FinalBitmap.create(mContext);
 			String imageURL=imageBaseURL+article.getPic();
-			fb.display(listItemView.pic, imageURL);
+			mFinalBitmap.display(listItemView.pic, imageURL);
 			listItemView.pic.setVisibility(View.VISIBLE);
 		}
 		return convertView;

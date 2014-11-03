@@ -1,5 +1,9 @@
 package com.jxtzw.app.view;
 
+import net.tsz.afinal.FinalHttp;
+import net.tsz.afinal.http.AjaxCallBack;
+import net.tsz.afinal.http.AjaxParams;
+
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewCollectionAdapter;
@@ -37,7 +41,7 @@ public class MenuPopWindow {
 	private LayoutInflater mLayoutInflater;
 	private View mPopView;
 	private PopupWindow mPop;
-	
+	private ArticleCommentView mArticleCommentView;
 	
 	/**
 	 * 常量定义
@@ -73,7 +77,7 @@ public class MenuPopWindow {
 	 * @return
 	 */
 	@SuppressLint("InflateParams")
-	public PopupWindow initPopWindow(int layout,int index) {
+	public PopupWindow initPopWindow(int layout,int index,ArticleCommentView mArticleCommentView) {
 		this.mLayout = layout;
 		mPopView=mLayoutInflater.inflate(mLayout, null);
 		mPop=new PopupWindow(mPopView);
@@ -93,6 +97,7 @@ public class MenuPopWindow {
 				initCellection();
 				break;
 			case POP_COMMENT:
+				this.mArticleCommentView=mArticleCommentView;
 				initComment();
 				break;
 			case POP_MODEL:
@@ -141,13 +146,19 @@ public class MenuPopWindow {
 	 */
 	private void initComment() {
 		ImageButton commentSubmit=(ImageButton) mPopView.findViewById(R.id.comment_submit);
+		final EditText commentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
 		commentSubmit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				EditText commentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
 				mComment=commentEditText.getText().toString();
-				commentSubmit();
+				//UIHelper.ToastMessage(mContext, mComment);
+				if (mComment.length()<3) {
+					UIHelper.ToastMessage(mContext, "至少要输入3个字符！");
+					return;
+				}else{
+					commentSubmit();
+				}
 			}
 		});
 	}
@@ -162,9 +173,27 @@ public class MenuPopWindow {
 			UIHelper.ToastMessage(mContext, R.string.network_not_connected);
 			return;
 		}
-		
-		
-		
+		String apiurl=mResources.getString(R.string.api_comment);
+		AjaxParams ajaxParams=new AjaxParams();
+		String actionString="0";
+		String commentString="action|=|"+actionString+"|&|aid|=|"+
+													mArticle.getAid()+"|&|message|=|"+mComment;
+		ajaxParams.put("comment", commentString);
+		final FinalHttp finalHttp=new FinalHttp();
+		finalHttp.post(apiurl, ajaxParams, new AjaxCallBack<String>() {
+			@Override
+			public void onSuccess(String t) {
+				// TODO Auto-generated method stub
+				if (t.equals("1")) {
+					UIHelper.ToastMessage(mContext, "评论提交成功！");
+					if(mArticleCommentView!=null){
+						mArticleCommentView.update();
+					}
+				} else {
+					UIHelper.ToastMessage(mContext, t);
+				}
+			}
+		});
 	}
 	
 	/**

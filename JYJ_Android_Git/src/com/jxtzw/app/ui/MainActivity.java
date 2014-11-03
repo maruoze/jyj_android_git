@@ -2,20 +2,31 @@ package com.jxtzw.app.ui;
 
 import java.util.ArrayList;
 
+
 import com.jxtzw.app.AppConfig;
+import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.common.UIHelper;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.TabActivity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.Settings.System;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
@@ -29,6 +40,7 @@ public class MainActivity extends TabActivity {
 	 * 上下文及资源相关
 	 */
 	protected Context mContext;
+	protected Activity mActivity;
 	protected Resources mResources;
 	protected LayoutInflater mLayoutInflater;
 	protected SharedPreferences mSharedPreferences;
@@ -55,6 +67,7 @@ public class MainActivity extends TabActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		AppManager.getAppManager().addActivity(this);
 		init();
 		initTabHost();
 	}
@@ -64,6 +77,7 @@ public class MainActivity extends TabActivity {
 	 */
 	protected void init(){
 		mContext=this;
+		mActivity=(Activity)mContext;
 		mResources=getResources();
 		mLayoutInflater=LayoutInflater.from(this);
 		mSharedPreferences=AppConfig.getSharedPreferences(this);
@@ -160,4 +174,24 @@ public class MainActivity extends TabActivity {
 		mTabTitleStrings=DataHelper.getMainTabsText(mResources,mSharedPreferences);
 	}
 	
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		// 结束Activity&从堆栈中移除
+		AppManager.getAppManager().finishActivity(this);
+		super.onDestroy();
+	}
+	
+	
+	public boolean dispatchKeyEvent(KeyEvent event) {
+        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){  
+             if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) { 
+                 //UIHelper.ToastMessage(mContext,AppConfig.DEFAULT_SAVE_IMAGE_PATH);
+                 AppManager.getAppManager().AppExit(mContext);
+              }  
+             return true;  
+        }  
+        return super.dispatchKeyEvent(event);  
+    }
 }

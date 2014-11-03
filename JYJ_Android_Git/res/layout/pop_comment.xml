@@ -16,8 +16,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:singleLine="true"
-        android:ems="10" >
-        <requestFocus />
+        android:inputType="text">
     </EditText>
 
     <ImageButton
@@ -29,6 +28,6 @@
         android:layout_alignTop="@+id/comment_edit"
         android:src="@drawable/f099"
         android:scaleType="fitCenter"
-        android:background="@null" />
-
+        android:background="@null"
+        android:contentDescription="@null" />
 </RelativeLayout>
