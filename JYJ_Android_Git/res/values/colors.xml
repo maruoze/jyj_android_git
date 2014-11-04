@@ -18,6 +18,7 @@
 	
     <color name="full_transparent">#00000000</color>
     <color name="half_transparent">#aa000000</color>
+    <color name="half_transparent_w">#aaFFFFFF</color>
     
     <color name="bright_foreground_light">#ff000000</color>
     <color name="bright_foreground_light_inverse">#ffffffff</color>

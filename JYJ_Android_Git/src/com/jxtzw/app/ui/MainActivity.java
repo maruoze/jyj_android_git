@@ -10,7 +10,9 @@ import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.UIHelper;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.TabActivity;
@@ -29,6 +31,8 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -56,6 +60,7 @@ public class MainActivity extends TabActivity {
 												R.drawable.f004,R.drawable.f005};
 	private int mTabCount;
 	private OnTabChangeListener mOnTabChangeListener;
+	private android.view.View.OnClickListener mOnTabClickListener;
 	//弹出菜单
 	private PopupWindow mPWTab;
 	/**
@@ -101,6 +106,7 @@ public class MainActivity extends TabActivity {
 		}
 		initOnTabChange();
 		mTabHost.setOnTabChangedListener(mOnTabChangeListener);
+		mTabHost.getTabWidget().getChildAt(2).setOnClickListener(mOnTabClickListener);
 	}
 	
 	/**
@@ -138,24 +144,28 @@ public class MainActivity extends TabActivity {
 	 */
 	@SuppressLint("InflateParams")
 	protected void initOnTabChange() {
-		DisplayMetrics metric = new DisplayMetrics();
+		/*DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         int tabTVWidth=metric.widthPixels;
 		View popView=mLayoutInflater.inflate(R.layout.pop_tab, null);
-		mPWTab=new PopupWindow(popView,tabTVWidth/6*3,90);
+		//mPWTab=new PopupWindow(popView,tabTVWidth/6*3,90);
+		mPWTab=new PopupWindow(popView);
+		mPWTab.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);  
+		mPWTab.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);*/
+		
 		
 		mOnTabChangeListener=new OnTabChangeListener() {
 			@Override
 			public void onTabChanged(String tabId) {
 				// TODO Auto-generated method stub
-				if(tabId.equals("Classify")){
+				/*if(tabId.equals("Classify")){
 					View v=mTabHost.getTabWidget().findViewWithTag(tabId);
 					mPWTab.showAtLocation(v, Gravity.BOTTOM, 0, 90);
 					mPWTab.setOutsideTouchable(true);
 					
 				}else{
 					mPWTab.dismiss();
-				}
+				}*/
 				//清除颜色
 				for (int i = 0; i < mTabTextViews.size(); i++) {
 					mTabTextViews.get(i).setBackgroundColor(mResources.getColor(R.color.light_black));
@@ -163,6 +173,19 @@ public class MainActivity extends TabActivity {
 				//设置颜色
 				TextView tView=(TextView) mTabHost.getTabWidget().findViewWithTag(tabId);
 				tView.setBackgroundColor(mResources.getColor(R.color.black));
+			}
+		};
+		
+		//显示弹出的导航菜单
+		mOnTabClickListener=new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//选择对应的TabWidget
+				mTabHost.setCurrentTab(2);
+				//选择对应的TabContent，并显示弹出菜单
+				mTabHost.getCurrentView().findViewById(R.id.popwindow_box).setVisibility(View.VISIBLE);
 			}
 		};
 	}
@@ -183,12 +206,29 @@ public class MainActivity extends TabActivity {
 		super.onDestroy();
 	}
 	
-	
+	/**
+	 * 截获返回按钮，重写返回事件
+	 */
 	public boolean dispatchKeyEvent(KeyEvent event) {
         if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){  
              if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) { 
-                 //UIHelper.ToastMessage(mContext,AppConfig.DEFAULT_SAVE_IMAGE_PATH);
-                 AppManager.getAppManager().AppExit(mContext);
+                 AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
+                 builder.setTitle("温馨提示：");
+                 builder.setMessage("确定要退出金银家吗？");
+                 builder.setPositiveButton("确定", new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						AppManager.getAppManager().AppExit(mContext);
+						//彻底退出APP的方法2,需要android.permission.KILL_BACKGROUND_PROCESSES权限
+						/*ActivityManager am= (ActivityManager) mContext
+								.getSystemService(Context.ACTIVITY_SERVICE);
+						am.killBackgroundProcesses(mContext.getPackageName());*/
+					}
+                 });
+                 builder.setNegativeButton("取消", null);
+                 builder.create();
+                 builder.show();
               }  
              return true;  
         }  

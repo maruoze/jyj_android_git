@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -155,6 +156,7 @@ public class MenuPopWindow {
 				//UIHelper.ToastMessage(mContext, mComment);
 				if (mComment.length()<3) {
 					UIHelper.ToastMessage(mContext, "至少要输入3个字符！");
+					mPop.dismiss();
 					return;
 				}else{
 					commentSubmit();

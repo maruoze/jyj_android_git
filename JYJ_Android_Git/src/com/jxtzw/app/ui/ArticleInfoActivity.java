@@ -4,43 +4,28 @@ import java.util.ArrayList;
 
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
-import com.jxtzw.app.R.id;
-import com.jxtzw.app.R.layout;
 import com.jxtzw.app.adapter.ArticleInfoViewPagerAdapter;
 import com.jxtzw.app.adapter.GridViewMenuAdapter;
 import com.jxtzw.app.bean.Article;
-import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.ArticleCommentView;
 import com.jxtzw.app.view.ArticleInfoView;
 import com.jxtzw.app.view.MenuPopWindow;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
 public class ArticleInfoActivity extends BaseActivity {
@@ -57,6 +42,8 @@ public class ArticleInfoActivity extends BaseActivity {
 	protected Button mHeadLeft;
 	protected Button mHeadRight;
 	protected TextView mCatNameTextView;
+	protected OnClickListener mHLClickListener;
+	protected OnClickListener mHRClickListener;
 	/**
 	 * ViewPager
 	 */
@@ -143,14 +130,31 @@ public class ArticleInfoActivity extends BaseActivity {
 		mHeadRight=(Button) findViewById(R.id.head_right);
 		mCatNameTextView=(TextView) findViewById(R.id.head_middle);
 		mCatNameTextView.setText(mCatName);
-		
+		//初始化监听
 		initTilteListner();
+		mHeadLeft.setOnClickListener(mHLClickListener);
+		mHeadRight.setOnClickListener(mHRClickListener);
 	}
 	
 	/**
 	 * 标题栏事件监听初始化
 	 */
-	protected void initTilteListner(){}
+	protected void initTilteListner(){
+		mHLClickListener=new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		};
+		mHRClickListener=new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
 	
 	/**
 	 * 初始化ArticleInfo的ViewPager

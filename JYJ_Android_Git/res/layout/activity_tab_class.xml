@@ -4,39 +4,114 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <!--  <LinearLayout
-        android:id="@+id/popup_window"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp" >
-	    <TextView
-	        android:id="@+id/gold"
-	        android:layout_width="0dp"
-	        android:layout_height="60dp"
-			android:layout_marginTop="30dp"
-	    	android:drawableTop="@drawable/f006" 
-	    	android:gravity="center"
-	        android:layout_weight="1"
-	        android:text="黄金" />
-	    <TextView
-	        android:id="@+id/silver"
-	        android:layout_width="0dp"
-	        android:layout_height="60dp"
-	    	android:drawableTop="@drawable/f007" 
-	    	android:gravity="center"
-	        android:layout_weight="1"
-	        android:text="白银" />
-	    <TextView
-	        android:id="@+id/oil"
-	        android:layout_width="0dp"
-	        android:layout_height="60dp"
-	        android:layout_marginTop="30dp"
-	    	android:drawableTop="@drawable/f008" 
-	    	android:gravity="center"
-	        android:layout_weight="1"
-	        android:text="原油" />
-    </LinearLayout>-->
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    tools:context="${relativePackage}.${activityClass}" >
+	
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="60dp" 
+	        android:orientation="horizontal"
+	        android:background="@color/tabhost_title">
+	
+	
+	        <TextView
+	            android:id="@+id/head_middle"
+	            android:layout_width="match_parent"
+	            android:layout_height="60dp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="60dp"
+	            android:layout_centerVertical="true"
+	            android:gravity="center_vertical"
+	            android:textColor="@color/white"
+	            android:textSize="@dimen/text_size_26"/>
+	
+	        <Button
+	            android:id="@+id/head_right"
+	            android:layout_width="60dp"
+	            android:layout_height="60dp"
+	            android:layout_alignParentRight="true"
+	            android:textColor="@color/white"
+	            android:background="@color/tabhost_title"
+	            android:text="@string/setting" />
+	
+	    </RelativeLayout>
+	
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp" >
+	
+	        <HorizontalScrollView
+	            android:id="@+id/hsv_subnav"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:scrollbars="none" >
+	
+	            <LinearLayout
+	                android:id="@+id/ll_subnav"
+	                android:layout_width="wrap_content"
+	                android:layout_height="match_parent"
+	                android:orientation="horizontal" >
+	            </LinearLayout>
+	        </HorizontalScrollView>
+	    </RelativeLayout>
+	        
+	    <android.support.v4.view.ViewPager
+	        android:id="@+id/newslist_viewpager"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="70dp"
+	        android:flipInterval="30"
+	        android:persistentDrawingCache="animation" >
+	    </android.support.v4.view.ViewPager>
+	
+	</LinearLayout>
+    
+    <RelativeLayout
+        android:id="@+id/popwindow_box"
+		android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="70dp" 
+	    android:background="@color/half_transparent_w"
+		>
+        <LinearLayout
+	        android:id="@+id/popup_window"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true">
+		    <TextView
+		        android:id="@+id/gold"
+		        android:layout_width="0dp"
+		        android:layout_height="60dp"
+				android:layout_marginTop="30dp"
+		    	android:drawableTop="@drawable/f006" 
+		    	android:gravity="center"
+		        android:layout_weight="1"
+		        android:text="黄金" />
+		    <TextView
+		        android:id="@+id/silver"
+		        android:layout_width="0dp"
+		        android:layout_height="60dp"
+		    	android:drawableTop="@drawable/f007" 
+		    	android:gravity="center"
+		        android:layout_weight="1"
+		        android:text="白银" />
+		    <TextView
+		        android:id="@+id/oil"
+		        android:layout_width="0dp"
+		        android:layout_height="60dp"
+		        android:layout_marginTop="30dp"
+		    	android:drawableTop="@drawable/f008" 
+		    	android:gravity="center"
+		        android:layout_weight="1"
+		        android:text="原油" />
+	    </LinearLayout> 
+        
+    </RelativeLayout>
+   
 
 </RelativeLayout>

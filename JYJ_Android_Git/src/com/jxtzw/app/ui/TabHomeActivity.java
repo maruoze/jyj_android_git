@@ -90,6 +90,7 @@ public class TabHomeActivity extends BaseActivity {
 	protected void initMemberVar() {
 		initCommonMemberVar();
 		initSelfMemberVar();
+		initExMemberVar();
 	}
 	
 	
@@ -123,6 +124,12 @@ public class TabHomeActivity extends BaseActivity {
 				AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT, R.array.cat_gold_show_image);
 		
 		mVPCount=mCatIDs.length;
+	}
+	
+	/**
+	 * 初始化
+	 */
+	protected void initExMemberVar() {
 		//ViewPager对应的View
 		mNewsListViewPages=new ArrayList<View>();
 		//包含子导航的横向滚动条
