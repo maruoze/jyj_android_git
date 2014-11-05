@@ -98,6 +98,15 @@ public class AppConfig {
 	public final static String JYJ_CAT_OIL_SHOW_IMAGE_DEFAULT="cat_oil_show_image_default";
 	public final static String JYJ_CAT_OIL_SHOW_IMAGE_USERSET="cat_oil_show_image_userset";		
 	
+	/**
+	 * 子分类名称字符串常量[行情]
+	 */
+	public final static String JYJ_CAT_QUO_NAME_DEFAULT="cat_quo_name_default";
+	public final static String JYJ_CAT_QUO_NAME_USERSET="cat_quo_name_userset";
+	//储存黄金分类的ID的SP变量名
+	public final static String JYJ_CAT_QUO_ID_DEFAULT="cat_quo_id_default";
+	public final static String JYJ_CAT_QUO_ID_USERSET="cat_quo_id_userset";	
+	
 
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {

@@ -83,6 +83,14 @@ public class TabHomeActivity extends BaseActivity {
 		initViewPage();
 	}
 	
+	/**
+	 * 备份父类的OnCreate供子类使用
+	 * @param savedInstanceState
+	 */
+	protected void onCreateBK(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+	}
+	
 	
 	/**
 	 * 初始化成员变量

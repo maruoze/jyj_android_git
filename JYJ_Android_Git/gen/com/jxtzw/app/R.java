@@ -21,6 +21,8 @@ public final class R {
         public static final int cat_oil_name=0x7f050009;
         public static final int cat_oil_show_image=0x7f05000c;
         public static final int cat_oil_show_quotaion=0x7f05000b;
+        public static final int cat_quotation_name=0x7f05000d;
+        public static final int cat_quotation_url=0x7f05000e;
         public static final int cat_silver_id=0x7f050006;
         public static final int cat_silver_name=0x7f050005;
         public static final int cat_silver_show_image=0x7f050008;
@@ -398,6 +400,7 @@ containing a value of this type.
         public static final int textview_share=0x7f0a002a;
         public static final int update_progress=0x7f0a0038;
         public static final int update_progress_text=0x7f0a0039;
+        public static final int webview_quotation=0x7f0a0044;
     }
     public static final class layout {
         public static final int activity_article_info=0x7f030000;
@@ -428,6 +431,7 @@ containing a value of this type.
         public static final int viewpager_article_comment=0x7f030019;
         public static final int viewpager_article_info=0x7f03001a;
         public static final int viewpager_newslist=0x7f03001b;
+        public static final int viewpager_webquo=0x7f03001c;
     }
     public static final class string {
         public static final int OAUTH_AccessToken_ACCESS=0x7f080034;

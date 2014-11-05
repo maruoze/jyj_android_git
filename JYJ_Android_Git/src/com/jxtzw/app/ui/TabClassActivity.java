@@ -64,7 +64,7 @@ public class TabClassActivity extends TabHomeActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		super.onCreateBK(savedInstanceState);
 		setContentView(R.layout.activity_tab_class);
 		initPopWindow();
 		init(0);

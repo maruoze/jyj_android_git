@@ -71,5 +71,15 @@
         <item >0</item>
         <item >0</item>
     </string-array>
+    <string-array name="cat_quotation_name">
+        <item >财经日历</item>
+        <item >COMEX</item>
+        <item >ETF</item>
+    </string-array>
+    <string-array name="cat_quotation_url">
+        <item >http://m1.jxtzw.com/api/Api_app/get_finance_calendar.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/get_comex.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/get_etf.php</item>
+    </string-array>
     
 </resources>
