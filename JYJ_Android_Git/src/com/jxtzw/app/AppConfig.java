@@ -55,7 +55,7 @@ public class AppConfig {
 	public final static String JYJ_MAIN_TABS_TEXT_DEFAULT="main_tabs_text_default";
 	public final static String JYJ_MAIN_TABS_TEXT_USERSET="main_tabs_text_userset";
 	/**
-	 * 子分类名称字符串常量
+	 * 子分类名称字符串常量[黄金]
 	 */
 	//储存黄金分类的名称的SP变量名
 	public final static String JYJ_CAT_GOLD_NAME_DEFAULT="cat_gold_name_default";
@@ -69,7 +69,34 @@ public class AppConfig {
 	//储存黄金分类中的文章列表是显示图片的SP变量名
 	public final static String JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT="cat_gold_show_image_default";
 	public final static String JYJ_CAT_GOLD_SHOW_IMAGE_USERSET="cat_gold_show_image_userset";
-	
+	/**
+	 * 子分类名称字符串常量[白银]
+	 */
+	public final static String JYJ_CAT_SILVER_NAME_DEFAULT="cat_silver_name_default";
+	public final static String JYJ_CAT_SILVER_NAME_USERSET="cat_silver_name_userset";
+	//储存黄金分类的ID的SP变量名
+	public final static String JYJ_CAT_SILVER_ID_DEFAULT="cat_silver_id_default";
+	public final static String JYJ_CAT_SILVER_ID_USERSET="cat_silver_id_userset";
+	//储存黄金分类里是否显示行情的SP变量名
+	public final static String JYJ_CAT_SILVER_SHOW_QUOT_DEFAULT="cat_silver_show_quot_default";
+	public final static String JYJ_CAT_SILVER_SHOW_QUOT_USERSET="cat_silver_show_quot_userset";
+	//储存黄金分类中的文章列表是显示图片的SP变量名
+	public final static String JYJ_CAT_SILVER_SHOW_IMAGE_DEFAULT="cat_silver_show_image_default";
+	public final static String JYJ_CAT_SILVER_SHOW_IMAGE_USERSET="cat_silver_show_image_userset";	
+	/**
+	 * 子分类名称字符串常量[原油]
+	 */
+	public final static String JYJ_CAT_OIL_NAME_DEFAULT="cat_oil_name_default";
+	public final static String JYJ_CAT_OIL_NAME_USERSET="cat_oil_name_userset";
+	//储存黄金分类的ID的SP变量名
+	public final static String JYJ_CAT_OIL_ID_DEFAULT="cat_oil_id_default";
+	public final static String JYJ_CAT_OIL_ID_USERSET="cat_oil_id_userset";
+	//储存黄金分类里是否显示行情的SP变量名
+	public final static String JYJ_CAT_OIL_SHOW_QUOT_DEFAULT="cat_oil_show_quot_default";
+	public final static String JYJ_CAT_OIL_SHOW_QUOT_USERSET="cat_oil_show_quot_userset";
+	//储存黄金分类中的文章列表是显示图片的SP变量名
+	public final static String JYJ_CAT_OIL_SHOW_IMAGE_DEFAULT="cat_oil_show_image_default";
+	public final static String JYJ_CAT_OIL_SHOW_IMAGE_USERSET="cat_oil_show_image_userset";		
 	
 
 	public static AppConfig getAppConfig(Context context) {

@@ -39,9 +39,9 @@ public class DataHelper {
 		SharedPreferences sp=AppConfig.getSharedPreferences(context);
 		//获取返回字符串
 		String returnText=sp.getString(sp_userset, null);
-		if (returnText.equals(null)) {
+		if (returnText==null) {
 			returnText=sp.getString(sp_default, null);
-			if (returnText.equals(null)) {
+			if (returnText==null) {
 				returnStrings=r.getStringArray(rc_array);
 			}else{
 				returnStrings=returnText.split(";");

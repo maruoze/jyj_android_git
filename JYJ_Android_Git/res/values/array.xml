@@ -31,5 +31,45 @@
         <item >1</item>
         <item >1</item>
     </string-array>
+    <string-array name="cat_silver_name">
+        <item >白银焦点</item>
+        <item >天通银</item>
+        <item >粤贵银</item>
+        <item >白银TD</item>
+    </string-array>
+    <string-array name="cat_silver_id">
+        <item >105</item>
+        <item >1026</item>
+        <item >1020</item>
+        <item >1074</item>
+    </string-array>
+    <string-array name="cat_silver_show_quotaion">
+        <item >-1</item>
+        <item >-1</item>
+        <item >-1</item>
+        <item >-1</item>
+    </string-array>
+    <string-array name="cat_silver_show_image">
+        <item >0</item>
+        <item >0</item>
+        <item >0</item>
+        <item >0</item>
+    </string-array>
+    <string-array name="cat_oil_name">
+        <item >原油市场</item>
+        <item >原油评论</item>
+    </string-array>
+    <string-array name="cat_oil_id">
+        <item >912</item>
+        <item >913</item>
+    </string-array>
+    <string-array name="cat_oil_show_quotaion">
+        <item >-1</item>
+        <item >-1</item>
+    </string-array>
+    <string-array name="cat_oil_show_image">
+        <item >0</item>
+        <item >0</item>
+    </string-array>
     
 </resources>
