@@ -82,4 +82,5 @@
 	
 	<!-- 菜单 -->
 	<string name="collection_add"> + 创建收藏分类 </string>
+	<string name="click_refresh">点击刷新</string>
 </resources>

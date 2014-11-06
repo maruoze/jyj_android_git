@@ -107,6 +107,7 @@ public class TabQuotActivity extends TabHomeActivity {
 	protected void updateView(int index) {
 		// TODO Auto-generated method stub
 		WebQuoView webQuoView=mWebQuoViews.get(index);
+		webQuoView.update();
 	}
 	
 	
