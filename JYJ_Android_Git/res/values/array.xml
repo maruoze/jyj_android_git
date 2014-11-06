@@ -81,5 +81,29 @@
         <item >http://m1.jxtzw.com/api/Api_app/get_comex.php</item>
         <item >http://m1.jxtzw.com/api/Api_app/get_etf.php</item>
     </string-array>
+    <string-array name="member_title">
+        <item >资金配置</item>
+        <item >比价换算</item>
+        <item >战绩回顾</item>
+        <item >交易策略</item>
+        <item >会员QQ群</item>
+        <item >大讲堂</item>
+    </string-array>
+    <string-array name="member_description">
+        <item >轻轻松松管理您的账户</item>
+        <item >国际金价，国内金价，一键“秒”算</item>
+        <item >总结以往，记录现在</item>
+        <item >盘中喊单，飞速送达</item>
+        <item >”金银投资天下事“ 全天有问必答</item>
+        <item >从入门到精通，基础和技术各个突破</item>
+    </string-array>
+    <integer-array name="member_images">
+        <item >@drawable/icon1</item>
+        <item >@drawable/icon2</item>
+        <item >@drawable/icon3</item>
+        <item >@drawable/icon4</item>
+        <item >@drawable/icon5</item>
+        <item >@drawable/icon6</item>
+    </integer-array>
     
 </resources>

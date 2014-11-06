@@ -1,12 +1,60 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    android:orientation="vertical"	tools:context="${relativePackage}.${activityClass}" 
+	android:layout_marginBottom="70dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/tabhost_title"
+        >
+
+        <TextView
+            android:id="@+id/head_middle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_26" />
+
+        <Button
+            android:id="@+id/head_right"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/tabhost_title"
+            android:text="@string/setting"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/head_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/guide_01" 
+        android:scaleType="fitXY"
+        android:contentDescription="@null"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_activity_tab_member" />
+        android:id="@+id/intro_textview"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/tabhost_title"
+        android:text="@string/member_title"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</RelativeLayout>
+    <ListView
+        android:id="@+id/menber_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>
