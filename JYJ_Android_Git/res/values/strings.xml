@@ -24,8 +24,9 @@
     <string name="api_articles">http://www.jxtzw.com/api/user_data_output/data_api.php</string>
     <string name="api_quotation_goldsilver">http://www.jxtzw.com/littletools/api/appGetWebData.php</string>
     <string name="api_quotation_oil">http://www.jxtzw.com/littletools/api/appGetWebData2.php</string>
-    <string name="api_comment">http://www.jxtzw.com/api/extern/mobile/comment.php</string><string name="title_activity_article_info">ArticleInfoActivity</string>
+    <string name="api_comment">http://www.jxtzw.com/api/extern/mobile/comment.php</string>
+    <string name="title_activity_article_info">ArticleInfoActivity</string>
     <string name="host">http://www.jxtzw.com/</string>
-    
+    <string name="title_activity_member_privilege">MemberPrivilegeActivity</string>
 
 </resources>

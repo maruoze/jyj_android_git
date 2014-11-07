@@ -107,6 +107,13 @@ public class AppConfig {
 	public final static String JYJ_CAT_QUO_ID_DEFAULT="cat_quo_id_default";
 	public final static String JYJ_CAT_QUO_ID_USERSET="cat_quo_id_userset";	
 	
+	/**
+	 * 是否登录判断
+	 */
+	public final static String IS_LOGIN="is_login";
+	public final static String USERNAME="username";
+	public final static String PASSWORD="password";
+	
 
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {

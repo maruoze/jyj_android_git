@@ -76,7 +76,7 @@
 	    android:layout_height="match_parent"
 	    android:layout_alignParentBottom="true"
 	    android:layout_marginBottom="70dp" 
-	    android:background="@color/half_transparent_w"
+	    android:background="@drawable/popwindow_bg"
 		>
         <LinearLayout
 	        android:id="@+id/popup_window"
@@ -114,5 +114,5 @@
         
     </RelativeLayout>
    
-
+    
 </RelativeLayout>

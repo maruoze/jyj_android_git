@@ -134,7 +134,15 @@ public class TabMemberActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext, String.valueOf(position));
+				// UIHelper.ToastMessage(mContext, String.valueOf(position));
+				Bundle bundle=new Bundle();
+				bundle.putInt("MemberIndex", position);
+				bundle.putString("MainTitle", mMainTitle);
+				
+				Intent memberIntent=new Intent();
+				memberIntent.putExtras(bundle);
+				memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
+				mContext.startActivity(memberIntent);
 			}
 		});
 	}

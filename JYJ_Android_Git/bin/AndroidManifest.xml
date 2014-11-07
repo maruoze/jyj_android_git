@@ -19,8 +19,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
-    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
     <application
         android:name=".AppContext"
@@ -61,8 +61,12 @@
             android:label="@string/title_activity_tab_member" >
         </activity>
         <activity
-            android:name="com.jxtzw.app.ui.ArticleInfoActivity"
+            android:name=".ui.ArticleInfoActivity"
             android:label="@string/title_activity_article_info" >
+        </activity>
+        <activity
+            android:name="com.jxtzw.app.ui.MemberPrivilegeActivity"
+            android:label="@string/title_activity_member_privilege" >
         </activity>
     </application>
 

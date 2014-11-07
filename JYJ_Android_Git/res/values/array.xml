@@ -105,5 +105,13 @@
         <item >@drawable/icon5</item>
         <item >@drawable/icon6</item>
     </integer-array>
+    <string-array name="member_api">
+        <item >http://m1.jxtzw.com/api/Api_app/funds_alloc.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/price_trans.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/quantitative_statistics.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/trading_tips.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/qq_group.php</item>
+        <item >http://m1.jxtzw.com/api/Api_app/auditorium.php</item>
+    </string-array>
     
 </resources>

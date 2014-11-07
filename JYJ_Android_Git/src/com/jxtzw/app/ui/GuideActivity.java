@@ -5,6 +5,7 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ImageViewPagerAdapter;
 
+import android.R.fraction;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -215,6 +216,10 @@ public class GuideActivity extends BaseActivity {
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_USERSET, mCatGoldShowQuotation);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT, mCatGoldShowImage);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_USERSET, mCatGoldShowImage);
+		//保存登录状态
+		mEditor.putBoolean(AppConfig.IS_LOGIN, false);
+		mEditor.putString(AppConfig.USERNAME, "");
+		mEditor.putString(AppConfig.PASSWORD, "");
 		//数据提交
 		mEditor.commit();
 	}

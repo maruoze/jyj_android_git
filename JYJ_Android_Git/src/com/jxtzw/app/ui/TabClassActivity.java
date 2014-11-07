@@ -3,16 +3,26 @@ package com.jxtzw.app.ui;
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.common.FastBlur;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -60,6 +70,12 @@ public class TabClassActivity extends TabHomeActivity {
 			{R.array.cat_oil_name,R.array.cat_oil_id,R.array.cat_oil_show_quotaion,R.array.cat_oil_show_image}
 	};
 	protected int mCurIndex=0;
+	
+	/**
+	 * 常量
+	 */
+	private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
+    private static final int COLORDRAWABLE_DIMENSION = 1;
 	
 	
 	@Override
@@ -211,11 +227,102 @@ public class TabClassActivity extends TabHomeActivity {
         contanner.setLayoutParams(layoutParams); 
 		
         mPopWindowBox=findViewById(R.id.popwindow_box);
+        //applyBlur(mPopWindowBox);
         
         mGold=(TextView) findViewById(R.id.gold);
         mSilver=(TextView) findViewById(R.id.silver);
         mOil=(TextView) findViewById(R.id.oil);
         initClick();
+	}
+	
+	/**
+	 * 背景模糊
+	 */
+	private void applyBlur(final View view) {
+		/**
+		final ImageView imageView=(ImageView) findViewById(R.id.view_backgroud);
+		imageView.getViewTreeObserver().addOnPreDrawListener(new OnPreDrawListener() {
+			@Override
+			public boolean onPreDraw() {
+				// TODO Auto-generated method stub
+				imageView.getViewTreeObserver().removeOnPreDrawListener(this);
+				imageView.buildDrawingCache();
+
+                Bitmap bmp = imageView.getDrawingCache();
+                blur(bmp, view);
+				return true;
+			}
+		});
+		
+        //模糊背景
+        //blur(bkg,mPopWindowBox);
+         */
+	}
+	
+	
+	/**
+	 * 从Drawable中获取Bitmap
+	 * @param drawable
+	 * @return
+	 */
+	private Bitmap getBitmapFromDrawable(Drawable drawable) {
+		/**
+        if (drawable == null) {
+                return null;
+        }
+
+        if (drawable instanceof BitmapDrawable) {
+                return ((BitmapDrawable) drawable).getBitmap();
+        }
+
+        try {
+                Bitmap bitmap;
+                if (drawable instanceof ColorDrawable) {
+                        bitmap = Bitmap.createBitmap(COLORDRAWABLE_DIMENSION,
+                                        COLORDRAWABLE_DIMENSION, BITMAP_CONFIG);
+                } else {
+                        bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
+                                        drawable.getIntrinsicHeight(), BITMAP_CONFIG);
+                }
+
+                Canvas canvas = new Canvas(bitmap);
+                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                drawable.draw(canvas);
+                return bitmap;
+        } catch (OutOfMemoryError e) {
+                return null;
+        }
+        */
+		return null;
+	}
+	
+	
+	
+	/**
+	 * PopWindow背景模糊处理
+	 */
+	private void blur(Bitmap bkg,View view){
+		/**
+        long startMs = System.currentTimeMillis();
+        float scaleFactor = 8;
+        float radius = 2;
+ 
+        int width= (int) (view.getMeasuredWidth() / scaleFactor);
+        int height= (int) (view.getMeasuredHeight() / scaleFactor);
+        
+        
+        Bitmap overlay = Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(overlay);
+        canvas.translate(-view.getLeft()/scaleFactor, -view.getTop()/scaleFactor);
+        canvas.scale(1/scaleFactor, 1/scaleFactor);
+        Paint paint = new Paint();
+        paint.setFlags(Paint.FILTER_BITMAP_FLAG);
+        canvas.drawBitmap(bkg, 0, 0, paint);
+ 
+        overlay = FastBlur.doBlur(overlay, (int) radius, true);
+        view.setBackgroundDrawable(new BitmapDrawable(mResources, overlay));
+        Log.v("blurTime",System.currentTimeMillis() - startMs + "ms");
+        */
 	}
 	
 }
