@@ -37,9 +37,10 @@
         android:id="@+id/head_image"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:src="@drawable/ban" 
         android:scaleType="fitXY"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null" >
+        
+    </ImageView>
 
     <TextView
         android:id="@+id/intro_textview"

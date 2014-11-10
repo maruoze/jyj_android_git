@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,10 +49,9 @@ public class BaseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		super.onDestroy();
-
 		// 结束Activity&从堆栈中移除
 		AppManager.getAppManager().finishActivity(this);
+		super.onDestroy();
 	}
 
 	public boolean isAllowFullScreen() {

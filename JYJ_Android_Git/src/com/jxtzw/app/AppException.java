@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Environment;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -202,6 +203,7 @@ public class AppException extends Exception implements UncaughtExceptionHandler{
 	@Override
 	public void uncaughtException(Thread thread, Throwable ex) {
 
+		Log.v("Blur_UnchaughtEx", ex.getLocalizedMessage());
 		if(!handleException(ex) && mDefaultHandler != null) {
 			mDefaultHandler.uncaughtException(thread, ex);
 		}

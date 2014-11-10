@@ -44,6 +44,8 @@ public class GetLocalArticleHandler extends Handler {
 			case -1:
 				mPTRView.copyLocalToShow();
 				mArticleListAdapter.notifyDataSetChanged();
+				mALFooterProgressBar.setVisibility(View.GONE);
+				mALFooterMore.setText("文章加载完成");
 				break;
 			case 0:
 				mPTRView.copyLocalToShow();
@@ -58,8 +60,6 @@ public class GetLocalArticleHandler extends Handler {
 		}
 		//解锁滚动列表
 		mArticleListPTRLV.setEnabled(true);
-		mALFooterProgressBar.setVisibility(View.GONE);
-		mALFooterMore.setText("文章加载完成");
 	}
 	
 }

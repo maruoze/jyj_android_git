@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.tsz.afinal.FinalBitmap;
+
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.handler.QuotationUpdateHandler;
@@ -13,6 +15,8 @@ import com.jxtzw.app.view.NewsListView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -33,6 +38,7 @@ public class TabMemberActivity extends BaseActivity {
 	/**
 	 * UI
 	 */
+	protected ImageView mImageView;
 	protected TextView mTitleTextView;
 	protected ListView mListView;
 	/**
@@ -46,8 +52,10 @@ public class TabMemberActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		System.gc();
 		setContentView(R.layout.activity_tab_member);
 		init();
+		initImageView();
 		initTitle();
 		initListView();
 	}
@@ -59,15 +67,7 @@ public class TabMemberActivity extends BaseActivity {
 		initCommonMemberVar();
 		initMemberVar();
 	}
-	
-	/**
-	 * 初始化成员变量
-	 */
-	protected void initMemberVar() {
-		Intent intent=getIntent();
-		mMainTitle=intent.getStringExtra("MainTitle");
-	}
-	
+		
 	/**
 	 * 初始化通用成员变量
 	 */
@@ -78,8 +78,24 @@ public class TabMemberActivity extends BaseActivity {
 		mResources=getResources();
 		//布局
 		mLayoutInflater=LayoutInflater.from(this);
-		
-		mResources.getDrawable(R.drawable.icon1);
+	}
+	
+	/**
+	 * 初始化成员变量
+	 */
+	protected void initMemberVar() {
+		Intent intent=getIntent();
+		mMainTitle=intent.getStringExtra("MainTitle");
+	}
+	
+	/**
+	 * 初始化Image
+	 */
+	protected void initImageView() {
+		mImageView=(ImageView) findViewById(R.id.head_image);
+		Drawable bm=mResources.getDrawable(R.drawable.ban);
+		mImageView.setImageDrawable(bm);
+		//mImageView.setBackgroundResource(R.drawable.ban);
 	}
 	
 	

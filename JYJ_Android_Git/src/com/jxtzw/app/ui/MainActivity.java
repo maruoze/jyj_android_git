@@ -178,7 +178,6 @@ public class MainActivity extends TabActivity {
 		
 		//显示弹出的导航菜单
 		mOnTabClickListener=new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -221,17 +220,16 @@ public class MainActivity extends TabActivity {
 						// TODO Auto-generated method stub
 						AppManager.getAppManager().AppExit(mContext);
 						//彻底退出APP的方法2,需要android.permission.KILL_BACKGROUND_PROCESSES权限
-						/*ActivityManager am= (ActivityManager) mContext
-								.getSystemService(Context.ACTIVITY_SERVICE);
-						am.killBackgroundProcesses(mContext.getPackageName());*/
+						//ActivityManager am= (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+						//am.killBackgroundProcesses(mContext.getPackageName());
 					}
                  });
                  builder.setNegativeButton("取消", null);
                  builder.create();
                  builder.show();
-              }  
+             }  
              return true;  
-        }  
+        } 
         return super.dispatchKeyEvent(event);  
     }
 }
