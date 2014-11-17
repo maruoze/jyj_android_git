@@ -7,6 +7,7 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.NewsListViewPagerAdapter;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.handler.QuotationUpdateHandler;
 import com.jxtzw.app.view.NewsListView;
 
@@ -17,12 +18,15 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class TabHomeActivity extends BaseActivity {
@@ -70,6 +74,7 @@ public class TabHomeActivity extends BaseActivity {
 	 * 标题栏相关变量
 	 */
 	protected TextView mTitleTextView;
+	protected Button mTitleMenu;
 	
 	
 	@Override
@@ -166,6 +171,7 @@ public class TabHomeActivity extends BaseActivity {
 		mTitleTextView=(TextView) findViewById(R.id.head_middle);
 		String titleString=mMainTitle+" • "+mCatNames[index];
 		mTitleTextView.setText(titleString);
+		initTitleMenu();
 	}
 	
 	/**
@@ -306,5 +312,27 @@ public class TabHomeActivity extends BaseActivity {
 	protected void updateView(int index){
 		NewsListView newsListView=mNewsListViews.get(index);
 		newsListView.update(mQuotationUpdateHandlers);
+	}
+	
+	/**
+	 * 初始化标题栏右部的按钮
+	 */
+	protected void initTitleMenu() {
+		mTitleMenu=(Button) findViewById(R.id.head_right);
+		mTitleMenu.setOnClickListener(new OnClickListener() {
+			
+			@SuppressLint("InflateParams")
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//UIHelper.ToastMessage(mContext, " 标题菜单单击");
+				View popView=mLayoutInflater.inflate(R.layout.pop_users, null);
+				PopupWindow popupWindow=new PopupWindow(popView);
+				popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);  
+				popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+				popupWindow.setOutsideTouchable(true);
+				popupWindow.showAtLocation(mTitleMenu, Gravity.RIGHT|Gravity.TOP, 0, 80);
+			}
+		});
 	}
 }
