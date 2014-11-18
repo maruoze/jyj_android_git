@@ -51,6 +51,14 @@ public class MemberPrivilegeActivity extends BaseActivity {
 	}
 	
 	/**
+	 * 调用父类构造函数供子类使用
+	 * @param savedInstanceState
+	 */
+	protected void onCreateEx(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	/**
 	 * 初始化
 	 */
 	protected void init() {

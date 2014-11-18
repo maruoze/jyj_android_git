@@ -2,6 +2,7 @@ package com.jxtzw.app.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.ui.MainActivity;
+import com.jxtzw.app.ui.MemberRegisterActivity;
 
 public class MainMenuPop {
 	/**
@@ -81,6 +84,16 @@ public class MainMenuPop {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
+				mPop.dismiss();
+				switch (position) {
+					case 1:
+						Intent intent=new Intent();
+						intent.setClass(mContext, MemberRegisterActivity.class);
+						mContext.startActivity(intent);
+						break;
+					default:
+						break;
+				}
 			}
 		};
 	}

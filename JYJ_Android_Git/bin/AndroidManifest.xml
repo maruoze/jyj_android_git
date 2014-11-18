@@ -65,8 +65,12 @@
             android:label="@string/title_activity_article_info" >
         </activity>
         <activity
-            android:name="com.jxtzw.app.ui.MemberPrivilegeActivity"
+            android:name=".ui.MemberPrivilegeActivity"
             android:label="@string/title_activity_member_privilege" >
+        </activity>
+        <activity
+            android:name="com.jxtzw.app.ui.MemberRegisterActivity"
+            android:label="@string/title_activity_member_register" >
         </activity>
     </application>
 

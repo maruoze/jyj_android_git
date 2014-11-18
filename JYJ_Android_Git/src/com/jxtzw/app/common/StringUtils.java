@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.lang.Character.UnicodeBlock;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -272,7 +274,7 @@ public class StringUtils {
 		}
 		return res.toString();
 	}
-	
+
 	/**
 	 * @author MaRuoze
 	 * @deprecated 自定义相关工具函数
@@ -280,37 +282,37 @@ public class StringUtils {
 	/**
 	 * 字符串数组转为带分隔符的字符串
 	 */
-	public static String stringArrayToString(String[] strings, String seperator){
-		String returnString="";
+	public static String stringArrayToString(String[] strings, String seperator) {
+		String returnString = "";
 		for (int i = 0; i < strings.length; i++) {
-			if (i!=strings.length-1) {
-				returnString+=strings[i]+seperator;
-			}else{
-				returnString+=strings[i];
+			if (i != strings.length - 1) {
+				returnString += strings[i] + seperator;
+			} else {
+				returnString += strings[i];
 			}
 		}
 		return returnString;
 	}
-	
+
 	/**
 	 * 将秒数时间戳转换为指定格式的日期
 	 */
 	@SuppressLint("SimpleDateFormat")
-	public static String timeStamp2Date(String time,String format) {
-		Long timestamp = Long.parseLong(time)*1000;  
-		String date = new SimpleDateFormat(format).format(new Date(timestamp));  
-		return date;  
+	public static String timeStamp2Date(String time, String format) {
+		Long timestamp = Long.parseLong(time) * 1000;
+		String date = new SimpleDateFormat(format).format(new Date(timestamp));
+		return date;
 	}
-	
+
 	/**
 	 * 判断是否是当日
 	 */
 	public static boolean isTodayEx(String time) {
 		boolean b = false;
-		//Date time = toDate(sdate);
-		Long timestamp = Long.parseLong(time)*1000;
+		// Date time = toDate(sdate);
+		Long timestamp = Long.parseLong(time) * 1000;
 		Date today = new Date();
-		Date isTodayDate=new Date(timestamp);
+		Date isTodayDate = new Date(timestamp);
 		if (time != null) {
 			String nowDate = dateFormater2.get().format(today);
 			String timeDate = dateFormater2.get().format(isTodayDate);
@@ -320,79 +322,253 @@ public class StringUtils {
 		}
 		return b;
 	}
-	
+
 	/**
 	 * 浮点数保留两位小数
 	 */
 	public static String float2Format(String str) {
-		String returnString="";
-		float price=Float.parseFloat(str);
-		DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
-		returnString=decimalFormat.format(price);//format 返回的是字符串
+		String returnString = "";
+		float price = Float.parseFloat(str);
+		DecimalFormat decimalFormat = new DecimalFormat(".00");// 构造方法的字符格式这里如果小数不足2位,会以0补足.
+		returnString = decimalFormat.format(price);// format 返回的是字符串
 		return returnString;
 	}
-	
+
 	/**
 	 * 获得当前系统时间并格式化输出
 	 */
 	@SuppressLint("SimpleDateFormat")
 	public static String getNowString() {
-		String nowString=null;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		String nowString = null;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
 		nowString = df.format(new Date());// new Date()为获取当前系统时间
 		return nowString;
 	}
-	
+
 	/**
 	 * 获取的网络数据的处理
 	 */
-	public static String dataFiltering(String origin,String imageBaseURL) {
-		if(origin!=null){
-			//超链接去除
-			origin=HtmlRegexpUtils.fiterHtmlTag(origin, "a");
-			origin=origin.replaceAll("</a>", "");
-			//HTML特殊符号替换
-			origin=StringUtils.replaceHTML(origin);
-			//图片地址完整化
-			origin=StringUtils.completeImageURL(origin, imageBaseURL);
+	public static String dataFiltering(String origin, String imageBaseURL) {
+		if (origin != null) {
+			// 超链接去除
+			origin = HtmlRegexpUtils.fiterHtmlTag(origin, "a");
+			origin = origin.replaceAll("</a>", "");
+			// HTML特殊符号替换
+			origin = StringUtils.replaceHTML(origin);
+			// 图片地址完整化
+			origin = StringUtils.completeImageURL(origin, imageBaseURL);
+		}
+		return origin;
+	}
+
+	/**
+	 * HTML符号替换
+	 */
+	public static String replaceHTML(String origin) {
+		origin = origin.replace("&amp;", "&");
+		origin = origin.replace("&quot;", "\"");
+		origin = origin.replace("&gt;", ">");
+		origin = origin.replace("&lt;", "<");
+		return origin;
+	}
+
+	/**
+	 * 图片地址完整化, 图片宽度设置为100%
+	 */
+	public static String completeImageURL(String origin, String imageBaseURL) {
+		String img = "";
+		Pattern pImageURL;
+		Matcher matcherImageURL;
+		String regExImage = "<img.*src\\s*=\\s*(.*?)[^>]*?>";
+		pImageURL = Pattern.compile(regExImage, Pattern.CASE_INSENSITIVE);
+		matcherImageURL = pImageURL.matcher(origin);
+		while (matcherImageURL.find()) {
+			img = matcherImageURL.group();
+			// Matcher m =
+			// Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(img);
+			Matcher m = Pattern.compile("src\\s*=\"").matcher(img);
+			String imageSrc = null;
+			while (m.find()) {
+				String imageURL = m.group();
+				String imageURLWhole = " width='100%' " + imageURL
+						+ imageBaseURL;
+				imageSrc = m.replaceAll(imageURLWhole);
+			}
+			origin = matcherImageURL.replaceAll(imageSrc);
 		}
 		return origin;
 	}
 
 	
 	/**
-	 * HTML符号替换
+	 * 字符编码转换
 	 */
-	public static String replaceHTML(String origin) {
-		origin=origin.replace("&amp;", "&");
-		origin=origin.replace("&quot;", "\"");
-		origin=origin.replace("&gt;", ">");
-		origin=origin.replace("&lt;", "<");
-		return origin;
+	public static String gbk2utf8(String gbk) {
+		String l_temp = GBK2Unicode(gbk);
+		l_temp = unicodeToUtf8(l_temp);
+		return l_temp;
 	}
-	
+
+	public static String utf82gbk(String utf) {
+		String l_temp = utf8ToUnicode(utf);
+		l_temp = Unicode2GBK(l_temp);
+		return l_temp;
+	}
+
 	/**
-	 * 图片地址完整化, 图片宽度设置为100%
+	 * 
+	 * @param str
+	 * @return String
 	 */
-	public static String completeImageURL(String origin,String imageBaseURL) {
-		String img="";
-		Pattern pImageURL;
-		Matcher matcherImageURL;
-		String regExImage = "<img.*src\\s*=\\s*(.*?)[^>]*?>"; 
-		pImageURL=Pattern.compile(regExImage, Pattern.CASE_INSENSITIVE);
-		matcherImageURL=pImageURL.matcher(origin);
-		while (matcherImageURL.find()) {
-			img =  matcherImageURL.group();
-			//Matcher m  = Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(img);
-			Matcher m  = Pattern.compile("src\\s*=\"").matcher(img);
-			String imageSrc = null;
-			while(m.find()){
-				String imageURL=m.group();
-				String imageURLWhole=" width='100%' "+imageURL+imageBaseURL;
-				imageSrc=m.replaceAll(imageURLWhole);
+
+	public static String GBK2Unicode(String str) {
+		StringBuffer result = new StringBuffer();
+		for (int i = 0; i < str.length(); i++) {
+			char chr1 = (char) str.charAt(i);
+
+			if (!isNeedConvert(chr1)) {
+				result.append(chr1);
+				continue;
 			}
-			origin=matcherImageURL.replaceAll(imageSrc);
+
+			result.append("\\u" + Integer.toHexString((int) chr1));
 		}
-		return origin;
-	}	
+
+		return result.toString();
+	}
+
+	/**
+	 * 
+	 * @param dataStr
+	 * @return String
+	 */
+
+	public static String Unicode2GBK(String dataStr) {
+		int index = 0;
+		StringBuffer buffer = new StringBuffer();
+
+		int li_len = dataStr.length();
+		while (index < li_len) {
+			if (index >= li_len - 1
+					|| !"\\u".equals(dataStr.substring(index, index + 2))) {
+				buffer.append(dataStr.charAt(index));
+
+				index++;
+				continue;
+			}
+
+			String charStr = "";
+			charStr = dataStr.substring(index + 2, index + 6);
+
+			char letter = (char) Integer.parseInt(charStr, 16);
+
+			buffer.append(letter);
+			index += 6;
+		}
+
+		return buffer.toString();
+	}
+
+	public static boolean isNeedConvert(char para) {
+		return ((para & (0x00FF)) != para);
+	}
+
+	/**
+	 * utf-8 转unicode
+	 * 
+	 * @param inStr
+	 * @return String
+	 */
+	@SuppressLint("DefaultLocale")
+	public static String utf8ToUnicode(String inStr) {
+		char[] myBuffer = inStr.toCharArray();
+
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < inStr.length(); i++) {
+			UnicodeBlock ub = UnicodeBlock.of(myBuffer[i]);
+			if (ub == UnicodeBlock.BASIC_LATIN) {
+				sb.append(myBuffer[i]);
+			} else if (ub == UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
+				int j = (int) myBuffer[i] - 65248;
+				sb.append((char) j);
+			} else {
+				short s = (short) myBuffer[i];
+				String hexS = Integer.toHexString(s);
+				String unicode = "\\u" + hexS;
+				sb.append(unicode.toLowerCase());
+			}
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * 
+	 * @param theString
+	 * @return String
+	 */
+	public static String unicodeToUtf8(String theString) {
+		char aChar;
+		int len = theString.length();
+		StringBuffer outBuffer = new StringBuffer(len);
+		for (int x = 0; x < len;) {
+			aChar = theString.charAt(x++);
+			if (aChar == '\\') {
+				aChar = theString.charAt(x++);
+				if (aChar == 'u') {
+					// Read the xxxx
+					int value = 0;
+					for (int i = 0; i < 4; i++) {
+						aChar = theString.charAt(x++);
+						switch (aChar) {
+						case '0':
+						case '1':
+						case '2':
+						case '3':
+						case '4':
+						case '5':
+						case '6':
+						case '7':
+						case '8':
+						case '9':
+							value = (value << 4) + aChar - '0';
+							break;
+						case 'a':
+						case 'b':
+						case 'c':
+						case 'd':
+						case 'e':
+						case 'f':
+							value = (value << 4) + 10 + aChar - 'a';
+							break;
+						case 'A':
+						case 'B':
+						case 'C':
+						case 'D':
+						case 'E':
+						case 'F':
+							value = (value << 4) + 10 + aChar - 'A';
+							break;
+						default:
+							throw new IllegalArgumentException(
+									"Malformed   \\uxxxx   encoding.");
+						}
+					}
+					outBuffer.append((char) value);
+				} else {
+					if (aChar == 't')
+						aChar = '\t';
+					else if (aChar == 'r')
+						aChar = '\r';
+					else if (aChar == 'n')
+						aChar = '\n';
+					else if (aChar == 'f')
+						aChar = '\f';
+					outBuffer.append(aChar);
+				}
+			} else
+				outBuffer.append(aChar);
+		}
+		return outBuffer.toString();
+	}
+
 }
