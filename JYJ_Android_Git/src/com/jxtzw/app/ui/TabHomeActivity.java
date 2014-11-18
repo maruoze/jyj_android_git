@@ -9,11 +9,13 @@ import com.jxtzw.app.adapter.NewsListViewPagerAdapter;
 import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.handler.QuotationUpdateHandler;
+import com.jxtzw.app.view.MainMenuPop;
 import com.jxtzw.app.view.NewsListView;
 
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -23,9 +25,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -75,6 +79,11 @@ public class TabHomeActivity extends BaseActivity {
 	 */
 	protected TextView mTitleTextView;
 	protected Button mTitleMenu;
+	/**
+	 * 弹出窗口
+	 */
+	protected MainMenuPop mMainMenuPop;
+	protected PopupWindow mPopWindow;
 	
 	
 	@Override
@@ -321,17 +330,13 @@ public class TabHomeActivity extends BaseActivity {
 		mTitleMenu=(Button) findViewById(R.id.head_right);
 		mTitleMenu.setOnClickListener(new OnClickListener() {
 			
-			@SuppressLint("InflateParams")
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				//UIHelper.ToastMessage(mContext, " 标题菜单单击");
-				View popView=mLayoutInflater.inflate(R.layout.pop_users, null);
-				PopupWindow popupWindow=new PopupWindow(popView);
-				popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);  
-				popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-				popupWindow.setOutsideTouchable(true);
-				popupWindow.showAtLocation(mTitleMenu, Gravity.RIGHT|Gravity.TOP, 0, 80);
+				mMainMenuPop=new MainMenuPop(mContext, mResources, mLayoutInflater);
+				mPopWindow=mMainMenuPop.initPop(R.layout.pop_users);
+				mPopWindow.showAtLocation(mTitleMenu, Gravity.RIGHT|Gravity.TOP, 0, 80);
 			}
 		});
 	}

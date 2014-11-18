@@ -1,5 +1,8 @@
 package com.jxtzw.app.view;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
@@ -29,7 +32,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.SimpleAdapter;
 
 public class MenuPopWindow {
 	/**
@@ -202,6 +207,19 @@ public class MenuPopWindow {
 	 * 模式
 	 */
 	private void initModel() {
-		
+		String[] titleStrings={"夜间模式"};
+		//数据放入ArrayList
+		ArrayList<HashMap<String, Object>> listItems=new ArrayList<HashMap<String,Object>>();
+		for (int i = 0; i < titleStrings.length; i++) {
+			HashMap<String, Object> itemMap=new HashMap<String, Object>();
+			itemMap.put("title", titleStrings[i]);
+			listItems.add(itemMap);
+		}
+		//初始化Adapter和ListView
+		String[] dataIndex={"title"};
+		int[] viewID={R.id.model_title};
+		SimpleAdapter listViewAdapter=new SimpleAdapter(mContext, listItems, R.layout.item_model, dataIndex, viewID);
+		ListView listView=(ListView) mPopView.findViewById(R.id.listview_model);
+		listView.setAdapter(listViewAdapter);
 	}
 }
