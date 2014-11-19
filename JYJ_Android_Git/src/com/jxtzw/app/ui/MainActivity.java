@@ -194,6 +194,7 @@ public class MainActivity extends TabActivity {
 	 */
 	protected void getConfig() {
 		mTabTitleStrings=DataHelper.getMainTabsText(mResources,mSharedPreferences);
+		AppConfig.isLogin=mSharedPreferences.getBoolean("is_login", false);
 	}
 	
 

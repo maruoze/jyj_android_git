@@ -1,7 +1,10 @@
 package com.jxtzw.app.view;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
@@ -10,10 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.ui.MainActivity;
@@ -36,7 +42,10 @@ public class MainMenuPop {
 	 * 事件监听
 	 */
 	private OnItemClickListener mItemClickListener;
-	
+	/**
+	 * 登录对话框
+	 */
+	private LoginDialog mLoginDialog;
 	
 	/**
 	 * 构造
@@ -54,6 +63,9 @@ public class MainMenuPop {
 	 */
 	@SuppressLint("InflateParams")
 	public PopupWindow initPop(int layout) {
+		if (AppConfig.isLogin) {
+			arrayStrings[0]="退出";
+		}
 		mLayout=layout;
 		mPopView=mLayoutInflater.inflate(R.layout.pop_users, null);
 		mPop=new PopupWindow(mPopView);
@@ -86,6 +98,16 @@ public class MainMenuPop {
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
 				mPop.dismiss();
 				switch (position) {
+					case 0:
+						//showLoginDialog();
+						mLoginDialog=new LoginDialog(mContext);
+						String text=((TextView)view).getText().toString();
+						if(text.equals("登录")){
+							mLoginDialog.show();
+						}else{
+							mLoginDialog.logout();
+						}
+						break;
 					case 1:
 						Intent intent=new Intent();
 						intent.setClass(mContext, MemberRegisterActivity.class);
@@ -97,4 +119,6 @@ public class MainMenuPop {
 			}
 		};
 	}
+	
+
 }

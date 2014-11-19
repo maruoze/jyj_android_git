@@ -110,6 +110,7 @@ public class AppConfig {
 	/**
 	 * 是否登录判断
 	 */
+	public static boolean isLogin=false;
 	public final static String IS_LOGIN="is_login";
 	public final static String USERNAME="username";
 	public final static String PASSWORD="password";

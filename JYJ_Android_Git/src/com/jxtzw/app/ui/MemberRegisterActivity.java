@@ -1,7 +1,5 @@
 package com.jxtzw.app.ui;
 
-import java.io.UnsupportedEncodingException;
-
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
@@ -9,10 +7,14 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.common.StringUtils;
 import com.jxtzw.app.common.UIHelper;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,6 +26,8 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 	private TextView mHandphoneTV;
 	private TextView mQQTextView;
 	private Button mRegisterButton;
+	private AlertDialog mRegistering=null;
+	private AlertDialog mResult;
 	
 	
 	@Override
@@ -82,6 +86,8 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				InputMethodManager imm = (InputMethodManager)mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0); 
 				registerSubmit();
 			}
 		});
@@ -99,6 +105,7 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 		}
 		//获取数据
 		String apiRegister=mResources.getString(R.string.api_register);
+		//String apiRegister="http://m1.jxtzw.com/Ajax/qq_group/";
 		String username=mUserNameTV.getText().toString();
 		String handphone=mHandphoneTV.getText().toString();
 		String qq=mQQTextView.getText().toString();
@@ -121,9 +128,17 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 			mHandphoneTV.requestFocus();  
 			return;
 		}
-		String postString=username+"|,|0|,|"+handphone+"|,|"+qq+"|,|0|,|0|,|0|,|0|,|0|,|1|,|5|,|";
+		
+		//注册中....对话框
+		mRegistering=new AlertDialog.Builder(mContext).create();
+		mRegistering.setMessage("注册中......");
+		mRegistering.show();
+		
 		AjaxParams ajaxParams=new AjaxParams();
-		ajaxParams.put("post_str", postString);
+		ajaxParams.put("customer", username);
+		ajaxParams.put("handphone", handphone);
+		ajaxParams.put("qq_number", qq);
+		
 		final FinalHttp finalHttp=new FinalHttp();
 		finalHttp.post(apiRegister, ajaxParams, new AjaxCallBack<String>() {
 
@@ -136,19 +151,23 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 			@Override
 			public void onSuccess(String t) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext,t);
-				String iosString="";
-				String utfString = "";
-				try {
-					iosString=new String(t.getBytes("UTF-8"),"ISO-8859-1");
-					utfString=new String(iosString.getBytes("ISO-8859-1"),"UTF-8");
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				UIHelper.ToastMessage(mContext,utfString);
+				if (mRegistering!=null) {
+					mRegistering.dismiss();
+				} 
+				String rt=StringUtils.unescapeUnicode(t);
+				mResult=new AlertDialog.Builder(mContext).
+				setTitle("温馨提示").
+				setMessage(rt).
+				setNegativeButton("关闭",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog,
+								int which) {
+							dialog.dismiss();
+						}
+				}).create();
+				mResult.show();
 			}
-			
 		});
 	}
 }
