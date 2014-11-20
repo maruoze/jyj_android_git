@@ -1,7 +1,10 @@
 package com.jxtzw.app.adapter;
 
+import java.util.ArrayList;
+
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewShareAdapter.ListItemView;
+import com.jxtzw.app.bean.CollectionClassify;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -14,10 +17,10 @@ import android.widget.TextView;
 public class GridViewCollectionAdapter extends BaseAdapter {
 	private Resources mResources;
 	private LayoutInflater mLayoutInflater;
-	private String[] mTitleStrings;
+	private ArrayList<CollectionClassify> mTitleStrings;
 	
 	public GridViewCollectionAdapter(Resources mResources,
-			LayoutInflater mLayoutInflater, String[] mTitleStrings) {
+			LayoutInflater mLayoutInflater, ArrayList<CollectionClassify> mTitleStrings) {
 		super();
 		this.mResources = mResources;
 		this.mLayoutInflater = mLayoutInflater;
@@ -26,7 +29,7 @@ public class GridViewCollectionAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return mTitleStrings.length;
+		return mTitleStrings.size();
 	}
 	@Override
 	public Object getItem(int position) {
@@ -51,8 +54,9 @@ public class GridViewCollectionAdapter extends BaseAdapter {
 		}else{
 			listItemView = (ListItemView) convertView.getTag();
 		}
-		String shareTitle=mTitleStrings[position];
+		String shareTitle=mTitleStrings.get(position).getCcf_classify_name();
 		listItemView.collectionTV.setText(shareTitle);
+		listItemView.collectionTV.setTag(mTitleStrings.get(position).getCcf_classify_id());
 		return convertView;
 	}
 	

@@ -3,15 +3,18 @@ package com.jxtzw.app.view;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import net.tsz.afinal.FinalDb;
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewCollectionAdapter;
 import com.jxtzw.app.adapter.GridViewShareAdapter;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.bean.CollectionClassify;
 import com.jxtzw.app.common.UIHelper;
 
 import android.R.integer;
@@ -28,6 +31,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -35,6 +41,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class MenuPopWindow {
 	/**
@@ -62,6 +69,7 @@ public class MenuPopWindow {
 	 */
 	private Article mArticle;
 	private String mComment;
+
 
 	/**
 	 * 构造
@@ -137,13 +145,69 @@ public class MenuPopWindow {
 	 * 收藏菜单
 	 */
 	private void initCellection() {
-		String[] titleStrings={
-				"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"
-		};
+		//String[] titleStrings={"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"};
+		//初始化数据
+		final ArrayList<CollectionClassify> titleStrings=new ArrayList<CollectionClassify>();
+		String dbName="collection";
+		FinalDb finalDb=FinalDb.create(mContext,dbName);
+		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
+		ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
+		if(ccfy.size()>0){
+			for (int i = 0; i < ccfy.size(); i++) {
+				titleStrings.add(ccfy.get(i));
+			}
+		}
+		//设置数据适配器
 		GridView collectionGridView=(GridView) mPopView.findViewById(R.id.gridview_collection);
-		GridViewCollectionAdapter collectionAdapter=new GridViewCollectionAdapter(mResources, 
+		final GridViewCollectionAdapter collectionAdapter=new GridViewCollectionAdapter(mResources, 
 				mLayoutInflater, titleStrings);
 		collectionGridView.setAdapter(collectionAdapter);
+		/**
+		 * 项目单击
+		 */
+		collectionGridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				//UIHelper.ToastMessage(mContext, String.valueOf(position));
+				mPop.dismiss();
+			}
+		});
+		
+		/**
+		 * 项目长按
+		 */
+		collectionGridView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				DialogColloctionOp dcOp=new DialogColloctionOp(mContext);
+				dcOp.show(view,position,titleStrings,collectionAdapter);
+				return true;
+			}
+		});
+		
+		
+		
+		
+		//收藏菜单的新增按钮
+		Button addCollectionClassify=(Button) mPopView.findViewById(R.id.collection_add);
+		addCollectionClassify.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (titleStrings.size()>=AppConfig.COLLECT_CLASSIFY_MAX){
+					String msg="最多只能创建"+AppConfig.COLLECT_CLASSIFY_MAX+"个收藏分类";
+					UIHelper.ToastMessage(mContext, msg);
+				}else{
+					DialogCollection dialogCollection=new DialogCollection(mContext);
+					dialogCollection.show(titleStrings,collectionAdapter,null);
+				}
+			}
+		});
 	}
 	
 	

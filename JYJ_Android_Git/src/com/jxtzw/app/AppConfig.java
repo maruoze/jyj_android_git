@@ -112,8 +112,14 @@ public class AppConfig {
 	 */
 	public static boolean isLogin=false;
 	public final static String IS_LOGIN="is_login";
+	public final static String UID="uid";
 	public final static String USERNAME="username";
 	public final static String PASSWORD="password";
+	/**
+	 * 收藏相关
+	 */
+	public final static int COLLECT_CLASSIFY_MAX=12;
+	public final static String CCFY_LAST_COUNT="ccfy_last_count";
 	
 
 	public static AppConfig getAppConfig(Context context) {

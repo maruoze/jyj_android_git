@@ -46,8 +46,8 @@ public class LoginDialog extends BaseView {
 	/**
 	 * 登录状态
 	 */
-	private SharedPreferences mSharedPreferences;
-	private SharedPreferences.Editor mEditor;
+	protected SharedPreferences mSharedPreferences;
+	protected SharedPreferences.Editor mEditor;
 	
 	public LoginDialog(Context context) {
 		super(context);
@@ -174,11 +174,13 @@ public class LoginDialog extends BaseView {
 	 */
 	private void saveLoginStatus(JSONObject jsonObject){
 		try {
+			String uid=jsonObject.getJSONObject("ucresult").getString("uid");
 			String username=jsonObject.getJSONObject("ucresult").getString("username");
 			String password=jsonObject.getJSONObject("ucresult").getString("password");
 			AppConfig.isLogin=true;
 			//保存登录状态
 			mEditor.putBoolean(AppConfig.IS_LOGIN, true);
+			mEditor.putString(AppConfig.UID, uid);
 			mEditor.putString(AppConfig.USERNAME, username);
 			mEditor.putString(AppConfig.PASSWORD, password);
 			//数据提交
