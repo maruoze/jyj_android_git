@@ -10,6 +10,7 @@ import com.jxtzw.app.adapter.GridViewCollectionAdapter;
 import com.jxtzw.app.bean.CollectionClassify;
 import com.jxtzw.app.common.UIHelper;
 
+import android.R.interpolator;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -33,19 +34,30 @@ public class DialogCollection extends LoginDialog {
 	 */
 	private Drawable mDrawable;
 	
+	/**
+	 * 数据库
+	 */
+	private FinalDb mFinalDb;
+	
 	public DialogCollection(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
 	
 	@SuppressLint("InflateParams")
-	public void show(final ArrayList<CollectionClassify> al,final GridViewCollectionAdapter gvca, final String ccfy_name) {
+	public void show(final ArrayList<CollectionClassify> al,
+			final GridViewCollectionAdapter gvca, 
+			final CollectionClassify ccfy,
+			final int position) {
+		String dbName="collection";
+		mFinalDb=FinalDb.create(mContext,dbName);
+		
 		mDrawable=mResources.getDrawable(R.drawable.f063);
 		mDrawable.setBounds(0, 0, 30, 30); 
 		mCCFView=mLayoutInflater.inflate(R.layout.dialog_collection, null);
 		mCollectionName=(EditText) mCCFView.findViewById(R.id.et_collection_name);
-		if (ccfy_name!=null) {
-			mCollectionName.setText(ccfy_name);
+		if (ccfy!=null) {
+			mCollectionName.setText(ccfy.getCcf_classify_name());
 		}
 		mCCFDialog=new AlertDialog.Builder(mContext)
 			.setTitle(R.string.collection_name_add)
@@ -60,8 +72,8 @@ public class DialogCollection extends LoginDialog {
 						mCollectionName.setError(mResources.getString(R.string.collection_name_error), mDrawable);
 					} else {
 						boolean flag=false;
-						if (ccfy_name!=null){
-							flag=updateCollectionClassify(al,gvca);
+						if (ccfy!=null){
+							flag=updateCollectionClassify(al,gvca,ccfy,position);
 						}else{
 							flag=addCollectionClassify(al,gvca);
 						}
@@ -88,8 +100,6 @@ public class DialogCollection extends LoginDialog {
 	 */
 	private boolean addCollectionClassify(ArrayList<CollectionClassify> al,GridViewCollectionAdapter gvca) {
 		//获取要保存的信息
-		String dbName="collection";
-		FinalDb finalDb=FinalDb.create(mContext,dbName);
 		CollectionClassify ccf=new CollectionClassify();
 		int ccf_classify_id=mSharedPreferences.getInt(AppConfig.CCFY_LAST_COUNT, 0);
 		String uid=mSharedPreferences.getString(AppConfig.UID, "");
@@ -101,7 +111,7 @@ public class DialogCollection extends LoginDialog {
 		//保存收藏信息前的判断
 		//判断收藏的个数
 		ArrayList<CollectionClassify> ccfs=new ArrayList<CollectionClassify>();
-		ccfs=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
+		ccfs=(ArrayList<CollectionClassify>) mFinalDb.findAll(CollectionClassify.class);
 		int ccfs_max=AppConfig.COLLECT_CLASSIFY_MAX;
 		int ccfs_size=ccfs.size();
 		if (ccfs_size>=ccfs_max) {
@@ -112,9 +122,9 @@ public class DialogCollection extends LoginDialog {
 		//判断当前收藏名称是否已经存在
 		String whereString="ccf_classify_name='"+mStrCollectionName+"'";
 		ArrayList<CollectionClassify> ccf_rt=new ArrayList<CollectionClassify>();
-		ccf_rt=(ArrayList<CollectionClassify>) finalDb.findAllByWhere(CollectionClassify.class, whereString);
+		ccf_rt=(ArrayList<CollectionClassify>) mFinalDb.findAllByWhere(CollectionClassify.class, whereString);
 		if (ccf_rt.size()==0) {
-			finalDb.save(ccf);
+			mFinalDb.save(ccf);
 			ccf_classify_id++;
 			mEditor.putInt(AppConfig.CCFY_LAST_COUNT, ccf_classify_id);
 			mEditor.commit();
@@ -131,7 +141,18 @@ public class DialogCollection extends LoginDialog {
 	/**
 	 * 收藏分类名称修改
 	 */
-	private boolean updateCollectionClassify(ArrayList<CollectionClassify> al,GridViewCollectionAdapter gvca){
+	private boolean updateCollectionClassify(ArrayList<CollectionClassify> al,
+			GridViewCollectionAdapter gvca, 
+			CollectionClassify ccfy,
+			int position){
+		
+		if (!mStrCollectionName.equals(ccfy.getCcf_classify_name())) {
+			ccfy.setCcf_classify_name(mStrCollectionName);
+			mFinalDb.update(ccfy);
+			al.remove(position);
+			al.add(position, ccfy);
+			gvca.notifyDataSetChanged();
+		}
 		return true;
 	}
 }

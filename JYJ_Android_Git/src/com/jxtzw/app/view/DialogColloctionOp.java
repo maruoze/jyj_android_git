@@ -28,6 +28,7 @@ public class DialogColloctionOp extends BaseView {
 	private Button mBroswer;
 	private Button mUpdate;
 	private Button mDelete;
+	private CollectionClassify mCCFY;
 	private int mCCFYID;
 	private String mCCFYName;
 	/**
@@ -57,7 +58,9 @@ public class DialogColloctionOp extends BaseView {
 		mGVCAdapter=gvca;
 		mPosition=position;
 		//UI
-		mCCFYID=(Integer) ((TextView)view.findViewById(R.id.textview_collection)).getTag();
+		mCCFY=(CollectionClassify) ((TextView)view.findViewById(R.id.textview_collection)).getTag();
+		mCCFYID=mCCFY.getCcf_classify_id();
+		
 		mCCFYName=((TextView)view.findViewById(R.id.textview_collection)).getText().toString();
 		mDCOPView=mLayoutInflater.inflate(R.layout.dialog_collection_op, null);
 		mBroswer=(Button) mDCOPView.findViewById(R.id.bt_collection_op_broswer);
@@ -104,7 +107,7 @@ public class DialogColloctionOp extends BaseView {
 				//UIHelper.ToastMessage(mContext, mCCFYName);
 				mDCOPDialog.dismiss();
 				DialogCollection dialogCollection=new DialogCollection(mContext);
-				dialogCollection.show(mCCFYs, mGVCAdapter, mCCFYName);
+				dialogCollection.show(mCCFYs, mGVCAdapter, mCCFY,mPosition);
 			}
 		});
 		
@@ -114,7 +117,7 @@ public class DialogColloctionOp extends BaseView {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				mFinalDb.deleteById(CollectionClassify.class, mCCFYID);
+				mFinalDb.delete(mCCFY);
 				mCCFYs.remove(mPosition);
 				mGVCAdapter.notifyDataSetChanged();
 				mDCOPDialog.dismiss();

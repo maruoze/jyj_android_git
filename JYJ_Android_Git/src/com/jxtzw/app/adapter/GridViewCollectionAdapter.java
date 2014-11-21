@@ -56,7 +56,7 @@ public class GridViewCollectionAdapter extends BaseAdapter {
 		}
 		String shareTitle=mTitleStrings.get(position).getCcf_classify_name();
 		listItemView.collectionTV.setText(shareTitle);
-		listItemView.collectionTV.setTag(mTitleStrings.get(position).getCcf_classify_id());
+		listItemView.collectionTV.setTag(mTitleStrings.get(position));
 		return convertView;
 	}
 	

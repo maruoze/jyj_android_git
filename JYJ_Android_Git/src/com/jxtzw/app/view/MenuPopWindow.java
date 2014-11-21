@@ -171,7 +171,7 @@ public class MenuPopWindow {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				//UIHelper.ToastMessage(mContext, String.valueOf(position));
+				UIHelper.ToastMessage(mContext, String.valueOf(position));
 				mPop.dismiss();
 			}
 		});
@@ -204,7 +204,7 @@ public class MenuPopWindow {
 					UIHelper.ToastMessage(mContext, msg);
 				}else{
 					DialogCollection dialogCollection=new DialogCollection(mContext);
-					dialogCollection.show(titleStrings,collectionAdapter,null);
+					dialogCollection.show(titleStrings,collectionAdapter,null,0);
 				}
 			}
 		});
