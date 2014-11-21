@@ -13,8 +13,10 @@ import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewCollectionAdapter;
 import com.jxtzw.app.adapter.GridViewShareAdapter;
+import com.jxtzw.app.api.ApiCollectionEntry;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.bean.CollectionClassify;
+import com.jxtzw.app.bean.CollectionEntry;
 import com.jxtzw.app.common.UIHelper;
 
 import android.R.integer;
@@ -69,6 +71,11 @@ public class MenuPopWindow {
 	 */
 	private Article mArticle;
 	private String mComment;
+	private CollectionEntry mCollectionEntry;
+	/**
+	 * 数据接口
+	 */
+	private ApiCollectionEntry mApiCE;
 
 
 	/**
@@ -148,7 +155,7 @@ public class MenuPopWindow {
 		//String[] titleStrings={"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"};
 		//初始化数据
 		final ArrayList<CollectionClassify> titleStrings=new ArrayList<CollectionClassify>();
-		String dbName="collection";
+		String dbName="jyj_collection";
 		FinalDb finalDb=FinalDb.create(mContext,dbName);
 		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
 		ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
@@ -171,7 +178,17 @@ public class MenuPopWindow {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext, String.valueOf(position));
+				//UIHelper.ToastMessage(mContext, String.valueOf(position));
+				mApiCE=new ApiCollectionEntry(mContext);
+				mCollectionEntry=mApiCE.parse(mArticle);
+				CollectionClassify cClassify= (CollectionClassify) ((TextView)view.findViewById(R.id.textview_collection)).getTag();
+				mCollectionEntry.setCcf_classify_id(cClassify.getCcf_classify_id());
+				mCollectionEntry.setCcf_uid(cClassify.getCcf_uid());
+				if(mApiCE.save(mCollectionEntry)){
+					UIHelper.ToastMessage(mContext, "当前文章收藏到【"+cClassify.getCcf_classify_name()+"】成功！");
+				}else{
+					UIHelper.ToastMessage(mContext, "当前文章已经被收藏");
+				}
 				mPop.dismiss();
 			}
 		});

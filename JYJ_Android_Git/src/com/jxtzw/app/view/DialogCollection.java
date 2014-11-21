@@ -49,7 +49,7 @@ public class DialogCollection extends LoginDialog {
 			final GridViewCollectionAdapter gvca, 
 			final CollectionClassify ccfy,
 			final int position) {
-		String dbName="collection";
+		String dbName="jyj_collection";
 		mFinalDb=FinalDb.create(mContext,dbName);
 		
 		mDrawable=mResources.getDrawable(R.drawable.f063);
@@ -101,8 +101,8 @@ public class DialogCollection extends LoginDialog {
 	private boolean addCollectionClassify(ArrayList<CollectionClassify> al,GridViewCollectionAdapter gvca) {
 		//获取要保存的信息
 		CollectionClassify ccf=new CollectionClassify();
-		int ccf_classify_id=mSharedPreferences.getInt(AppConfig.CCFY_LAST_COUNT, 0);
-		String uid=mSharedPreferences.getString(AppConfig.UID, "");
+		int ccf_classify_id=mSharedPreferences.getInt(AppConfig.CCFY_LAST_COUNT, 1);
+		String uid=mSharedPreferences.getString(AppConfig.UID, "0");
 		String username=mSharedPreferences.getString(AppConfig.USERNAME, "");
 		ccf.setCcf_classify_id(ccf_classify_id);
 		ccf.setCcf_classify_name(mStrCollectionName);
