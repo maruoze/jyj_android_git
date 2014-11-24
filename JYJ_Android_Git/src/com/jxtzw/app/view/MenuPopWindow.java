@@ -69,6 +69,7 @@ public class MenuPopWindow {
 	/**
 	 * 数据
 	 */
+	private String mCatName;
 	private Article mArticle;
 	private String mComment;
 	private CollectionEntry mCollectionEntry;
@@ -83,12 +84,13 @@ public class MenuPopWindow {
 	 * @param mLayoutInflater
 	 */
 	public MenuPopWindow(Context context, AppContext appContext,Resources mResources,
-			LayoutInflater mLayoutInflater, Article article) {
+			LayoutInflater mLayoutInflater, Article article, String catName) {
 		this.mContext=context;
 		this.mAppContext=appContext;
 		this.mResources=mResources;
 		this.mLayoutInflater = mLayoutInflater;
 		this.mArticle=article;
+		this.mCatName=catName;
 	}
 
 
@@ -180,7 +182,7 @@ public class MenuPopWindow {
 				// TODO Auto-generated method stub
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
 				mApiCE=new ApiCollectionEntry(mContext);
-				mCollectionEntry=mApiCE.parse(mArticle);
+				mCollectionEntry=mApiCE.parse(mArticle,mCatName);
 				CollectionClassify cClassify= (CollectionClassify) ((TextView)view.findViewById(R.id.textview_collection)).getTag();
 				mCollectionEntry.setCcf_classify_id(cClassify.getCcf_classify_id());
 				mCollectionEntry.setCcf_uid(cClassify.getCcf_uid());

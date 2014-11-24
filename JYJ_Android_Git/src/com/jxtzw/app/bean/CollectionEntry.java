@@ -16,6 +16,8 @@ public class CollectionEntry extends Article implements Serializable {
 	
 	@Id(column="Aid")
 	private String Aid;
+	private String Title;
+	private String CatName;
 	private int ccf_classify_id;
 	private String ccf_uid;
 	
@@ -24,6 +26,19 @@ public class CollectionEntry extends Article implements Serializable {
 	}
 	public void setAid(String aid) {
 		Aid = aid;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
+	
+	public String getCatName() {
+		return CatName;
+	}
+	public void setCatName(String catName) {
+		CatName = catName;
 	}
 	public int getCcf_classify_id() {
 		return ccf_classify_id;

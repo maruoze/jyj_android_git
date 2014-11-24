@@ -9,6 +9,8 @@ import com.jxtzw.app.adapter.GridViewCollectionAdapter;
 import com.jxtzw.app.bean.CollectionClassify;
 import com.jxtzw.app.bean.CollectionEntry;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.ui.ArticleInfoActivity;
+import com.jxtzw.app.ui.CollectionActivity;
 
 import android.R.integer;
 import android.annotation.SuppressLint;
@@ -16,6 +18,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -92,8 +96,16 @@ public class DialogColloctionOp extends BaseView {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext, mCCFYName);
+				//UIHelper.ToastMessage(mContext, mCCFYName);
 				mDCOPDialog.dismiss();
+				//数据
+				Bundle bundle=new Bundle();
+				bundle.putSerializable("ccfy", mCCFY);
+				//新的Intent
+				Intent intent=new Intent();
+				intent.putExtras(bundle);
+				intent.setClass(mContext, CollectionActivity.class);
+				mContext.startActivity(intent);
 			}
 		});
 		

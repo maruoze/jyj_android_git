@@ -3,6 +3,7 @@ package com.jxtzw.app.api;
 import java.util.ArrayList;
 
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.bean.CollectionClassify;
 import com.jxtzw.app.bean.CollectionEntry;
 
 import android.content.Context;
@@ -29,7 +30,7 @@ public class ApiCollectionEntry extends ApiBase{
 	/**
 	 * 数据类型转换
 	 */
-	public CollectionEntry parse(Article article) {
+	public CollectionEntry parse(Article article,String catName) {
 		CollectionEntry ce=null;
 		if (article!=null) {
 			ce=new CollectionEntry();
@@ -65,6 +66,7 @@ public class ApiCollectionEntry extends ApiBase{
 			ce.setUid(article.getUid());
 			ce.setUrl(article.getUrl());
 			ce.setUsername(article.getUsername());
+			ce.setCatName(catName);
 		}
 		return ce;
 	}
@@ -104,7 +106,18 @@ public class ApiCollectionEntry extends ApiBase{
 	/**
 	 * 数据删除
 	 */
-	public boolean delete(CollectionEntry ce) {
-		return false;
+	public void delete(CollectionEntry ce) {
+		String strWhere="Aid ='"+ce.getAid()+"' AND ccf_classify_id in("+ce.getCcf_classify_id()+")";
+		mFinalDb.deleteByWhere(CollectionEntry.class, strWhere);
+	}
+	
+	/**
+	 * 获取数据
+	 */
+	public ArrayList<CollectionEntry> get(CollectionClassify ccfy) {
+		ArrayList<CollectionEntry> cEntries=new ArrayList<CollectionEntry>();
+		String strWhere="ccf_classify_id in("+ccfy.getCcf_classify_id()+")";
+		cEntries=(ArrayList<CollectionEntry>) mFinalDb.findAllByWhere(CollectionEntry.class, strWhere);
+		return cEntries;
 	}
 }

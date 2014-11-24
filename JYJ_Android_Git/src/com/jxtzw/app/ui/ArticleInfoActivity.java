@@ -84,6 +84,13 @@ public class ArticleInfoActivity extends BaseActivity {
 	}
 	
 	/**
+	 * 提供父类构造函数供子类调用
+	 */
+	protected void onCreatePt(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	/**
 	 * 初始化
 	 */
 	protected void init(){
@@ -266,7 +273,7 @@ public class ArticleInfoActivity extends BaseActivity {
 	@SuppressLint("InflateParams")
 	protected void initMenuPop() {
 		mMenuPopWindow=new MenuPopWindow(mContext,mAppContext,mResources,
-				mLayoutInflater,mArticle);
+				mLayoutInflater,mArticle,mCatName);
 		PopupWindow share=mMenuPopWindow.initPopWindow(R.layout.pop_share,POP_SHARE,null);
 		PopupWindow collection=mMenuPopWindow.initPopWindow(R.layout.pop_collection, POP_COLLECTION,null);
 		PopupWindow comment=mMenuPopWindow.initPopWindow(R.layout.pop_comment,POP_COMMENT,mArticleCommentView);

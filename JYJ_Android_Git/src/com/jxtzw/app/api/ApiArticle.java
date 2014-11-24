@@ -132,4 +132,17 @@ public class ApiArticle extends ApiBase {
 		}
 		return flag;
 	}
+	
+	/**
+	 * 根据文章ID获取文章
+	 */
+	public Article getArticleByAid(String aid) {
+		Article article=null;
+		String strWhere="Aid ='"+aid+"'";
+		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
+		if (articles.size()==1) {
+			article=articles.get(0);
+		}
+		return article;
+	}
 }
