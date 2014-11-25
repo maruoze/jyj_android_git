@@ -2,6 +2,7 @@ package com.jxtzw.app.ui;
 
 import java.util.ArrayList;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ArticleInfoViewPagerAdapter;
@@ -10,12 +11,14 @@ import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.ArticleCommentView;
 import com.jxtzw.app.view.ArticleInfoView;
+import com.jxtzw.app.view.LoginDialog;
 import com.jxtzw.app.view.MainMenuPop;
 import com.jxtzw.app.view.MenuPopWindow;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -76,6 +79,11 @@ public class ArticleInfoActivity extends BaseActivity {
 	private static int POP_COLLECTION=1;
 	private static int POP_COMMENT=2;
 	private static int POP_MODEL=3;
+	/**
+	 * 程序全局设置保存
+	 */
+	protected SharedPreferences mSharedPreferences;
+	protected SharedPreferences.Editor mEditor;
 	
 	
 	@Override
@@ -306,7 +314,18 @@ public class ArticleInfoActivity extends BaseActivity {
 				//设置当前导航为上一个
 				mLastTextView=curTextView;
 				//弹出对应的菜单
-				mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
+				mSharedPreferences=AppConfig.getSharedPreferences(mContext);
+				boolean is_login=mSharedPreferences.getBoolean(AppConfig.IS_LOGIN, false);
+				if(position==2){
+					if (is_login) {
+						mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
+					}else{
+						LoginDialog loginDialog=new LoginDialog(mContext);
+						loginDialog.show();
+					}
+				}else{
+					mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
+				}
 			}
 		};
 	}

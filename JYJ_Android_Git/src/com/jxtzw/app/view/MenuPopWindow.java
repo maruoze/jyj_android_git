@@ -22,6 +22,7 @@ import com.jxtzw.app.common.UIHelper;
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
@@ -77,7 +78,11 @@ public class MenuPopWindow {
 	 * 数据接口
 	 */
 	private ApiCollectionEntry mApiCE;
-
+	/**
+	 * 登录状态
+	 */
+	protected SharedPreferences mSharedPreferences;
+	protected SharedPreferences.Editor mEditor;
 
 	/**
 	 * 构造
@@ -160,7 +165,11 @@ public class MenuPopWindow {
 		String dbName="jyj_collection";
 		FinalDb finalDb=FinalDb.create(mContext,dbName);
 		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
-		ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
+		//ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
+		mSharedPreferences=AppConfig.getSharedPreferences(mContext);
+		String uid=mSharedPreferences.getString(AppConfig.UID, "0");
+		String strWhere="ccf_uid ='"+uid+"'";
+		ccfy=(ArrayList<CollectionClassify>) finalDb.findAllByWhere(CollectionClassify.class, strWhere);
 		if(ccfy.size()>0){
 			for (int i = 0; i < ccfy.size(); i++) {
 				titleStrings.add(ccfy.get(i));
