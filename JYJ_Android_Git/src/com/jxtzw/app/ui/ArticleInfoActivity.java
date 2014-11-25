@@ -7,8 +7,10 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ArticleInfoViewPagerAdapter;
 import com.jxtzw.app.adapter.GridViewMenuAdapter;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.ArticleCommentView;
 import com.jxtzw.app.view.ArticleInfoView;
+import com.jxtzw.app.view.MainMenuPop;
 import com.jxtzw.app.view.MenuPopWindow;
 
 import android.annotation.SuppressLint;
@@ -158,7 +160,7 @@ public class ArticleInfoActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				UIHelper.showMainPopMenu(mContext, R.layout.pop_users, mHeadRight);
 			}
 		};
 	}

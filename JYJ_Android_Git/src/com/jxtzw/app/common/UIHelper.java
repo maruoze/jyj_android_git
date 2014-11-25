@@ -7,12 +7,15 @@ import com.jxtzw.app.AppContext;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewFaceAdapter;
+import com.jxtzw.app.view.MainMenuPop;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -26,8 +29,12 @@ import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -516,5 +523,17 @@ public class UIHelper {
 					}
 				});
 		builder.show();
+	}
+	
+	/**
+	 * 显示主菜单
+	 */
+	public static void showMainPopMenu(Context context, int layout,Button button){
+		Context mContext=context;
+		Resources mResources=mContext.getResources();
+		LayoutInflater mLayoutInflater=LayoutInflater.from(mContext);
+		MainMenuPop mMainMenuPop=new MainMenuPop(mContext, mResources, mLayoutInflater);
+		PopupWindow mPopWindow=mMainMenuPop.initPop(R.layout.pop_users);
+		mPopWindow.showAtLocation(button, Gravity.RIGHT|Gravity.TOP, 0, 80);
 	}
 }

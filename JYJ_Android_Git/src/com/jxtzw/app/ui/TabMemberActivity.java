@@ -10,6 +10,7 @@ import net.tsz.afinal.FinalBitmap;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.handler.QuotationUpdateHandler;
+import com.jxtzw.app.view.MainMenuPop;
 import com.jxtzw.app.view.NewsListView;
 
 import android.annotation.SuppressLint;
@@ -18,8 +19,10 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -41,6 +44,7 @@ public class TabMemberActivity extends BaseActivity {
 	protected ImageView mImageView;
 	protected TextView mTitleTextView;
 	protected ListView mListView;
+	protected Button mTitleMenu;
 	/**
 	 * 数据
 	 */
@@ -106,6 +110,7 @@ public class TabMemberActivity extends BaseActivity {
 		mTitleTextView=(TextView) findViewById(R.id.head_middle);
 		String titleString=mMainTitle+" • "+"会员专享六大特权";
 		mTitleTextView.setText(titleString);
+		initTitleMenu();
 	}
 	
 	/**
@@ -163,4 +168,18 @@ public class TabMemberActivity extends BaseActivity {
 		});
 	}
 	
+	
+	/**
+	 * 初始化标题栏右部的按钮
+	 */
+	protected void initTitleMenu() {
+		mTitleMenu=(Button) findViewById(R.id.head_right);
+		mTitleMenu.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				UIHelper.showMainPopMenu(mContext, R.layout.pop_users, mTitleMenu);
+			}
+		});
+	}
 }
