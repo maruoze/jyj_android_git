@@ -76,6 +76,10 @@
             android:name=".ui.CollectionActivity"
             android:label="@string/title_activity_collection" >
         </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
     </application>
 
 </manifest>

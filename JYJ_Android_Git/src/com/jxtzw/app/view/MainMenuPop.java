@@ -21,6 +21,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
+import com.jxtzw.app.SettingActivity;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.ui.MainActivity;
 import com.jxtzw.app.ui.MemberRegisterActivity;
@@ -37,7 +38,7 @@ public class MainMenuPop {
 	private PopupWindow mPop;
 	private ListView mListView;
 	private ArrayAdapter<String> mLVAdapter;
-	private String[] arrayStrings={"登录","注册"};
+	private String[] arrayStrings={"登录","注册","设置"};
 	/**
 	 * 事件监听
 	 */
@@ -97,6 +98,7 @@ public class MainMenuPop {
 				// TODO Auto-generated method stub
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
 				mPop.dismiss();
+				Intent intent=new Intent();
 				switch (position) {
 					case 0:
 						//showLoginDialog();
@@ -109,8 +111,11 @@ public class MainMenuPop {
 						}
 						break;
 					case 1:
-						Intent intent=new Intent();
 						intent.setClass(mContext, MemberRegisterActivity.class);
+						mContext.startActivity(intent);
+						break;
+					case 2:
+						intent.setClass(mContext, SettingActivity.class);
 						mContext.startActivity(intent);
 						break;
 					default:

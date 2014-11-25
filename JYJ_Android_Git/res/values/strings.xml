@@ -34,5 +34,6 @@
     <string name="verify_code">app.jxtzw.com</string>
     <string name="title_activity_collection">CollectionActivity</string>
     <string name="title_activity_base_with_title">BaseWithTitleActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
 
 </resources>
