@@ -73,6 +73,7 @@
 	
 	<!-- 符号 -->
 	<string name="setting"> • • • </string>
+	<string name="setting_string">设置</string>
 	<string name="info_back">《  </string>
 	
 	<!-- 行情 -->

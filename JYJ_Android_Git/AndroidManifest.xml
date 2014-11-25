@@ -77,7 +77,7 @@
             android:label="@string/title_activity_collection" >
         </activity>
         <activity
-            android:name=".SettingActivity"
+            android:name="com.jxtzw.app.ui.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
     </application>

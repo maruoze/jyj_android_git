@@ -5,40 +5,51 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="60dp" 
-        android:background="@color/tabhost_title">
-		<Button
+        android:layout_height="60dp"
+        android:background="@color/tabhost_title" >
+
+        <Button
             android:id="@+id/head_left"
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:gravity="center"
             android:layout_alignParentLeft="true"
-            android:textColor="@color/white"
             android:background="@color/tabhost_title"
+            android:gravity="center"
             android:text="@string/info_back"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_18" />
 
         <TextView
             android:id="@+id/head_middle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_26"/>
+            android:textSize="@dimen/text_size_26" />
 
         <Button
             android:id="@+id/head_right"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
-            android:textColor="@color/white"
             android:background="@color/tabhost_title"
-            android:text="@string/setting" />
-
+            android:text="@string/setting"
+            android:textColor="@color/white" 
+            android:visibility="gone" />
     </RelativeLayout>
 
+    <ListView
+        android:id="@+id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title"
+        android:layout_centerHorizontal="true" >
+
+    </ListView>
+    
 </RelativeLayout>

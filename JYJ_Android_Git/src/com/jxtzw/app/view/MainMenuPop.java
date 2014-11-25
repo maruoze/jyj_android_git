@@ -21,10 +21,10 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
-import com.jxtzw.app.SettingActivity;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.ui.MainActivity;
 import com.jxtzw.app.ui.MemberRegisterActivity;
+import com.jxtzw.app.ui.SettingActivity;
 
 public class MainMenuPop {
 	/**
@@ -102,13 +102,14 @@ public class MainMenuPop {
 				switch (position) {
 					case 0:
 						//showLoginDialog();
-						mLoginDialog=new LoginDialog(mContext);
+						/*mLoginDialog=new LoginDialog(mContext);
 						String text=((TextView)view).getText().toString();
 						if(text.equals("登录")){
 							mLoginDialog.show();
 						}else{
 							mLoginDialog.logout();
-						}
+						}*/
+						UIHelper.showLogin(mContext);
 						break;
 					case 1:
 						intent.setClass(mContext, MemberRegisterActivity.class);

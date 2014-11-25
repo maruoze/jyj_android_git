@@ -3,10 +3,12 @@ package com.jxtzw.app.common;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewFaceAdapter;
+import com.jxtzw.app.view.LoginDialog;
 import com.jxtzw.app.view.MainMenuPop;
 
 import android.annotation.SuppressLint;
@@ -15,6 +17,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -536,4 +539,19 @@ public class UIHelper {
 		PopupWindow mPopWindow=mMainMenuPop.initPop(R.layout.pop_users);
 		mPopWindow.showAtLocation(button, Gravity.RIGHT|Gravity.TOP, 0, 80);
 	}
+	
+	/**
+	 * 显示登录菜单|登出提示
+	 */
+	public static void showLogin(Context context) {
+		LoginDialog mLoginDialog=new LoginDialog(context);
+		SharedPreferences sp=AppConfig.getSharedPreferences(context);
+		boolean is_login=sp.getBoolean(AppConfig.IS_LOGIN, false);
+		if(!is_login){
+			mLoginDialog.show();
+		}else{
+			mLoginDialog.logout();
+		}
+	}
+	
 }
