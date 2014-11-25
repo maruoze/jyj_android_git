@@ -11,8 +11,8 @@
 	    android:textSize="@dimen/text_size_16"
 	    android:background = "@color/graywhite"
 	    android:textColor = "@color/black" 
-	    android:paddingTop="5dp"
-	    android:paddingBottom="5dp"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
 	    android:drawableLeft="@drawable/f007"
 	    textviewplus:left_height="20dp"
         textviewplus:left_width="20dp">
