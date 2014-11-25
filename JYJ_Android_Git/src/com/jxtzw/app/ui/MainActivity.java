@@ -7,6 +7,7 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.common.DoubleClickExitHelper;
 import com.jxtzw.app.common.UIHelper;
 
 import android.annotation.SuppressLint;
@@ -67,6 +68,10 @@ public class MainActivity extends TabActivity {
 	 * TabHost的tab的TextView
 	 */
 	private ArrayList<TextView> mTabTextViews;
+	/**
+	 * 双击退出
+	 */
+	private DoubleClickExitHelper mDoubleClickExitHelper;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,7 @@ public class MainActivity extends TabActivity {
 		mSharedPreferences=AppConfig.getSharedPreferences(this);
 		getConfig();
 		mTabTextViews=new ArrayList<TextView>();
+		mDoubleClickExitHelper=new DoubleClickExitHelper(this);
 	}
 	
 	/**
@@ -212,7 +218,8 @@ public class MainActivity extends TabActivity {
 	public boolean dispatchKeyEvent(KeyEvent event) {
         if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){  
              if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) { 
-                 AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
+            	 mDoubleClickExitHelper.onKeyDown(event.getKeyCode(), event);
+                 /*AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
                  builder.setTitle("温馨提示：");
                  builder.setMessage("确定要退出金银家吗？");
                  builder.setPositiveButton("确定", new OnClickListener() {
@@ -227,7 +234,7 @@ public class MainActivity extends TabActivity {
                  });
                  builder.setNegativeButton("取消", null);
                  builder.create();
-                 builder.show();
+                 builder.show();*/
              }  
              return true;  
         } 
