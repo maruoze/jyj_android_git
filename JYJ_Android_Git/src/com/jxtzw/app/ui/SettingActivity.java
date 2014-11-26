@@ -4,6 +4,7 @@ import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.common.UpdateManage;
 import com.jxtzw.app.view.LoginDialog;
 
 import android.accounts.Account;
@@ -42,7 +43,9 @@ public class SettingActivity extends PreferenceActivity {
 	 */
 	private Preference mAccount;
 	private Preference mRegister;
-	
+	private Preference mFeedback;
+	private Preference mCheckUpdate;
+	private Preference mAboutus;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,37 @@ public class SettingActivity extends PreferenceActivity {
 			}
 		});
 		
+		//意见反馈
+		mFeedback=findPreference("feedback");
+		mFeedback.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				UIHelper.showFeedback(mContext);
+				return false;
+			}
+		});
 		
+		//更新检测
+		mCheckUpdate=findPreference("update");
+		mCheckUpdate.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				UpdateManage.getUpdateManage().checkAppUpdate(mContext,true);
+				return false;
+			}
+		});
+		
+		//关于我们
+		mAboutus=findPreference("aboutus");
+		mAboutus.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				UIHelper.ToastMessage(mContext, "关于我们");
+				return false;
+			}
+		});
 	}
 }

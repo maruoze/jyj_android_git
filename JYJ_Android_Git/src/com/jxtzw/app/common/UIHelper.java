@@ -8,6 +8,7 @@ import com.jxtzw.app.AppContext;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewFaceAdapter;
+import com.jxtzw.app.view.FeedbackDialog;
 import com.jxtzw.app.view.LoginDialog;
 import com.jxtzw.app.view.MainMenuPop;
 
@@ -555,4 +556,11 @@ public class UIHelper {
 		}
 	}
 	
+	/**back
+	 * 显示意见反馈
+	 */
+	public static void showFeedback(Context context) {
+		FeedbackDialog feedbackDialog=new FeedbackDialog(context);
+		feedbackDialog.show();
+	}
 }

@@ -35,5 +35,7 @@
     <string name="title_activity_collection">CollectionActivity</string>
     <string name="title_activity_base_with_title">BaseWithTitleActivity</string>
     <string name="title_activity_setting">SettingActivity</string>
+    
+    <string name="api_apk_version_check">http://www.jxtzw.com/api/_xml/AppUpdate.xml</string>
 
 </resources>

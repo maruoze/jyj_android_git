@@ -21,7 +21,7 @@
 	        android:summary="检测是否有新版本"/>
         <Preference 
 	        android:title="关于我们" 
-	        android:key="about" 
+	        android:key="aboutus" 
 	        android:summary="关于我们、版权信息"/>
     </PreferenceCategory>
 </PreferenceScreen>

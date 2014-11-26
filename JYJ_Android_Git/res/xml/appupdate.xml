@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppUpdate>
+    <item>
+        <versionCode>21</versionCode>
+        <versionName>2.0.1</versionName>
+        <downloadUrl>"http://www.jxtzw.com/data/app/comjxtzwapp1.0.1.apk</downloadUrl>
+        <updateLog>修复了bug</updateLog>
+    </item>
+</AppUpdate>

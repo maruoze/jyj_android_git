@@ -103,4 +103,6 @@
 	<string name="collection_op_update">修改</string>
 	<string name="collection_op_delete">删除</string>
 	<string name="collection_op_shut">关闭</string>
+	
+	<string name="feedback_title">意见反馈</string>
 </resources>
