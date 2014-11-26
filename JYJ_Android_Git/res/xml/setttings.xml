@@ -6,6 +6,7 @@
         <Preference 
             android:title="用户登录"
             android:key="account" />
+        <Preference android:key="register" android:title="注册"/>
     </PreferenceCategory>
     <PreferenceCategory 
         android:layout="@layout/setting_category"

@@ -321,7 +321,7 @@ public class ArticleInfoActivity extends BaseActivity {
 						mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
 					}else{
 						LoginDialog loginDialog=new LoginDialog(mContext);
-						loginDialog.show();
+						loginDialog.show(null);
 					}
 				}else{
 					mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);

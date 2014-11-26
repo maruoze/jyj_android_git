@@ -109,7 +109,7 @@ public class MainMenuPop {
 						}else{
 							mLoginDialog.logout();
 						}*/
-						UIHelper.showLogin(mContext);
+						UIHelper.showLogin(mContext,null);
 						break;
 					case 1:
 						intent.setClass(mContext, MemberRegisterActivity.class);

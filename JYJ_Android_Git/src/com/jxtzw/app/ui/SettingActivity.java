@@ -8,6 +8,7 @@ import com.jxtzw.app.view.LoginDialog;
 
 import android.accounts.Account;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -40,6 +41,7 @@ public class SettingActivity extends PreferenceActivity {
 	 * 设置选项
 	 */
 	private Preference mAccount;
+	private Preference mRegister;
 	
 	
 	@Override
@@ -106,10 +108,24 @@ public class SettingActivity extends PreferenceActivity {
 			@Override
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
-				UIHelper.showLogin(mContext);
+				UIHelper.showLogin(mContext,mAccount);
 				return false;
 			}
 		});
+		
+		//用户注册
+		mRegister=findPreference("register");
+		mRegister.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent();
+				intent.setClass(mContext, MemberRegisterActivity.class);
+				mContext.startActivity(intent);
+				return false;
+			}
+		});
+		
 		
 	}
 }

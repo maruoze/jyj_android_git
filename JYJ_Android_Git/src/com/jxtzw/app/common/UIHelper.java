@@ -22,6 +22,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.preference.Preference;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -543,14 +544,14 @@ public class UIHelper {
 	/**
 	 * 显示登录菜单|登出提示
 	 */
-	public static void showLogin(Context context) {
+	public static void showLogin(Context context,Preference preference) {
 		LoginDialog mLoginDialog=new LoginDialog(context);
 		SharedPreferences sp=AppConfig.getSharedPreferences(context);
 		boolean is_login=sp.getBoolean(AppConfig.IS_LOGIN, false);
 		if(!is_login){
-			mLoginDialog.show();
+			mLoginDialog.show(preference);
 		}else{
-			mLoginDialog.logout();
+			mLoginDialog.logout(preference);
 		}
 	}
 	

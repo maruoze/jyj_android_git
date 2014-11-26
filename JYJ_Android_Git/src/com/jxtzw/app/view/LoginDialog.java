@@ -22,6 +22,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.preference.Preference;
 import android.provider.Contacts.Intents.UI;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -48,6 +49,10 @@ public class LoginDialog extends BaseView {
 	 */
 	protected SharedPreferences mSharedPreferences;
 	protected SharedPreferences.Editor mEditor;
+	/**
+	 * 
+	 */
+	protected Preference mPreference;
 	
 	public LoginDialog(Context context) {
 		super(context);
@@ -62,7 +67,8 @@ public class LoginDialog extends BaseView {
 	 * 登录对话框
 	 */
 	@SuppressLint("InflateParams")
-	public void show() {
+	public void show(Preference preference) {
+		mPreference=preference;
 		mLoginView=mLayoutInflater.inflate(R.layout.dialog_login, null);
 		mLoginDialog=new AlertDialog.Builder(mContext)
 			.setTitle(R.string.login)
@@ -159,6 +165,9 @@ public class LoginDialog extends BaseView {
 				UIHelper.ToastMessage(mContext, "登录成功");
 				mThis.setAlertDialogHide(mDialogInterface);
 				mLoginDialog.dismiss();
+				if(mPreference!=null){
+					mPreference.setTitle("用户登出");
+				}
 			} else {
 				UIHelper.ToastMessage(mContext, "登录失败，用户名或密码错误");
 				mPassword.setText(null);
@@ -185,7 +194,6 @@ public class LoginDialog extends BaseView {
 			mEditor.putString(AppConfig.PASSWORD, password);
 			//数据提交
 			mEditor.commit();
-			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -223,7 +231,8 @@ public class LoginDialog extends BaseView {
 	/**
 	 * 退出登录
 	 */
-	public void logout() {
+	public void logout(Preference preference) {
+		mPreference=preference;
 		AlertDialog logoutDialog=new AlertDialog.Builder(mContext)
 			.setTitle("退出登录提示")
 			.setMessage("确定退出登录吗？")
@@ -238,6 +247,9 @@ public class LoginDialog extends BaseView {
 					mEditor.putString(AppConfig.PASSWORD, "");
 					//数据提交
 					mEditor.commit();
+					if(mPreference!=null){
+						mPreference.setTitle("用户登录");
+					}
 					UIHelper.ToastMessage(mContext, "退出登录成功！");
 				}
 			})
