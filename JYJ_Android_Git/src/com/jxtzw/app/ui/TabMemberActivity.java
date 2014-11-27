@@ -7,6 +7,7 @@ import java.util.Map;
 
 import net.tsz.afinal.FinalBitmap;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.handler.QuotationUpdateHandler;
@@ -156,20 +157,23 @@ public class TabMemberActivity extends BaseActivity {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				// UIHelper.ToastMessage(mContext, String.valueOf(position));
-				
-				Bundle bundle=new Bundle();
-				bundle.putInt("MemberIndex", position);
-				bundle.putString("MainTitle", mMainTitle);
-				
-				Intent memberIntent=new Intent();
-				memberIntent.putExtras(bundle);
-				/*if(position==4){
-					memberIntent.setClass(mContext, MemberRegisterActivity.class);
-				}else{
+				if (AppConfig.isLogin) {
+					Bundle bundle=new Bundle();
+					bundle.putInt("MemberIndex", position);
+					bundle.putString("MainTitle", mMainTitle);
+					
+					Intent memberIntent=new Intent();
+					memberIntent.putExtras(bundle);
+					/*if(position==4){
+						memberIntent.setClass(mContext, MemberRegisterActivity.class);
+					}else{
+						memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
+					}*/
 					memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
-				}*/
-				memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
-				mContext.startActivity(memberIntent);
+					mContext.startActivity(memberIntent);
+				}else{
+					UIHelper.showLogin(mContext, null);
+				}
 			}
 		});
 	}

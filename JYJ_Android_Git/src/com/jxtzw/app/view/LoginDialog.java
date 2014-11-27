@@ -12,6 +12,8 @@ import net.tsz.afinal.http.AjaxParams;
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
+import com.jxtzw.app.common.CyptoUtils;
+import com.jxtzw.app.common.EncryptionAES;
 import com.jxtzw.app.common.UIHelper;
 
 import android.annotation.SuppressLint;
@@ -187,11 +189,21 @@ public class LoginDialog extends BaseView {
 	 */
 	private void saveLoginStatus(JSONObject jsonObject){
 		try {
-			String uid=jsonObject.getJSONObject("ucresult").getString("uid");
-			String username=jsonObject.getJSONObject("ucresult").getString("username");
-			String password=jsonObject.getJSONObject("ucresult").getString("password");
 			AppConfig.isLogin=true;
 			if (mLoginStatus.isChecked()) {
+				String uid=jsonObject.getJSONObject("ucresult").getString("uid");
+				String username=jsonObject.getJSONObject("ucresult").getString("username");
+				String password=jsonObject.getJSONObject("ucresult").getString("password");
+				/*EncryptionAES aes=new EncryptionAES();
+				String encypPasswod="";
+				try {
+					encypPasswod=EncryptionAES.bytesToHex(aes.encrypt(password));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+				String encypPasswod=CyptoUtils.encode("maru09743233aoze", password);
+				password=encypPasswod;
 				//保存登录状态
 				mEditor.putBoolean(AppConfig.IS_LOGIN, true);
 				mEditor.putString(AppConfig.UID, uid);

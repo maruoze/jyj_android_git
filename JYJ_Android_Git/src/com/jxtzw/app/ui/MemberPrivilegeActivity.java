@@ -1,14 +1,18 @@
 package com.jxtzw.app.ui;
 
+import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.R.layout;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.common.CyptoUtils;
+import com.jxtzw.app.common.EncryptionAES;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.WebMemberView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,6 +47,10 @@ public class MemberPrivilegeActivity extends BaseActivity {
 	 * WebView
 	 */
 	protected WebMemberView mWebMemberView;
+	/**
+	 * SharedPreferences
+	 */
+	private SharedPreferences mSharedPreferences;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +75,7 @@ public class MemberPrivilegeActivity extends BaseActivity {
 		initMemberVar();
 		initSelfMemVar();
 		initTitle();
+		initSession();
 		initWebView();
 	}
 	
@@ -151,5 +160,24 @@ public class MemberPrivilegeActivity extends BaseActivity {
 		mWebMemberView.update();
 	}
 	
+	
+	/**
+	 * 登录并设置session
+	 */
+	private void initSession(){
+		mSharedPreferences=AppConfig.getSharedPreferences(mContext);
+		String username=mSharedPreferences.getString("username", "");
+		String encryPassword=mSharedPreferences.getString("password", "");
+		if(username.length()==0||encryPassword.length()==0){
+			UIHelper.ToastMessage(mContext, "登录信息有误，请重新登录！");
+		}else{
+			String password=CyptoUtils.decode("maru09743233aoze", encryPassword);
+			if (password==null) {
+				UIHelper.ToastMessage(mContext, "登录信息有误，请重新登录！[密码]");
+			}else{
+				
+			}
+		}
+	}
 	
 }
