@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -111,6 +112,10 @@ public class WebQuoView extends BaseView {
 		//页面加载
 		mWebView=(WebView) mListView.findViewById(R.id.webview_quotation);
 		mWebView.getSettings().setJavaScriptEnabled(true);
+		//mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+		//WebChromeClient主要辅助WebView处理Javascript的对话框、网站图标、网站title、加载进度
+		mWebView.setWebChromeClient(new WebChromeClient());
+		//WebViewClient处理基本页面效果
 		mWebView.setWebViewClient(new WebViewClient(){
 			@Override
 			public void onPageFinished(WebView view, String url) {
