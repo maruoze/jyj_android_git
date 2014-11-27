@@ -8,6 +8,7 @@ import com.jxtzw.app.bean.AppUpdate;
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.HttpHandler;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -26,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UpdateManage {
 	/**
@@ -70,6 +72,7 @@ public class UpdateManage {
      * 
      */
     private String mUpdateLog="";
+    private String mTarget=null;					//下载文件保存全路径
 	
     /**
      * 单例模式，返回当前类唯一实例
@@ -200,6 +203,10 @@ public class UpdateManage {
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 				mInterceptFlag = true;
+				if (mDownLoadHandler!=null) {
+					mDownLoadHandler.stop();
+					delete(mTarget);
+				}
 			}
 		});
 		builder.setOnCancelListener(new OnCancelListener() {
@@ -218,44 +225,59 @@ public class UpdateManage {
 	/**
 	 * 下载APP
 	 */
+	@SuppressLint("ShowToast")
 	private void downloadApk(){
 		FinalHttp finalHttp=new FinalHttp();
 		String url=mAppUpdate.getDownloadUrl();
-		String target_path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/jxtzw/";
-		String target=target_path+"JxtzwApp"+mAppUpdate.getVersionName()+".app";
-		mDownLoadHandler=finalHttp.download(url, target, new AjaxCallBack<File>() {
-
-			@Override
-			public void onFailure(Throwable t, int errorNo, String strMsg) {
-				// TODO Auto-generated method stub
-				super.onFailure(t, errorNo, strMsg);
+		
+		//判断是否挂载了SD卡
+		String storageState = Environment.getExternalStorageState();
+		if(storageState.equals(Environment.MEDIA_MOUNTED)){
+			String target_path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/Jxtzw/";
+			File file = new File(target_path);
+			if(!file.exists()){
+				file.mkdirs();
 			}
-
-			@Override
-			public void onSuccess(File t) {
-				// TODO Auto-generated method stub
-				//super.onSuccess(t);
-				//mDownloadDialog.dismiss();
-				mProgressText.setText(t==null?"null":t.getAbsoluteFile().toString());
-				installApk(t);
-			}
-
-			@Override
-			public void onLoading(long count, long current) {
-				// TODO Auto-generated method stub
-				int percent=(int) ((int)(current*100)/count);
-				mProgress.setProgress(percent);
-				mProgressText.setText("下载进度: "+percent+"%");
-			}
-
-			@Override
-			public void onStart() {
-				// TODO Auto-generated method stub
-				mProgress.setProgress(0);
-				mProgressText.setText("下载进度: 0%");
-			}
-
-		});
+			mTarget=target_path+"JxtzwApp"+mAppUpdate.getVersionName()+".app";
+		}
+		if(mTarget == null || mTarget.equals("")){
+			mDownloadDialog.dismiss();
+			Toast.makeText(mContext, "无法下载安装文件，请检查SD卡是否挂载", 3000).show();
+		}else{
+			mDownLoadHandler=finalHttp.download(url, mTarget, new AjaxCallBack<File>() {
+	
+				@Override
+				public void onFailure(Throwable t, int errorNo, String strMsg) {
+					// TODO Auto-generated method stub
+					super.onFailure(t, errorNo, strMsg);
+				}
+	
+				@Override
+				public void onSuccess(File t) {
+					// TODO Auto-generated method stub
+					//super.onSuccess(t);
+					mDownloadDialog.dismiss();
+					mProgressText.setText(t==null?"null":t.getAbsoluteFile().toString());
+					installApk(t);
+				}
+	
+				@Override
+				public void onLoading(long count, long current) {
+					// TODO Auto-generated method stub
+					int percent=(int) ((int)(current*100)/count);
+					mProgress.setProgress(percent);
+					mProgressText.setText("下载进度: "+percent+"%");
+				}
+	
+				@Override
+				public void onStart() {
+					// TODO Auto-generated method stub
+					mProgress.setProgress(0);
+					mProgressText.setText("下载进度: 0%");
+				}
+	
+			});
+		}
 	}
 	
 	
@@ -272,5 +294,17 @@ public class UpdateManage {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive"); 
         mContext.startActivity(i);
+	}
+	
+	/**
+	 * 删除指定文件
+	 */
+	private void delete(String path) {
+		File apkfile = new File(path);
+        if (!apkfile.exists()) {
+            return;
+        } else{
+        	apkfile.delete();
+        }
 	}
 }
