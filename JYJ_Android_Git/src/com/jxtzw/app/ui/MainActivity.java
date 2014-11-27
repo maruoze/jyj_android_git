@@ -62,8 +62,6 @@ public class MainActivity extends TabActivity {
 	private int mTabCount;
 	private OnTabChangeListener mOnTabChangeListener;
 	private android.view.View.OnClickListener mOnTabClickListener;
-	//弹出菜单
-	private PopupWindow mPWTab;
 	/**
 	 * TabHost的tab的TextView
 	 */
@@ -124,6 +122,8 @@ public class MainActivity extends TabActivity {
 		TextView textView=initTabSpecTextView(tag,title,image_id);
 		if(index==0){
 			textView.setBackgroundColor(mResources.getColor(R.color.black));
+		}else{
+			textView.setBackgroundColor(mResources.getColor(R.color.light_black));
 		}
 		tabSpec.setIndicator(textView);
 		tabSpec.setContent(intent);

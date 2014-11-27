@@ -65,7 +65,8 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="70dp"
         android:flipInterval="30"
-        android:persistentDrawingCache="animation" >
+        android:persistentDrawingCache="animation"
+        android:background="@color/ptr_backgroudcolor"  >
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>
