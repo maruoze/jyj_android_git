@@ -4,6 +4,7 @@ import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.R.layout;
 import com.jxtzw.app.bean.Article;
+import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.view.WebMemberView;
 
 import android.app.Activity;
@@ -134,7 +135,7 @@ public class MemberPrivilegeActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				UIHelper.showMainPopMenu(mContext, R.layout.pop_users, mHeadRight);
 			}
 		};
 	}
