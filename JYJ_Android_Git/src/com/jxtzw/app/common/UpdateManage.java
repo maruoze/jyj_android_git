@@ -14,11 +14,14 @@ import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -47,7 +50,7 @@ public class UpdateManage {
 	//通知对话框
 	private Dialog mNoticeDialog;
 	//下载对话框
-	private Dialog downloadDialog;
+	private Dialog mDownloadDialog;
     //进度条
     private ProgressBar mProgress;
     //显示下载数值
@@ -206,9 +209,9 @@ public class UpdateManage {
 				mInterceptFlag = true;
 			}
 		});
-		downloadDialog = builder.create();
-		downloadDialog.setCanceledOnTouchOutside(false);
-		downloadDialog.show();
+		mDownloadDialog = builder.create();
+		mDownloadDialog.setCanceledOnTouchOutside(false);
+		mDownloadDialog.show();
 		downloadApk();
 	}
 	
@@ -217,8 +220,9 @@ public class UpdateManage {
 	 */
 	private void downloadApk(){
 		FinalHttp finalHttp=new FinalHttp();
-		String url="";
-		String target="";
+		String url=mAppUpdate.getDownloadUrl();
+		String target_path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/jxtzw/";
+		String target=target_path+"JxtzwApp"+mAppUpdate.getVersionName()+".app";
 		mDownLoadHandler=finalHttp.download(url, target, new AjaxCallBack<File>() {
 
 			@Override
@@ -230,16 +234,43 @@ public class UpdateManage {
 			@Override
 			public void onSuccess(File t) {
 				// TODO Auto-generated method stub
-				super.onSuccess(t);
+				//super.onSuccess(t);
+				//mDownloadDialog.dismiss();
+				mProgressText.setText(t==null?"null":t.getAbsoluteFile().toString());
+				installApk(t);
 			}
 
 			@Override
 			public void onLoading(long count, long current) {
 				// TODO Auto-generated method stub
-				
+				int percent=(int) ((int)(current*100)/count);
+				mProgress.setProgress(percent);
+				mProgressText.setText("下载进度: "+percent+"%");
 			}
-			
+
+			@Override
+			public void onStart() {
+				// TODO Auto-generated method stub
+				mProgress.setProgress(0);
+				mProgressText.setText("下载进度: 0%");
+			}
+
 		});
 	}
 	
+	
+	/**
+    * 安装apk
+    * @param url
+    */
+	private void installApk(File file){
+		String apkFilePath=file.getAbsolutePath().toString();
+		File apkfile = new File(apkFilePath);
+        if (!apkfile.exists()) {
+            return;
+        }    
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive"); 
+        mContext.startActivity(i);
+	}
 }
