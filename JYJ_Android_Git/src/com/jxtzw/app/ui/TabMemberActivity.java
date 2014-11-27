@@ -156,6 +156,7 @@ public class TabMemberActivity extends BaseActivity {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				// UIHelper.ToastMessage(mContext, String.valueOf(position));
+				
 				Bundle bundle=new Bundle();
 				bundle.putInt("MemberIndex", position);
 				bundle.putString("MainTitle", mMainTitle);

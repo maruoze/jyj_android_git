@@ -547,8 +547,9 @@ public class UIHelper {
 	 */
 	public static void showLogin(Context context,Preference preference) {
 		LoginDialog mLoginDialog=new LoginDialog(context);
-		SharedPreferences sp=AppConfig.getSharedPreferences(context);
-		boolean is_login=sp.getBoolean(AppConfig.IS_LOGIN, false);
+		//SharedPreferences sp=AppConfig.getSharedPreferences(context);
+		//boolean is_login=sp.getBoolean(AppConfig.IS_LOGIN, false);
+		boolean is_login=AppConfig.isLogin;
 		if(!is_login){
 			mLoginDialog.show(preference);
 		}else{

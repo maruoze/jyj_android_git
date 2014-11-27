@@ -29,4 +29,15 @@
         android:singleLine="true"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:id="@+id/cb_login_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/remember_login_status"
+        android:textColor="@color/white"
+        android:checked="true" />
+
 </LinearLayout>

@@ -101,7 +101,8 @@ public class SettingActivity extends PreferenceActivity {
 	private void initSettings(){
 		//用户登录部分
 		mAccount=findPreference("account");
-		boolean is_login=mSharedPreferences.getBoolean(AppConfig.IS_LOGIN, false);
+		//boolean is_login=mSharedPreferences.getBoolean(AppConfig.IS_LOGIN, false);
+		boolean is_login=AppConfig.isLogin;
 		if (is_login) {
 			mAccount.setTitle("用户登出");
 		}else{

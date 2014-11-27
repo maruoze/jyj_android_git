@@ -26,6 +26,7 @@ import android.preference.Preference;
 import android.provider.Contacts.Intents.UI;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class LoginDialog extends BaseView {
@@ -44,6 +45,7 @@ public class LoginDialog extends BaseView {
 	private String mStrUserName;
 	private String mStrPassword;
 	private DialogInterface mDialogInterface;
+	private CheckBox mLoginStatus;
 	/**
 	 * 登录状态
 	 */
@@ -106,6 +108,7 @@ public class LoginDialog extends BaseView {
 		}
 		mUsername=(EditText) mLoginView.findViewById(R.id.et_username);
 		mPassword=(EditText) mLoginView.findViewById(R.id.et_password);
+		mLoginStatus=(CheckBox) mLoginView.findViewById(R.id.cb_login_status);
 		mStrUserName=mUsername.getText().toString();
 		mStrPassword=mPassword.getText().toString();
 		Drawable drawable=mResources.getDrawable(R.drawable.f063);
@@ -141,6 +144,7 @@ public class LoginDialog extends BaseView {
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				// TODO Auto-generated method stub
 				super.onFailure(t, errorNo, strMsg);
+				
 			}
 
 			@Override
@@ -187,13 +191,15 @@ public class LoginDialog extends BaseView {
 			String username=jsonObject.getJSONObject("ucresult").getString("username");
 			String password=jsonObject.getJSONObject("ucresult").getString("password");
 			AppConfig.isLogin=true;
-			//保存登录状态
-			mEditor.putBoolean(AppConfig.IS_LOGIN, true);
-			mEditor.putString(AppConfig.UID, uid);
-			mEditor.putString(AppConfig.USERNAME, username);
-			mEditor.putString(AppConfig.PASSWORD, password);
-			//数据提交
-			mEditor.commit();
+			if (mLoginStatus.isChecked()) {
+				//保存登录状态
+				mEditor.putBoolean(AppConfig.IS_LOGIN, true);
+				mEditor.putString(AppConfig.UID, uid);
+				mEditor.putString(AppConfig.USERNAME, username);
+				mEditor.putString(AppConfig.PASSWORD, password);
+				//数据提交
+				mEditor.commit();
+			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
