@@ -162,7 +162,11 @@ public class TabMemberActivity extends BaseActivity {
 				
 				Intent memberIntent=new Intent();
 				memberIntent.putExtras(bundle);
-				memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
+				if(position==4){
+					memberIntent.setClass(mContext, MemberRegisterActivity.class);
+				}else{
+					memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
+				}
 				mContext.startActivity(memberIntent);
 			}
 		});
