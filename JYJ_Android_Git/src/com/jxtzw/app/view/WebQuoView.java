@@ -1,7 +1,6 @@
 package com.jxtzw.app.view;
 
 import java.util.Hashtable;
-
 import com.jxtzw.app.AppContext;
 import com.jxtzw.app.R;
 import com.jxtzw.app.common.UIHelper;
@@ -123,7 +122,7 @@ public class WebQuoView extends BaseView {
 				mLoadingView.setVisibility(View.GONE);
 				mLoadedView.setVisibility(View.GONE);
 			}
-		});
+		});		
 		mWebView.loadUrl(mCatID);
 	}
 }

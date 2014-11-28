@@ -508,6 +508,7 @@ containing a value of this type.
         public static final int api_articles=0x7f090065;
         public static final int api_comment=0x7f090068;
         public static final int api_login=0x7f09006a;
+        public static final int api_login_cookie=0x7f090074;
         public static final int api_quotation_goldsilver=0x7f090066;
         public static final int api_quotation_oil=0x7f090067;
         public static final int api_register=0x7f090069;

@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import org.apache.http.cookie.Cookie;
+
 import com.jxtzw.app.bean.AccessInfo;
 import com.jxtzw.app.common.StringUtils;
 
@@ -120,6 +122,10 @@ public class AppConfig {
 	 */
 	public final static int COLLECT_CLASSIFY_MAX=12;
 	public final static String CCFY_LAST_COUNT="ccfy_last_count";
+	/**
+	 * 全局cookie保存
+	 */
+	public static Cookie COOKIE;
 	
 
 	public static AppConfig getAppConfig(Context context) {
