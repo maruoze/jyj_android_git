@@ -113,7 +113,9 @@ public class AppConfig {
 	 * 是否登录判断
 	 */
 	public static boolean isLogin=false;
+	public static boolean isMember=false;
 	public final static String IS_LOGIN="is_login";
+	public final static String IS_MEMBER="is_member";
 	public final static String UID="uid";
 	public final static String USERNAME="username";
 	public final static String PASSWORD="password";

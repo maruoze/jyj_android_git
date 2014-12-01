@@ -190,6 +190,10 @@ public class LoginDialog extends BaseView {
 	private void saveLoginStatus(JSONObject jsonObject){
 		try {
 			AppConfig.isLogin=true;
+			String groupid=jsonObject.getJSONObject("member").getString("groupid");
+			if (groupid.equals("1")||groupid.equals("14")&&groupid.equals("15")) {
+				AppConfig.isMember=true;
+			}
 			if (mLoginStatus.isChecked()) {
 				String uid=jsonObject.getJSONObject("ucresult").getString("uid");
 				String username=jsonObject.getJSONObject("ucresult").getString("username");
@@ -206,6 +210,7 @@ public class LoginDialog extends BaseView {
 				password=encypPasswod;
 				//保存登录状态
 				mEditor.putBoolean(AppConfig.IS_LOGIN, true);
+				mEditor.putBoolean(AppConfig.IS_MEMBER, true);
 				mEditor.putString(AppConfig.UID, uid);
 				mEditor.putString(AppConfig.USERNAME, username);
 				mEditor.putString(AppConfig.PASSWORD, password);

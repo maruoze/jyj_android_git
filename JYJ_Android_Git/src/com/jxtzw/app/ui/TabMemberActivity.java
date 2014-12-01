@@ -158,19 +158,22 @@ public class TabMemberActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				// UIHelper.ToastMessage(mContext, String.valueOf(position));
 				if (AppConfig.isLogin) {
-					Bundle bundle=new Bundle();
-					bundle.putInt("MemberIndex", position);
-					bundle.putString("MainTitle", mMainTitle);
-					
-					Intent memberIntent=new Intent();
-					memberIntent.putExtras(bundle);
-					/*if(position==4){
-						memberIntent.setClass(mContext, MemberRegisterActivity.class);
+					if (AppConfig.isMember) {
+						Bundle bundle=new Bundle();
+						bundle.putInt("MemberIndex", position);
+						bundle.putString("MainTitle", mMainTitle);
+						
+						Intent memberIntent=new Intent();
+						memberIntent.putExtras(bundle);
+						if(position==4){
+							memberIntent.setClass(mContext, MemberRegisterActivity.class);
+						}else{
+							memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
+						}
+						mContext.startActivity(memberIntent);
 					}else{
-						memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
-					}*/
-					memberIntent.setClass(mContext, MemberPrivilegeActivity.class);
-					mContext.startActivity(memberIntent);
+						UIHelper.ToastMessage(mContext, "您还不是金牌会员，请联系客服升级金牌会员！");
+					}
 				}else{
 					UIHelper.showLogin(mContext, null);
 				}
