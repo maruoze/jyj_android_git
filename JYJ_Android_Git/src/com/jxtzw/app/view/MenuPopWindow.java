@@ -17,6 +17,7 @@ import com.jxtzw.app.api.ApiCollectionEntry;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.bean.CollectionClassify;
 import com.jxtzw.app.bean.CollectionEntry;
+import com.jxtzw.app.common.ShareHelper;
 import com.jxtzw.app.common.UIHelper;
 
 import android.R.integer;
@@ -141,7 +142,7 @@ public class MenuPopWindow {
 	 */
 	private void initShare() {
 		String[] titleStrings={
-				"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"
+				"新浪微博","腾讯微博","微信朋友圈","QQ空间","QQ","人人网","豆瓣","邮件","短信"
 		};
 		int[] images={
 				R.drawable.f001,R.drawable.f002,R.drawable.f003,
@@ -152,6 +153,16 @@ public class MenuPopWindow {
 		GridViewShareAdapter shareAdapter=new GridViewShareAdapter(mResources, 
 				mLayoutInflater, titleStrings, images);
 		shareGridView.setAdapter(shareAdapter);
+		shareGridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				ShareHelper shareHelper=new ShareHelper(mContext);
+				shareHelper.shareCase(parent, view, position, id);
+			}
+		});
 	}
 	
 	
