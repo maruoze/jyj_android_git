@@ -160,7 +160,7 @@ public class MenuPopWindow {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				ShareHelper shareHelper=new ShareHelper(mContext);
-				shareHelper.shareCase(parent, view, position, id);
+				shareHelper.shareCase(parent, view, position, id,mArticle);
 			}
 		});
 	}
