@@ -1,6 +1,4 @@
 package com.jxtzw.app.common;
-
-
 import com.jxtzw.app.R;
 import com.jxtzw.app.bean.Article;
 
@@ -12,9 +10,11 @@ import android.widget.TextView;
 
 public class ShareHelper {
 	private Context mContext;
+	private Activity mActivity;
 	public ShareHelper(Context mContext) {
 		super();
 		this.mContext = mContext;
+		this.mActivity=(Activity) mContext;
 	}
 	
 	/**
@@ -25,15 +25,18 @@ public class ShareHelper {
 			TextView textView=(TextView) view.findViewById(R.id.textview_share);
 			String title=textView.getText().toString();
 			String shareMessage=article.getTitle();
+			String urlString="http://www.jxtzw.com/"+article.getUrl();
+			String articlTitle=article.getTitle();
+			
 			switch (position) {
-				case 0:
-					SinaWeiboHelper.authorize((Activity) mContext, shareMessage);
+				case 0://新浪微博
+					SinaWeiboHelper.authorize(mActivity, shareMessage);
 					break;
-				case 1:
-					UIHelper.ToastMessage(mContext, title+position+"bbb");
+				case 1://腾讯微博
+					QQWeiboHelper.shareToQQ(mActivity, articlTitle, urlString);
 					break;
-				case 2:
-					UIHelper.ToastMessage(mContext, title+position+"ccc");
+				case 2://微信朋友圈
+					WXFriendsHelper.shareToWXFriends((Activity) mContext, articlTitle, urlString);
 					break;
 				case 3:
 					UIHelper.ToastMessage(mContext, title+position+"ddd");
@@ -50,8 +53,8 @@ public class ShareHelper {
 				case 7:
 					UIHelper.ToastMessage(mContext, title+position+"hhh");
 					break;
-				case 8:
-					UIHelper.ToastMessage(mContext, title+position+"iii");
+				case 8://更多
+					UIHelper.showShareMore(mActivity, articlTitle, urlString);
 					break;
 				default:
 					UIHelper.ToastMessage(mContext, title+position);

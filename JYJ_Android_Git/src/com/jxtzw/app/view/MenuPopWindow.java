@@ -142,7 +142,7 @@ public class MenuPopWindow {
 	 */
 	private void initShare() {
 		String[] titleStrings={
-				"新浪微博","腾讯微博","微信朋友圈","QQ空间","QQ","人人网","豆瓣","邮件","短信"
+				"新浪微博","腾讯微博","微信朋友圈","QQ空间","QQ","人人网","豆瓣","邮件","更多"
 		};
 		int[] images={
 				R.drawable.f001,R.drawable.f002,R.drawable.f003,

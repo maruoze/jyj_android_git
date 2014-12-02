@@ -23,7 +23,7 @@ import android.graphics.Bitmap.CompressFormat;
  */
 public class WXFriendsHelper {
 	// APP_ID 替换为你的应用从官方网站申请到的合法appId
-	private static String APP_ID = "wx41be5fe48092e94c";
+	private static String APP_ID = "wx412a6d84f8079a50";
 	private static final int MIN_SUPPORTED_VERSION = 0x21020001;// 最小支持的版本
 	
 	/**
