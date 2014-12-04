@@ -128,6 +128,10 @@ public class AppConfig {
 	 * 全局cookie保存
 	 */
 	public static Cookie COOKIE;
+	/**
+	 * 检查更新
+	 */
+	public final static String CHECK_UPDATE="checkupdate"; 
 	
 
 	public static AppConfig getAppConfig(Context context) {

@@ -9,6 +9,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.DoubleClickExitHelper;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.common.UpdateManage;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
@@ -78,6 +79,7 @@ public class MainActivity extends TabActivity {
 		AppManager.getAppManager().addActivity(this);
 		init();
 		initTabHost();
+		checkUpdate();
 	}
 	
 	/**
@@ -241,4 +243,15 @@ public class MainActivity extends TabActivity {
         } 
         return super.dispatchKeyEvent(event);  
     }
+	
+	/**
+	 * 检查更新
+	 */
+	private void checkUpdate() {
+		boolean checkUpdate=true;
+		checkUpdate=mSharedPreferences.getBoolean(AppConfig.CHECK_UPDATE, true);
+		if (checkUpdate) {
+			UpdateManage.getUpdateManage().checkAppUpdate(mContext,true);
+		}
+	}
 }

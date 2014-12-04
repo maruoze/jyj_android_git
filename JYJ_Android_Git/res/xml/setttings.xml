@@ -8,7 +8,9 @@
             android:key="account" />
         <Preference android:key="register" android:title="注册"/>
     </PreferenceCategory>
-    <PreferenceCategory 
+    <PreferenceCategory android:title="功能设置" android:layout="@layout/setting_category">
+        <CheckBoxPreference android:key="checkupdate" android:title="启动检查更新" android:defaultValue="true" android:summary="启动程序时检查版本更新"/>
+    </PreferenceCategory><PreferenceCategory 
         android:layout="@layout/setting_category"
 	    android:title="其他">
         <Preference 
@@ -24,4 +26,5 @@
 	        android:key="aboutus" 
 	        android:summary="关于我们、版权信息"/>
     </PreferenceCategory>
+    
 </PreferenceScreen>
