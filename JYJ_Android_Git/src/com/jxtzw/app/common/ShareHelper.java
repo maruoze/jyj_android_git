@@ -24,9 +24,9 @@ public class ShareHelper {
 			int position, long id,Article article) {
 			TextView textView=(TextView) view.findViewById(R.id.textview_share);
 			String title=textView.getText().toString();
-			String shareMessage=article.getTitle();
-			String urlString="http://www.jxtzw.com/"+article.getUrl();
-			String articlTitle=article.getTitle();
+			String urlString="http://www.jxtzw.com/"+"article-"+article.getAid()+"-1.html";
+			String shareMessage=article.getTitle()+" "+urlString;
+			String articlTitle=shareMessage;
 			
 			switch (position) {
 				case 0://新浪微博

@@ -279,11 +279,12 @@ public class Weibo {
 			params.add("scope", TextUtils.join(",", permissions));
 		}
 		CookieSyncManager.createInstance(activity);
-		dialog(activity, params, new WeiboDialogListener() {
-
+		
+		WeiboDialogListener wDListener=new WeiboDialogListener() {
 			@SuppressLint("HandlerLeak")
 			public void onComplete(Bundle values) {
 				// ensure any cookies set by the dialog are saved
+				
 				if (mCodeString.equals("")) {
 					mCodeString = values.getString("code");
 					CookieSyncManager.getInstance().sync();
@@ -359,6 +360,7 @@ public class Weibo {
 								} else {
 									message.obj = mTokenResult;
 									tkhandler.sendMessage(message);
+									mCodeString="";
 								}
 							}
 						};
@@ -385,7 +387,9 @@ public class Weibo {
 				Log.d("Weibo-authorize", "Login canceled");
 				mAuthDialogListener.onCancel();
 			}
-		});
+		};
+		
+		dialog(activity, params, wDListener);
 	}
 
 	/**
