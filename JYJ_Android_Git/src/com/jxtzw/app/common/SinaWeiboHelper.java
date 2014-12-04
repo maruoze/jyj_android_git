@@ -147,7 +147,15 @@ public class SinaWeiboHelper {
 					//保存AccessToken
 					AppConfig.getAppConfig(cont).setAccessInfo(accessToken.getToken(), accessToken.getSecret(), accessToken.getExpiresIn());
 					//微博分享
-					shareMessage(cont, shareMsg, shareImg);
+					
+					Thread smThread=new Thread(){
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							shareMessage(cont, shareMsg, shareImg);
+						}
+					};
+					smThread.start();
 	    		} 
 	    		catch (Exception e) 
 	    		{
