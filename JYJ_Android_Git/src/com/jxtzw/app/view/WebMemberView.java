@@ -69,9 +69,9 @@ public class WebMemberView extends WebQuoView {
 				mLoadedView.setVisibility(View.GONE);
 			}
 		});
-		mSharedPreferences = AppConfig.getSharedPreferences(mContext);
-		mUsernameString = mSharedPreferences.getString("username", "");
-		String encryPassword = mSharedPreferences.getString("password", "");
+		//mSharedPreferences = AppConfig.getSharedPreferences(mContext);
+		mUsernameString = AppConfig.username;
+		String encryPassword = AppConfig.password;
 		if (mUsernameString.length() == 0 || encryPassword.length() == 0) {
 			UIHelper.ToastMessage(mContext, "登录信息有误，请重新登录！");
 		} else {

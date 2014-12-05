@@ -120,6 +120,12 @@ public class AppConfig {
 	public final static String USERNAME="username";
 	public final static String PASSWORD="password";
 	/**
+	 * 临时登录信息包保存
+	 */
+	public static String uid="";
+	public static String username="";
+	public static String password="";
+	/**
 	 * 收藏相关
 	 */
 	public final static int COLLECT_CLASSIFY_MAX=12;

@@ -105,5 +105,10 @@
 	<string name="collection_op_shut">关闭</string>
 	
 	<string name="feedback_title">意见反馈</string>
+	<string name="feedback_error0">意见或建议不能为空！</string>
+	<string name="feedback_error1">意见或建议的字数不能超过240！</string>
+	<string name="feedback_txtlen">最多输入240个字，当前字数：</string>
+	<string name="feedback_seccued">意见反馈提交成功，感谢您的支持！</string>
+	<string name="feedback_failure">意见反馈提交失败！</string>
 	<string name="remember_login_status">记住我的登录信息</string>
 </resources>

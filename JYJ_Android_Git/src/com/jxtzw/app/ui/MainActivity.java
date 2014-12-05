@@ -204,6 +204,9 @@ public class MainActivity extends TabActivity {
 		mTabTitleStrings=DataHelper.getMainTabsText(mResources,mSharedPreferences);
 		AppConfig.isLogin=mSharedPreferences.getBoolean(AppConfig.IS_LOGIN, false);
 		AppConfig.isMember=mSharedPreferences.getBoolean(AppConfig.IS_MEMBER, false);
+		AppConfig.uid=mSharedPreferences.getString(AppConfig.UID, "");
+		AppConfig.username=mSharedPreferences.getString(AppConfig.USERNAME, "");
+		AppConfig.password=mSharedPreferences.getString(AppConfig.PASSWORD, "");
 	}
 	
 

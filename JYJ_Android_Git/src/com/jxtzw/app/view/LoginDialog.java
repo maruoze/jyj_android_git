@@ -194,23 +194,18 @@ public class LoginDialog extends BaseView {
 			if (groupid.equals("1")||groupid.equals("14")&&groupid.equals("15")) {
 				AppConfig.isMember=true;
 			}
+			String uid=jsonObject.getJSONObject("ucresult").getString("uid");
+			String username=jsonObject.getJSONObject("ucresult").getString("username");
+			String password=jsonObject.getJSONObject("ucresult").getString("password");
+			String encypPasswod=CyptoUtils.encode("maru09743233aoze", password);
+			password=encypPasswod;
+			AppConfig.uid=uid;
+			AppConfig.username=username;
+			AppConfig.password=password;
 			if (mLoginStatus.isChecked()) {
-				String uid=jsonObject.getJSONObject("ucresult").getString("uid");
-				String username=jsonObject.getJSONObject("ucresult").getString("username");
-				String password=jsonObject.getJSONObject("ucresult").getString("password");
-				/*EncryptionAES aes=new EncryptionAES();
-				String encypPasswod="";
-				try {
-					encypPasswod=EncryptionAES.bytesToHex(aes.encrypt(password));
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-				String encypPasswod=CyptoUtils.encode("maru09743233aoze", password);
-				password=encypPasswod;
 				//保存登录状态
-				mEditor.putBoolean(AppConfig.IS_LOGIN, true);
-				mEditor.putBoolean(AppConfig.IS_MEMBER, true);
+				mEditor.putBoolean(AppConfig.IS_LOGIN, AppConfig.isLogin);
+				mEditor.putBoolean(AppConfig.IS_MEMBER, AppConfig.isMember);
 				mEditor.putString(AppConfig.UID, uid);
 				mEditor.putString(AppConfig.USERNAME, username);
 				mEditor.putString(AppConfig.PASSWORD, password);
@@ -264,8 +259,14 @@ public class LoginDialog extends BaseView {
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
 					AppConfig.isLogin=false;
+					AppConfig.isMember=false;
+					AppConfig.uid="";
+					AppConfig.username="";
+					AppConfig.password="";
 					//保存登录状态
 					mEditor.putBoolean(AppConfig.IS_LOGIN, false);
+					mEditor.putBoolean(AppConfig.IS_MEMBER,false);
+					mEditor.putString(AppConfig.UID,"");
 					mEditor.putString(AppConfig.USERNAME, "");
 					mEditor.putString(AppConfig.PASSWORD, "");
 					//数据提交
