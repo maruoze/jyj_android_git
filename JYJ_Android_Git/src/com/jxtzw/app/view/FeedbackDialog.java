@@ -149,6 +149,8 @@ public class FeedbackDialog extends BaseView {
 		}
 		params.put("username", usernameString);
 		params.put("feedback", mFeedbackString);
+		String verify_code=mResources.getString(R.string.verify_code);
+		params.put("verify_code", verify_code);
 		
 		
 		FinalHttp finalHttp=new FinalHttp();
