@@ -516,6 +516,7 @@ containing a value of this type.
         public static final int Weibo_Share_Error=0x7f09003a;
         public static final int Weibo_Share_Repeat=0x7f09003b;
         public static final int Weibo_Share_Success=0x7f090039;
+        public static final int api_apk_version=0x7f09007b;
         public static final int api_apk_version_check=0x7f090078;
         public static final int api_articles=0x7f09006a;
         public static final int api_comment=0x7f09006d;

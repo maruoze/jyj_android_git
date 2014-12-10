@@ -7,6 +7,7 @@ import com.jxtzw.app.bean.AppUpdate;
 
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
+import net.tsz.afinal.http.AjaxParams;
 import net.tsz.afinal.http.HttpHandler;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -97,10 +98,12 @@ public class UpdateManage {
 				return;
 			}
 		}
+		AjaxParams ajaxParams=new AjaxParams();
+		ajaxParams.put("myaction", "app_get");
 		
-		String url=mResources.getString(R.string.api_apk_version_check);
+		String url=mResources.getString(R.string.api_apk_version);
 		FinalHttp finalHttp=new FinalHttp();
-		finalHttp.get(url, new AjaxCallBack<String>() {
+		finalHttp.post(url, ajaxParams, new AjaxCallBack<String>() {
 
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
