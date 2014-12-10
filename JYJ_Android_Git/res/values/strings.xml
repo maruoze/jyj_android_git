@@ -38,7 +38,7 @@
     
     <string name="api_apk_version_check">http://www.jxtzw.com/api/_xml/AppUpdate.xml</string>
     <string name="api_login_cookie">http://m1.jxtzw.com/Ajax/login</string>
-    <string name="api_feedback">http://10.0.0.35:29000/source/plugin/mfeedback/api/mfeedback.api.php</string>
-    <string name="api_apk_version">http://10.0.0.35:29000/source/plugin/mobileapp/api/upload.ajax.php</string>
+    <string name="api_feedback">http://www.jxtzw.com/source/plugin/mfeedback/api/mfeedback.api.php</string>
+    <string name="api_apk_version">http://www.jxtzw.com/source/plugin/mobileapp/api/upload.ajax.php</string>
 
 </resources>
