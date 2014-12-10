@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
+import com.jxtzw.app.R.color;
 import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.DoubleClickExitHelper;
 import com.jxtzw.app.common.UIHelper;
@@ -80,6 +81,7 @@ public class MainActivity extends TabActivity {
 		init();
 		initTabHost();
 		checkUpdate();
+		initServices();
 	}
 	
 	/**
@@ -256,5 +258,15 @@ public class MainActivity extends TabActivity {
 		if (checkUpdate) {
 			UpdateManage.getUpdateManage().checkAppUpdate(mContext,true);
 		}
+	}
+	
+	/**
+	 * 初始化服务
+	 */
+	private void initServices() {
+		Intent serviceIntent=new Intent();
+		String serviceName="com.jxtzw.service.CheckNewsService";
+		serviceIntent.setAction(serviceName);
+		startService(serviceIntent);
 	}
 }

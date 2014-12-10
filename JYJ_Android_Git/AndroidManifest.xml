@@ -80,6 +80,11 @@
             android:name="com.jxtzw.app.ui.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
+        <service android:name="com.jxtzw.service.CheckNewsService">
+            <intent-filter>  
+		        <action android:name="com.jxtzw.service.CheckNewsService" />  
+		    </intent-filter>  
+        </service>
     </application>
 
 </manifest>
