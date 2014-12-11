@@ -97,10 +97,12 @@ public class TabMemberActivity extends BaseActivity {
 	 * 初始化Image
 	 */
 	protected void initImageView() {
+		/*
 		mImageView=(ImageView) findViewById(R.id.head_image);
 		Drawable bm=mResources.getDrawable(R.drawable.ban);
 		mImageView.setImageDrawable(bm);
 		//mImageView.setBackgroundResource(R.drawable.ban);
+		 */
 	}
 	
 	
