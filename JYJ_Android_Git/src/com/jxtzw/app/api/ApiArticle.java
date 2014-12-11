@@ -145,4 +145,18 @@ public class ApiArticle extends ApiBase {
 		}
 		return article;
 	}
+	
+	/**
+	 * 从本地数据库获取当类最新的一条信息
+	 */
+	public  Article getLastArticleLocal(String catID){
+		Article article=null;
+		String strWhere="Catid in("+catID+")";
+		String strOrder="Dateline DESC LIMIT 0,1";
+		ArrayList<Article> articles=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere,strOrder);
+		if (articles.size()>0) {
+			article=articles.get(0);
+		}
+		return article;
+	}
 }

@@ -13,7 +13,12 @@ public class ApiBase {
 	public ApiBase(Context context) {
 		super();
 		this.mContext = context;
-		this.mActivity=(Activity) mContext;
+		try {
+			this.mActivity=(Activity) mContext;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}
 		this.mResources=mContext.getResources();
 		this.mLayoutInflater=LayoutInflater.from(mContext);
 	}
