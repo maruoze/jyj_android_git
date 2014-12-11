@@ -58,7 +58,7 @@
         </activity>
         <activity
             android:name=".ui.TabMemberActivity"
-            android:label="@string/title_activity_tab_member" >
+            android:label="@string/title_activity_tab_member">
         </activity>
         <activity
             android:name=".ui.ArticleInfoActivity"
@@ -78,11 +78,11 @@
         </activity>
         <activity
             android:name="com.jxtzw.app.ui.SettingActivity"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting" android:process=":setting">
         </activity>
-        <service android:name="com.jxtzw.service.CheckNewsService">
+        <service android:name="com.jxtzw.app.service.CheckNewsService" android:process=":services">
             <intent-filter>  
-		        <action android:name="com.jxtzw.service.CheckNewsService" />  
+		        <action android:name="com.jxtzw.app.service.CheckNewsService" />  
 		    </intent-filter>  
         </service>
     </application>

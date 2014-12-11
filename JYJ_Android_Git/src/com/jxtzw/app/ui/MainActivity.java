@@ -265,7 +265,7 @@ public class MainActivity extends TabActivity {
 	 */
 	private void initServices() {
 		Intent serviceIntent=new Intent();
-		String serviceName="com.jxtzw.service.CheckNewsService";
+		String serviceName="com.jxtzw.app.service.CheckNewsService";
 		serviceIntent.setAction(serviceName);
 		startService(serviceIntent);
 	}

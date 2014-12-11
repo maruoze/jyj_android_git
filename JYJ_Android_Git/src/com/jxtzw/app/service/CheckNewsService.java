@@ -1,4 +1,4 @@
-package com.jxtzw.service;
+package com.jxtzw.app.service;
 
 import com.jxtzw.app.ui.MainActivity;
 
