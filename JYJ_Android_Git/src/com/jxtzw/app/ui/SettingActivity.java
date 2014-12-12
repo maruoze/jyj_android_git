@@ -147,7 +147,7 @@ public class SettingActivity extends PreferenceActivity {
 			@Override
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
-				UpdateManage.getUpdateManage().checkAppUpdate(mContext,true);
+				UpdateManage.getUpdateManage().checkAppUpdate(mContext,true,true);
 				return false;
 			}
 		});

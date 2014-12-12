@@ -256,7 +256,7 @@ public class MainActivity extends TabActivity {
 		boolean checkUpdate=true;
 		checkUpdate=mSharedPreferences.getBoolean(AppConfig.CHECK_UPDATE, true);
 		if (checkUpdate) {
-			UpdateManage.getUpdateManage().checkAppUpdate(mContext,true);
+			UpdateManage.getUpdateManage().checkAppUpdate(mContext,true,false);
 		}
 	}
 	

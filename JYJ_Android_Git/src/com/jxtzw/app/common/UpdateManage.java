@@ -86,7 +86,7 @@ public class UpdateManage {
 		return mUpdateManage;
 	}
 	
-	public void checkAppUpdate(Context context, final boolean isShow) {
+	public void checkAppUpdate(Context context, final boolean isShow,final boolean isShowNoUp) {
 		this.mContext=context;
 		this.mResources=mContext.getResources();
 		
@@ -124,7 +124,9 @@ public class UpdateManage {
 					mUpdateLog=mAppUpdate.getUpdateLog();
 					showNoticeDialog();
 				} else {
-					showLatestOrFailDialog(DIALOG_TYPE_LATEST);
+					if (isShowNoUp) {
+						showLatestOrFailDialog(DIALOG_TYPE_LATEST);
+					}
 				}
 			}
 		});
