@@ -109,6 +109,7 @@ public class UpdateManage {
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				// TODO Auto-generated method stub
 				super.onFailure(t, errorNo, strMsg);
+				UIHelper.ToastMessage(mContext, "网络状况不好，请稍后再试...");
 			}
 
 			@Override

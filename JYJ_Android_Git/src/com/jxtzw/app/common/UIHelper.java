@@ -9,6 +9,7 @@ import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.GridViewFaceAdapter;
 import com.jxtzw.app.ui.GuideActivity;
+import com.jxtzw.app.view.AboutusDialog;
 import com.jxtzw.app.view.FeedbackDialog;
 import com.jxtzw.app.view.LoginDialog;
 import com.jxtzw.app.view.MainMenuPop;
@@ -559,7 +560,7 @@ public class UIHelper {
 		}
 	}
 	
-	/**back
+	/**
 	 * 显示意见反馈
 	 */
 	public static void showFeedback(Context context) {
@@ -568,8 +569,13 @@ public class UIHelper {
 	}
 	
 	/**
-	 * 创建快捷方式
+	 * 显示关于我们
 	 */
+	public static void showAboutus(Context context) {
+		AboutusDialog aboutusDialog=new AboutusDialog(context);
+		aboutusDialog.show();
+	}
+	
 	/**
 	 * 创建快捷方式
 	 */

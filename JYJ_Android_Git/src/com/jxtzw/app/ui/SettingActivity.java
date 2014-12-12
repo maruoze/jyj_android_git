@@ -158,7 +158,8 @@ public class SettingActivity extends PreferenceActivity {
 			@Override
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
-				UIHelper.ToastMessage(mContext, "关于我们");
+				//UIHelper.ToastMessage(mContext, "关于我们");
+				UIHelper.showAboutus(mContext);
 				return false;
 			}
 		});
