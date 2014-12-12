@@ -110,6 +110,22 @@ public class AppConfig {
 	public final static String JYJ_CAT_QUO_ID_USERSET="cat_quo_id_userset";	
 	
 	/**
+	 * 子分类名称字符串常量[学院]
+	 */
+	//储存学院分类的名称的SP变量名
+	public final static String JYJ_CAT_COLL_NAME_DEFAULT="cat_coll_name_default";
+	public final static String JYJ_CAT_COLL_NAME_USERSET="cat_coll_name_userset";
+	//储存学院分类的ID的SP变量名
+	public final static String JYJ_CAT_COLL_ID_DEFAULT="cat_coll_id_default";
+	public final static String JYJ_CAT_COLL_ID_USERSET="cat_coll_id_userset";
+	//储存学院分类里是否显示行情的SP变量名
+	public final static String JYJ_CAT_COLL_SHOW_QUOT_DEFAULT="cat_coll_show_quot_default";
+	public final static String JYJ_CAT_COLL_SHOW_QUOT_USERSET="cat_coll_show_quot_userset";
+	//储存学院分类中的文章列表是显示图片的SP变量名
+	public final static String JYJ_CAT_COLL_SHOW_IMAGE_DEFAULT="cat_coll_show_image_default";
+	public final static String JYJ_CAT_COLL_SHOW_IMAGE_USERSET="cat_coll_show_image_userset";
+	
+	/**
 	 * 是否登录判断
 	 */
 	public static boolean isLogin=false;

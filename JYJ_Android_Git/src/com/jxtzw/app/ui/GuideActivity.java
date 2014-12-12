@@ -58,12 +58,22 @@ public class GuideActivity extends BaseActivity {
 	 * 主Activity启动时需要的相关数据
 	 */
 	private String mMainTabsText;
-	private String mCatGoldName;
+	private String mCatGoldName;						//黄金
 	private String mCatGoldID;
 	private String mCatGoldShowQuotation;
 	private String mCatGoldShowImage;
-	
-	
+	private String mCatSilverName;						//白银
+	private String mCatSilverID;
+	private String mCatSilverShowQuotation;
+	private String mCatSilverShowImage;	
+	private String mCatOilName;							//原油
+	private String mCatOilID;
+	private String mCatOilShowQuotation;
+	private String mCatOilShowImage;		
+	private String mCatCollName;						//学院
+	private String mCatCollID;
+	private String mCatCollShowQuotation;
+	private String mCatCollShowImage;		
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -207,7 +217,7 @@ public class GuideActivity extends BaseActivity {
 		//保存切换标签名称
 		mEditor.putString(AppConfig.JYJ_MAIN_TABS_TEXT_DEFAULT, mMainTabsText);
 		mEditor.putString(AppConfig.JYJ_MAIN_TABS_TEXT_USERSET, mMainTabsText);
-		//保存子分类名称和ID
+		//保存子分类名称和ID【黄金】
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_NAME_DEFAULT, mCatGoldName);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_NAME_USERSET, mCatGoldName);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_ID_DEFAULT, mCatGoldID);
@@ -216,6 +226,33 @@ public class GuideActivity extends BaseActivity {
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_QUOT_USERSET, mCatGoldShowQuotation);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_DEFAULT, mCatGoldShowImage);
 		mEditor.putString(AppConfig.JYJ_CAT_GOLD_SHOW_IMAGE_USERSET, mCatGoldShowImage);
+		//保存子分类名称和ID【白银】
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_NAME_DEFAULT, mCatSilverName);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_NAME_USERSET, mCatSilverName);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_ID_DEFAULT, mCatSilverID);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_ID_USERSET, mCatSilverID);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_SHOW_QUOT_DEFAULT, mCatSilverShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_SHOW_QUOT_USERSET, mCatSilverShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_SHOW_IMAGE_DEFAULT, mCatSilverShowImage);
+		mEditor.putString(AppConfig.JYJ_CAT_SILVER_SHOW_IMAGE_USERSET, mCatSilverShowImage);
+		//保存子分类名称和ID【原油】
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_NAME_DEFAULT, mCatOilName);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_NAME_USERSET, mCatOilName);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_ID_DEFAULT, mCatOilID);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_ID_USERSET, mCatOilID);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_SHOW_QUOT_DEFAULT, mCatOilShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_SHOW_QUOT_USERSET, mCatOilShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_SHOW_IMAGE_DEFAULT, mCatOilShowImage);
+		mEditor.putString(AppConfig.JYJ_CAT_OIL_SHOW_IMAGE_USERSET, mCatOilShowImage);
+		//保存子分类名称和ID【学院】
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_NAME_DEFAULT, mCatCollName);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_NAME_USERSET, mCatCollName);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_ID_DEFAULT, mCatCollID);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_ID_USERSET, mCatCollID);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_SHOW_QUOT_DEFAULT, mCatCollShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_SHOW_QUOT_USERSET, mCatCollShowQuotation);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_SHOW_IMAGE_DEFAULT, mCatCollShowImage);
+		mEditor.putString(AppConfig.JYJ_CAT_COLL_SHOW_IMAGE_USERSET, mCatCollShowImage);
 		//保存登录状态
 		mEditor.putBoolean(AppConfig.IS_LOGIN, false);
 		mEditor.putString(AppConfig.UID, "0");
@@ -232,17 +269,41 @@ public class GuideActivity extends BaseActivity {
 		//主分类名称字符串
 		String[] mainTabsText=mResources.getStringArray(R.array.main_tabs_text);
 		mMainTabsText=StringUtils.stringArrayToString(mainTabsText, ";");
-		//子分类名称ID字符串
+		//子分类名称，ID，行情显示和图片显示字符串【黄金】
 		String[] catGoldName=mResources.getStringArray(R.array.cat_gold_name);
 		mCatGoldName=StringUtils.stringArrayToString(catGoldName, ";");
-		
 		String[] catGoldID=mResources.getStringArray(R.array.cat_gold_id);
 		mCatGoldID=StringUtils.stringArrayToString(catGoldID, ";");
-		
 		String[] catGoldShowQuotation=mResources.getStringArray(R.array.cat_gold_show_quotaion);
 		mCatGoldShowQuotation=StringUtils.stringArrayToString(catGoldShowQuotation, ";");
-		
 		String[] catGoldShowImage=mResources.getStringArray(R.array.cat_gold_show_image);
 		mCatGoldShowImage=StringUtils.stringArrayToString(catGoldShowImage, ";");
+		//子分类名称，ID，行情显示和图片显示字符串【白银】
+		String[] catSilverName=mResources.getStringArray(R.array.cat_silver_name);
+		mCatSilverName=StringUtils.stringArrayToString(catSilverName, ";");
+		String[] catSilverID=mResources.getStringArray(R.array.cat_silver_id);
+		mCatSilverID=StringUtils.stringArrayToString(catSilverID, ";");
+		String[] catSilverShowQuotation=mResources.getStringArray(R.array.cat_silver_show_quotaion);
+		mCatSilverShowQuotation=StringUtils.stringArrayToString(catSilverShowQuotation, ";");
+		String[] catSilverShowImage=mResources.getStringArray(R.array.cat_silver_show_image);
+		mCatSilverShowImage=StringUtils.stringArrayToString(catSilverShowImage, ";");
+		//子分类名称，ID，行情显示和图片显示字符串【原油】
+		String[] catOilName=mResources.getStringArray(R.array.cat_oil_name);
+		mCatOilName=StringUtils.stringArrayToString(catOilName, ";");
+		String[] catOilID=mResources.getStringArray(R.array.cat_oil_id);
+		mCatOilID=StringUtils.stringArrayToString(catOilID, ";");
+		String[] catOilShowQuotation=mResources.getStringArray(R.array.cat_oil_show_quotaion);
+		mCatOilShowQuotation=StringUtils.stringArrayToString(catOilShowQuotation, ";");
+		String[] catOilShowImage=mResources.getStringArray(R.array.cat_oil_show_image);
+		mCatOilShowImage=StringUtils.stringArrayToString(catOilShowImage, ";");
+		//子分类名称，ID，行情显示和图片显示字符串【学院】
+		String[] catCollName=mResources.getStringArray(R.array.cat_coll_name);
+		mCatCollName=StringUtils.stringArrayToString(catCollName, ";");
+		String[] catCollID=mResources.getStringArray(R.array.cat_coll_id);
+		mCatCollID=StringUtils.stringArrayToString(catCollID, ";");
+		String[] catCollShowQuotation=mResources.getStringArray(R.array.cat_coll_show_quotaion);
+		mCatCollShowQuotation=StringUtils.stringArrayToString(catCollShowQuotation, ";");
+		String[] catCollShowImage=mResources.getStringArray(R.array.cat_coll_show_image);
+		mCatCollShowImage=StringUtils.stringArrayToString(catCollShowImage, ";");
 	}
 }

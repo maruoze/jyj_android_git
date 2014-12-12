@@ -13,6 +13,10 @@ public final class R {
         public static final int loading=0x7f040001;
     }
     public static final class array {
+        public static final int cat_coll_id=0x7f06000e;
+        public static final int cat_coll_name=0x7f06000d;
+        public static final int cat_coll_show_image=0x7f060010;
+        public static final int cat_coll_show_quotaion=0x7f06000f;
         public static final int cat_gold_id=0x7f060002;
         public static final int cat_gold_name=0x7f060001;
         public static final int cat_gold_show_image=0x7f060004;
@@ -21,17 +25,17 @@ public final class R {
         public static final int cat_oil_name=0x7f060009;
         public static final int cat_oil_show_image=0x7f06000c;
         public static final int cat_oil_show_quotaion=0x7f06000b;
-        public static final int cat_quotation_name=0x7f06000d;
-        public static final int cat_quotation_url=0x7f06000e;
+        public static final int cat_quotation_name=0x7f060011;
+        public static final int cat_quotation_url=0x7f060012;
         public static final int cat_silver_id=0x7f060006;
         public static final int cat_silver_name=0x7f060005;
         public static final int cat_silver_show_image=0x7f060008;
         public static final int cat_silver_show_quotaion=0x7f060007;
         public static final int main_tabs_text=0x7f060000;
-        public static final int member_api=0x7f060012;
-        public static final int member_description=0x7f060010;
-        public static final int member_images=0x7f060011;
-        public static final int member_title=0x7f06000f;
+        public static final int member_api=0x7f060016;
+        public static final int member_description=0x7f060014;
+        public static final int member_images=0x7f060015;
+        public static final int member_title=0x7f060013;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
