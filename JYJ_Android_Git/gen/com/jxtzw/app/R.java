@@ -358,6 +358,9 @@ containing a value of this type.
         public static final int subnav_bg_sel=0x7f020084;
         public static final int subnav_ll_bg_default=0x7f020085;
         public static final int subnav_ll_bg_selected=0x7f020086;
+        public static final int upd=0x7f020087;
+        public static final int upu=0x7f020088;
+        public static final int widget_today_icon=0x7f020089;
     }
     public static final class id {
         public static final int EnterToMain=0x7f0b000c;

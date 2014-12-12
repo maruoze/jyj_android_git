@@ -108,9 +108,9 @@ public class ListViewQuotationAdapter extends BaseAdapter {
 		float price_change=Float.parseFloat(quotation.getQuo_price_change());
 		Drawable drawable=null;
 		if(price_change>=0){
-			drawable=mResources.getDrawable(R.drawable.f001);
+			drawable=mResources.getDrawable(R.drawable.upu);
 		}else{
-			drawable=mResources.getDrawable(R.drawable.f002);
+			drawable=mResources.getDrawable(R.drawable.upd);
 		}
 		drawable.setBounds(0, 0, 20, 20);
 		listItemView.tv_quo_price.setCompoundDrawables(null, null, drawable, null);

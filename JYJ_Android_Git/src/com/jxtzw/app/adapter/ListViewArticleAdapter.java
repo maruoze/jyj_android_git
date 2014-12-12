@@ -115,7 +115,7 @@ public class ListViewArticleAdapter extends BaseAdapter {
 		listItemView.dateline.setText(" "+StringUtils.timeStamp2Date(article.getDateLine(), "yyyy-MM-dd HH:mm"));
 		listItemView.catname.setText(" "+mRelatedData.get("mCatName"));
 		if(StringUtils.isTodayEx(article.getDateLine())){
-			Drawable drawable=mResources.getDrawable(R.drawable.f026);
+			Drawable drawable=mResources.getDrawable(R.drawable.widget_today_icon);
 			drawable.setBounds(0, 0, 20, 20);
 			listItemView.title.setCompoundDrawables(drawable, null, null, null);
 		}else{
