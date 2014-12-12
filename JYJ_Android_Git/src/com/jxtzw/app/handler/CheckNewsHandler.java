@@ -13,6 +13,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.api.ApiArticle;
 import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.DataHelper;
+import com.jxtzw.app.common.StringUtils;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.ui.MainActivity;
 
@@ -58,7 +59,7 @@ public class CheckNewsHandler extends Handler {
 	private String mCatID;
 	private ApiArticle mApiArticle;						//数据接口
 	private ArrayList<Article> mArticlesNew;
-	private Article mArticleForNoti;
+	private Article mArticleForNoti=null;
 	/**
 	 * 获取网络文章的起始位置
 	 */
@@ -140,9 +141,6 @@ public class CheckNewsHandler extends Handler {
 					sendNotification();
 					string="数据更新！";
 				}
-				if (mCount==1) {
-					sendNotification();
-				}
 				Log.v("Blur","调用次数："+mCount+" "+string);
 			}
 		});
@@ -163,10 +161,13 @@ public class CheckNewsHandler extends Handler {
         //notification.setLatestEventInfo(mContext.getApplicationContext(), 
         		//mArticleForNoti.getTitle(), mArticleForNoti.getSummary(), pendingIntent);
         mNotifyView=new RemoteViews(mContext.getPackageName(), R.layout.item_notify);
-        /*mNotifyView.setImageViewResource(R.id.notify_image, R.drawable.f001);
-        mNotifyView.setTextViewText(R.id.notify_title, mArticleForNoti.getTitle());
-        mNotifyView.setTextViewText(R.id.notify_summary, mArticleForNoti.getSummary());
-        mNotifyView.setTextViewText(R.id.notify_dateline, mArticleForNoti.getDateLine());*/
+        if(mArticleForNoti!=null){
+	        mNotifyView.setImageViewResource(R.id.notify_image, R.drawable.f001);
+	        mNotifyView.setTextViewText(R.id.notify_title, mArticleForNoti.getTitle());
+	        mNotifyView.setTextViewText(R.id.notify_summary, mArticleForNoti.getSummary());
+	        String timeString=StringUtils.timeStamp2Date(mArticleForNoti.getDateLine(),"HH:mm");
+	        mNotifyView.setTextViewText(R.id.notify_dateline, timeString);
+        }
         notification.contentView=mNotifyView;
         notification.flags = Notification.FLAG_AUTO_CANCEL;//点击后自动消失
         notification.defaults = Notification.DEFAULT_SOUND;//声音默认
