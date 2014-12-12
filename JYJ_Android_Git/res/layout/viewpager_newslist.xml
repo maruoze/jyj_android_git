@@ -23,7 +23,7 @@
         android:layout_margin="10dp"
         android:background="@color/white"
         android:divider="@color/ptr_backgroudcolor"  
-    	android:dividerHeight="10dp"
+    	android:dividerHeight="0dp"
     	android:headerDividersEnabled="false">
     </com.jxtzw.app.widget.PullToRefreshListView>
 </LinearLayout>

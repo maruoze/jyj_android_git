@@ -73,7 +73,7 @@
             textviewplus:left_height="15dp"
             textviewplus:left_width="15dp"/>
 
-        <com.jxtzw.app.widget.TextViewPlus
+        <!--  <com.jxtzw.app.widget.TextViewPlus
             android:id="@+id/article_comment_count"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
@@ -84,8 +84,14 @@
             android:textSize="@dimen/text_size_10" 
             textviewplus:left_height="15dp"
             textviewplus:left_width="15dp"
-            android:text="10" />
+            android:text="10" />-->
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/divide_line"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/ptr_backgroudcolor"/>
     
 </LinearLayout>

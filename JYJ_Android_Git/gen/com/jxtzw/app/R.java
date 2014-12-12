@@ -370,7 +370,6 @@ containing a value of this type.
         public static final int ImagePoint_4=0x7f0b000b;
         public static final int ImageViewPager=0x7f0b0006;
         public static final int article_catname=0x7f0b002e;
-        public static final int article_comment_count=0x7f0b0030;
         public static final int article_content_sv=0x7f0b0061;
         public static final int article_dateline=0x7f0b002f;
         public static final int article_info_catname_time=0x7f0b005c;
@@ -395,6 +394,7 @@ containing a value of this type.
         public static final int comment_message=0x7f0b0036;
         public static final int comment_submit=0x7f0b0051;
         public static final int comment_user=0x7f0b0035;
+        public static final int divide_line=0x7f0b0030;
         public static final int et_collection_name=0x7f0b0023;
         public static final int et_feedback=0x7f0b0027;
         public static final int et_handphone=0x7f0b0014;
