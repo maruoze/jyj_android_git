@@ -1,6 +1,7 @@
 package com.jxtzw.app.ui;
 
 import com.jxtzw.app.common.StringUtils;
+import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.AppConfig;
 import com.jxtzw.app.R;
 import com.jxtzw.app.adapter.ImageViewPagerAdapter;
@@ -12,6 +13,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -99,6 +101,7 @@ public class GuideActivity extends BaseActivity {
 	 * 初始化成员变量
 	 */
 	protected void initMemberVar() {
+		mContext=this;
 		//初始化资源
 		mResources=getResources();
 		mViewCount=mImagesID.length;
@@ -202,6 +205,7 @@ public class GuideActivity extends BaseActivity {
 		if (!is_first_open) {
 			startMain();
 		}else{
+			UIHelper.createShotcut(mContext);
 			saveSharedPreferences();
 		}
 	}
@@ -306,4 +310,6 @@ public class GuideActivity extends BaseActivity {
 		String[] catCollShowImage=mResources.getStringArray(R.array.cat_coll_show_image);
 		mCatCollShowImage=StringUtils.stringArrayToString(catCollShowImage, ";");
 	}
+	
+
 }

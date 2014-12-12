@@ -192,7 +192,7 @@ public class CheckNewsHandler extends Handler {
 				mThis.sendEmptyMessage(0);
 			}
 		};
-		int delay=1000*10;									//
+		int delay=1000*1800;									//查询新闻更新的事件间隔
 		mTimer.schedule(mTimerTask, 0, delay);
 	}
 	

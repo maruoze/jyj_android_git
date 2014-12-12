@@ -63,7 +63,7 @@ public class ApiArticle extends ApiBase {
 	/**
 	 * 存数据入数据库
 	 */
-	protected boolean saveArticle(Article article){
+	protected synchronized boolean  saveArticle(Article article){
 		boolean flag=false;
 		String strWhere="Aid in("+article.getAid()+")";
 		ArrayList<Article> tpArticle=(ArrayList<Article>) mFinalDb.findAllByWhere(Article.class, strWhere);
