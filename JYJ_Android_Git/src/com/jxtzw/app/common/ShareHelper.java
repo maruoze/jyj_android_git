@@ -35,29 +35,11 @@ public class ShareHelper {
 				case 1://腾讯微博
 					QQWeiboHelper.shareToQQ(mActivity, articlTitle, urlString);
 					break;
-				case 2://微信朋友圈
+				/*case 2://微信朋友圈
 					WXFriendsHelper.shareToWXFriends((Activity) mContext, articlTitle, urlString);
-					break;
-				case 3:
-					UIHelper.ToastMessage(mContext, title+position+"ddd");
-					break;
-				case 4:
-					UIHelper.ToastMessage(mContext, title+position+"eee");
-					break;
-				case 5:
-					UIHelper.ToastMessage(mContext, title+position+"fff");
-					break;
-				case 6:
-					UIHelper.ToastMessage(mContext, title+position+"ggg");
-					break;
-				case 7:
-					UIHelper.ToastMessage(mContext, title+position+"hhh");
-					break;
-				case 8://更多
-					UIHelper.showShareMore(mActivity, articlTitle, urlString);
-					break;
+					break;*/
 				default:
-					UIHelper.ToastMessage(mContext, title+position);
+					UIHelper.showShareMore(mActivity, articlTitle, urlString);
 					break;
 			}
 	}

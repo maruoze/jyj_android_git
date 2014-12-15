@@ -144,7 +144,8 @@ public class TabClassActivity extends TabHomeActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         mScreenWidth=metric.widthPixels;
         mLayoutParams=new LinearLayout.LayoutParams(
-        		android.view.ViewGroup.LayoutParams.WRAP_CONTENT,30);
+        		android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+        		android.view.ViewGroup.LayoutParams.MATCH_PARENT);
         mSubButtonWidth=(mScreenWidth-3)/mSubNavShowCount;
         mLayoutParams.width=mSubButtonWidth;
 		

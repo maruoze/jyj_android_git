@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="80dp"
-		android:paddingTop="3dp" 
+        android:layout_marginLeft="70dp"
+		android:paddingTop="1dp" 
 		android:paddingBottom="3dp"
         android:orientation="vertical" >
         <RelativeLayout
@@ -28,7 +28,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="24dp"
 		        android:gravity="center_vertical"
-		        android:textSize="@dimen/text_size_20"
+		        android:textSize="@dimen/text_size_16"
 		        android:layout_alignParentLeft="true"
 		        android:textColor="@color/black"
 		        android:layout_marginRight="60dp" />           
@@ -37,12 +37,14 @@
 		        android:layout_width="60dp"
 		        android:layout_height="24dp"
 		        android:gravity="right|bottom"
+		        android:textSize="@dimen/text_size_10"
 		        android:layout_alignParentRight="true"
 		        android:textColor="@color/red"/>   
         </RelativeLayout>
 	    <TextView
 	        android:id="@+id/notify_summary"
 	        android:layout_width="match_parent"
+	        android:textSize="@dimen/text_size_12"
 	        android:layout_height="34dp" />   
     </LinearLayout>
 </RelativeLayout>

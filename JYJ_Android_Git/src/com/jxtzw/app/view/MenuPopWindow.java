@@ -142,12 +142,10 @@ public class MenuPopWindow {
 	 */
 	private void initShare() {
 		String[] titleStrings={
-				"新浪微博","腾讯微博","微信朋友圈","QQ空间","QQ","人人网","豆瓣","邮件","更多"
+				"新浪微博","腾讯微博","更多"
 		};
 		int[] images={
-				R.drawable.f001,R.drawable.f002,R.drawable.f003,
-				R.drawable.f004,R.drawable.f005,R.drawable.f006,
-				R.drawable.f007,R.drawable.f008,R.drawable.f009,
+				R.drawable.f001,R.drawable.f002,R.drawable.f003
 		};
 		GridView shareGridView=(GridView) mPopView.findViewById(R.id.gridview_share);
 		GridViewShareAdapter shareAdapter=new GridViewShareAdapter(mResources, 
