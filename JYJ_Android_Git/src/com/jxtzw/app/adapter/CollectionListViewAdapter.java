@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -87,6 +88,7 @@ public class CollectionListViewAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
+		/*
 		convertView.setOnTouchListener(new OnTouchListener() {  //为每个item设置setOnTouchListener事件
 			@SuppressLint("ClickableViewAccessibility")
 			@Override
@@ -116,8 +118,31 @@ public class CollectionListViewAdapter extends BaseAdapter {
 				return false;	
 			}
 			
-		});
+		});*/
+		/*
+		convertView.setOnLongClickListener(new OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				// TODO Auto-generated method stub
+				final ViewHolder holder = (ViewHolder) v.getTag();  //获取滑动时候相应的ViewHolder，以便获取button按钮
+				if (holder.button != null) { 
+					if (holder.button.getVisibility()==View.GONE) {  //2次坐标的绝对值如果大于35，就认为是左右滑动
+						holder.button.setVisibility(View.VISIBLE);  //显示删除button
+						mButton = holder.button;  //赋值给全局button，一会儿用
+						//view=v; //得到itemview，在上面加动画
+						return true; //终止事件
+					}else{
+						holder.button.setVisibility(View.GONE);  //显示删除button
+						mButton = holder.button;  //赋值给全局button，一会儿用
+						return false;  //释放事件，使onitemClick可以执行
+					}
+				}
+				return true;
+			}
+		});*/
 		
+		mButton=holder.button;
 		holder.button.setOnClickListener(new OnClickListener() {  //为button绑定事件
 
 			@Override
@@ -132,7 +157,6 @@ public class CollectionListViewAdapter extends BaseAdapter {
 					mCTEntries.remove(position);  
 					notifyDataSetChanged();
 				}
-
 			}
 		});
 		

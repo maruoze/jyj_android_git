@@ -59,6 +59,7 @@ public class MenuPopWindow {
 	private View mPopView;
 	private PopupWindow mPop;
 	private ArticleCommentView mArticleCommentView;
+	private EditText mCommentEditText;
 	
 	/**
 	 * 常量定义
@@ -253,12 +254,12 @@ public class MenuPopWindow {
 	 */
 	private void initComment() {
 		ImageButton commentSubmit=(ImageButton) mPopView.findViewById(R.id.comment_submit);
-		final EditText commentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
+		mCommentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
 		commentSubmit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				mComment=commentEditText.getText().toString();
+				mComment=mCommentEditText.getText().toString();
 				//UIHelper.ToastMessage(mContext, mComment);
 				if (mComment.length()<3) {
 					UIHelper.ToastMessage(mContext, "至少要输入3个字符！");
@@ -294,6 +295,7 @@ public class MenuPopWindow {
 				// TODO Auto-generated method stub
 				if (t.equals("1")) {
 					UIHelper.ToastMessage(mContext, "评论提交成功！");
+					mCommentEditText.setText("");
 					if(mArticleCommentView!=null){
 						mArticleCommentView.update();
 					}

@@ -24,6 +24,6 @@
         android:layout_marginTop="2dp"
         android:layout_marginRight="10dp"
         android:text="@string/collection_op_delete" 
-        android:visibility="gone"/>
+        android:focusable="false"/>
 
 </RelativeLayout>
