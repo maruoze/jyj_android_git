@@ -302,6 +302,7 @@ public class MenuPopWindow {
 				} else {
 					UIHelper.ToastMessage(mContext, t);
 				}
+				mPop.dismiss();
 			}
 		});
 	}

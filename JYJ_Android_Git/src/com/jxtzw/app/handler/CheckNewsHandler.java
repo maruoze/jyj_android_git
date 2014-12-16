@@ -166,7 +166,7 @@ public class CheckNewsHandler extends Handler {
         		//mArticleForNoti.getTitle(), mArticleForNoti.getSummary(), pendingIntent);
         mNotifyView=new RemoteViews(mContext.getPackageName(), R.layout.item_notify);
         if(mArticleForNoti!=null){
-	        mNotifyView.setImageViewResource(R.id.notify_image, R.drawable.f001);
+	        mNotifyView.setImageViewResource(R.id.notify_image, R.drawable.ic_launcher);
 	        mNotifyView.setTextViewText(R.id.notify_title, mArticleForNoti.getTitle());
 	        mNotifyView.setTextViewText(R.id.notify_summary, mArticleForNoti.getSummary());
 	        String timeString=StringUtils.timeStamp2Date(mArticleForNoti.getDateLine(),"HH:mm");
