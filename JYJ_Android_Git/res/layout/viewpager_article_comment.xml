@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:gravity="center_vertical"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:textColor="@color/gray"/>
 
         <TextView
             android:id="@+id/article_info_line_01"
@@ -30,22 +31,24 @@
         android:id="@+id/article_info_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_20"
-        android:paddingTop="5dp" 
+        android:textSize="@dimen/text_size_18"
+        android:paddingTop="3dp" 
         android:text="" />
 
     <TextView
         android:id="@+id/article_info_line_02"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-		android:layout_marginTop="9dp" 
-		android:layout_marginBottom="9dp" 
+		android:layout_marginTop="5dp" 
+		android:layout_marginBottom="5dp" 
 		android:background="@color/gray" />
 
     <com.jxtzw.app.widget.PullToRefreshListView
         android:id="@+id/ptr_article_comment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:dividerHeight="0dp"
+        android:headerDividersEnabled="false">
     </com.jxtzw.app.widget.PullToRefreshListView>
 
 </LinearLayout>

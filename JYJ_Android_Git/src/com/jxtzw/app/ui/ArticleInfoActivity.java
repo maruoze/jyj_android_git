@@ -287,11 +287,11 @@ public class ArticleInfoActivity extends BaseActivity {
 		PopupWindow share=mMenuPopWindow.initPopWindow(R.layout.pop_share,POP_SHARE,null);
 		PopupWindow collection=mMenuPopWindow.initPopWindow(R.layout.pop_collection, POP_COLLECTION,null);
 		PopupWindow comment=mMenuPopWindow.initPopWindow(R.layout.pop_comment,POP_COMMENT,mArticleCommentView);
-		PopupWindow model=mMenuPopWindow.initPopWindow(R.layout.pop_model,POP_MODEL,null);
+		//PopupWindow model=mMenuPopWindow.initPopWindow(R.layout.pop_model,POP_MODEL,null);
 		mPopupWindows.add(comment);
 		mPopupWindows.add(share);
 		mPopupWindows.add(collection);
-		mPopupWindows.add(model);
+		//mPopupWindows.add(model);
 	}
 	
 	/**

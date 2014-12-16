@@ -46,7 +46,7 @@
         android:id="@+id/article_info_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp" 
+        android:layout_marginTop="50dp" 
         android:layout_marginBottom="50dp"
         android:flipInterval="30"
         android:persistentDrawingCache="animation" >
@@ -60,7 +60,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:listSelector="@null" 
-	        android:numColumns="4" >
+	        android:numColumns="3" >
 	    </GridView>
 	</RelativeLayout>
     

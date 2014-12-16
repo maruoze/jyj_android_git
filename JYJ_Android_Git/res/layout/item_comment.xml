@@ -38,5 +38,4 @@
             android:gravity="center_vertical|right"/>
 
     </LinearLayout>
-
 </RelativeLayout>

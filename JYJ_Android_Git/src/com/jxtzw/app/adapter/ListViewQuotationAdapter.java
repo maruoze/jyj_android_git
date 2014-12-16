@@ -99,10 +99,10 @@ public class ListViewQuotationAdapter extends BaseAdapter {
 		listItemView.tv_chs_code.setText(quotation.getQuo_chs_code());
 		listItemView.tv_chs_code.setTag(quotation);//设置隐藏参数(实体类)
 		listItemView.tv_quo_price.setText(StringUtils.float2Format(quotation.getQuo_price())+"  ");
-		listItemView.tv_quo_open_price.setText("开盘价："+StringUtils.float2Format(quotation.getQuo_open_price()));
-		listItemView.tv_quo_close_price.setText("昨收价："+StringUtils.float2Format(quotation.getQuo_close_price()));
-		listItemView.tv_quo_high_price.setText("最高价："+StringUtils.float2Format(quotation.getQuo_high_price()));
-		listItemView.tv_quo_low_price.setText("最低价："+StringUtils.float2Format(quotation.getQuo_low_price()));
+		listItemView.tv_quo_open_price.setText("开盘:"+StringUtils.float2Format(quotation.getQuo_open_price()));
+		listItemView.tv_quo_close_price.setText("昨收:"+StringUtils.float2Format(quotation.getQuo_close_price()));
+		listItemView.tv_quo_high_price.setText("最高:"+StringUtils.float2Format(quotation.getQuo_high_price()));
+		listItemView.tv_quo_low_price.setText("最低:"+StringUtils.float2Format(quotation.getQuo_low_price()));
 		listItemView.tv_quo_time.setText(StringUtils.getNowString());
 		
 		float price_change=Float.parseFloat(quotation.getQuo_price_change());

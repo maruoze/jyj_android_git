@@ -12,7 +12,8 @@ import android.widget.TextView;
 public class GridViewMenuAdapter extends BaseAdapter {
 	private Resources mResources;
 	private LayoutInflater mLayoutInflater;
-	private String[] mMenuTitles={"评论","分享","收藏","模式"};
+	//private String[] mMenuTitles={"评论","分享","收藏","模式"};
+	private String[] mMenuTitles={"评论","分享","收藏"};
 	
 	
 	public GridViewMenuAdapter(Resources mResources, LayoutInflater mLayoutInflater) {

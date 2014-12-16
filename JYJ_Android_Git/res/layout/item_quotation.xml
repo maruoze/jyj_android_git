@@ -70,14 +70,14 @@
 		            android:layout_height="20dp"
 		            android:gravity="left"
 		            android:layout_weight="1"
-		            android:textSize="@dimen/text_size_12"
+		            android:textSize="@dimen/text_size_10"
 		            android:text="TextView" />
 	            <TextView
 		            android:id="@+id/quot_close_price"
 		            android:layout_width="match_parent"
 		            android:layout_height="20dp"
 		            android:gravity="left"
-		            android:textSize="@dimen/text_size_12"
+		            android:textSize="@dimen/text_size_10"
 		            android:layout_weight="1"
 		            android:text="TextView" />
             </LinearLayout>
@@ -94,7 +94,7 @@
 		            android:layout_height="20dp"
 		            android:gravity="left"
 		            android:layout_weight="1"
-		            android:textSize="@dimen/text_size_12"
+		            android:textSize="@dimen/text_size_10"
 		            android:text="TextView" />
 	            <TextView
 		            android:id="@+id/quot_low_price"
@@ -102,7 +102,7 @@
 		            android:layout_height="20dp"
 		            android:gravity="left"
 		            android:layout_weight="1"
-		            android:textSize="@dimen/text_size_12"
+		            android:textSize="@dimen/text_size_10"
 		            android:text="TextView" />
             </LinearLayout>
             

@@ -69,6 +69,10 @@ public class CheckNewsHandler extends Handler {
 	 * 通知栏样式
 	 */
 	private RemoteViews mNotifyView;
+	/**
+	 * 是否第一次运行
+	 */
+	private boolean mIsFirst=true;
 	
 	
 	public CheckNewsHandler(Context mContext) {
@@ -188,6 +192,16 @@ public class CheckNewsHandler extends Handler {
 			public void run() {
 				// TODO Auto-generated method stub
 				//getLastNewsLocal();
+				//第一次运行时延时30秒，防止出现文章显示不了的bug
+				if(mIsFirst){
+					try {
+						Thread.sleep(30000);
+						mIsFirst=!mIsFirst;
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				mCount++;
 				mThis.sendEmptyMessage(0);
 			}
