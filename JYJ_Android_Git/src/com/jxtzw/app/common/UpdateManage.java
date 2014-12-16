@@ -91,7 +91,7 @@ public class UpdateManage {
 		this.mResources=mContext.getResources();
 		
 		getCurrentVersion();
-		if (isShow) {
+		if (isShow&&isShowNoUp) {
 			if(mProDialog==null){	
 				mProDialog=ProgressDialog.show(mContext, null, "检测中，请稍后......", true, true);
 			} else if(mProDialog.isShowing() || (mLatestOrFailDialog!=null && mLatestOrFailDialog.isShowing())){

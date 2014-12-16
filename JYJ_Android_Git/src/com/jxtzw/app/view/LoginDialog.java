@@ -15,6 +15,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.common.CyptoUtils;
 import com.jxtzw.app.common.EncryptionAES;
 import com.jxtzw.app.common.UIHelper;
+import com.jxtzw.app.ui.MemberRegisterActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -22,6 +23,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.preference.Preference;
@@ -86,6 +88,16 @@ public class LoginDialog extends BaseView {
 					loginPrepare();
 				}
 			})
+			.setNeutralButton(R.string.register,new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent();
+					intent.setClass(mContext, MemberRegisterActivity.class);
+					mContext.startActivity(intent);
+				}
+ 			})
 			.setNegativeButton(R.string.cancle, new OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
