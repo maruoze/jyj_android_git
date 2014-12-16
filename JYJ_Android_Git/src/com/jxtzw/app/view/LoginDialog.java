@@ -96,6 +96,8 @@ public class LoginDialog extends BaseView {
 					Intent intent=new Intent();
 					intent.setClass(mContext, MemberRegisterActivity.class);
 					mContext.startActivity(intent);
+					setAlertDialogHide(dialog);
+					dialog.dismiss();
 				}
  			})
 			.setNegativeButton(R.string.cancle, new OnClickListener() {
