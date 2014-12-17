@@ -146,7 +146,7 @@ public class MenuPopWindow {
 				"新浪微博","腾讯微博","更多"
 		};
 		int[] images={
-				R.drawable.f097,R.drawable.sina_weibo_logo,R.drawable.more_on
+				R.drawable.sina_weibo_logo,R.drawable.f097,R.drawable.more_on
 		};
 		GridView shareGridView=(GridView) mPopView.findViewById(R.id.gridview_share);
 		GridViewShareAdapter shareAdapter=new GridViewShareAdapter(mResources, 
