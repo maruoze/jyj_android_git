@@ -14,28 +14,27 @@
 	        android:layout_width="0dp"
 	        android:layout_height="60dp"
 			android:layout_marginTop="30dp"
-	    	android:drawableTop="@drawable/f006" 
+	    	android:drawableTop="@drawable/au1" 
 	    	android:gravity="center"
 	        android:layout_weight="1"
-	        android:text="黄金" />
+	        android:text="@string/tab_gold" />
 	    <TextView
 	        android:id="@+id/silver"
 	        android:layout_width="0dp"
 	        android:layout_height="60dp"
-	    	android:drawableTop="@drawable/f007" 
+	    	android:drawableTop="@drawable/ag1" 
 	    	android:gravity="center"
 	        android:layout_weight="1"
-	        android:text="白银" />
+	        android:text="@string/tab_ag" />
 	    <TextView
 	        android:id="@+id/oil"
 	        android:layout_width="0dp"
 	        android:layout_height="60dp"
 	        android:layout_marginTop="30dp"
-	    	android:drawableTop="@drawable/f008" 
+	    	android:drawableTop="@drawable/oil1" 
 	    	android:gravity="center"
 	        android:layout_weight="1"
-	        android:text="原油" />
-	
+	        android:text="@string/tab_oil" />
 	</LinearLayout>  
 </RelativeLayout>
 

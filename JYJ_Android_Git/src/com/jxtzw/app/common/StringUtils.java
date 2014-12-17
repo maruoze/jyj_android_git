@@ -411,4 +411,18 @@ public class StringUtils {
             b.append((char)Integer.parseInt(m.group(1),16));
         return b.toString();
     }
+	
+	/**
+	 * 根据字符串数组的内容找到当前字符串在数组中的索引
+	 */
+	public static int findArrayIndex(String[] arr,String str){
+		int iReturn=-1;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].equals(str)) {
+				iReturn=i;
+				break;
+			}
+		}
+		return iReturn;
+	}
 }

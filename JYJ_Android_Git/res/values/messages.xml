@@ -113,4 +113,9 @@
 	<string name="remember_login_status">记住我的登录信息</string>
 	<string name="version">当前版本:</string>
 	<string name="aboutus_title">关于金银家</string>
+	
+	<!-- Tab二级导航 -->
+	<string name="tab_gold">黄金</string>
+	<string name="tab_ag">白银</string>
+	<string name="tab_oil">原油</string>
 </resources>

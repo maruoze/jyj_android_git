@@ -9,6 +9,7 @@ import com.jxtzw.app.R;
 import com.jxtzw.app.R.color;
 import com.jxtzw.app.common.DataHelper;
 import com.jxtzw.app.common.DoubleClickExitHelper;
+import com.jxtzw.app.common.StringUtils;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.common.UpdateManage;
 
@@ -59,8 +60,10 @@ public class MainActivity extends TabActivity {
 													TabCollegeActivity.class,TabMemberActivity.class};
 	private String[] mTabTitleStrings;
 	private String[] mTabTagsStrings={"Home","Quotation","Classify","College","Member"};
-	private int[] mTabImages={	R.drawable.f001,R.drawable.f002,R.drawable.f003,
-												R.drawable.f004,R.drawable.f005};
+	private int[] mTabImages={	R.drawable.home,R.drawable.quot,R.drawable.classes,
+												R.drawable.coll,R.drawable.member};
+	private int[] mTabImages_on={R.drawable.home_on,R.drawable.quot_on,R.drawable.classes_on,
+												R.drawable.coll_on,R.drawable.member_on};
 	private int mTabCount;
 	private OnTabChangeListener mOnTabChangeListener;
 	private android.view.View.OnClickListener mOnTabClickListener;
@@ -126,6 +129,9 @@ public class MainActivity extends TabActivity {
 		TextView textView=initTabSpecTextView(tag,title,image_id);
 		if(index==0){
 			textView.setBackgroundColor(mResources.getColor(R.color.black));
+			Drawable topDrawable=mResources.getDrawable(mTabImages_on[index]);
+			topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+			textView.setCompoundDrawables(null, topDrawable, null, null);
 		}else{
 			textView.setBackgroundColor(mResources.getColor(R.color.light_black));
 		}
@@ -165,6 +171,7 @@ public class MainActivity extends TabActivity {
 		
 		
 		mOnTabChangeListener=new OnTabChangeListener() {
+			@SuppressLint("UseValueOf")
 			@Override
 			public void onTabChanged(String tabId) {
 				// TODO Auto-generated method stub
@@ -176,13 +183,21 @@ public class MainActivity extends TabActivity {
 				}else{
 					mPWTab.dismiss();
 				}*/
-				//清除颜色
+				//清除颜色,图片
 				for (int i = 0; i < mTabTextViews.size(); i++) {
 					mTabTextViews.get(i).setBackgroundColor(mResources.getColor(R.color.light_black));
+					Drawable topDrawable=mResources.getDrawable(mTabImages[i]);
+					topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+					mTabTextViews.get(i).setCompoundDrawables(null, topDrawable, null, null);
 				}
 				//设置颜色
 				TextView tView=(TextView) mTabHost.getTabWidget().findViewWithTag(tabId);
 				tView.setBackgroundColor(mResources.getColor(R.color.black));
+				//设置图片
+				int iTabId=StringUtils.findArrayIndex(mTabTagsStrings, tabId);
+				Drawable topDrawable=mResources.getDrawable(mTabImages_on[iTabId]);
+				topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+				tView.setCompoundDrawables(null, topDrawable, null, null);
 			}
 		};
 		
@@ -198,6 +213,7 @@ public class MainActivity extends TabActivity {
 			}
 		};
 	}
+	
 	
 	/**
 	 * 获取程序配置数据
