@@ -54,10 +54,10 @@
             android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="false"
             android:layout_centerVertical="true"
-            android:drawableLeft="@drawable/f009"
+            android:drawableLeft="@drawable/cat_icon"
             android:gravity="center_vertical"
-            textviewplus:left_height="15dp"
-            textviewplus:left_width="15dp"
+            textviewplus:left_height="20dp"
+            textviewplus:left_width="20dp"
             android:textSize="@dimen/text_size_10" />
 
         <com.jxtzw.app.widget.TextViewPlus
@@ -66,12 +66,12 @@
             android:layout_height="15dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/article_catname"
-            android:drawableLeft="@drawable/f032"
+            android:drawableLeft="@drawable/date_time"
             android:gravity="center_vertical"
             android:textSize="@dimen/text_size_10"
             android:layout_marginLeft="5dp"
-            textviewplus:left_height="15dp"
-            textviewplus:left_width="15dp"/>
+            textviewplus:left_height="20dp"
+            textviewplus:left_width="20dp"/>
 
         <!--  <com.jxtzw.app.widget.TextViewPlus
             android:id="@+id/article_comment_count"
@@ -79,11 +79,11 @@
             android:layout_height="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawableLeft="@drawable/f011"
+            android:drawableLeft="@drawable/comment_icon"
             android:gravity="center_vertical"
             android:textSize="@dimen/text_size_10" 
-            textviewplus:left_height="15dp"
-            textviewplus:left_width="15dp"
+            textviewplus:left_height="20dp"
+            textviewplus:left_width="20dp"
             android:text="10" />-->
 
     </RelativeLayout>
