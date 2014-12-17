@@ -5,8 +5,8 @@
 	android:layout_height="40dp"
 	android:textSize="@dimen/text_size_18" 
 	android:textStyle="bold" 
-	android:textColor="@color/white" 
+	android:textColor="@color/tabhost_title" 
 	android:gravity="left|center" 
-	android:background="@color/blue" 
+	android:background="@color/ptr_backgroudcolor" 
 	android:paddingLeft="10.0dip" >
 </TextView>

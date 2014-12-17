@@ -263,7 +263,7 @@ public class MenuPopWindow {
 				//UIHelper.ToastMessage(mContext, mComment);
 				if (mComment.length()<3) {
 					UIHelper.ToastMessage(mContext, "至少要输入3个字符！");
-					mPop.dismiss();
+					//mPop.dismiss();
 					return;
 				}else{
 					commentSubmit();

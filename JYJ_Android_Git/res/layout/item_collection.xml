@@ -13,8 +13,9 @@
 	    android:textColor = "@color/black" 
 	    android:paddingTop="10dp"
 	    android:paddingBottom="10dp"
-	    android:drawableLeft="@drawable/f007"
-	    textviewplus:left_height="20dp"
-        textviewplus:left_width="20dp">
+	    android:paddingLeft="10dp"
+	    android:drawableLeft="@drawable/collection_logo"
+	    textviewplus:left_height="25dp"
+        textviewplus:left_width="25dp">
 	</com.jxtzw.app.widget.TextViewPlus>
 </RelativeLayout>

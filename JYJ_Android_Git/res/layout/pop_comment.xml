@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginRight="80dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:singleLine="true"
@@ -21,12 +21,11 @@
 
     <ImageButton
         android:id="@+id/comment_submit"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
         android:layout_alignTop="@+id/comment_edit"
-        android:src="@drawable/f099"
+        android:src="@drawable/comment_submit"
         android:scaleType="fitCenter"
         android:background="@null"
         android:contentDescription="@null" />
