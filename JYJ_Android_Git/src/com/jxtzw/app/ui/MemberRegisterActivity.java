@@ -110,7 +110,7 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 		String handphone=mHandphoneTV.getText().toString();
 		String qq=mQQTextView.getText().toString();
 		//数据验证
-		Drawable drawable=mResources.getDrawable(R.drawable.f063);
+		Drawable drawable=mResources.getDrawable(R.drawable.error);
 		drawable.setBounds(0, 0, 30, 30);  
 		if(username.equals("")){
 			mUserNameTV.setError("请填写您的姓名",drawable);

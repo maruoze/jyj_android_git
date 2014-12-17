@@ -127,7 +127,7 @@ public class LoginDialog extends BaseView {
 		mLoginStatus=(CheckBox) mLoginView.findViewById(R.id.cb_login_status);
 		mStrUserName=mUsername.getText().toString();
 		mStrPassword=mPassword.getText().toString();
-		Drawable drawable=mResources.getDrawable(R.drawable.f063);
+		Drawable drawable=mResources.getDrawable(R.drawable.error);
 		drawable.setBounds(0, 0, 30, 30);  
 		//判断用户名是否为空
 		if (mStrUserName.equals("")) {

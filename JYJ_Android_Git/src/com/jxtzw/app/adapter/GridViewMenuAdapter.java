@@ -14,6 +14,7 @@ public class GridViewMenuAdapter extends BaseAdapter {
 	private LayoutInflater mLayoutInflater;
 	//private String[] mMenuTitles={"评论","分享","收藏","模式"};
 	private String[] mMenuTitles={"评论","分享","收藏"};
+	private int[] mMenuImage={R.drawable.comment_on,R.drawable.share_on,R.drawable.collection_on};
 	
 	
 	public GridViewMenuAdapter(Resources mResources, LayoutInflater mLayoutInflater) {
@@ -53,8 +54,9 @@ public class GridViewMenuAdapter extends BaseAdapter {
 		}else{
 			listItemView = (ListItemView) convertView.getTag();
 		}
-		String buttonTitle=mMenuTitles[position];
-		listItemView.button.setText(buttonTitle);
+		//String buttonTitle=mMenuTitles[position];
+		//listItemView.button.setText(buttonTitle);
+		listItemView.button.setBackgroundResource(mMenuImage[position]);
 		return convertView;
 	}
 	
