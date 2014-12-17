@@ -381,13 +381,14 @@ containing a value of this type.
         public static final int quot_on=0x7f02009b;
         public static final int share=0x7f02009c;
         public static final int share_on=0x7f02009d;
-        public static final int subnav_bg_def=0x7f02009e;
-        public static final int subnav_bg_sel=0x7f02009f;
-        public static final int subnav_ll_bg_default=0x7f0200a0;
-        public static final int subnav_ll_bg_selected=0x7f0200a1;
-        public static final int upd=0x7f0200a2;
-        public static final int upu=0x7f0200a3;
-        public static final int widget_today_icon=0x7f0200a4;
+        public static final int sina_weibo_logo=0x7f02009e;
+        public static final int subnav_bg_def=0x7f02009f;
+        public static final int subnav_bg_sel=0x7f0200a0;
+        public static final int subnav_ll_bg_default=0x7f0200a1;
+        public static final int subnav_ll_bg_selected=0x7f0200a2;
+        public static final int upd=0x7f0200a3;
+        public static final int upu=0x7f0200a4;
+        public static final int widget_today_icon=0x7f0200a5;
     }
     public static final class id {
         public static final int EnterToMain=0x7f0b000c;

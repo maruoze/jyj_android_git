@@ -52,7 +52,7 @@ public class DialogCollection extends LoginDialog {
 		String dbName="jyj_collection";
 		mFinalDb=FinalDb.create(mContext,dbName);
 		
-		mDrawable=mResources.getDrawable(R.drawable.f063);
+		mDrawable=mResources.getDrawable(R.drawable.ic_launcher);
 		mDrawable.setBounds(0, 0, 30, 30); 
 		mCCFView=mLayoutInflater.inflate(R.layout.dialog_collection, null);
 		mCollectionName=(EditText) mCCFView.findViewById(R.id.et_collection_name);

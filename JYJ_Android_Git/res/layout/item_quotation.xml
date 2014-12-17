@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_20"
-                android:drawableRight="@drawable/f040"
+                android:drawableRight="@drawable/ic_launcher"
                 textviewplus:right_height="20dp"
             	textviewplus:right_width="20dp"
                 android:text="TextViewPlus  " />

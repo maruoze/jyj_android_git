@@ -118,7 +118,7 @@ public class FeedbackDialog extends BaseView {
 	 */
 	private void feedbackSubmit() {	
 		mFeedbackString=mFeedbackEditText.getText().toString();
-		Drawable drawable=mResources.getDrawable(R.drawable.f063);
+		Drawable drawable=mResources.getDrawable(R.drawable.error);
 		drawable.setBounds(0, 0, 30, 30);  
 		if (mFeedbackString.equals("")) {
 			mFeedbackEditText.setError(mResources.getString(R.string.feedback_error0),drawable);
