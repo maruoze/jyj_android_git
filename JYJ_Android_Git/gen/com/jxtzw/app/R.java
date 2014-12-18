@@ -417,6 +417,7 @@ containing a value of this type.
         public static final int bt_collection_op_update=0x7f0b0028;
         public static final int bt_delete=0x7f0b0036;
         public static final int bt_register=0x7f0b0016;
+        public static final int bt_wview_refresh=0x7f0b0066;
         public static final int cb_login_status=0x7f0b002d;
         public static final int collection_add=0x7f0b0051;
         public static final int comment_dateline=0x7f0b003a;
@@ -452,7 +453,7 @@ containing a value of this type.
         public static final int ll_subnav=0x7f0b001a;
         public static final int lv_collection=0x7f0b0005;
         public static final int lv_main_menu=0x7f0b0057;
-        public static final int lv_quotation=0x7f0b0067;
+        public static final int lv_quotation=0x7f0b0068;
         public static final int main_container=0x7f0b0018;
         public static final int member_description=0x7f0b003d;
         public static final int member_image=0x7f0b003b;
@@ -470,7 +471,7 @@ containing a value of this type.
         public static final int popup_window=0x7f0b001d;
         public static final int popwindow_box=0x7f0b001c;
         public static final int ptr_article_comment=0x7f0b0063;
-        public static final int ptr_newslist=0x7f0b0068;
+        public static final int ptr_newslist=0x7f0b0069;
         public static final int quot_close_price=0x7f0b004a;
         public static final int quot_high_price=0x7f0b004b;
         public static final int quot_low_price=0x7f0b004c;
@@ -480,7 +481,7 @@ containing a value of this type.
         public static final int quot_time_txt=0x7f0b0046;
         public static final int quot_title=0x7f0b0045;
         public static final int related_article=0x7f0b004d;
-        public static final int related_article_title=0x7f0b0066;
+        public static final int related_article_title=0x7f0b0067;
         public static final int relativeLayout1=0x7f0b0021;
         public static final int rl_loaded_failure=0x7f0b000f;
         public static final int rl_loading_container=0x7f0b000d;

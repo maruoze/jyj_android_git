@@ -24,10 +24,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ArticleInfoView extends BaseView {
@@ -54,6 +56,7 @@ public class ArticleInfoView extends BaseView {
 	protected String[] mRelatedArticlesTitle;
 	protected ArrayList<Article> mRelatedArticles;
 	protected OnItemClickListener mRelatedArticleICListener;
+	protected Button mWviewRefresh;
 	/**
 	 * APP上下文
 	 */
@@ -82,9 +85,18 @@ public class ArticleInfoView extends BaseView {
 		mArticleContentWV.getSettings().setDefaultTextEncodingName("UTF-8") ;
 		mRelatedArticlesLV=(ListViewInScrollView) mArticleInfoView.findViewById(R.id.related_article);
 		mApiArticle=new ApiArticle(mContext);
+		mWviewRefresh=(Button) mArticleInfoView.findViewById(R.id.bt_wview_refresh);
 		//数据
 		mRelatedArticles=new ArrayList<Article>();
 		mImageBaseURL=mResources.getString(R.string.host);
+		mWviewRefresh.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				updateContent();
+			}
+		});
 	}
 	
 	/**
@@ -96,7 +108,8 @@ public class ArticleInfoView extends BaseView {
 		mArticleCatNameTV.setText(catTitleString);
 		mArticleTitleTV.setText(StringUtils.replaceHTML(mArticle.getTitle()));
 		String htmlString="文章内容加载中...";
-		mArticleContentWV.loadData(htmlString, "text/html", "UTF-8");
+		//mArticleContentWV.loadData(htmlString, "text/html", "UTF-8");
+		mArticleContentWV.loadDataWithBaseURL(null, htmlString, "text/html", "UTF-8", null);
 		updateContent();
 		updateRelatedArticle();
 	}
@@ -112,6 +125,7 @@ public class ArticleInfoView extends BaseView {
 		}else{
 			content=StringUtils.dataFiltering(content,mImageBaseURL);
 			mArticleContentWV.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null);
+			mWviewRefresh.setVisibility(View.GONE);
 		}
 	}
 	
@@ -123,6 +137,8 @@ public class ArticleInfoView extends BaseView {
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
 			UIHelper.ToastMessage(mContext, R.string.network_not_connected);
+			mWviewRefresh.setText("有可用网络后请点击本按钮刷新");
+			mWviewRefresh.setVisibility(View.VISIBLE);
 			return;
 		}
 		//请求API地址
@@ -148,6 +164,7 @@ public class ArticleInfoView extends BaseView {
 					String content=StringUtils.dataFiltering(mArticle.getContents(),mImageBaseURL);
 					mArticleContentWV.loadDataWithBaseURL(null, content,
 							"text/html", "UTF-8", null);
+					mWviewRefresh.setVisibility(View.GONE);
 				}
 			}
 		});
