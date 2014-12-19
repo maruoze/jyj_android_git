@@ -87,6 +87,13 @@ public class MenuPopWindow {
 	protected SharedPreferences.Editor mEditor;
 
 	/**
+	 * 收藏列表数据
+	 */
+	private  ArrayList<CollectionClassify> mCollTitleStrings;
+	private GridViewCollectionAdapter mCollectionAdapter;
+	private GridView mCollectionGridView;
+	
+	/**
 	 * 构造
 	 * @param mLayoutInflater
 	 */
@@ -138,6 +145,23 @@ public class MenuPopWindow {
 	}
 	
 	
+	public void updatePopWindow(int index) {
+		switch (index) {
+			case POP_SHARE:
+				break;
+			case POP_COLLECTION:
+				setCollectionClassify();
+				mCollectionAdapter.notifyDataSetChanged();
+				break;
+			case POP_COMMENT:
+				break;
+			case POP_MODEL:
+				initModel();
+				break;
+		}
+	}
+	
+	
 	/**
 	 * 分享菜单
 	 */
@@ -171,29 +195,17 @@ public class MenuPopWindow {
 	private void initCellection() {
 		//String[] titleStrings={"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"};
 		//初始化数据
-		final ArrayList<CollectionClassify> titleStrings=new ArrayList<CollectionClassify>();
-		String dbName="jyj_collection";
-		FinalDb finalDb=FinalDb.create(mContext,dbName);
-		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
-		//ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
-		mSharedPreferences=AppConfig.getSharedPreferences(mContext);
-		String uid=mSharedPreferences.getString(AppConfig.UID, "0");
-		String strWhere="ccf_uid ='"+uid+"'";
-		ccfy=(ArrayList<CollectionClassify>) finalDb.findAllByWhere(CollectionClassify.class, strWhere);
-		if(ccfy.size()>0){
-			for (int i = 0; i < ccfy.size(); i++) {
-				titleStrings.add(ccfy.get(i));
-			}
-		}
+		mCollTitleStrings=new ArrayList<CollectionClassify>();
+		setCollectionClassify();
 		//设置数据适配器
-		GridView collectionGridView=(GridView) mPopView.findViewById(R.id.gridview_collection);
-		final GridViewCollectionAdapter collectionAdapter=new GridViewCollectionAdapter(mResources, 
-				mLayoutInflater, titleStrings);
-		collectionGridView.setAdapter(collectionAdapter);
+		mCollectionGridView=(GridView) mPopView.findViewById(R.id.gridview_collection);
+		mCollectionAdapter=new GridViewCollectionAdapter(mResources, 
+				mLayoutInflater, mCollTitleStrings);
+		mCollectionGridView.setAdapter(mCollectionAdapter);
 		/**
 		 * 项目单击
 		 */
-		collectionGridView.setOnItemClickListener(new OnItemClickListener() {
+		mCollectionGridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -217,13 +229,13 @@ public class MenuPopWindow {
 		/**
 		 * 项目长按
 		 */
-		collectionGridView.setOnItemLongClickListener(new OnItemLongClickListener() {
+		mCollectionGridView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
 				DialogColloctionOp dcOp=new DialogColloctionOp(mContext);
-				dcOp.show(view,position,titleStrings,collectionAdapter);
+				dcOp.show(view,position,mCollTitleStrings,mCollectionAdapter);
 				return true;
 			}
 		});
@@ -237,12 +249,12 @@ public class MenuPopWindow {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (titleStrings.size()>=AppConfig.COLLECT_CLASSIFY_MAX){
+				if (mCollTitleStrings.size()>=AppConfig.COLLECT_CLASSIFY_MAX){
 					String msg="最多只能创建"+AppConfig.COLLECT_CLASSIFY_MAX+"个收藏分类";
 					UIHelper.ToastMessage(mContext, msg);
 				}else{
 					DialogCollection dialogCollection=new DialogCollection(mContext);
-					dialogCollection.show(titleStrings,collectionAdapter,null,0);
+					dialogCollection.show(mCollTitleStrings,mCollectionAdapter,null,0);
 				}
 			}
 		});
@@ -250,9 +262,30 @@ public class MenuPopWindow {
 	
 	
 	/**
+	 * 从数据库获取收藏分类
+	 */
+	private void setCollectionClassify(){
+		String dbName="jyj_collection";
+		FinalDb finalDb=FinalDb.create(mContext,dbName);
+		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
+		//ccfy=(ArrayList<CollectionClassify>) finalDb.findAll(CollectionClassify.class);
+		mSharedPreferences=AppConfig.getSharedPreferences(mContext);
+		String uid=mSharedPreferences.getString(AppConfig.UID, "0");
+		String strWhere="ccf_uid ='"+uid+"'";
+		ccfy=(ArrayList<CollectionClassify>) finalDb.findAllByWhere(CollectionClassify.class, strWhere);
+		if(ccfy.size()>0){
+			mCollTitleStrings.clear();
+			for (int i = 0; i < ccfy.size(); i++) {
+				mCollTitleStrings.add(ccfy.get(i));
+			}
+		}
+	}
+	
+	
+	/**
 	 * 评论
 	 */
-	private void initComment() {
+ 	private void initComment() {
 		ImageButton commentSubmit=(ImageButton) mPopView.findViewById(R.id.comment_submit);
 		mCommentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
 		commentSubmit.setOnClickListener(new OnClickListener() {

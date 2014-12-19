@@ -319,6 +319,7 @@ public class ArticleInfoActivity extends BaseActivity {
 				if(position==2){
 					if (is_login) {
 						mPopupWindows.get(position).showAtLocation(curTextView, Gravity.BOTTOM, 0, 0);
+						mMenuPopWindow.updatePopWindow(POP_COLLECTION);
 					}else{
 						LoginDialog loginDialog=new LoginDialog(mContext);
 						loginDialog.show(null);
