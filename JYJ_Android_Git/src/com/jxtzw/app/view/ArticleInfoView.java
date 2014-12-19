@@ -137,6 +137,8 @@ public class ArticleInfoView extends BaseView {
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
 			UIHelper.ToastMessage(mContext, R.string.network_not_connected);
+			String htmlString=mResources.getString(R.string.network_not_connected)+", 设置网络后点击下面的按钮刷新！";
+			mArticleContentWV.loadDataWithBaseURL(null, htmlString, "text/html", "UTF-8", null);
 			mWviewRefresh.setText("有可用网络后请点击本按钮刷新");
 			mWviewRefresh.setVisibility(View.VISIBLE);
 			return;
@@ -152,6 +154,10 @@ public class ArticleInfoView extends BaseView {
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				// TODO Auto-generated method stub
 				super.onFailure(t, errorNo, strMsg);
+				String htmlString="获取文章内容失败, 请稍后点击下面按钮再试！";
+				mArticleContentWV.loadDataWithBaseURL(null, htmlString, "text/html", "UTF-8", null);
+				mWviewRefresh.setText("刷新");
+				mWviewRefresh.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -165,6 +171,11 @@ public class ArticleInfoView extends BaseView {
 					mArticleContentWV.loadDataWithBaseURL(null, content,
 							"text/html", "UTF-8", null);
 					mWviewRefresh.setVisibility(View.GONE);
+				}else{
+					String htmlString="文章内容解析失败, 请稍后点击下面按钮再试！";
+					mArticleContentWV.loadDataWithBaseURL(null, htmlString, "text/html", "UTF-8", null);
+					mWviewRefresh.setText("刷新");
+					mWviewRefresh.setVisibility(View.VISIBLE);
 				}
 			}
 		});
