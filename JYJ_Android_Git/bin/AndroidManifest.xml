@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jxtzw.app"
-    android:versionCode="204"
-    android:versionName="2.0.4" >
+    android:versionCode="205"
+    android:versionName="2.0.5" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -32,6 +32,7 @@
         <activity
             android:name=".ui.GuideActivity"
             android:label="@string/title_activity_guide"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,47 +40,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity" >
+        <activity android:name=".ui.MainActivity" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.TabHomeActivity"
-            android:label="@string/title_activity_tab_class" >
+            android:label="@string/title_activity_tab_class" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.TabQuotActivity"
-            android:label="@string/title_activity_tab_class" >
+            android:label="@string/title_activity_tab_class" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.TabClassActivity"
-            android:label="@string/title_activity_tab_class" >
+            android:label="@string/title_activity_tab_class" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.TabCollegeActivity"
-            android:label="@string/title_activity_tab_college" >
+            android:label="@string/title_activity_tab_college" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.TabMemberActivity"
-            android:label="@string/title_activity_tab_member">
+            android:label="@string/title_activity_tab_member" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.ArticleInfoActivity"
-            android:label="@string/title_activity_article_info" >
+            android:label="@string/title_activity_article_info" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.MemberPrivilegeActivity"
-            android:label="@string/title_activity_member_privilege" >
+            android:label="@string/title_activity_member_privilege" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.MemberRegisterActivity"
-            android:label="@string/title_activity_member_register" >
+            android:label="@string/title_activity_member_register" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ui.CollectionActivity"
-            android:label="@string/title_activity_collection" >
+            android:label="@string/title_activity_collection" android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.jxtzw.app.ui.SettingActivity"
-            android:label="@string/title_activity_setting">
+            android:label="@string/title_activity_setting" android:screenOrientation="portrait">
         </activity>
         <service android:name="com.jxtzw.app.service.CheckNewsService" android:process=":service">
             <intent-filter>  
