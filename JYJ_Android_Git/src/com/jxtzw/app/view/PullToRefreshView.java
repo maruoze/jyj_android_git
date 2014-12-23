@@ -171,15 +171,21 @@ public class PullToRefreshView extends BaseView {
 				// TODO Auto-generated method stub
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
 				//Bundle数据
-				Article article=mArticlesShow.get(position-1);
-				Bundle bundle=new Bundle();
-				bundle.putSerializable("article", article);
-				bundle.putString("cat_name", mHashtable.get("mCatName"));
-				//新的Intent
-				Intent articleInfoIntent=new Intent();
-				articleInfoIntent.putExtras(bundle);
-				articleInfoIntent.setClass(mContext, ArticleInfoActivity.class);
-				mContext.startActivity(articleInfoIntent);
+				if(mArticlesShow.size()>0){
+					Article article=mArticlesShow.get(position-1);
+					Bundle bundle=new Bundle();
+					bundle.putSerializable("article", article);
+					bundle.putString("cat_name", mHashtable.get("mCatName"));
+					//新的Intent
+					Intent articleInfoIntent=new Intent();
+					articleInfoIntent.putExtras(bundle);
+					articleInfoIntent.setClass(mContext, ArticleInfoActivity.class);
+					mContext.startActivity(articleInfoIntent);
+				}else{
+					if(position==1){
+						refreshPTR();
+					}
+				}
 			}
 		};
 		
@@ -322,6 +328,8 @@ public class PullToRefreshView extends BaseView {
 		if (!mAppContext.isNetworkConnected()) {
 			//如果无可用网络则直接返回
 			UIHelper.ToastMessage(mContext, R.string.network_not_connected);
+			mALFooterProgressBar.setVisibility(View.GONE);
+			mALFooterMore.setText(mResources.getString(R.string.network_not_connected)+"，然后点击本文字刷新！");
 			return;
 		}
 		//请求API地址

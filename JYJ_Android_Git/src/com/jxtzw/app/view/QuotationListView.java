@@ -94,7 +94,7 @@ public class QuotationListView extends BaseView {
 		mQuoLVAdapter=new ListViewQuotationAdapter(mContext, mQuotationsShow,
 																						mResources, mHashtable);
 		mQuoListView=(ListView) mListView.findViewById(R.id.lv_quotation);
-		mQuoListView.setVisibility(View.VISIBLE);
+		//mQuoListView.setVisibility(View.VISIBLE);
 		mQuoListView.setAdapter(mQuoLVAdapter);
 	}
 	
@@ -117,6 +117,9 @@ public class QuotationListView extends BaseView {
 		if (flag) {
 			copyLocalToShow();
 			mQuoLVAdapter.notifyDataSetChanged();
+			if (mQuoListView.getVisibility()==View.GONE) {
+				mQuoListView.setVisibility(View.VISIBLE);
+			}
 		}
 		//更新数据
 		getDataOnline();
@@ -164,6 +167,9 @@ public class QuotationListView extends BaseView {
 					if(getLocalCache()){
 						copyLocalToShow();
 						mQuoLVAdapter.notifyDataSetChanged();
+						if (mQuoListView.getVisibility()==View.GONE) {
+							mQuoListView.setVisibility(View.VISIBLE);
+						}
 					}
 				}
 			}
