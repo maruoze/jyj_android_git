@@ -71,16 +71,22 @@ public class DialogCollection extends LoginDialog {
 						setAlertDialogShow(dialog);
 						mCollectionName.setError(mResources.getString(R.string.collection_name_error), mDrawable);
 					} else {
-						boolean flag=false;
-						if (ccfy!=null){
-							flag=updateCollectionClassify(al,gvca,ccfy,position);
-						}else{
-							flag=addCollectionClassify(al,gvca);
-						}
-						if (flag) {
-							setAlertDialogHide(dialog);
-						}else{
+						//限定收藏分类名称的最大长度
+						if(mStrCollectionName.length()>6){
 							setAlertDialogShow(dialog);
+							mCollectionName.setError(mResources.getString(R.string.collection_name_error_long), mDrawable);
+						}else{
+							boolean flag=false;
+							if (ccfy!=null){
+								flag=updateCollectionClassify(al,gvca,ccfy,position);
+							}else{
+								flag=addCollectionClassify(al,gvca);
+							}
+							if (flag) {
+								setAlertDialogHide(dialog);
+							}else{
+								setAlertDialogShow(dialog);
+							}
 						}
 					}
 				}

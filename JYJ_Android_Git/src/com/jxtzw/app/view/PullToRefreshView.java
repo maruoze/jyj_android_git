@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -172,15 +173,17 @@ public class PullToRefreshView extends BaseView {
 				//UIHelper.ToastMessage(mContext, String.valueOf(position));
 				//Bundle数据
 				if(mArticlesShow.size()>0){
-					Article article=mArticlesShow.get(position-1);
-					Bundle bundle=new Bundle();
-					bundle.putSerializable("article", article);
-					bundle.putString("cat_name", mHashtable.get("mCatName"));
-					//新的Intent
-					Intent articleInfoIntent=new Intent();
-					articleInfoIntent.putExtras(bundle);
-					articleInfoIntent.setClass(mContext, ArticleInfoActivity.class);
-					mContext.startActivity(articleInfoIntent);
+					if(mArticlesShow.size()>position-1){
+						Article article=mArticlesShow.get(position-1);
+						Bundle bundle=new Bundle();
+						bundle.putSerializable("article", article);
+						bundle.putString("cat_name", mHashtable.get("mCatName"));
+						//新的Intent
+						Intent articleInfoIntent=new Intent();
+						articleInfoIntent.putExtras(bundle);
+						articleInfoIntent.setClass(mContext, ArticleInfoActivity.class);
+						mContext.startActivity(articleInfoIntent);
+					}
 				}else{
 					if(position==1){
 						refreshPTR();

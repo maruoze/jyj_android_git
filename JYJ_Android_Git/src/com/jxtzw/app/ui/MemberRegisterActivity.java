@@ -118,6 +118,10 @@ public class MemberRegisterActivity extends MemberPrivilegeActivity {
 			//mUserNameTV.setFocusableInTouchMode(true);   
 			mUserNameTV.requestFocus();  
 			return;
+		}else if (username.matches("[\\s!@#$0-9]+.*")) {
+			mUserNameTV.setError("您姓名的格式含有非法字符",drawable);
+			mUserNameTV.requestFocus();  
+			return;
 		}
 		if(handphone.equals("")){
 			mHandphoneTV.setError("请填写您的手机号", drawable);

@@ -97,6 +97,7 @@
 	<string name="hint_collection_classify">请输入收藏分类</string>
 	<string name="collection_name_add">收藏分类添加</string>
 	<string name="collection_name_error">收藏名称不能为空</string>
+	<string name="collection_name_error_long">收藏名称的长度不能超过6个字符</string>
 	
 	<!-- 收藏操作 -->
 	<string name="collection_op_broswer">浏览收藏列表</string>

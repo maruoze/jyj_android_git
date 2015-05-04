@@ -559,21 +559,21 @@ containing a value of this type.
         public static final int Weibo_Share_Error=0x7f09003a;
         public static final int Weibo_Share_Repeat=0x7f09003b;
         public static final int Weibo_Share_Success=0x7f090039;
-        public static final int aboutus_title=0x7f09005b;
-        public static final int api_apk_version=0x7f090080;
-        public static final int api_apk_version_check=0x7f09007d;
-        public static final int api_articles=0x7f09006f;
-        public static final int api_comment=0x7f090072;
-        public static final int api_feedback=0x7f09007f;
-        public static final int api_login=0x7f090074;
-        public static final int api_login_cookie=0x7f09007e;
-        public static final int api_quotation_goldsilver=0x7f090070;
-        public static final int api_quotation_oil=0x7f090071;
-        public static final int api_register=0x7f090073;
+        public static final int aboutus_title=0x7f09005c;
+        public static final int api_apk_version=0x7f090081;
+        public static final int api_apk_version_check=0x7f09007e;
+        public static final int api_articles=0x7f090070;
+        public static final int api_comment=0x7f090073;
+        public static final int api_feedback=0x7f090080;
+        public static final int api_login=0x7f090075;
+        public static final int api_login_cookie=0x7f09007f;
+        public static final int api_quotation_goldsilver=0x7f090071;
+        public static final int api_quotation_oil=0x7f090072;
+        public static final int api_register=0x7f090074;
         public static final int app_error=0x7f09000b;
         public static final int app_error_message=0x7f09000c;
         public static final int app_menu_surelogout=0x7f090008;
-        public static final int app_name=0x7f09005f;
+        public static final int app_name=0x7f090060;
         public static final int app_run_code_error=0x7f090006;
         public static final int back_exit_tips=0x7f090007;
         /**  行情 
@@ -589,24 +589,25 @@ containing a value of this type.
         public static final int collection_add=0x7f090042;
         public static final int collection_name_add=0x7f09004d;
         public static final int collection_name_error=0x7f09004e;
+        public static final int collection_name_error_long=0x7f09004f;
         /**  收藏操作 
          */
-        public static final int collection_op_broswer=0x7f09004f;
-        public static final int collection_op_delete=0x7f090051;
-        public static final int collection_op_shut=0x7f090052;
-        public static final int collection_op_update=0x7f090050;
+        public static final int collection_op_broswer=0x7f090050;
+        public static final int collection_op_delete=0x7f090052;
+        public static final int collection_op_shut=0x7f090053;
+        public static final int collection_op_update=0x7f090051;
         public static final int comment=0x7f090018;
         public static final int comment_text=0x7f090041;
         public static final int delete_blog=0x7f09001f;
         public static final int delete_image=0x7f09001d;
         public static final int delete_tweet=0x7f09001e;
-        public static final int feedback_error0=0x7f090054;
-        public static final int feedback_error1=0x7f090055;
-        public static final int feedback_failure=0x7f090058;
-        public static final int feedback_seccued=0x7f090057;
-        public static final int feedback_title=0x7f090053;
-        public static final int feedback_txtlen=0x7f090056;
-        public static final int hello_world=0x7f090061;
+        public static final int feedback_error0=0x7f090055;
+        public static final int feedback_error1=0x7f090056;
+        public static final int feedback_failure=0x7f090059;
+        public static final int feedback_seccued=0x7f090058;
+        public static final int feedback_title=0x7f090054;
+        public static final int feedback_txtlen=0x7f090057;
+        public static final int hello_world=0x7f090062;
         public static final int hint_collection_classify=0x7f09004c;
         public static final int hint_handphone=0x7f090046;
         public static final int hint_login_password=0x7f09004b;
@@ -615,11 +616,11 @@ containing a value of this type.
         /**  注册，登录 
          */
         public static final int hint_username=0x7f090045;
-        public static final int host=0x7f090076;
+        public static final int host=0x7f090077;
         public static final int http_exception_error=0x7f090004;
         public static final int http_status_code_error=0x7f090003;
-        public static final int image_base_url=0x7f09006e;
-        public static final int image_content_default=0x7f09006d;
+        public static final int image_base_url=0x7f09006f;
+        public static final int image_content_default=0x7f09006e;
         public static final int info_back=0x7f09003e;
         public static final int io_exception_error=0x7f090002;
         public static final int load_empty=0x7f090011;
@@ -648,14 +649,14 @@ containing a value of this type.
         public static final int publishing=0x7f09001b;
         /**  PullToRefreshListView 
          */
-        public static final int pull_to_refresh_pull_label=0x7f090062;
-        public static final int pull_to_refresh_refreshing_label=0x7f090064;
-        public static final int pull_to_refresh_release_label=0x7f090063;
-        public static final int pull_to_refresh_tap_label=0x7f090065;
-        public static final int pull_to_refresh_update=0x7f090066;
+        public static final int pull_to_refresh_pull_label=0x7f090063;
+        public static final int pull_to_refresh_refreshing_label=0x7f090065;
+        public static final int pull_to_refresh_release_label=0x7f090064;
+        public static final int pull_to_refresh_tap_label=0x7f090066;
+        public static final int pull_to_refresh_update=0x7f090067;
         public static final int register=0x7f090048;
         public static final int related_article=0x7f090040;
-        public static final int remember_login_status=0x7f090059;
+        public static final int remember_login_status=0x7f09005a;
         public static final int republish_tweet=0x7f090020;
         public static final int select=0x7f090015;
         /**  符号 
@@ -672,28 +673,28 @@ containing a value of this type.
         public static final int socket_exception_error=0x7f090005;
         public static final int submit_report=0x7f09000d;
         public static final int sure=0x7f090009;
-        public static final int tab_ag=0x7f09005d;
+        public static final int tab_ag=0x7f09005e;
         /**  Tab二级导航 
          */
-        public static final int tab_gold=0x7f09005c;
-        public static final int tab_oil=0x7f09005e;
-        public static final int title_activity_article_info=0x7f090075;
-        public static final int title_activity_base_with_title=0x7f09007b;
-        public static final int title_activity_collection=0x7f09007a;
-        public static final int title_activity_guide=0x7f090060;
+        public static final int tab_gold=0x7f09005d;
+        public static final int tab_oil=0x7f09005f;
+        public static final int title_activity_article_info=0x7f090076;
+        public static final int title_activity_base_with_title=0x7f09007c;
+        public static final int title_activity_collection=0x7f09007b;
+        public static final int title_activity_guide=0x7f090061;
         /**  主页面 
          */
-        public static final int title_activity_main=0x7f090067;
-        public static final int title_activity_member_privilege=0x7f090077;
-        public static final int title_activity_member_register=0x7f090078;
-        public static final int title_activity_setting=0x7f09007c;
-        public static final int title_activity_tab_class=0x7f09006a;
-        public static final int title_activity_tab_college=0x7f09006b;
-        public static final int title_activity_tab_home=0x7f090068;
-        public static final int title_activity_tab_member=0x7f09006c;
-        public static final int title_activity_tab_quot=0x7f090069;
-        public static final int verify_code=0x7f090079;
-        public static final int version=0x7f09005a;
+        public static final int title_activity_main=0x7f090068;
+        public static final int title_activity_member_privilege=0x7f090078;
+        public static final int title_activity_member_register=0x7f090079;
+        public static final int title_activity_setting=0x7f09007d;
+        public static final int title_activity_tab_class=0x7f09006b;
+        public static final int title_activity_tab_college=0x7f09006c;
+        public static final int title_activity_tab_home=0x7f090069;
+        public static final int title_activity_tab_member=0x7f09006d;
+        public static final int title_activity_tab_quot=0x7f09006a;
+        public static final int verify_code=0x7f09007a;
+        public static final int version=0x7f09005b;
         public static final int xml_parser_failed=0x7f090001;
     }
     public static final class style {

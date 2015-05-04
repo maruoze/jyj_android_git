@@ -205,7 +205,7 @@ public class LoginDialog extends BaseView {
 		try {
 			AppConfig.isLogin=true;
 			String groupid=jsonObject.getJSONObject("member").getString("groupid");
-			if (groupid.equals("1")||groupid.equals("14")&&groupid.equals("15")) {
+			if (groupid.equals("1")||groupid.equals("14")||groupid.equals("15")) {
 				AppConfig.isMember=true;
 			}
 			String uid=jsonObject.getJSONObject("ucresult").getString("uid");
