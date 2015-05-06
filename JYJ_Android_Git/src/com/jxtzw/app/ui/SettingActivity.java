@@ -1,23 +1,32 @@
 package com.jxtzw.app.ui;
 
 import com.jxtzw.app.AppConfig;
+import com.jxtzw.app.AppContext;
 import com.jxtzw.app.AppManager;
 import com.jxtzw.app.R;
+import com.jxtzw.app.bean.Article;
 import com.jxtzw.app.common.UIHelper;
 import com.jxtzw.app.common.UpdateManage;
 import com.jxtzw.app.view.LoginDialog;
+import com.jxtzw.app.view.MenuCollectionPW;
+import com.jxtzw.app.view.MenuPopWindow;
 
 import android.accounts.Account;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class SettingActivity extends PreferenceActivity {
@@ -46,6 +55,18 @@ public class SettingActivity extends PreferenceActivity {
 	private Preference mFeedback;
 	private Preference mCheckUpdate;
 	private Preference mAboutus;
+	private Preference mCollection;
+	
+	/**
+	 * 收藏显示
+	 */
+	private MenuCollectionPW mMenuCollectionPW;
+	protected Article mArticle;
+	protected AppContext mAppContext;
+	protected Activity mActivity;
+	protected Resources mResources;
+	protected LayoutInflater mLayoutInflater;
+	private static int POP_COLLECTION=1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +78,13 @@ public class SettingActivity extends PreferenceActivity {
 		addPreferencesFromResource(R.xml.setttings);
 		mContext=this;
 		mSharedPreferences=AppConfig.getSharedPreferences(mContext);
+		mActivity=(Activity)mContext;
+		mAppContext=(AppContext) mActivity.getApplication();
+		//资源
+		mResources=getResources();
+		//布局
+		mLayoutInflater=LayoutInflater.from(this);
+		mArticle=null;
 		
 		initTilte();
 		initSettings();
@@ -126,6 +154,26 @@ public class SettingActivity extends PreferenceActivity {
 				Intent intent=new Intent();
 				intent.setClass(mContext, MemberRegisterActivity.class);
 				mContext.startActivity(intent);
+				return false;
+			}
+		});
+		
+		//我的收藏
+		mCollection=findPreference("collection");
+		mCollection.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				if (AppConfig.isLogin) {
+					mMenuCollectionPW=new MenuCollectionPW(mContext,mAppContext,mResources,
+							mLayoutInflater,mArticle,mCatName);
+					PopupWindow collection=mMenuCollectionPW.initPopWindow(R.layout.pop_collection, POP_COLLECTION,null);
+					collection.showAtLocation(mCatNameTextView, Gravity.BOTTOM, 0, 0);
+					mMenuCollectionPW.updatePopWindow(POP_COLLECTION);
+				}else{
+					UIHelper.showLogin(mContext, null);
+				}
 				return false;
 			}
 		});

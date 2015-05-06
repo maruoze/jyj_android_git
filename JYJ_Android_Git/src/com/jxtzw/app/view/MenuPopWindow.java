@@ -51,35 +51,35 @@ public class MenuPopWindow {
 	/**
 	 * UI
 	 */
-	private Context mContext;
-	private AppContext mAppContext;
-	private Resources mResources;
-	private int mLayout;
-	private LayoutInflater mLayoutInflater;
-	private View mPopView;
-	private PopupWindow mPop;
-	private ArticleCommentView mArticleCommentView;
-	private EditText mCommentEditText;
+	protected Context mContext;
+	protected AppContext mAppContext;
+	protected Resources mResources;
+	protected int mLayout;
+	protected LayoutInflater mLayoutInflater;
+	protected View mPopView;
+	protected PopupWindow mPop;
+	protected ArticleCommentView mArticleCommentView;
+	protected EditText mCommentEditText;
 	
 	/**
 	 * 常量定义
 	 */
-	private static final int POP_SHARE=0;
-	private static final int POP_COLLECTION=1;
-	private static final int POP_COMMENT=2;
-	private static final int POP_MODEL=3;
+	protected static final int POP_SHARE=0;
+	protected static final int POP_COLLECTION=1;
+	protected static final int POP_COMMENT=2;
+	protected static final int POP_MODEL=3;
 	
 	/**
 	 * 数据
 	 */
-	private String mCatName;
-	private Article mArticle;
-	private String mComment;
-	private CollectionEntry mCollectionEntry;
+	protected String mCatName;
+	protected Article mArticle;
+	protected String mComment;
+	protected CollectionEntry mCollectionEntry;
 	/**
 	 * 数据接口
 	 */
-	private ApiCollectionEntry mApiCE;
+	protected ApiCollectionEntry mApiCE;
 	/**
 	 * 登录状态
 	 */
@@ -89,9 +89,9 @@ public class MenuPopWindow {
 	/**
 	 * 收藏列表数据
 	 */
-	private  ArrayList<CollectionClassify> mCollTitleStrings;
-	private GridViewCollectionAdapter mCollectionAdapter;
-	private GridView mCollectionGridView;
+	protected  ArrayList<CollectionClassify> mCollTitleStrings;
+	protected GridViewCollectionAdapter mCollectionAdapter;
+	protected GridView mCollectionGridView;
 	
 	/**
 	 * 构造
@@ -165,7 +165,7 @@ public class MenuPopWindow {
 	/**
 	 * 分享菜单
 	 */
-	private void initShare() {
+	protected void initShare() {
 		String[] titleStrings={
 				"新浪微博","腾讯微博","更多"
 		};
@@ -192,7 +192,7 @@ public class MenuPopWindow {
 	/**
 	 * 收藏菜单
 	 */
-	private void initCellection() {
+	protected void initCellection() {
 		//String[] titleStrings={"新浪微博","腾讯微博","QQ空间","微信","朋友圈","QQ","人人网","豆瓣","邮件"};
 		//初始化数据
 		mCollTitleStrings=new ArrayList<CollectionClassify>();
@@ -264,7 +264,7 @@ public class MenuPopWindow {
 	/**
 	 * 从数据库获取收藏分类
 	 */
-	private void setCollectionClassify(){
+	protected void setCollectionClassify(){
 		String dbName="jyj_collection";
 		FinalDb finalDb=FinalDb.create(mContext,dbName);
 		ArrayList<CollectionClassify> ccfy=new ArrayList<CollectionClassify>();
@@ -285,7 +285,7 @@ public class MenuPopWindow {
 	/**
 	 * 评论
 	 */
- 	private void initComment() {
+ 	protected void initComment() {
 		ImageButton commentSubmit=(ImageButton) mPopView.findViewById(R.id.comment_submit);
 		mCommentEditText=(EditText) mPopView.findViewById(R.id.comment_edit);
 		commentSubmit.setOnClickListener(new OnClickListener() {
