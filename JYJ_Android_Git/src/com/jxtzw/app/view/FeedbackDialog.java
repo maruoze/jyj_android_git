@@ -137,6 +137,13 @@ public class FeedbackDialog extends BaseView {
 	 * 意见回复发送过程
 	 */
 	private void submitProcess(){
+		//判断是否有可用网络
+		if (!mAppContext.isNetworkConnected()) {
+			//如果无可用网络则直接返回
+			UIHelper.ToastMessage(mContext, R.string.network_not_connected);
+			return;
+		}
+		
 		String url=mResources.getString(R.string.api_feedback);
 		AjaxParams params=new AjaxParams();
 		params.put("action", "feedback");

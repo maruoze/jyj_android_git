@@ -318,8 +318,12 @@ public class MenuPopWindow {
 		String apiurl=mResources.getString(R.string.api_comment);
 		AjaxParams ajaxParams=new AjaxParams();
 		String actionString="0";
+		String uidString=AppConfig.uid;
+		String usernameString=AppConfig.username;
+		
 		String commentString="action|=|"+actionString+"|&|aid|=|"+
-													mArticle.getAid()+"|&|message|=|"+mComment;
+													mArticle.getAid()+"|&|message|=|"+mComment+
+													"|&|uid|=|"+uidString+"|&|username|=|"+usernameString;
 		ajaxParams.put("comment", commentString);
 		final FinalHttp finalHttp=new FinalHttp();
 		finalHttp.post(apiurl, ajaxParams, new AjaxCallBack<String>() {
