@@ -125,6 +125,13 @@ public class DialogCollection extends LoginDialog {
 			UIHelper.ToastMessage(mContext, msg);
 			return true;
 		}
+		//判断收藏名中是否有空格
+		if(mStrCollectionName.matches("(^[\\s!@#$]+.*)|(.*[\\s!@#$]+$)")){
+			String msg="收藏名中不能含有空格和一些特殊字符！";
+			mCollectionName.setError(msg, mDrawable);
+			return false;
+		}
+		
 		//判断当前收藏名称是否已经存在
 		String whereString="ccf_classify_name='"+mStrCollectionName+"'";
 		ArrayList<CollectionClassify> ccf_rt=new ArrayList<CollectionClassify>();
